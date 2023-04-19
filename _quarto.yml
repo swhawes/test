@@ -3,25 +3,77 @@ project:
   output-dir: docs
 
 website:
-  title: "swhawes.github.io"
+  title: "Longitudinal Manuscript"
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - href: 1a_Difference Scores paired samples ttest_HowTo.qmd
-        text: Difference Scores
-      - href: 2b_Residualized Change Score multiple regression_HowTo.qmd
-        text: Change Scores
-    tools:
-      - icon: twitter
-        href: https://twitter.com
-      - icon: github
-        menu:
-          - text: Source Code
-            url:  https://github.com/swhawes/test
-          - text: Report a Bug
-            url:  https://github.com/swhawes/test/issues
+      - text: "Home"
+        file: index.qmd
+      - text: "Tutorials"
+        file: tutorials.qmd
+      - text: "How-To"
+        file: howto.qmd
+      - text: "Fundamentals"
+        file: fundamentals.qmd
+      - text: "Reference"
+        file: reference.qmd
+
+  sidebar:
+    - title: "Tutorials"
+      style: "docked"
+      background: light
+      contents:
+        - tutorials.qmd
+        - tutorial-1.qmd
+        - tutorial-2.qmd
+
+    - title: "How-To"
+      contents:
+        - howto.qmd
+        # navigation items
+
+    - title: "Fundamentals"
+      contents:
+        - fundamentals.qmd
+        # navigation items
+
+    - title: "Reference"
+      contents:
+        - reference.qmd
+        # navigation items
+  # navbar:
+  #   left:
+  #     - href: index.qmd
+  #       text: Home
+  #     - about.qmd
+  #     - href: 1a_Difference Scores paired samples ttest_HowTo.qmd
+  #       text: Difference Scores
+  #     - href: 2b_Residualized Change Score multiple regression_HowTo.qmd
+  #       text: Change Scores
+  #   tools:
+  #     - icon: twitter
+  #       href: https://twitter.com
+  #     - icon: github
+  #       menu:
+  #         - text: Source Code
+  #           url:  https://github.com/swhawes/test
+  #         - text: Report a Bug
+  #           url:  https://github.com/swhawes/test/issues
+  # sidebar:
+  #   style: "docked"
+  #   search: true
+  #   contents:
+  #     - section: "Basics"
+  #       contents:
+  #         - index.qmd
+  #         - basics-knitr.qmd
+  #         - basics-jupyter.qmd
+  #     - section: "Layout"
+  #       contents:
+  #         - layout.qmd
+  #         - layout-knitr.qmd
+  #         - layout-jupyter.qmd
 
 format:
   html:
