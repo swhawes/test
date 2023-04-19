@@ -9,6 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - 1a_Difference Scores paired samples ttest_HowTo.qmd
+      - 2b_Residualized Change Score multiple regression_HowTo.qmd
 
 format:
   html:
