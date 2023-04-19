@@ -9,8 +9,19 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - 1a_Difference Scores paired samples ttest_HowTo.qmd
-      - 2b_Residualized Change Score multiple regression_HowTo.qmd
+      - href: 1a_Difference Scores paired samples ttest_HowTo.qmd
+        text: Difference Scores
+      - href: 2b_Residualized Change Score multiple regression_HowTo.qmd
+        text: Change Scores
+    tools:
+      - icon: twitter
+        href: https://twitter.com
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://code.com
+          - text: Report a Bug
+            url:  https://bugs.com
 
 format:
   html:
