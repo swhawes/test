@@ -10,5 +10,92 @@
   },
   "2b_Residualized Change Score multiple regression_HowTo.qmd": {
     "2b_Residualized Change Score multiple regression_HowTo.html": "5e758f79"
+  },
+  "reference.qmd": {
+    "reference.html": "3eadb83b"
+  },
+  "howto.qmd": {
+    "howto.html": "9121c0b2"
+  },
+  "tutorials.qmd": {
+    "tutorials.html": "8ed75ed9"
+  },
+  "fundamentals.qmd": {
+    "fundamentals.html": "eab39306"
+  },
+  "tutorial-1.qmd": {
+    "tutorial-1.html": "7d5a5f22"
+  },
+  "tutorial-2.qmd": {
+    "tutorial-2.html": "2b02652a"
+  },
+  "manuscript.qmd": {
+    "manuscript.html": "ba06a79a"
+  },
+  "1_DifferenceScore_Tutorial.qmd": {
+    "1_DifferenceScore_Tutorial.html": "21d32a4e"
+  },
+  "2_ChangeScore_Tutorial.qmd": {
+    "2_ChangeScore_Tutorial.html": "7a6b34e2"
+  },
+  "1_Tutorial_DifferenceScores.qmd": {
+    "1_Tutorial_DifferenceScores.html": "f15d0b9e"
+  },
+  "2_Tutorial_ResidualizedChangeScores.qmd": {
+    "2_Tutorial_ResidualizedChangeScores.html": "40a0e1c9"
+  },
+  "1_Tutorials_DifferenceScores.qmd": {
+    "1_Tutorials_DifferenceScores.html": "f9bcdb26"
+  },
+  "2_Tutorials_ResidualizedChangeScores.qmd": {
+    "2_Tutorials_ResidualizedChangeScores.html": "0a28c9f2"
+  },
+  "13_Tutorials_GrowthMixtureModels.qmd": {
+    "13_Tutorials_GrowthMixtureModels.html": "3f77e755"
+  },
+  "15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd": {
+    "15_Tutorials_RandomInterceptCrosslaggedPanelModels.html": "ddfb5348"
+  },
+  "5_Tutorials_MarginalModels.qmd": {
+    "5_Tutorials_MarginalModels.html": "70e7d21c"
+  },
+  "7_Tutorials_GenearlizedLinearMixedEffectsModels.qmd": {
+    "7_Tutorials_GenearlizedLinearMixedEffectsModels.html": "c9dcce01"
+  },
+  "8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd": {
+    "8_Tutorials_AutoregressiveCrosslaggedPanelModels.html": "e5c843ac"
+  },
+  "16_Tutorials_LatentCurveModelsStructuredResiduals.qmd": {
+    "16_Tutorials_LatentCurveModelsStructuredResiduals.html": "43da6e27"
+  },
+  "4_Tutorials_SignedRankTest.qmd": {
+    "4_Tutorials_SignedRankTest.html": "e8c65151"
+  },
+  "11_Tutorials_MultivariateLatentGrowthCurveModels.qmd": {
+    "11_Tutorials_MultivariateLatentGrowthCurveModels.html": "b009c76c"
+  },
+  "14_Tutorials_StateTraitModels.qmd": {
+    "14_Tutorials_StateTraitModels.html": "6fd994b8"
+  },
+  "12_Tutorials_LatentTransitionAnalysis.qmd": {
+    "12_Tutorials_LatentTransitionAnalysis.html": "74ca7589"
+  },
+  "3_Tutorials_LinearMixedModels.qmd": {
+    "3_Tutorials_LinearMixedModels.html": "7f175295"
+  },
+  "9_Tutorials_LatentChangeScoresModels.qmd": {
+    "9_Tutorials_LatentChangeScoresModels.html": "34349bbf"
+  },
+  "6_Tutorials_GenearlizedEstimatingEquations.qmd": {
+    "6_Tutorials_GenearlizedEstimatingEquations.html": "55f8f656"
+  },
+  "6_Tutorials_GeneralizedEstimatingEquations.qmd": {
+    "6_Tutorials_GeneralizedEstimatingEquations.html": "0600ce87"
+  },
+  "7_Tutorials_GeneralizedLinearMixedEffectsModels.qmd": {
+    "7_Tutorials_GeneralizedLinearMixedEffectsModels.html": "23125d49"
+  },
+  "10_Tutorials_LatentGrowthCurveModels.qmd": {
+    "10_Tutorials_LatentGrowthCurveModels.html": "c51c3f27"
   }
 }

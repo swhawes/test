@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Longitudinal Manuscript - About</title>
+<title>Longitudinal Manuscript - State-Trait Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./15_Tutorials_RandomInterceptCrosslaggedPanelModels.html" rel="next">
+<link href="./13_Tutorials_GrowthMixtureModels.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Manuscript</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tutorials.html" rel="" target="">
+    <a class="nav-link active" href="./tutorials.html" rel="" target="" aria-current="page">
  <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
@@ -127,10 +129,137 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14_Tutorials_StateTraitModels.html">State-Trait Models</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorials Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_Tutorials_DifferenceScores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Difference Scores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_Tutorials_ResidualizedChangeScores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Residualized Change Scores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_Tutorials_LinearMixedModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Mixed Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_Tutorials_SignedRankTest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Signed-Rank Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_Tutorials_MarginalModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marginal Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_Tutorials_GeneralizedEstimatingEquations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generalized Estimating Equations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_Tutorials_GeneralizedLinearMixedEffectsModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generalized Linear Mixed Effects Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_Tutorials_AutoregressiveCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Crosslagged Panel Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_Tutorials_LatentChangeScoresModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Change Score Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_Tutorials_LatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Growth Curve Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_Tutorials_MultivariateLatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multivariate Latent Growth Curves</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_Tutorials_LatentTransitionAnalysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Transition Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_Tutorials_GrowthMixtureModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Growth Mixture Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_Tutorials_StateTraitModels.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">State-Trait Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_Tutorials_RandomInterceptCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random-Intercept Crosslagged Panel Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_Tutorials_LatentCurveModelsStructuredResiduals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Curve Models with Structured Residuals</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -140,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">State-Trait Models</h1>
 </div>
 
 
@@ -155,7 +284,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Sam Page Test</p>
 
 
 
@@ -409,6 +537,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./13_Tutorials_GrowthMixtureModels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Growth Mixture Models</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./15_Tutorials_RandomInterceptCrosslaggedPanelModels.html" class="pagination-link">
+        <span class="nav-page-text">Random-Intercept Crosslagged Panel Models</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

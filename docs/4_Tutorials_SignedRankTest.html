@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Biostatistics Working Group">
 
-<title>Longitudinal Manuscript - About</title>
+<title>Longitudinal Manuscript - Signed-Rank Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./5_Tutorials_MarginalModels.html" rel="next">
+<link href="./3_Tutorials_LinearMixedModels.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Manuscript</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tutorials.html" rel="" target="">
+    <a class="nav-link active" href="./tutorials.html" rel="" target="" aria-current="page">
  <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
@@ -127,10 +164,137 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_Tutorials_SignedRankTest.html">Signed-Rank Test</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorials Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_Tutorials_DifferenceScores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Difference Scores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_Tutorials_ResidualizedChangeScores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Residualized Change Scores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_Tutorials_LinearMixedModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Mixed Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_Tutorials_SignedRankTest.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Signed-Rank Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_Tutorials_MarginalModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marginal Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_Tutorials_GeneralizedEstimatingEquations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generalized Estimating Equations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_Tutorials_GeneralizedLinearMixedEffectsModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generalized Linear Mixed Effects Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_Tutorials_AutoregressiveCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autoregressive Crosslagged Panel Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_Tutorials_LatentChangeScoresModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Change Score Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_Tutorials_LatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Growth Curve Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_Tutorials_MultivariateLatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multivariate Latent Growth Curves</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_Tutorials_LatentTransitionAnalysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Transition Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_Tutorials_GrowthMixtureModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Growth Mixture Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_Tutorials_StateTraitModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State-Trait Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_Tutorials_RandomInterceptCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random-Intercept Crosslagged Panel Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_Tutorials_LatentCurveModelsStructuredResiduals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latent Curve Models with Structured Residuals</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -140,13 +304,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Signed-Rank Test</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Biostatistics Working Group </p>
+          </div>
+  </div>
     
   
     
@@ -155,9 +325,91 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Sam Page Test</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The longitudinal signed-rank test is a nonparametric alternative to the paired t-test and is appropriate when the data are not normally distributed or when the assumptions of the paired t-test are violated. The test is based on the signed-rank of the differences between the paired observations, and it tests the null hypothesis that the median of the differences is zero. The repeated-measures design allows for the assessment of within-subject changes over time or under different conditions. The signed-rank test is robust to outliers and does not assume a normal distribution of the differences. This method has been shown to have good statistical power and efficiency, particularly when the sample size is small or the distribution is heavily skewed (Erceg-Hurn &amp; Mirosevich, 2008; Bakdash &amp; Marusich, 2017; Garcia-Berthou &amp; Alcaraz, 2004). The signed-rank test is a useful tool for analyzing paired data when the assumption of normality is violated or when the data is highly skewed or contains outliers.</p>
+<p>[+add diagrams/figures]</p>
+<section id="when-to-use-a-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-a-signed-rank-test">When to use a Signed-Rank Test?</h3>
+<p>You should use a Wilcoxon Signed-Rank Test in the following scenario: 1. You want to know if two groups are different on your variable of interest 2. Your variable of interest is continuous 3. You have two and only two groups 4. You have independent samples 5. You have a skewed variable of interest</p>
+</section>
+<section id="getting-started-with-longitudinal-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-longitudinal-signed-rank-test">Getting Started with Longitudinal Signed-Rank Test</h3>
+<p>In this tutorial, we will introduce the concept of the longitudinal signed-rank test and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</p>
+<ol type="1">
+<li>Understand the basic concepts of the longitudinal signed-rank test.</li>
+<li>Perform a longitudinal signed-rank test using example data in R.</li>
+<li>Interpret the results of the test.</li>
+</ol>
+</section>
+</section>
+<section id="basic-example" class="level2">
+<h2 class="anchored" data-anchor-id="basic-example">Basic Example</h2>
+<p>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</p>
+<ul>
+<li>Subject ID</li>
+<li>Time point 1 (T1) measurement</li>
+<li>Time point 2 (T2) measurement</li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Subject ID</th>
+<th>T1</th>
+<th>T2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>100</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>95</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>110</td>
+<td>112</td>
+</tr>
+</tbody>
+</table>
+<section id="model-specification-and-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
+<p>We will use the <code>wilcox.test()</code> function in R to perform a longitudinal signed-rank test. First, create a data frame with the example data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">t1 =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">95</span>, <span class="dv">110</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">t2 =</span> <span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">100</span>, <span class="dv">112</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Perform the longitudinal signed-rank test using the wilcox.test() function with the paired = TRUE argument:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_result <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(data<span class="sc">$</span>t1, data<span class="sc">$</span>t2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(data$t1, data$t2, paired = TRUE): cannot compute
+exact p-value with ties</code></pre>
+</div>
+</div>
+</section>
+<section id="interpreting-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
+<p>To interpret the results of the longitudinal signed-rank test, examine the p-value from the test_result object:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>test_result<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1735682</code></pre>
+</div>
+</div>
+<p>The p-value represents the probability of observing the data if there is no difference between the measurements at T1 and T2. If the p-value is less than a predetermined significance level (e.g., 0.05), we can reject the null hypothesis that there is no difference between the two time points and conclude that there is a significant difference in the measurements between T1 and T2.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -409,6 +661,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./3_Tutorials_LinearMixedModels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Mixed Models</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./5_Tutorials_MarginalModels.html" class="pagination-link">
+        <span class="nav-page-text">Marginal Models</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

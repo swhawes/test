@@ -1,0 +1,73 @@
+---
+title: "Residualized Change Scores"
+author: "Biostatistics Working Group"
+---
+
+## Overview
+Residualized change scores are a statistical method used to assess the degree of change in a variable while controlling for its initial level. The approach involves calculating the residualized change scores by regressing post-treatment scores on pre-treatment scores and using the resulting residuals as the measure of change. This estimated change score adjusts for baseline scores while ignoring any prior group assignments/differences. The residualized change score is often included in subsequent analysis, such as an examination of intervention effects in pre-test/post-test designs [@Kisbu-Sakarya2013]. This method is useful when there is a high correlation between the pre-treatment and post-treatment scores, which can make it difficult to determine the true degree of change. Research studies have shown that this method can provide more accurate and reliable results compared to other methods of measuring change, such as raw change scores or gain scores (Kenny, 1979; Rogosa & Willett, 1985).
+
+Residualized change scores are a method used to analyze change in a variable over time, while accounting for the initial level of that variable. By using residualized change scores, we can examine the extent to which changes in one variable are associated with changes in another variable, controlling for the initial level of the variables.
+
+![Residualized Change Score 1_Tutorial](./figures/Residualized Change Score.png)
+
+xxxxxx
+### When to use Residualized Change Score Models?
+You should use residualized change scores in the following scenario:
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Residualized Change Score Models
+In this tutorial, we will introduce the concept of residualized change scores and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:
+
+1. Understand the basic concepts of residualized change scores.
+2. Calculate residualized change scores using example data.
+3. Interpret the results of the residualized change scores analysis.
+
+## Basic Example
+For this tutorial, we will use a simple dataset containing the following information for a group of individuals:
+
+- Time point (T1, T2)
+- Job satisfaction (independent variable)
+- Life satisfaction (dependent variable)
+
+| Individual | Time Point | Job Satisfaction | Life Satisfaction |
+| ---------- | ---------- | ---------------- | ----------------- |
+| A          | T1         | 7                | 6                 |
+| A          | T2         | 8                | 7                 |
+| B          | T1         | 6                | 5                 |
+| B          | T2         | 7                | 6                 |
+
+### Model Specification and Estimation
+
+To calculate residualized change scores, we will follow these steps:
+
+1. Calculate the raw change scores for each variable by subtracting the T1 value from the T2 value.
+2. Fit a regression model with the change score of the dependent variable (life satisfaction) as the outcome and the change score of the independent variable (job satisfaction) and the initial level of the dependent variable (T1 life satisfaction) as predictors.
+3. Extract the residuals from the regression model. These residuals represent the residualized change scores.
+
+Using the example dataset, we can calculate the residualized change scores for life satisfaction as follows:
+
+1. Calculate raw change scores:
+
+   | Individual | Job Satisfaction Change | Life Satisfaction Change |
+   | ---------- | ----------------------- | ------------------------ |
+   | A          | 1                       | 1                        |
+   | B          | 1                       | 1                        |
+
+2. Fit the regression model:
+
+   Life Satisfaction Change = b0 + b1 * Job Satisfaction Change + b2 * T1 Life Satisfaction
+
+3. Extract residuals:
+
+   | Individual | Residualized Change Score |
+   | ---------- | ------------------------- |
+   | A          | e1                        |
+   | B          | e2                        |
+
+### Interpreting the Results
+
+Residualized change scores represent the change in the dependent variable (life satisfaction) after accounting for the initial level of that variable and the change in the independent variable (job satisfaction). By examining the association between the residualized change scores of two variables, we can gain insights into how changes in one variable are related to changes in another variable, controlling for initial levels.
+
+

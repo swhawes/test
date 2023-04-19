@@ -1,0 +1,72 @@
+---
+title: "Generalized Linear Mixed Effects Models"
+author: "Biostatistics Working Group"
+---
+
+## Overview
+Generalized linear mixed-effects models (GLMMs) are a statistical method used to analyze longitudinal or clustered data that accounts for within-subject correlation and allows for the estimation of subject-specific effects (Pinheiro & Bates, 2000; Fitzmaurice et al., 2011). This method extends the generalized linear mixed-effects model by modeling both fixed-effects (population-averaged effects) and random-effects (subject-specific deviations), while accounting for within-subject correlations. The method can handle unbalanced or unequally spaced data, and can accommodate various outcome distributions, including binary, count, and continuous data. GLMMs have been shown to have good statistical power and efficiency, and can be used to model complex data structures, including crossed and nested random effects. GLMMs have been shown to outperform other methods, such as GEE, in terms of statistical power and efficiency (Hardin & Hilbe, 2012).
+
+[+add diagrams/figures]
+
+### When to use Longitudinal Generalized Linear Mixed Effects Models (GLMMs) Models?
+You should use xxxxxxx in the following scenario:
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Longitudinal Generalized Linear Mixed Effects Models (GLMMs)
+
+In this tutorial, we will introduce the concept of longitudinal generalized linear mixed effects models (GLMMs) and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:
+
+1. Understand the basic concepts of longitudinal GLMMs.
+2. Fit a GLMM using example data in R.
+3. Interpret the results of the model.
+
+## Basic Example
+
+For this tutorial, we will use a simple dataset containing the following information for a group of individuals:
+
+- Subject ID
+- Time (in years)
+- Binary outcome variable (e.g., presence or absence of a particular condition)
+
+| Subject ID | Time | Outcome |
+|------------|------|---------|
+| 1          | 0    | 0       |
+| 1          | 1    | 1       |
+| 1          | 2    | 1       |
+| 2          | 0    | 0       |
+| 2          | 1    | 1       |
+
+### Model Specification and Estimation
+
+We will use the `lme4` package in R to fit a longitudinal GLMM. First, install the required package, if not already installed:
+
+```{r}
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+library(lme4)
+```
+
+Next, create a data frame with the example data:
+
+```{r}
+data <- data.frame(
+  subject_id = factor(c(1, 1, 1, 2, 2)),
+  time = c(0, 1, 2, 0, 1),
+  outcome = c(0, 1, 1, 0, 1)
+)
+```
+Fit the longitudinal GLMM with a binary outcome using a logit link function and random intercepts for each subject:
+
+```{r}
+model <- glmer(outcome ~ time + (1 | subject_id), data = data, family = binomial(link = "logit"))
+```
+
+### Interpreting the Results
+To interpret the results of the longitudinal GLMM, we can use the summary() function in R to display the estimated fixed effects and random effects:
+
+```{r}
+summary(model)
+```
+
+The output will show the estimated fixed effects of time on the binary outcome variable, expressed as an odds ratio. By examining the odds ratio and its associated p-value, we can determine if the change in the outcome variable over time is significant at the population level. Additionally, the output will display information about the random effects, such as the variance of the random intercepts for subjects.

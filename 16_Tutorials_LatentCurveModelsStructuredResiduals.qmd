@@ -1,0 +1,3 @@
+---
+title: "Latent Curve Models with Structured Residuals"
+---

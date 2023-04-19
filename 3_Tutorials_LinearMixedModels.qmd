@@ -1,0 +1,73 @@
+---
+title: "Linear Mixed Models"
+author: "Biostatistics Working Group"
+---
+
+## Overview
+Linear mixed models (LMMs) are a powerful statistical tool that allows the analysis of complex data structures that contain both fixed and random effects (West et al., 2015). LMMs are widely used in various fields, including social sciences, biology, and engineering, due to their ability to handle hierarchical data structures and account for within-subject correlations (Bates et al., 2015). LMMs are an extension of the general linear model (GLM), where both fixed and random effects can be included in the model, making them more flexible and robust (Pinheiro & Bates, 2000). These models are particularly useful when analyzing longitudinal data, where measurements are taken repeatedly over time, and correlations between observations must be accounted for (Singer & Willett, 2003). Specifically, the LMM framework accounts for these dependencies among data by extending the general regression "fixed effects" model to allow both, fixed and random effects. This approach simultaneously models an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. It is this "mixture" of fixed and random effects from which these models derive their name.
+
+[+add primary diagram/figure]
+
+### When to use Longitudinal Linear Mixed Models (LMMs)?
+You should use LMMs in the following scenario:
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Longitudinal Linear Mixed Models
+
+In this tutorial, we will introduce the concept of longitudinal linear mixed models (LLMMs) and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:
+
+1. Understand the basic concepts of longitudinal linear mixed models.
+2. Fit a longitudinal linear mixed model using example data in R.
+3. Interpret the results of the LLMM analysis.
+
+## Basic Example 
+
+For this tutorial, we will use a simple dataset containing the following information for a group of individuals:
+
+- Subject ID
+- Time (in years)
+- Outcome variable (e.g., a measure of cognitive performance)
+
+| Subject ID | Time | Outcome |
+|------------|------|---------|
+| 1          | 0    | 100     |
+| 1          | 1    | 105     |
+| 1          | 2    | 110     |
+| 2          | 0    | 95      |
+| 2          | 1    | 100     |
+
+### Model Specification and Estimation
+
+We will use the `lme4` package in R to fit a longitudinal linear mixed model. First, install and load the required package:
+
+```{r}
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+library(lme4)
+```
+
+Next, create a data frame with the example data:
+
+```{r}
+data <- data.frame(
+  subject_id = c(1, 1, 1, 2, 2),
+  time = c(0, 1, 2, 0, 1),
+  outcome = c(100, 105, 110, 95, 100)
+)
+```
+
+Fit the LLMM with a random intercept for each subject and a fixed effect of time:
+
+```{r}
+model <- lmer(outcome ~ time + (1 | subject_id), data = data)
+```
+
+### Interpreting the Results
+To interpret the results of the LLMM analysis, we can use the summary() function in R to display the estimated fixed effects and random effects:
+
+```{r}
+summary(model)
+```
+
+The output will show the estimated fixed effect of time, which represents the average change in the outcome variable over time across subjects. The random effects estimates show the variation in the intercept (initial level) of the outcome variable across subjects. By examining the fixed and random effects, we can gain insights into how the outcome variable changes over time and how this change differs between subjects.

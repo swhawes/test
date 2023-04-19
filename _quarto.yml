@@ -4,12 +4,15 @@ project:
 
 website:
   title: "Longitudinal Manuscript"
+  page-navigation: true
   navbar:
     background: primary
     search: true
     left:
       - text: "Home"
         file: index.qmd
+      - text: "Manuscript"
+        file: manuscript.qmd
       - text: "Tutorials"
         file: tutorials.qmd
       - text: "How-To"
@@ -18,19 +21,51 @@ website:
         file: fundamentals.qmd
       - text: "Reference"
         file: reference.qmd
+    tools:
+      - icon: twitter
+        href: https://twitter.com
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/swhawes/test
+          - text: Report a Bug
+            url:  https://github.com/swhawes/test/issues
 
   sidebar:
-    - title: "Tutorials"
+    - title: "Manuscript"
       style: "docked"
+      search: true
       background: light
       contents:
+        - manuscript.qmd
+    - title: "Tutorials"
+      contents:
         - tutorials.qmd
-        - tutorial-1.qmd
-        - tutorial-2.qmd
-
+        - 1_Tutorials_DifferenceScores.qmd
+        - 2_Tutorials_ResidualizedChangeScores.qmd
+        - 3_Tutorials_LinearMixedModels.qmd
+        - 4_Tutorials_SignedRankTest.qmd
+        - 5_Tutorials_MarginalModels.qmd
+        - 6_Tutorials_GeneralizedEstimatingEquations.qmd
+        - 7_Tutorials_GeneralizedLinearMixedEffectsModels.qmd
+        - 8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd
+        - 9_Tutorials_LatentChangeScoresModels.qmd
+        - 10_Tutorials_LatentGrowthCurveModels.qmd
+        - 11_Tutorials_MultivariateLatentGrowthCurveModels.qmd
+        - 12_Tutorials_LatentTransitionAnalysis.qmd
+        - 13_Tutorials_GrowthMixtureModels.qmd
+        - 14_Tutorials_StateTraitModels.qmd
+        - 15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd
+        - 16_Tutorials_LatentCurveModelsStructuredResiduals.qmd
+        
     - title: "How-To"
       contents:
-        - howto.qmd
+        - section: "First Section"
+          contents:
+            - howto.qmd
+        - section: "Second Section"
+          contents:
+            - 1a_Difference Scores paired samples ttest_HowTo.qmd
         # navigation items
 
     - title: "Fundamentals"
@@ -42,44 +77,30 @@ website:
       contents:
         - reference.qmd
         # navigation items
-  # navbar:
-  #   left:
-  #     - href: index.qmd
-  #       text: Home
-  #     - about.qmd
-  #     - href: 1a_Difference Scores paired samples ttest_HowTo.qmd
-  #       text: Difference Scores
-  #     - href: 2b_Residualized Change Score multiple regression_HowTo.qmd
-  #       text: Change Scores
-  #   tools:
-  #     - icon: twitter
-  #       href: https://twitter.com
-  #     - icon: github
-  #       menu:
-  #         - text: Source Code
-  #           url:  https://github.com/swhawes/test
-  #         - text: Report a Bug
-  #           url:  https://github.com/swhawes/test/issues
-  # sidebar:
-  #   style: "docked"
-  #   search: true
-  #   contents:
-  #     - section: "Basics"
-  #       contents:
-  #         - index.qmd
-  #         - basics-knitr.qmd
-  #         - basics-jupyter.qmd
-  #     - section: "Layout"
-  #       contents:
-  #         - layout.qmd
-  #         - layout-knitr.qmd
-  #         - layout-jupyter.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    toc-depth: 1
+    toc-expand: 3
+    toc-title: Contentszz
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+
+# comments:
+#   hypothesis: true
+# comments:
+#   hypothesis: 
+#     theme: clean
+# comments:
+#   utterances:
+#     repo: quarto-dev/quarto-docs
+# comments:
+#   giscus: 
+#     repo: quarto-dev/quarto-docs
 
 
 

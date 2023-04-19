@@ -1,0 +1,107 @@
+---
+title: "Difference Scores"
+author: "Biostatistics Working Group"
+---
+
+## Overview
+Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions [@castro-schilo2018; @jennings2016]. The *difference* between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.
+
+![Difference Score 1_Tutorial](./figures/Difference Score 1_Tutorial.png)
+
+### When to use Difference Score Models?
+You should use difference scores in the following scenario:
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Difference Score Models
+In this tutorial, we will guide you through two simple examples of using difference scores. By the end of this tutorial, you will be able to:
+
+1. Understand the basic concepts of difference scores.
+2. Calculate difference scores using example data.
+3. Interpret the results of the difference scores analysis.
+
+## Basic Example 
+
+For this tutorial, we will use a simple dataset containing the following information for a group of individuals:
+
+- Time point (T1, T2)
+- Job satisfaction (independent variable)
+- Life satisfaction (dependent variable)
+
+| Individual | Time Point | Job Satisfaction | Life Satisfaction |
+| ---------- | ---------- | ---------------- | ----------------- |
+| A          | T1         | 7                | 6                 |
+| A          | T2         | 8                | 7                 |
+| B          | T1         | 6                | 5                 |
+| B          | T2         | 7                | 6                 |
+
+We will then create a new variable, age_diff, that represents the difference in age between two time points:
+
+```{r}
+#titanic$age_diff <- titanic$age - titanic$age[1]
+```
+
+### Repeated Measures Paired Samples T-test
+To conduct a repeated measures paired samples t-test on age_diff, we will use the t.test() function in R:
+
+```{r}
+#t.test(titanic$age_diff, mu = 0, paired = TRUE)\
+```
+
+The mu argument represents the hypothesized mean difference, which we have set to 0. The paired argument tells R that the samples are paired.
+
+### Interpreting the Results
+The output of the t.test() function includes several statistics, including the t-value, degrees of freedom, and p-value. The t-value represents the difference between the mean of age_diff and the hypothesized mean difference, divided by the standard error. The degrees of freedom represents the number of observations minus one. The p-value represents the probability of observing a t-value as extreme or more extreme than the one observed, assuming that the null hypothesis is true.
+
+If the p-value is less than our chosen significance level (typically 0.05), we can reject the null hypothesis and conclude that there is a significant difference between the means of age_diff and the hypothesized mean difference. If the p-value is greater than our chosen significance level, we fail to reject the null hypothesis and conclude that there is insufficient evidence to suggest a difference between the means.
+
+### Conclusion
+In this tutorial, we learned how to conduct a repeated measures paired samples t-test on a difference score using R. This statistical method is useful when we want to compare the means of two related variables that are measured at two different time points or under two different conditions. We also learned how to interpret the results of the t-test, including the t-value, degrees of freedom, and p-value.
+
+### Paired Samples T-test Model Specification and Estimation
+
+To calculate [xxxxx] scores, we will follow these steps:
+
+[two timepoints, t1 and t2, and we want to test whether there is a significant difference between the means of two variables measured at each timepoint. We can use a paired samples t-test to do this.]
+
+A paired samples t-test is used to determine whether there is a significant difference between two related variables. For example, you may be interested in whether there is a significant difference in anxiety levels between participants before and after an intervention. To conduct a paired samples t-test in R, we can use the t.test() function.
+
+Let's use a hypothetical example to illustrate how to conduct a paired samples t-test in R. In this example, we have data from 30 participants who completed a pre-test and post-test on anxiety levels measured on a 10-point scale. We want to determine if there was a significant difference in anxiety levels before and after an intervention.
+
+```{r}
+# Generate example data
+pre_test <- rnorm(30, mean = 6, sd = 1)
+post_test <- rnorm(30, mean = 4, sd = 1)
+```
+
+```{r}
+# Conduct paired samples t-test
+t.test(pre_test, post_test, paired = TRUE)
+```
+
+The t.test() function returns the t-value, degrees of freedom, and p-value for the paired samples t-test. In this example, the p-value is less than 0.05, indicating that there is a significant difference in anxiety levels before and after the intervention.
+
+### Simple Regression on a Difference Score
+A simple regression on a difference score is used to determine the relationship between the difference scores of two related variables and a third variable. For example, you may be interested in whether there is a relationship between the difference in anxiety levels before and after an intervention and a participant's age. To conduct a simple regression on a difference score in R, we can use the lm() function.
+
+Let's continue with the hypothetical example from the paired samples t-test. We want to determine if there is a relationship between the difference in anxiety levels before and after the intervention and the participants' age. We will create a new variable diff_score to represent the difference in anxiety levels.
+
+```{r}
+# Calculate difference score
+diff_score <- post_test - pre_test
+
+# Generate example age data
+age <- rnorm(30, mean = 35, sd = 5)
+
+# Conduct simple regression on difference score and age
+model <- lm(diff_score ~ age)
+summary(model)
+```
+
+The lm() function returns the intercept, slope, and p-value for the simple regression on the difference score. In this example, the p-value is greater than 0.05, indicating that there is no significant relationship between the difference in anxiety levels and age.
+
+#### Interpreting the Results
+For the paired samples t-test, the output from the t.test() function provides the t-value, degrees of freedom, and p-value. The t-value represents the size of the difference between the means of the two related variables relative to the variation within the data. The degrees of freedom represent the number of observations minus the number of variables being compared. The p-value represents the probability of obtaining a result as extreme as the one observed, assuming that the null hypothesis is true.
+
+For the simple regression on the difference score, the output from the lm() function provides the intercept, slope,

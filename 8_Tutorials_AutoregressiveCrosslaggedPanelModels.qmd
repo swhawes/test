@@ -1,0 +1,3 @@
+---
+title: "Autoregressive Crosslagged Panel Models"
+---
