@@ -1,7 +1,5 @@
 ---
-title: "swhawes.github.io"
+title: "Temporary Landing Page for Longitudinal Project"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This is github pages test site for the longitudinal analysis project

@@ -1,11 +1,5 @@
 ---
-format: 
-  html:
-    toc: true
-    code-fold: true
-  docx:
-    toc: true
-prefer-html: true
+title: "Residualized Change Score Example"
 ---
 
 # Mulitple Regression {.unnumbered}
