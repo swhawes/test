@@ -19,9 +19,9 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            url:  https://code.com
+            url:  https://github.com/swhawes/test
           - text: Report a Bug
-            url:  https://bugs.com
+            url:  https://github.com/swhawes/test/issues
 
 format:
   html:
