@@ -4,5 +4,11 @@
   },
   "about.qmd": {
     "about.html": "f2dd41af"
+  },
+  "1a_Difference Scores paired samples ttest_HowTo.qmd": {
+    "1a_Difference Scores paired samples ttest_HowTo.html": "44a5cad2"
+  },
+  "2b_Residualized Change Score multiple regression_HowTo.qmd": {
+    "2b_Residualized Change Score multiple regression_HowTo.html": "5e758f79"
   }
 }
