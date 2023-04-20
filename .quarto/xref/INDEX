@@ -30,7 +30,9 @@
     "tutorial-2.html": "2b02652a"
   },
   "manuscript.qmd": {
-    "manuscript.html": "ba06a79a"
+    "manuscript.html": "ba06a79a",
+    "manuscript.tex": "da83c962",
+    "manuscript.docx": "a17f0416"
   },
   "1_DifferenceScore_Tutorial.qmd": {
     "1_DifferenceScore_Tutorial.html": "21d32a4e"

@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./manuscript.html" rel="" target="">
+    <a class="nav-link" href="./manuscript.pdf" rel="" target="">
  <span class="menu-text">Manuscript</span></a>
   </li>  
   <li class="nav-item">
@@ -437,13 +437,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     Paired t-test
 
 data:  pre_test and post_test
-t = 5.6643, df = 29, p-value = 4.015e-06
+t = 9.0082, df = 29, p-value = 6.678e-10
 alternative hypothesis: true mean difference is not equal to 0
 95 percent confidence interval:
- 0.9621983 2.0497289
+ 1.786356 2.835774
 sample estimates:
 mean difference 
-       1.505964 </code></pre>
+       2.311065 </code></pre>
 </div>
 </div>
 <p>The t.test() function returns the t-value, degrees of freedom, and p-value for the paired samples t-test. In this example, the p-value is less than 0.05, indicating that there is a significant difference in anxiety levels before and after the intervention.</p>
@@ -469,18 +469,18 @@ lm(formula = diff_score ~ age)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--3.1987 -0.9777  0.2486  0.8534  2.5067 
+-2.3677 -1.0625 -0.3821  0.8805  3.8900 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -4.24501    1.66180  -2.554   0.0164 *
-age          0.07541    0.04520   1.668   0.1064  
+(Intercept) -3.78710    1.86080  -2.035   0.0514 .
+age          0.04407    0.05502   0.801   0.4299  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.413 on 28 degrees of freedom
-Multiple R-squared:  0.09043,   Adjusted R-squared:  0.05795 
-F-statistic: 2.784 on 1 and 28 DF,  p-value: 0.1064</code></pre>
+Residual standard error: 1.414 on 28 degrees of freedom
+Multiple R-squared:  0.0224,    Adjusted R-squared:  -0.01251 
+F-statistic: 0.6416 on 1 and 28 DF,  p-value: 0.4299</code></pre>
 </div>
 </div>
 <p>The lm() function returns the intercept, slope, and p-value for the simple regression on the difference score. In this example, the p-value is greater than 0.05, indicating that there is no significant relationship between the difference in anxiety levels and age.</p>
