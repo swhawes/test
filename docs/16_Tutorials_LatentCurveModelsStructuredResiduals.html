@@ -59,7 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -95,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -342,9 +342,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="prerequisites" class="level4">
 <h4 class="anchored" data-anchor-id="prerequisites">Prerequisites</h4>
 <p>You need to have the <code>lavaan</code> and <code>semTools</code> packages installed in R to perform LCM-SR. Install them using the following commands:</p>
-<div class="cell">
+<div class="cell" data-hash="16_Tutorials_LatentCurveModelsStructuredResiduals_cache/html/unnamed-chunk-1_0fff165ee611dde5d8c9fc7dc23b362f">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"semTools"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"semTools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
@@ -352,7 +355,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="basic-example" class="level2">
 <h2 class="anchored" data-anchor-id="basic-example">Basic Example</h2>
 <p>For this tutorial, we will use simulated data with 500 individuals and 5 timepoints. The data will include a time-varying covariate, covariate, and an outcome variable, outcome.</p>
-<div class="cell">
+<div class="cell" data-hash="16_Tutorials_LatentCurveModelsStructuredResiduals_cache/html/unnamed-chunk-2_e3cb3275c50b027d508d8a6b2dd71d7c">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semTools)</span>
@@ -368,11 +373,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>outcome <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n <span class="sc">*</span> timepoints, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id, time, covariate, outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="model-specification-and-estimation" class="level3">
 <h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
 <p>To specify an LCM-SR, we will use the lavaan syntax to define the measurement model and the structural model. We will model the linear growth of the outcome variable while accounting for the effect of the time-varying covariate.</p>
-<div class="cell">
+<div class="cell" data-hash="16_Tutorials_LatentCurveModelsStructuredResiduals_cache/html/unnamed-chunk-3_3564f585c22b8ee4ac520a5145f52d56">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Latent variables</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">  intercept =~ 1 * outcome_t1 + 1 * outcome_t2 + 1 * outcome_t3 + 1 * outcome_t4 + 1 * outcome_t5</span></span>
@@ -399,11 +407,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">  # Latent variable covariances</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="st">  intercept ~~ i_s_cov * slope</span></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Model Estimation Now we will estimate the model using the lavaan function sem().</p>
-<div class="cell">
+<div class="cell" data-hash="16_Tutorials_LatentCurveModelsStructuredResiduals_cache/html/unnamed-chunk-4_5b73b6895b1ca9f99cb93bfb40b43dcc">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape data to wide format</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> <span class="fu">spread</span>(data, <span class="at">key =</span> time, <span class="at">value =</span> outcome, sep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="interpreting-the-results" class="level3">
@@ -674,6 +686,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./refernce.qmd">ZZZZZZ</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

@@ -59,7 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -96,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -327,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions <span class="citation" data-cites="castro-schilo2018 jennings2016">[@castro-schilo2018; @jennings2016]</span>. The <em>difference</em> between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.</p>
+<p>Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions <span class="citation" data-cites="castro-schilo2018 jennings2016">(<a href="#ref-castro-schilo2018" role="doc-biblioref"><strong>castro-schilo2018?</strong></a>; <a href="#ref-jennings2016" role="doc-biblioref"><strong>jennings2016?</strong></a>)</span>. The <em>difference</em> between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./figures/Difference Score 1_Tutorial.png" class="img-fluid figure-img"></p>
@@ -398,14 +398,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>We will then create a new variable, age_diff, that represents the difference in age between two time points:</p>
-<div class="cell">
+<div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-1_00bdf4693994bb8e884486614dada6fa">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#titanic$age_diff &lt;- titanic$age - titanic$age[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="repeated-measures-paired-samples-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="repeated-measures-paired-samples-t-test">Repeated Measures Paired Samples T-test</h3>
 <p>To conduct a repeated measures paired samples t-test on age_diff, we will use the t.test() function in R:</p>
-<div class="cell">
+<div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-2_519a645d6463b20828e61a4e3dd7c778">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#t.test(titanic$age_diff, mu = 0, paired = TRUE)\</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The mu argument represents the hypothesized mean difference, which we have set to 0. The paired argument tells R that the samples are paired.</p>
 </section>
@@ -424,26 +430,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>[two timepoints, t1 and t2, and we want to test whether there is a significant difference between the means of two variables measured at each timepoint. We can use a paired samples t-test to do this.]</p>
 <p>A paired samples t-test is used to determine whether there is a significant difference between two related variables. For example, you may be interested in whether there is a significant difference in anxiety levels between participants before and after an intervention. To conduct a paired samples t-test in R, we can use the t.test() function.</p>
 <p>Let’s use a hypothetical example to illustrate how to conduct a paired samples t-test in R. In this example, we have data from 30 participants who completed a pre-test and post-test on anxiety levels measured on a 10-point scale. We want to determine if there was a significant difference in anxiety levels before and after an intervention.</p>
-<div class="cell">
+<div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-3_474d9b9208f3191a90b88b3906b5b262">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate example data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pre_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>post_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="cell">
+<div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-4_418032a20dbced52483a4bc45de7aaa8">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct paired samples t-test</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(pre_test, post_test, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
 
 data:  pre_test and post_test
-t = 9.0082, df = 29, p-value = 6.678e-10
+t = 7.6083, df = 29, p-value = 2.18e-08
 alternative hypothesis: true mean difference is not equal to 0
 95 percent confidence interval:
- 1.786356 2.835774
+ 1.522869 2.642611
 sample estimates:
 mean difference 
-       2.311065 </code></pre>
+        2.08274 </code></pre>
 </div>
 </div>
 <p>The t.test() function returns the t-value, degrees of freedom, and p-value for the paired samples t-test. In this example, the p-value is less than 0.05, indicating that there is a significant difference in anxiety levels before and after the intervention.</p>
@@ -452,7 +464,9 @@ mean difference
 <h3 class="anchored" data-anchor-id="simple-regression-on-a-difference-score">Simple Regression on a Difference Score</h3>
 <p>A simple regression on a difference score is used to determine the relationship between the difference scores of two related variables and a third variable. For example, you may be interested in whether there is a relationship between the difference in anxiety levels before and after an intervention and a participant’s age. To conduct a simple regression on a difference score in R, we can use the lm() function.</p>
 <p>Let’s continue with the hypothetical example from the paired samples t-test. We want to determine if there is a relationship between the difference in anxiety levels before and after the intervention and the participants’ age. We will create a new variable diff_score to represent the difference in anxiety levels.</p>
-<div class="cell">
+<div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-5_f034e8b4d137a1453680617e92998259">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate difference score</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>diff_score <span class="ot">&lt;-</span> post_test <span class="sc">-</span> pre_test</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -462,6 +476,7 @@ mean difference
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct simple regression on difference score and age</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(diff_score <span class="sc">~</span> age)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -469,18 +484,18 @@ lm(formula = diff_score ~ age)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--2.3677 -1.0625 -0.3821  0.8805  3.8900 
+-3.5068 -0.9876  0.3755  1.0985  2.7064 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -3.78710    1.86080  -2.035   0.0514 .
-age          0.04407    0.05502   0.801   0.4299  
+(Intercept) -4.08802    2.29748  -1.779    0.086 .
+age          0.05783    0.06578   0.879    0.387  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.414 on 28 degrees of freedom
-Multiple R-squared:  0.0224,    Adjusted R-squared:  -0.01251 
-F-statistic: 0.6416 on 1 and 28 DF,  p-value: 0.4299</code></pre>
+Residual standard error: 1.505 on 28 degrees of freedom
+Multiple R-squared:  0.02686,   Adjusted R-squared:  -0.007894 
+F-statistic: 0.7729 on 1 and 28 DF,  p-value: 0.3868</code></pre>
 </div>
 </div>
 <p>The lm() function returns the intercept, slope, and p-value for the simple regression on the difference score. In this example, the p-value is greater than 0.05, indicating that there is no significant relationship between the difference in anxiety levels and age.</p>
@@ -757,6 +772,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./refernce.qmd">ZZZZZZ</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

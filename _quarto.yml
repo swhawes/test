@@ -8,6 +8,8 @@ website:
   navbar:
     background: primary
     search: true
+    pinned: true
+    collapsed: true
     left:
       - text: "Home"
         file: index.qmd
@@ -78,6 +80,10 @@ website:
         - reference.qmd
         # navigation items
 
+  page-footer:
+    center:
+      - text: "ZZZZZZ"
+        href: refernce.qmd
 format:
   html:
     theme: cosmo
@@ -89,12 +95,31 @@ format:
     smooth-scroll: true
     link-external-icon: true
     link-external-newwindow: true
+    code-copy: true
+    code-fold: show
+    code-summary: "Code"
+    
+#execute:
+#  warning: false
 
 execute:
+  echo: true
+  message: false
   warning: false
+  error: false
+  #comment: NA
+  cache: true
+  cold-folding: true
+  R.options: list(width=220)
+  fig.align: "center"
+  out.width: "75%"
+  fig.asp: .75
+  dev: "cairo_pdf"
 
-# comments:
-#   hypothesis: true
+bibliography: references.bib
+
+comments:
+  hypothesis: true
 # comments:
 #   hypothesis: 
 #     theme: clean
