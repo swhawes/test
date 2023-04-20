@@ -42,6 +42,13 @@
     "text": "Basic Example\nSimulating the Data For this tutorial, we will use a simulated dataset with 500 individuals, each measured at five time points. The dataset will contain two variables, X and Y, with cross-lagged effects.\n\n\nCode\nset.seed(123)\nn &lt;- 500\ntimepoints &lt;- 5\n\n# Simulate the data\ndata &lt;- data.frame(id = rep(1:n, each = timepoints),\n                   time = rep(1:timepoints, times = n),\n                   X = rnorm(n * timepoints, mean = 0, sd = 1),\n                   Y = rnorm(n * timepoints, mean = 0, sd = 1))\n\n# Introduce cross-lagged effects\nfor (i in 2:timepoints) {\n  data$X[data$time == i] &lt;- 0.3 * data$Y[data$time == (i - 1)] + data$X[data$time == i]\n  data$Y[data$time == i] &lt;- 0.2 * data$X[data$time == (i - 1)] + data$Y[data$time == i]\n}\n\n\n\nModel Specification and Estimation\nNow that we have our simulated data, we can fit a Random-Intercept Cross-Lagged Panel Model using the lavaan package.\n\n\nCode\n# Define the model\nmodel &lt;- '\n  # Random intercepts\n  i_X =~ 1 * X_t1 + 1 * X_t2 + 1 * X_t3 + 1 * X_t4 + 1 * X_t5\n  i_Y =~ 1 * Y_t1 + 1 * Y_t2 + 1 * Y_t3 + 1 * Y_t4 + 1 * Y_t5\n\n  # Cross-lagged effects\n  Y_t2 ~ beta_YX * X_t1\n  Y_t3 ~ beta_YX * X_t2\n  Y_t4 ~ beta_YX * X_t3\n  Y_t5 ~ beta_YX * X_t4\n\n  X_t2 ~ beta_XY * Y_t1\n  X_t3 ~ beta_XY *\n\n\n\n\nInterpreting the Results\nxxxxxx"
   },
   {
+    "objectID": "blank.html",
+    "href": "blank.html",
+    "title": "Blank Test Page",
+    "section": "",
+    "text": "Blank Blank Blank"
+  },
+  {
     "objectID": "5_Tutorials_MarginalModels.html",
     "href": "5_Tutorials_MarginalModels.html",
     "title": "Marginal Models",
@@ -266,6 +273,13 @@
     "text": "Sam Page Test"
   },
   {
+    "objectID": "tutorials.html",
+    "href": "tutorials.html",
+    "title": "Tutorials: A Brief Overview",
+    "section": "",
+    "text": "[Section in progress…]"
+  },
+  {
     "objectID": "1_Tutorials_DifferenceScores.html",
     "href": "1_Tutorials_DifferenceScores.html",
     "title": "Difference Scores",
@@ -348,12 +362,5 @@
     "title": "Residualized Change Scores",
     "section": "Basic Example",
     "text": "Basic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nTime point (T1, T2)\nJob satisfaction (independent variable)\nLife satisfaction (dependent variable)\n\n\n\n\nIndividual\nTime Point\nJob Satisfaction\nLife Satisfaction\n\n\n\n\nA\nT1\n7\n6\n\n\nA\nT2\n8\n7\n\n\nB\nT1\n6\n5\n\n\nB\nT2\n7\n6\n\n\n\n\nModel Specification and Estimation\nTo calculate residualized change scores, we will follow these steps:\n\nCalculate the raw change scores for each variable by subtracting the T1 value from the T2 value.\nFit a regression model with the change score of the dependent variable (life satisfaction) as the outcome and the change score of the independent variable (job satisfaction) and the initial level of the dependent variable (T1 life satisfaction) as predictors.\nExtract the residuals from the regression model. These residuals represent the residualized change scores.\n\nUsing the example dataset, we can calculate the residualized change scores for life satisfaction as follows:\n\nCalculate raw change scores:\n\n\n\nIndividual\nJob Satisfaction Change\nLife Satisfaction Change\n\n\n\n\nA\n1\n1\n\n\nB\n1\n1\n\n\n\nFit the regression model:\nLife Satisfaction Change = b0 + b1 * Job Satisfaction Change + b2 * T1 Life Satisfaction\nExtract residuals:\n\n\n\nIndividual\nResidualized Change Score\n\n\n\n\nA\ne1\n\n\nB\ne2\n\n\n\n\n\n\nInterpreting the Results\nResidualized change scores represent the change in the dependent variable (life satisfaction) after accounting for the initial level of that variable and the change in the independent variable (job satisfaction). By examining the association between the residualized change scores of two variables, we can gain insights into how changes in one variable are related to changes in another variable, controlling for initial levels."
-  },
-  {
-    "objectID": "tutorials.html",
-    "href": "tutorials.html",
-    "title": "Tutorials: A Brief Overview",
-    "section": "",
-    "text": "[Section in progress…]"
   }
 ]
