@@ -348,5 +348,12 @@
     "title": "Residualized Change Scores",
     "section": "Basic Example",
     "text": "Basic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nTime point (T1, T2)\nJob satisfaction (independent variable)\nLife satisfaction (dependent variable)\n\n\n\n\nIndividual\nTime Point\nJob Satisfaction\nLife Satisfaction\n\n\n\n\nA\nT1\n7\n6\n\n\nA\nT2\n8\n7\n\n\nB\nT1\n6\n5\n\n\nB\nT2\n7\n6\n\n\n\n\nModel Specification and Estimation\nTo calculate residualized change scores, we will follow these steps:\n\nCalculate the raw change scores for each variable by subtracting the T1 value from the T2 value.\nFit a regression model with the change score of the dependent variable (life satisfaction) as the outcome and the change score of the independent variable (job satisfaction) and the initial level of the dependent variable (T1 life satisfaction) as predictors.\nExtract the residuals from the regression model. These residuals represent the residualized change scores.\n\nUsing the example dataset, we can calculate the residualized change scores for life satisfaction as follows:\n\nCalculate raw change scores:\n\n\n\nIndividual\nJob Satisfaction Change\nLife Satisfaction Change\n\n\n\n\nA\n1\n1\n\n\nB\n1\n1\n\n\n\nFit the regression model:\nLife Satisfaction Change = b0 + b1 * Job Satisfaction Change + b2 * T1 Life Satisfaction\nExtract residuals:\n\n\n\nIndividual\nResidualized Change Score\n\n\n\n\nA\ne1\n\n\nB\ne2\n\n\n\n\n\n\nInterpreting the Results\nResidualized change scores represent the change in the dependent variable (life satisfaction) after accounting for the initial level of that variable and the change in the independent variable (job satisfaction). By examining the association between the residualized change scores of two variables, we can gain insights into how changes in one variable are related to changes in another variable, controlling for initial levels."
+  },
+  {
+    "objectID": "tutorials.html",
+    "href": "tutorials.html",
+    "title": "Tutorials: A Brief Overview",
+    "section": "",
+    "text": "[Section in progress…]"
   }
 ]

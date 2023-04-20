@@ -3,7 +3,10 @@ project:
   output-dir: docs
 
 website:
-  title: "Longitudinal Manuscript"
+  title: "Longitudinal Analysis"
+  favicon: "./figures/lights.png"
+  twitter-card: true
+  site-url: https://swhawes.github.io/test/
   page-navigation: true
   navbar:
     background: primary
@@ -35,30 +38,56 @@ website:
 
   sidebar:
     - title: "Manuscript"
+      logo: "./figures/lights.png"
+      pinned: true
+      tools:
+        - icon: twitter
+          href: https://twitter.com
+        - icon: github
+          menu:
+            - text: Source Code
+              url:  https://github.com/swhawes/test
+            - text: Report a Bug
+              url:  https://github.com/swhawes/test/issues
       style: "docked"
       search: true
       background: light
+      collapse-level: 1
       contents:
         - manuscript.qmd
     - title: "Tutorials"
       contents:
         - tutorials.qmd
-        - 1_Tutorials_DifferenceScores.qmd
-        - 2_Tutorials_ResidualizedChangeScores.qmd
-        - 3_Tutorials_LinearMixedModels.qmd
-        - 4_Tutorials_SignedRankTest.qmd
-        - 5_Tutorials_MarginalModels.qmd
-        - 6_Tutorials_GeneralizedEstimatingEquations.qmd
-        - 7_Tutorials_GeneralizedLinearMixedEffectsModels.qmd
-        - 8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd
-        - 9_Tutorials_LatentChangeScoresModels.qmd
-        - 10_Tutorials_LatentGrowthCurveModels.qmd
-        - 11_Tutorials_MultivariateLatentGrowthCurveModels.qmd
-        - 12_Tutorials_LatentTransitionAnalysis.qmd
-        - 13_Tutorials_GrowthMixtureModels.qmd
-        - 14_Tutorials_StateTraitModels.qmd
-        - 15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd
-        - 16_Tutorials_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Traditional Linear Models"
+          contents:
+            - 1_Tutorials_DifferenceScores.qmd
+            - 2_Tutorials_ResidualizedChangeScores.qmd
+            - 3_Tutorials_LinearMixedModels.qmd
+        - section: "Traditional Non-linear Models"
+          contents:
+            - 4_Tutorials_SignedRankTest.qmd
+            - 5_Tutorials_MarginalModels.qmd
+            - 6_Tutorials_GeneralizedEstimatingEquations.qmd
+            - 7_Tutorials_GeneralizedLinearMixedEffectsModels.qmd
+        - section: "SEM Approaches"
+          contents:
+            - 8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd
+            - 9_Tutorials_LatentChangeScoresModels.qmd
+            - 10_Tutorials_LatentGrowthCurveModels.qmd
+            - 11_Tutorials_MultivariateLatentGrowthCurveModels.qmd
+            - 12_Tutorials_LatentTransitionAnalysis.qmd
+            - 13_Tutorials_GrowthMixtureModels.qmd
+            - 14_Tutorials_StateTraitModels.qmd
+        - section: "Advanced SEM"
+          contents:
+            - 15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd
+            - 16_Tutorials_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
         
     - title: "How-To"
       contents:
@@ -82,7 +111,7 @@ website:
 
   page-footer:
     center:
-      - text: "ZZZZZZ"
+      - text: "Longitudinal Analysis"
         href: refernce.qmd
 format:
   html:
