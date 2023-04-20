@@ -55,7 +55,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -435,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions <span class="citation" data-cites="castro-schilo2018 jennings2016">(<a href="#ref-castro-schilo2018" role="doc-biblioref"><strong>castro-schilo2018?</strong></a>; <a href="#ref-jennings2016" role="doc-biblioref"><strong>jennings2016?</strong></a>)</span>. The <em>difference</em> between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.</p>
+<p>Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions <span class="citation" data-cites="castro-schilo2018 jennings2016">(<a href="#ref-castro-schilo2018" role="doc-biblioref">Castro-Schilo and Grimm 2018</a>; <a href="#ref-jennings2016" role="doc-biblioref">Jennings and Cribbie 2016</a>)</span>. The <em>difference</em> between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./figures/Difference Score 1_Tutorial.png" class="img-fluid figure-img"></p>
@@ -613,11 +632,19 @@ F-statistic: 0.7729 on 1 and 28 DF,  p-value: 0.3868</code></pre>
 <p>For the simple regression on the difference score, the output from the lm() function provides the intercept, slope,</p>
 
 
+
 </section>
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-castro-schilo2018" class="csl-entry" role="listitem">
+Castro-Schilo, Laura, and Kevin J. Grimm. 2018. <span>“Using Residualized Change Versus Difference Scores for Longitudinal Research.”</span> <em>Journal of Social and Personal Relationships</em> 35 (1): 32–58. <a href="https://doi.org/10.1177/0265407517718387">https://doi.org/10.1177/0265407517718387</a>.
+</div>
+<div id="ref-jennings2016" class="csl-entry" role="listitem">
+Jennings, Megan A., and Robert A. Cribbie. 2016. <span>“Comparing Pre-Post Change Across Groups: <span>Guidelines</span> for Choosing Between Difference Scores, <span>ANCOVA</span>, and Residual Change Scores.”</span> <em>Journal of Data Science</em> 14 (2): 205–29.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
