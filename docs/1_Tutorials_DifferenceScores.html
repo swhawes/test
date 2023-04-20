@@ -91,10 +91,12 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,6 +118,9 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script async="" src="https://hypothes.is/embed.js"></script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -149,7 +154,7 @@ div.csl-indent {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./manuscript.pdf" rel="" target="">
+    <a class="nav-link" href="./manuscript.html" rel="" target="">
  <span class="menu-text">Manuscript</span></a>
   </li>  
   <li class="nav-item">
@@ -169,7 +174,7 @@ div.csl-indent {
  <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools ms-auto tools-wide">
     <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -186,6 +191,7 @@ div.csl-indent {
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -431,7 +437,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Difference Scores</h1>
+<div class="quarto-title-block"><div><h1 class="title">Difference Scores</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -528,7 +534,7 @@ div.csl-indent {
 <div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-1_00bdf4693994bb8e884486614dada6fa">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#titanic$age_diff &lt;- titanic$age - titanic$age[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#titanic$age_diff &lt;- titanic$age - titanic$age[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="repeated-measures-paired-samples-t-test" class="level3">
@@ -537,7 +543,7 @@ div.csl-indent {
 <div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-2_519a645d6463b20828e61a4e3dd7c778">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#t.test(titanic$age_diff, mu = 0, paired = TRUE)\</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#t.test(titanic$age_diff, mu = 0, paired = TRUE)\</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The mu argument represents the hypothesized mean difference, which we have set to 0. The paired argument tells R that the samples are paired.</p>
@@ -560,16 +566,16 @@ div.csl-indent {
 <div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-3_474d9b9208f3191a90b88b3906b5b262">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate example data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pre_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>post_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Generate example data</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>pre_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>post_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-4_418032a20dbced52483a4bc45de7aaa8">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct paired samples t-test</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(pre_test, post_test, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Conduct paired samples t-test</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">t.test</span>(pre_test, post_test, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -594,15 +600,15 @@ mean difference
 <div class="cell" data-hash="1_Tutorials_DifferenceScores_cache/html/unnamed-chunk-5_f034e8b4d137a1453680617e92998259">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate difference score</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>diff_score <span class="ot">&lt;-</span> post_test <span class="sc">-</span> pre_test</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate example age data</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">35</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct simple regression on difference score and age</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(diff_score <span class="sc">~</span> age)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Calculate difference score</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>diff_score <span class="ot">&lt;-</span> post_test <span class="sc">-</span> pre_test</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Generate example age data</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>age <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">35</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Conduct simple regression on difference score and age</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(diff_score <span class="sc">~</span> age)</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -631,6 +637,8 @@ F-statistic: 0.7729 on 1 and 28 DF,  p-value: 0.3868</code></pre>
 <p>For the paired samples t-test, the output from the t.test() function provides the t-value, degrees of freedom, and p-value. The t-value represents the size of the difference between the means of the two related variables relative to the variation within the data. The degrees of freedom represent the number of observations minus the number of variables being compared. The p-value represents the probability of obtaining a result as extreme as the one observed, assuming that the null hypothesis is true.</p>
 <p>For the simple regression on the difference score, the output from the lm() function provides the intercept, slope,</p>
 
+
+<!-- -->
 
 
 </section>
@@ -665,6 +673,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -724,6 +847,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -905,7 +1079,117 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Residualized Change Scores</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Difference Scores"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">## Overview</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>Difference scores are one of the earliest developed and commonly used statistical approaches to compare data collected from the same individual across two measurement occasions <span class="co">[</span><span class="ot">@castro-schilo2018; @jennings2016</span><span class="co">]</span>. The *difference* between scores at the two time points is calculated for each individual and the resulting value is taken as a measure of change. It is common to then perform statistical tests on the difference scores, such as being included as an outcome in a GLM analysis to test for differences in patterns of change over time and between groups. For example, difference scores may be used in a paired-samples t-test to compare mean test scores of students before and after attending a math workshop, or in a simple regression analysis to assess the effectiveness of a weight loss program by calculating the difference in weight between between groups of interest, before and after the program.</span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="al">![Difference Score 1_Tutorial](./figures/Difference Score 1_Tutorial.png)</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">### When to use Difference Score Models?</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>You should use difference scores in the following scenario:</span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="ss">1.  </span>You want to know xxxxx</span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="ss">2.  </span>Your variable xxxxx</span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="ss">3.  </span>You have xxxxx </span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="fu">### Getting Started with Difference Score Models</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>In this tutorial, we will guide you through two simple examples of using difference scores. By the end of this tutorial, you will be able to:</span>
+<span id="cb8-20"><a href="#cb8-20"></a></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="ss">1. </span>Understand the basic concepts of difference scores.</span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="ss">2. </span>Calculate difference scores using example data.</span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="ss">3. </span>Interpret the results of the difference scores analysis.</span>
+<span id="cb8-24"><a href="#cb8-24"></a></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="fu">## Basic Example </span></span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="ss">- </span>Time point (T1, T2)</span>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="ss">- </span>Job satisfaction (independent variable)</span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="ss">- </span>Life satisfaction (dependent variable)</span>
+<span id="cb8-32"><a href="#cb8-32"></a></span>
+<span id="cb8-33"><a href="#cb8-33"></a>| Individual | Time Point | Job Satisfaction | Life Satisfaction |</span>
+<span id="cb8-34"><a href="#cb8-34"></a>| ---------- | ---------- | ---------------- | ----------------- |</span>
+<span id="cb8-35"><a href="#cb8-35"></a>| A          | T1         | 7                | 6                 |</span>
+<span id="cb8-36"><a href="#cb8-36"></a>| A          | T2         | 8                | 7                 |</span>
+<span id="cb8-37"><a href="#cb8-37"></a>| B          | T1         | 6                | 5                 |</span>
+<span id="cb8-38"><a href="#cb8-38"></a>| B          | T2         | 7                | 6                 |</span>
+<span id="cb8-39"><a href="#cb8-39"></a></span>
+<span id="cb8-40"><a href="#cb8-40"></a>We will then create a new variable, age_diff, that represents the difference in age between two time points:</span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a><span class="in">```{r}</span></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="co">#titanic$age_diff &lt;- titanic$age - titanic$age[1]</span></span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="in">```</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a></span>
+<span id="cb8-48"><a href="#cb8-48"></a><span class="fu">### Repeated Measures Paired Samples T-test</span></span>
+<span id="cb8-49"><a href="#cb8-49"></a>To conduct a repeated measures paired samples t-test on age_diff, we will use the t.test() function in R:</span>
+<span id="cb8-50"><a href="#cb8-50"></a></span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="in">```{r}</span></span>
+<span id="cb8-54"><a href="#cb8-54"></a><span class="co">#t.test(titanic$age_diff, mu = 0, paired = TRUE)\</span></span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a></span>
+<span id="cb8-57"><a href="#cb8-57"></a>The mu argument represents the hypothesized mean difference, which we have set to 0. The paired argument tells R that the samples are paired.</span>
+<span id="cb8-58"><a href="#cb8-58"></a></span>
+<span id="cb8-59"><a href="#cb8-59"></a><span class="fu">### Interpreting the Results</span></span>
+<span id="cb8-60"><a href="#cb8-60"></a>The output of the t.test() function includes several statistics, including the t-value, degrees of freedom, and p-value. The t-value represents the difference between the mean of age_diff and the hypothesized mean difference, divided by the standard error. The degrees of freedom represents the number of observations minus one. The p-value represents the probability of observing a t-value as extreme or more extreme than the one observed, assuming that the null hypothesis is true.</span>
+<span id="cb8-61"><a href="#cb8-61"></a></span>
+<span id="cb8-62"><a href="#cb8-62"></a>If the p-value is less than our chosen significance level (typically 0.05), we can reject the null hypothesis and conclude that there is a significant difference between the means of age_diff and the hypothesized mean difference. If the p-value is greater than our chosen significance level, we fail to reject the null hypothesis and conclude that there is insufficient evidence to suggest a difference between the means.</span>
+<span id="cb8-63"><a href="#cb8-63"></a></span>
+<span id="cb8-64"><a href="#cb8-64"></a><span class="fu">### Conclusion</span></span>
+<span id="cb8-65"><a href="#cb8-65"></a>In this tutorial, we learned how to conduct a repeated measures paired samples t-test on a difference score using R. This statistical method is useful when we want to compare the means of two related variables that are measured at two different time points or under two different conditions. We also learned how to interpret the results of the t-test, including the t-value, degrees of freedom, and p-value.</span>
+<span id="cb8-66"><a href="#cb8-66"></a></span>
+<span id="cb8-67"><a href="#cb8-67"></a><span class="fu">### Paired Samples T-test Model Specification and Estimation</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a></span>
+<span id="cb8-69"><a href="#cb8-69"></a>To calculate <span class="co">[</span><span class="ot">xxxxx</span><span class="co">]</span> scores, we will follow these steps:</span>
+<span id="cb8-70"><a href="#cb8-70"></a></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="co">[</span><span class="ot">two timepoints, t1 and t2, and we want to test whether there is a significant difference between the means of two variables measured at each timepoint. We can use a paired samples t-test to do this.</span><span class="co">]</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a></span>
+<span id="cb8-73"><a href="#cb8-73"></a>A paired samples t-test is used to determine whether there is a significant difference between two related variables. For example, you may be interested in whether there is a significant difference in anxiety levels between participants before and after an intervention. To conduct a paired samples t-test in R, we can use the t.test() function.</span>
+<span id="cb8-74"><a href="#cb8-74"></a></span>
+<span id="cb8-75"><a href="#cb8-75"></a>Let's use a hypothetical example to illustrate how to conduct a paired samples t-test in R. In this example, we have data from 30 participants who completed a pre-test and post-test on anxiety levels measured on a 10-point scale. We want to determine if there was a significant difference in anxiety levels before and after an intervention.</span>
+<span id="cb8-76"><a href="#cb8-76"></a></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="in">```{r}</span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="co"># Generate example data</span></span>
+<span id="cb8-81"><a href="#cb8-81"></a>pre_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb8-82"><a href="#cb8-82"></a>post_test <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="in">```</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a></span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="in">```{r}</span></span>
+<span id="cb8-88"><a href="#cb8-88"></a><span class="co"># Conduct paired samples t-test</span></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="fu">t.test</span>(pre_test, post_test, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="in">```</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a></span>
+<span id="cb8-92"><a href="#cb8-92"></a>The t.test() function returns the t-value, degrees of freedom, and p-value for the paired samples t-test. In this example, the p-value is less than 0.05, indicating that there is a significant difference in anxiety levels before and after the intervention.</span>
+<span id="cb8-93"><a href="#cb8-93"></a></span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="fu">### Simple Regression on a Difference Score</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a>A simple regression on a difference score is used to determine the relationship between the difference scores of two related variables and a third variable. For example, you may be interested in whether there is a relationship between the difference in anxiety levels before and after an intervention and a participant's age. To conduct a simple regression on a difference score in R, we can use the lm() function.</span>
+<span id="cb8-96"><a href="#cb8-96"></a></span>
+<span id="cb8-97"><a href="#cb8-97"></a>Let's continue with the hypothetical example from the paired samples t-test. We want to determine if there is a relationship between the difference in anxiety levels before and after the intervention and the participants' age. We will create a new variable diff_score to represent the difference in anxiety levels.</span>
+<span id="cb8-98"><a href="#cb8-98"></a></span>
+<span id="cb8-101"><a href="#cb8-101"></a><span class="in">```{r}</span></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="co"># Calculate difference score</span></span>
+<span id="cb8-103"><a href="#cb8-103"></a>diff_score <span class="ot">&lt;-</span> post_test <span class="sc">-</span> pre_test</span>
+<span id="cb8-104"><a href="#cb8-104"></a></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="co"># Generate example age data</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a>age <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">35</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb8-107"><a href="#cb8-107"></a></span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="co"># Conduct simple regression on difference score and age</span></span>
+<span id="cb8-109"><a href="#cb8-109"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(diff_score <span class="sc">~</span> age)</span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="fu">summary</span>(model)</span>
+<span id="cb8-111"><a href="#cb8-111"></a><span class="in">```</span></span>
+<span id="cb8-112"><a href="#cb8-112"></a></span>
+<span id="cb8-113"><a href="#cb8-113"></a>The lm() function returns the intercept, slope, and p-value for the simple regression on the difference score. In this example, the p-value is greater than 0.05, indicating that there is no significant relationship between the difference in anxiety levels and age.</span>
+<span id="cb8-114"><a href="#cb8-114"></a></span>
+<span id="cb8-115"><a href="#cb8-115"></a><span class="fu">#### Interpreting the Results</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a>For the paired samples t-test, the output from the t.test() function provides the t-value, degrees of freedom, and p-value. The t-value represents the size of the difference between the means of the two related variables relative to the variation within the data. The degrees of freedom represent the number of observations minus the number of variables being compared. The p-value represents the probability of obtaining a result as extreme as the one observed, assuming that the null hypothesis is true.</span>
+<span id="cb8-117"><a href="#cb8-117"></a></span>
+<span id="cb8-118"><a href="#cb8-118"></a>For the simple regression on the difference score, the output from the lm() function provides the intercept, slope,</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

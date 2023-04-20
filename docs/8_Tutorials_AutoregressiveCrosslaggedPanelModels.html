@@ -72,10 +72,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,6 +99,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script async="" src="https://hypothes.is/embed.js"></script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -127,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./manuscript.pdf" rel="" target="">
+    <a class="nav-link" href="./manuscript.html" rel="" target="">
  <span class="menu-text">Manuscript</span></a>
   </li>  
   <li class="nav-item">
@@ -147,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools ms-auto tools-wide">
     <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -164,6 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -409,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Autoregressive Crosslagged Panel Models</h1>
+<div class="quarto-title-block"><div><h1 class="title">Autoregressive Crosslagged Panel Models</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -467,15 +473,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-hash="8_Tutorials_AutoregressiveCrosslaggedPanelModels_cache/html/unnamed-chunk-1_8921b470c6ab80bd3356a2f540f5cd2f">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_subjects <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n_timepoints <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>subject_ids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_subjects, <span class="at">each =</span> n_timepoints))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span>(n_timepoints <span class="sc">-</span> <span class="dv">1</span>), <span class="at">times =</span> n_subjects)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>variable1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>variable2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subject_id =</span> subject_ids, <span class="at">time =</span> time, <span class="at">variable1 =</span> variable1, <span class="at">variable2 =</span> variable2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>n_subjects <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>n_timepoints <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>subject_ids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_subjects, <span class="at">each =</span> n_timepoints))</span>
+<span id="cb1-5"><a href="#cb1-5"></a>time <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span>(n_timepoints <span class="sc">-</span> <span class="dv">1</span>), <span class="at">times =</span> n_subjects)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>variable1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>variable2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subject_id =</span> subject_ids, <span class="at">time =</span> time, <span class="at">variable1 =</span> variable1, <span class="at">variable2 =</span> variable2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="model-specification-and-estimation" class="level3">
@@ -484,61 +490,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-hash="8_Tutorials_AutoregressiveCrosslaggedPanelModels_cache/html/unnamed-chunk-2_35760e918afe4b4a491bde822d1aa97c">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(lavaan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Define the ACPM with three timepoints:</p>
 <div class="cell" data-hash="8_Tutorials_AutoregressiveCrosslaggedPanelModels_cache/html/unnamed-chunk-3_e87467625b30f9068f0febd62306dea7">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Autoregressive paths</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  variable1_t2 <span class="sc">~</span> a1 <span class="sc">*</span> variable1_t1</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  variable1_t1 <span class="sc">~</span> a2 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>model <span class="ot">&lt;-</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="co"># Autoregressive paths</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  variable1_t2 <span class="sc">~</span> a1 <span class="sc">*</span> variable1_t1</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  variable1_t1 <span class="sc">~</span> a2 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable1_t1 ~ a2 * variable1_t0</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  variable2_t2 <span class="sc">~</span> a3 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>  variable2_t2 <span class="sc">~</span> a3 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable2_t2 ~ a3 * variable2_t1</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  variable2_t1 <span class="sc">~</span> a4 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>  variable2_t1 <span class="sc">~</span> a4 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable2_t1 ~ a4 * variable2_t0</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cross-lagged paths</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  variable1_t2 <span class="sc">~</span> b1 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>  <span class="co"># Cross-lagged paths</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  variable1_t2 <span class="sc">~</span> b1 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable1_t2 ~ b1 * variable2_t1</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  variable1_t1 <span class="sc">~</span> b2 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>  variable1_t1 <span class="sc">~</span> b2 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable1_t1 ~ b2 * variable2_t0</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  variable2_t2 <span class="sc">~</span> b3 <span class="sc">*</span> variable1_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>  variable2_t2 <span class="sc">~</span> b3 <span class="sc">*</span> variable1_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable2_t2 ~ b3 * variable1_t1</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  variable2_t1 <span class="sc">~</span> b4 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>  variable2_t1 <span class="sc">~</span> b4 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>variable2_t1 ~ b4 * variable1_t0</code></pre>
@@ -548,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-hash="8_Tutorials_AutoregressiveCrosslaggedPanelModels_cache/html/unnamed-chunk-4_08cdfcb4afbbab9463bb850d73f6cfab">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit &lt;- lavaan(model, data = data, missing = )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#fit &lt;- lavaan(model, data = data, missing = )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -556,6 +562,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
 <p>xxxxxxxx</p>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -581,6 +589,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -640,6 +763,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -821,7 +995,91 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Latent Change Score Models</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">---</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="an">title:</span><span class="co"> "Autoregressive Crosslagged Panel Models"</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">---</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">## Overview</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>xxxx</span>
+<span id="cb18-8"><a href="#cb18-8"></a>Autoregressive cross-lagged panel models (ACPMs) are a type of statistical model used to analyze longitudinal data and examine the temporal relationships between two or more variables over time. These models help to disentangle within-person effects from between-person effects and can estimate both autoregressive effects (influence of a variable on itself over time) and cross-lagged effects (influence of one variable on another variable over time).</span>
+<span id="cb18-9"><a href="#cb18-9"></a></span>
+<span id="cb18-10"><a href="#cb18-10"></a>autoregressive cross-lagged panel models, commonly known as CLPMs. CLPMs are a statistical method used to analyze longitudinal data, particularly when we want to examine the reciprocal relationships between two or more variables over time. In essence, CLPMs allow us to investigate whether one variable at an earlier time point can predict another variable at a later time point, and vice versa.</span>
+<span id="cb18-11"><a href="#cb18-11"></a></span>
+<span id="cb18-12"><a href="#cb18-12"></a>CLPMs are useful when we want to go beyond simple correlations between variables at different time points and instead model the dynamic interplay between them. Specifically, CLPMs account for the possibility that the relationship between two variables at one time point may influence their relationship at a subsequent time point. These models can also account for autocorrelation, meaning that the same variable measured over time is correlated with itself.</span>
+<span id="cb18-13"><a href="#cb18-13"></a></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co">[</span><span class="ot">+add diagrams/figures</span><span class="co">]</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="fu">### When to use Autoregressive Cross-Lagged Panel Models (ACPMs)?</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a>You should use xxxxxxx in the following scenario:</span>
+<span id="cb18-18"><a href="#cb18-18"></a></span>
+<span id="cb18-19"><a href="#cb18-19"></a><span class="ss">1.  </span>You want to know xxxxx</span>
+<span id="cb18-20"><a href="#cb18-20"></a><span class="ss">2.  </span>Your variable xxxxx</span>
+<span id="cb18-21"><a href="#cb18-21"></a><span class="ss">3.  </span>You have xxxxx </span>
+<span id="cb18-22"><a href="#cb18-22"></a></span>
+<span id="cb18-23"><a href="#cb18-23"></a><span class="fu">### Getting Started with Autoregressive Cross-Lagged Panel Models (ACPMs)</span></span>
+<span id="cb18-24"><a href="#cb18-24"></a>In this tutorial, we will introduce the concept of autoregressive cross-lagged panel models (ACPMs) and guide you through a simple example using a larger dataset. By the end of this tutorial, you will be able to:</span>
+<span id="cb18-25"><a href="#cb18-25"></a></span>
+<span id="cb18-26"><a href="#cb18-26"></a><span class="ss">1. </span>Understand the basic concepts of ACPMs.</span>
+<span id="cb18-27"><a href="#cb18-27"></a><span class="ss">2. </span>Fit an ACPM using example data in R.</span>
+<span id="cb18-28"><a href="#cb18-28"></a><span class="ss">3. </span>Interpret the results of the model.</span>
+<span id="cb18-29"><a href="#cb18-29"></a></span>
+<span id="cb18-30"><a href="#cb18-30"></a><span class="fu">## Basic Example</span></span>
+<span id="cb18-31"><a href="#cb18-31"></a>For this tutorial, we will use a simulated dataset containing the following information for a group of 100 individuals:</span>
+<span id="cb18-32"><a href="#cb18-32"></a></span>
+<span id="cb18-33"><a href="#cb18-33"></a><span class="ss">- </span>Subject ID</span>
+<span id="cb18-34"><a href="#cb18-34"></a><span class="ss">- </span>Time (in years)</span>
+<span id="cb18-35"><a href="#cb18-35"></a><span class="ss">- </span>Variable 1 (e.g., stress level)</span>
+<span id="cb18-36"><a href="#cb18-36"></a><span class="ss">- </span>Variable 2 (e.g., job satisfaction)</span>
+<span id="cb18-37"><a href="#cb18-37"></a></span>
+<span id="cb18-40"><a href="#cb18-40"></a><span class="in">```{r}</span></span>
+<span id="cb18-41"><a href="#cb18-41"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb18-42"><a href="#cb18-42"></a>n_subjects <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb18-43"><a href="#cb18-43"></a>n_timepoints <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb18-44"><a href="#cb18-44"></a>subject_ids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_subjects, <span class="at">each =</span> n_timepoints))</span>
+<span id="cb18-45"><a href="#cb18-45"></a>time <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span>(n_timepoints <span class="sc">-</span> <span class="dv">1</span>), <span class="at">times =</span> n_subjects)</span>
+<span id="cb18-46"><a href="#cb18-46"></a>variable1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-47"><a href="#cb18-47"></a>variable2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-48"><a href="#cb18-48"></a></span>
+<span id="cb18-49"><a href="#cb18-49"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subject_id =</span> subject_ids, <span class="at">time =</span> time, <span class="at">variable1 =</span> variable1, <span class="at">variable2 =</span> variable2)</span>
+<span id="cb18-50"><a href="#cb18-50"></a><span class="in">```</span></span>
+<span id="cb18-51"><a href="#cb18-51"></a></span>
+<span id="cb18-52"><a href="#cb18-52"></a><span class="fu">### Model Specification and Estimation</span></span>
+<span id="cb18-53"><a href="#cb18-53"></a>We will use the lavaan package in R to fit an ACPM. First, install the required package, if not already installed:</span>
+<span id="cb18-54"><a href="#cb18-54"></a></span>
+<span id="cb18-57"><a href="#cb18-57"></a><span class="in">```{r}</span></span>
+<span id="cb18-58"><a href="#cb18-58"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
+<span id="cb18-59"><a href="#cb18-59"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb18-60"><a href="#cb18-60"></a><span class="in">```</span></span>
+<span id="cb18-61"><a href="#cb18-61"></a>Define the ACPM with three timepoints:</span>
+<span id="cb18-62"><a href="#cb18-62"></a></span>
+<span id="cb18-65"><a href="#cb18-65"></a><span class="in">```{r}</span></span>
+<span id="cb18-66"><a href="#cb18-66"></a>model <span class="ot">&lt;-</span> </span>
+<span id="cb18-67"><a href="#cb18-67"></a>  <span class="co"># Autoregressive paths</span></span>
+<span id="cb18-68"><a href="#cb18-68"></a>  variable1_t2 <span class="sc">~</span> a1 <span class="sc">*</span> variable1_t1</span>
+<span id="cb18-69"><a href="#cb18-69"></a>  variable1_t1 <span class="sc">~</span> a2 <span class="sc">*</span> variable1_t0</span>
+<span id="cb18-70"><a href="#cb18-70"></a>  variable2_t2 <span class="sc">~</span> a3 <span class="sc">*</span> variable2_t1</span>
+<span id="cb18-71"><a href="#cb18-71"></a>  variable2_t1 <span class="sc">~</span> a4 <span class="sc">*</span> variable2_t0</span>
+<span id="cb18-72"><a href="#cb18-72"></a></span>
+<span id="cb18-73"><a href="#cb18-73"></a>  <span class="co"># Cross-lagged paths</span></span>
+<span id="cb18-74"><a href="#cb18-74"></a>  variable1_t2 <span class="sc">~</span> b1 <span class="sc">*</span> variable2_t1</span>
+<span id="cb18-75"><a href="#cb18-75"></a>  variable1_t1 <span class="sc">~</span> b2 <span class="sc">*</span> variable2_t0</span>
+<span id="cb18-76"><a href="#cb18-76"></a>  variable2_t2 <span class="sc">~</span> b3 <span class="sc">*</span> variable1_t1</span>
+<span id="cb18-77"><a href="#cb18-77"></a>  variable2_t1 <span class="sc">~</span> b4 <span class="sc">*</span> variable1_t0</span>
+<span id="cb18-78"><a href="#cb18-78"></a></span>
+<span id="cb18-79"><a href="#cb18-79"></a><span class="in">```</span></span>
+<span id="cb18-80"><a href="#cb18-80"></a>Fit the ACPM using the lavaan function:</span>
+<span id="cb18-81"><a href="#cb18-81"></a></span>
+<span id="cb18-84"><a href="#cb18-84"></a><span class="in">```{r}</span></span>
+<span id="cb18-85"><a href="#cb18-85"></a><span class="co">#fit &lt;- lavaan(model, data = data, missing = )</span></span>
+<span id="cb18-86"><a href="#cb18-86"></a>                </span>
+<span id="cb18-87"><a href="#cb18-87"></a><span class="in">```</span></span>
+<span id="cb18-88"><a href="#cb18-88"></a></span>
+<span id="cb18-89"><a href="#cb18-89"></a><span class="fu">### Interpreting the Results</span></span>
+<span id="cb18-90"><a href="#cb18-90"></a>xxxxxxxx</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

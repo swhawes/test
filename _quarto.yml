@@ -88,13 +88,13 @@ website:
         - section: "Twin Modeling & Genetics Designs"
           contents:
             - blank.qmd
-        
     - title: "How-To"
       contents:
-        - section: "First Section"
+        - howto.qmd
+        - section: "Traditional Linear Models"
           contents:
             - howto.qmd
-        - section: "Second Section"
+        - section: "Traditional Non-linear Models"
           contents:
             - 1a_Difference Scores paired samples ttest_HowTo.qmd
         # navigation items
@@ -115,22 +115,32 @@ website:
         href: refernce.qmd
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmos #flatly
+      dark: darkly
     css: styles.css
     toc: true
     toc-depth: 1
     toc-expand: 3
-    toc-title: Contentszz
+    toc-title: Table of Contents
+    anchor-sections: true
     smooth-scroll: true
+    #fontsize: 1.1em
+    linestretch: 1.7
     link-external-icon: true
     link-external-newwindow: true
     code-copy: true
     code-fold: show
     code-summary: "Code"
+    code-overflow: scroll
+    code-line-numbers: TRUE
+    code-tools: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+    html-math-method: katex
+    df-print: paged
+    options: max.print=75000
     
-#execute:
-#  warning: false
-
 execute:
   echo: true
   message: false
