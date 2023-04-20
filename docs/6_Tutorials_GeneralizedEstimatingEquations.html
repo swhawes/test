@@ -331,7 +331,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Generalized estimating equations (GEEs) are a statistical method used to analyze longitudinal or clustered data, while accounting for within-subject correlation. The goal GEEs are to make inferences about population-averaged effects (controlling for within-subject correlations), rather than individual subject-level effects. GEEs can handle a wide range of outcome distributions, including binary, count, and continuous data (Fitzmaurice et al., 2011; Hardin &amp; Hilbe, 2012). This method is an extension of the generalized linear model (Diggle et al., 2002), shows good statistical power and efficiency, is robust to non-normality and non-constant variance and can handle unbalanced or unequally spaced data.</p>
 <section id="when-to-use-longitudinal-generalized-estimating-equations-gees" class="level3">
 <h3 class="anchored" data-anchor-id="when-to-use-longitudinal-generalized-estimating-equations-gees">When to use Longitudinal Generalized Estimating Equations (GEEs)?</h3>
-<p>You should use xxxxxxx in the following scenario: 1. You want to know xxxxx 2. Your variable xxxxx 3. You have xxxxx</p>
+<p>You should use xxxxxxx in the following scenario:</p>
+<ol type="1">
+<li>You want to know xxxxx</li>
+<li>Your variable xxxxx</li>
+<li>You have xxxxx</li>
+</ol>
 </section>
 <section id="getting-started-with-longitudinal-generalized-estimating-equations-gees" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started-with-longitudinal-generalized-estimating-equations-gees">Getting Started with Longitudinal Generalized Estimating Equations (GEEs)</h3>
@@ -405,34 +410,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Fit the longitudinal GEE model with a binary outcome using a logit link function and an exchangeable correlation structure:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(outcome <span class="sc">~</span> time, <span class="at">data =</span> data, <span class="at">id =</span> subject_id, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), <span class="at">corstr =</span> <span class="st">"exchangeable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
-</div>
 </div>
 </section>
 <section id="interpreting-the-results" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
 <p>To interpret the results of the longitudinal GEE model, we can use the summary() function in R to display the estimated population-averaged effects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(covmat)): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(covmatgam)): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(covmatalpha)): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(object$vbeta)): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(object$valpha)): NaNs produced</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(diag(object$vgamma)): NaNs produced</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:

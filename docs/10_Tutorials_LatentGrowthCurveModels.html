@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Biostatistics Working Group">
 
 <title>Longitudinal Manuscript - Latent Growth Curve Models</title>
 <style>
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -276,6 +311,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Biostatistics Working Group </p>
+          </div>
+  </div>
     
   
     
@@ -284,8 +325,83 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>In this tutorial, we’ll introduce Latent Growth Curve Models (LGCM), a powerful technique for analyzing longitudinal data. Latent Growth Curve Models allow researchers to examine individual differences in growth trajectories and the factors that might influence these trajectories. We’ll walk through an example using a dataset with three time points and a sample size of 250 participants.</p>
+<p>[+add diagrams/figures]</p>
+<section id="when-to-use-latent-growth-curve-models" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-latent-growth-curve-models">When to use Latent Growth Curve Models?</h3>
+<p>You should use xxxxxxx in the following scenario:</p>
+<ol type="1">
+<li>You want to know xxxxx</li>
+<li>Your variable xxxxx</li>
+<li>You have xxxxx</li>
+</ol>
+</section>
+<section id="getting-started-with-latent-growth-curve-models" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-latent-growth-curve-models">Getting Started with Latent Growth Curve Models</h3>
+<section id="prerequisites" class="level4">
+<h4 class="anchored" data-anchor-id="prerequisites">Prerequisites</h4>
+<p>To follow along with this tutorial, you’ll need to have R installed on your computer, as well as the “lavaan” package for fitting latent variable models.</p>
+<p>You can install the “lavaan” package using the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="basic-example" class="level2">
+<h2 class="anchored" data-anchor-id="basic-example">Basic Example</h2>
+<p>For this tutorial, we’ll use a hypothetical dataset called “data” with the following variables:</p>
+<p>subject_id: A unique identifier for each participant score_t1: The measurement of a variable of interest at Time 1 score_t2: The measurement of the same variable at Time 2 score_t3: The measurement of the same variable at Time 3 First, let’s load the “lavaan” package and create a dataset for this example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sample dataset with 250 participants</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># For reproducibility</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>subject_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>score_t1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">250</span>, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>score_t2 <span class="ot">&lt;-</span> score_t1 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">250</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>score_t3 <span class="ot">&lt;-</span> score_t2 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">250</span>, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(subject_id, score_t1, score_t2, score_t3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="model-specification-and-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
+<p>Now, let’s specify the Latent Growth Curve Model. In this example, we’ll estimate the intercept (initial level) and slope (rate of change) for the variable of interest, as well as the variances of the intercept and slope.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the Latent Growth Curve Model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">  # Latent variables</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">    i =~ 1 * score_t1 + 1 * score_t2 + 1 * score_t3</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">    s =~ 0 * score_t1 + 1 * score_t2 + 2 * score_t3</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">  # Means</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">    i ~ mu_i</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">    s ~ mu_s</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">  # Variances</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">    i ~~ var_i * i</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">    s ~~ var_s * s</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">  # Covariance</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">    i ~~ cov_is * s</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, <span class="at">data =</span> data, <span class="at">missing =</span> <span class="st">"FIML"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interpreting-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
+<p>We can now examine the results of our Latent Growth Curve Model. The main parameters of interest are:</p>
+<p>mu_i: The mean intercept (initial level) of the variable of interest mu_s: The mean slope (rate of change) of the variable of interest var_i: The variance of the intercept, which reflects individual differences in initial levels var_s: The variance of the slope, which reflects individual differences in rates</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

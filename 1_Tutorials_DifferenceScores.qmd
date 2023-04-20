@@ -10,6 +10,7 @@ Difference scores are one of the earliest developed and commonly used statistica
 
 ### When to use Difference Score Models?
 You should use difference scores in the following scenario:
+
 1.	You want to know xxxxx
 2.	Your variable xxxxx
 3.	You have xxxxx 

@@ -1,3 +1,86 @@
 ---
 title: "Latent Change Score Models"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+xxx
+In this tutorial, we'll introduce Latent Change Score Models (LCSM), a powerful technique for analyzing longitudinal data. Latent Change Score Models allow researchers to examine individual differences in change over time, as well as the factors that might influence these changes. We'll walk through an example using a dataset with three time points and a larger sample size of 250 participants.
+xxx
+
+[+add diagrams/figures]
+
+### When to use Latent Change Score Models?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Latent Change Score Models
+
+#### Prerequisites
+To follow along with this tutorial, you'll need to have R installed on your computer, as well as the "lavaan" package for fitting latent variable models.
+
+You can install the "lavaan" package using the following code:
+
+```{r}
+if (!("lavaan" %in% installed.packages())) {
+  install.packages("lavaan")
+}
+```
+
+## Basic Example
+For this tutorial, we'll use a hypothetical dataset called "data" with the following variables:
+
+subject_id: A unique identifier for each participant
+score_t1: The measurement of a variable of interest at Time 1
+score_t2: The measurement of the same variable at Time 2
+score_t3: The measurement of the same variable at Time 3
+First, let's load the "lavaan" package and create a larger dataset for this example:
+
+```{r}
+library(lavaan)
+
+# Create a sample dataset with 250 participants
+set.seed(42) # For reproducibility
+subject_id <- 1:250
+score_t1 <- rnorm(250, mean = 20, sd = 5)
+score_t2 <- score_t1 + rnorm(250, mean = 2, sd = 3)
+score_t3 <- score_t2 + rnorm(250, mean = 3, sd = 4)
+data <- data.frame(subject_id, score_t1, score_t2, score_t3)
+```
+
+### Model Specification and Estimation
+Now, let's specify the Latent Change Score Model. In this example, we'll estimate the mean change in the variable of interest from Time 1 to Time 2 and from Time 2 to Time 3, as well as the variances of the change scores.
+```
+
+```{r, eval = FALSE}
+# Define the Latent Change Score Model
+model <- '
+  # Latent variables
+    delta12 =~ 1 * score_t2 - 1 * score_t1
+    delta23 =~ 1 * score_t3 - 1 * score_t2
+
+  # Means
+    delta12 ~ mu_delta12
+    delta23 ~ mu_delta23
+
+  # Variances
+    delta12 ~~ var_delta12 * delta12
+    delta23 ~~ var_delta23 * delta23
+`
+```
+
+```{r, eval = FALSE}
+# Fit the model
+fit <- sem(model, data = data, missing = "FIML")
+```
+
+### Interpreting the Results
+We can now examine the results of our Latent Change Score Model. The main parameters of interest are:
+
+mu_delta12: The mean change in the variable of interest from Time 1 to Time 2
+mu_delta23: The mean change in the variable of interest from Time 2 to Time 3
+var_delta12: The variance of the change scores from Time 1 to Time 2, which reflects individual differences in change
+var_delta23: The variance of the change xxxx

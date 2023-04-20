@@ -10,6 +10,7 @@ Generalized estimating equations (GEEs) are a statistical method used to analyze
 
 ### When to use Longitudinal Generalized Estimating Equations (GEEs)?
 You should use xxxxxxx in the following scenario:
+
 1.	You want to know xxxxx
 2.	Your variable xxxxx
 3.	You have xxxxx 

@@ -1,3 +1,82 @@
 ---
 title: "Autoregressive Crosslagged Panel Models"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+xxxx
+Autoregressive cross-lagged panel models (ACPMs) are a type of statistical model used to analyze longitudinal data and examine the temporal relationships between two or more variables over time. These models help to disentangle within-person effects from between-person effects and can estimate both autoregressive effects (influence of a variable on itself over time) and cross-lagged effects (influence of one variable on another variable over time).
+
+autoregressive cross-lagged panel models, commonly known as CLPMs. CLPMs are a statistical method used to analyze longitudinal data, particularly when we want to examine the reciprocal relationships between two or more variables over time. In essence, CLPMs allow us to investigate whether one variable at an earlier time point can predict another variable at a later time point, and vice versa.
+
+CLPMs are useful when we want to go beyond simple correlations between variables at different time points and instead model the dynamic interplay between them. Specifically, CLPMs account for the possibility that the relationship between two variables at one time point may influence their relationship at a subsequent time point. These models can also account for autocorrelation, meaning that the same variable measured over time is correlated with itself.
+
+[+add diagrams/figures]
+
+### When to use Autoregressive Cross-Lagged Panel Models (ACPMs)?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Autoregressive Cross-Lagged Panel Models (ACPMs)
+In this tutorial, we will introduce the concept of autoregressive cross-lagged panel models (ACPMs) and guide you through a simple example using a larger dataset. By the end of this tutorial, you will be able to:
+
+1. Understand the basic concepts of ACPMs.
+2. Fit an ACPM using example data in R.
+3. Interpret the results of the model.
+
+## Basic Example
+For this tutorial, we will use a simulated dataset containing the following information for a group of 100 individuals:
+
+- Subject ID
+- Time (in years)
+- Variable 1 (e.g., stress level)
+- Variable 2 (e.g., job satisfaction)
+
+```{r}
+set.seed(123)  # For reproducibility
+n_subjects <- 100
+n_timepoints <- 3
+subject_ids <- factor(rep(1:n_subjects, each = n_timepoints))
+time <- rep(0:(n_timepoints - 1), times = n_subjects)
+variable1 <- rnorm(n_subjects * n_timepoints, mean = 3, sd = 1)
+variable2 <- rnorm(n_subjects * n_timepoints, mean = 3, sd = 1)
+
+data <- data.frame(subject_id = subject_ids, time = time, variable1 = variable1, variable2 = variable2)
+```
+
+### Model Specification and Estimation
+We will use the lavaan package in R to fit an ACPM. First, install the required package, if not already installed:
+
+```{r}
+if (!("lavaan" %in% installed.packages())) install.packages("lavaan")
+library(lavaan)
+```
+Define the ACPM with three timepoints:
+
+```{r}
+model <- 
+  # Autoregressive paths
+  variable1_t2 ~ a1 * variable1_t1
+  variable1_t1 ~ a2 * variable1_t0
+  variable2_t2 ~ a3 * variable2_t1
+  variable2_t1 ~ a4 * variable2_t0
+
+  # Cross-lagged paths
+  variable1_t2 ~ b1 * variable2_t1
+  variable1_t1 ~ b2 * variable2_t0
+  variable2_t2 ~ b3 * variable1_t1
+  variable2_t1 ~ b4 * variable1_t0
+
+```
+Fit the ACPM using the lavaan function:
+
+```{r}
+#fit <- lavaan(model, data = data, missing = )
+                
+```
+
+### Interpreting the Results
+xxxxxxxx

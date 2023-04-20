@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Biostatistics Working Group">
 
 <title>Longitudinal Manuscript - Multivariate Latent Growth Curves</title>
 <style>
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -276,6 +311,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Biostatistics Working Group </p>
+          </div>
+  </div>
     
   
     
@@ -284,8 +325,172 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>In this tutorial, we will introduce the Multivariate Latent Growth Curve Model (MLGCM), also known as Parallel Process Latent Growth Curve Model. These models allow us to analyze multiple growth processes simultaneously, examining the relationships between the initial levels and growth rates of multiple variables over time.</p>
+<p>We will use the “lavaan” package in R to fit a MLGCM with two variables, each measured at three timepoints. We will also provide a brief overview of interpreting the results.</p>
+<p>[+add diagrams/figures]</p>
+<section id="when-to-use-multivariate-latent-growth-curve-models" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-multivariate-latent-growth-curve-models">When to use Multivariate Latent Growth Curve Models?</h3>
+<p>You should use xxxxxxx in the following scenario:</p>
+<ol type="1">
+<li>You want to know xxxxx</li>
+<li>Your variable xxxxx</li>
+<li>You have xxxxx</li>
+</ol>
+</section>
+<section id="getting-started-with-multivariate-latent-growth-curve-models" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-multivariate-latent-growth-curve-models">Getting Started with Multivariate Latent Growth Curve Models</h3>
+</section>
+</section>
+<section id="basic-example" class="level2">
+<h2 class="anchored" data-anchor-id="basic-example">Basic Example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate sample data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">250</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>time1_var1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>time2_var1 <span class="ot">&lt;-</span> time1_var1 <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>time3_var1 <span class="ot">&lt;-</span> time2_var1 <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>time1_var2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>time2_var2 <span class="ot">&lt;-</span> time1_var2 <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>time3_var2 <span class="ot">&lt;-</span> time2_var2 <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a data frame</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(time1_var1, time2_var1, time3_var1,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                   time1_var2, time2_var2, time3_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="model-specification-and-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the multivariate latent growth curve model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">  # Intercept and slope factors for variable 1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">  i_var1 =~ 1*time1_var1 + 1*time2_var1 + 1*time3_var1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">  s_var1 =~ 0*time1_var1 + 1*time2_var1 + 2*time3_var1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">  # Intercept and slope factors for variable 2</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">  i_var2 =~ 1*time1_var2 + 1*time2_var2 + 1*time3_var2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">  s_var2 =~ 0*time1_var2 + 1*time2_var2 + 2*time3_var2</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">sem</span>(model, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-12 ended normally after 63 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        16
+
+  Number of observations                           250
+
+Model Test User Model:
+                                                      
+  Test statistic                                 1.840
+  Degrees of freedom                                 5
+  P-value (Chi-square)                           0.871
+
+Model Test Baseline Model:
+
+  Test statistic                              1631.463
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.006
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2900.271
+  Loglikelihood unrestricted model (H1)      -2899.351
+                                                      
+  Akaike (AIC)                                5832.542
+  Bayesian (BIC)                              5888.886
+  Sample-size adjusted Bayesian (BIC)         5838.164
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.045
+  P-value RMSEA &lt;= 0.05                          0.961
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.010
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i_var1 =~                                           
+    time1_var1        1.000                           
+    time2_var1        1.000                           
+    time3_var1        1.000                           
+  s_var1 =~                                           
+    time1_var1        0.000                           
+    time2_var1        1.000                           
+    time3_var1        2.000                           
+  i_var2 =~                                           
+    time1_var2        1.000                           
+    time2_var2        1.000                           
+    time3_var2        1.000                           
+  s_var2 =~                                           
+    time1_var2        0.000                           
+    time2_var2        1.000                           
+    time3_var2        2.000                           
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i_var1 ~~                                           
+    s_var1            0.240    0.365    0.658    0.511
+    i_var2           -0.157    0.394   -0.400    0.689
+    s_var2            0.015    0.123    0.121    0.904
+  s_var1 ~~                                           
+    i_var2           -0.057    0.183   -0.310    0.757
+    s_var2            0.102    0.058    1.771    0.077
+  i_var2 ~~                                           
+    s_var2           -0.185    0.127   -1.454    0.146
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .time1_var1       -0.101    0.520   -0.194    0.846
+   .time2_var1        1.999    0.344    5.807    0.000
+   .time3_var1        0.031    0.733    0.043    0.966
+   .time1_var2       -0.348    0.190   -1.826    0.068
+   .time2_var2        0.689    0.116    5.950    0.000
+   .time3_var2       -0.460    0.224   -2.055    0.040
+    i_var1            8.630    0.931    9.274    0.000
+    s_var1            1.866    0.336    5.557    0.000
+    i_var2            4.947    0.481   10.291    0.000
+    s_var2            0.647    0.108    5.979    0.000</code></pre>
+</div>
+</div>
+</section>
+<section id="interpreting-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
+<p>In the output, you will see the estimates for the factor loadings, intercepts, and slopes for both variables. These estimates describe the initial levels and growth rates for each variable. You will also see the variances and covariances of the latent intercept and slope factors, which provide information about individual differences in initial levels and growth rates, as well as the relationships between the initial levels and growth rates across the two variables.</p>
+<p>Pay attention to the model fit indices (e.g., CFI, TLI, RMSEA, and SRMR) to evaluate how well the model fits the data. Good model fit is indicated by CFI and TLI values close to or greater than 0.95, RMSEA values close to or smaller than 0.06, and SRMR values close to or smaller than xxx</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,3 +1,80 @@
 ---
 title: "Growth Mixture Models"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+Growth Mixture Models (GMMs) are a type of statistical model that aims to identify distinct subgroups or classes within a population based on their growth trajectories. In this tutorial, we will walk you through a simple example using a simulated dataset and demonstrate how to fit a Growth Mixture Model using the `lcmm` package in R.
+
+[+add diagrams/figures]
+
+### When to use Growth Mixture Models (GMMs)?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Growth Mixture Models (GMMs)
+
+#### Prerequisites
+To follow along with this tutorial, you will need to have R and RStudio installed on your computer. Additionally, you will need to install the `lcmm` package, which provides functions for fitting Growth Mixture Models.
+
+## Basic Example 
+```{r setup, echo=TRUE, warning=FALSE, message=FALSE}
+# Install the lcmm package if not already installed
+if (!("lcmm" %in% installed.packages())) {
+  install.packages("lcmm")
+}
+```
+
+Load the lcmm package
+```{r}
+library(lcmm)
+```
+
+Simulating the Data
+For this tutorial, we will use a simulated dataset with three growth trajectory classes, where each class represents a different pattern of change over time. The dataset will consist of 300 individuals with four repeated measurements (time points) for each individual.
+
+```{r}
+set.seed(123)
+n <- 300
+timepoints <- 4
+
+# Simulate the data for each class
+class1 <- data.frame(id = 1:(n / 3),
+                     time = rep(1:timepoints, each = n / 3),
+                     class = 1,
+                     value = rnorm(n * timepoints / 3, mean = 1 + 0.5 * (1:timepoints), sd = 0.5))
+
+class2 <- data.frame(id = (n / 3 + 1):(2 * n / 3),
+                     time = rep(1:timepoints, each = n / 3),
+                     class = 2,
+                     value = rnorm(n * timepoints / 3, mean = 2 - 0.3 * (1:timepoints), sd = 0.5))
+
+class3 <- data.frame(id = (2 * n / 3 + 1):n,
+                     time = rep(1:timepoints, each = n / 3),
+                     class = 3,
+                     value = rnorm(n * timepoints / 3, mean = 3 + 0.1 * (1:timepoints), sd = 0.5))
+```
+
+```{r}
+# Combine the data from all classes
+data <- rbind(class1, class2, class3)
+```
+
+### Model Specification and Estimation
+Now that we have our simulated data, we can fit a Growth Mixture Model. In this example, we will assume that there are three latent classes. However, in practice, the number of classes is usually unknown and must be determined through model comparisons or other methods.
+```{r, eval=FALSE}
+# Fit the Growth Mixture Model
+gmm <- hlme(value ~ time,
+            random = ~ time,
+            subject = "id",
+            mixture = ~ time,
+            data = data,
+            ng = 3,
+            B = list(value = c(1, 0, 0, 0)
+```
+
+### Interpreting the Results
+xxxxxx

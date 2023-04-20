@@ -1,3 +1,93 @@
 ---
 title: "State-Trait Models"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+State-Trait Models are a type of statistical model used to separate the variance in a given variable into two components: a stable, trait-like component and a time-specific, state-like component. In this tutorial, we will walk you through a simple example using a simulated dataset and demonstrate how to fit a State-Trait Model using the `lavaan` package in R.
+
+[+add diagrams/figures]
+
+### When to use State-Trait Models?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with State-Trait Models
+
+#### Prerequisites
+To follow along with this tutorial, you will need to have R and RStudio installed on your computer. Additionally, you will need to install the `lavaan` package, which provides functions for fitting various structural equation models, including State-Trait Models.
+
+## Basic Example 
+```{r setup, echo=TRUE, warning=FALSE, message=FALSE}
+# Install the lavaan package if not already installed
+if (!("lavaan" %in% installed.packages())) {
+  install.packages("lavaan")
+}
+```
+
+# Load the lavaan package
+```{r}
+library(lavaan)
+```
+
+## Simulating the Data
+For this tutorial, we will use a simulated dataset with 300 individuals, each measured at four time points. The dataset will contain a variable with both state-like and trait-like components.
+
+```{r}
+set.seed(123)
+n <- 300
+timepoints <- 4
+
+# Simulate the trait-like component
+trait <- rnorm(n, mean = 100, sd = 10)
+
+# Simulate the state-like component
+state <- matrix(rnorm(n * timepoints, mean = 0, sd = 5), nrow = n, ncol = timepoints)
+
+# Combine trait and state components
+data <- data.frame(id = rep(1:n, each = timepoints),
+                   time = rep(1:timepoints, times = n),
+                   value = c(t(trait + state)))
+```
+
+### Model Specification and Estimation
+Now that we have our simulated data, we can fit a State-Trait Model using the lavaan package. The model will estimate the trait-like and state-like components for each individual.
+
+```{r}
+# Define the model
+model <- '
+  # Trait component
+  trait =~ 1 * value_t1 + 1 * value_t2 + 1 * value_t3 + 1 * value_t4
+
+  # State component
+  state =~ value_t1 + value_t2 + value_t3 + value_t4
+
+  # Residual variances
+  value_t1 ~~ value_t1
+  value_t2 ~~ value_t2
+  value_t3 ~~ value_t3
+  value_t4 ~~ value_t4
+'
+```
+
+```{r}
+# Reshape the data to wide format
+data_wide <- reshape(data, idvar = "id", timevar = "time", direction = "wide")
+```
+
+```{r, eval=FALSE}
+# Fit the State-Trait Model
+fit <- sem(model, data = data_wide)
+```
+
+### Interpreting the Results
+Now that we have estimated our State-Trait Model, we can interpret the results. The key parameters of interest in this model are the trait-like and state-like components, which are the variances attributed to each component.
+
+```{r, eval=FALSE}
+# Obtain the results
+summary(fit)
+```
+

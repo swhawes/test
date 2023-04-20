@@ -1,3 +1,86 @@
 ---
 title: "Latent Growth Curve Models"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+In this tutorial, we'll introduce Latent Growth Curve Models (LGCM), a powerful technique for analyzing longitudinal data. Latent Growth Curve Models allow researchers to examine individual differences in growth trajectories and the factors that might influence these trajectories. We'll walk through an example using a dataset with three time points and a sample size of 250 participants.
+
+[+add diagrams/figures]
+
+### When to use Latent Growth Curve Models?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Latent Growth Curve Models
+
+#### Prerequisites
+To follow along with this tutorial, you'll need to have R installed on your computer, as well as the "lavaan" package for fitting latent variable models.
+
+You can install the "lavaan" package using the following code:
+
+```{r}
+if (!("lavaan" %in% installed.packages())) {
+  install.packages("lavaan")
+}
+```
+
+## Basic Example 
+For this tutorial, we'll use a hypothetical dataset called "data" with the following variables:
+
+subject_id: A unique identifier for each participant
+score_t1: The measurement of a variable of interest at Time 1
+score_t2: The measurement of the same variable at Time 2
+score_t3: The measurement of the same variable at Time 3
+First, let's load the "lavaan" package and create a dataset for this example:
+
+```{r}
+library(lavaan)
+
+# Create a sample dataset with 250 participants
+set.seed(42) # For reproducibility
+subject_id <- 1:250
+score_t1 <- rnorm(250, mean = 20, sd = 5)
+score_t2 <- score_t1 + rnorm(250, mean = 2, sd = 3)
+score_t3 <- score_t2 + rnorm(250, mean = 3, sd = 4)
+data <- data.frame(subject_id, score_t1, score_t2, score_t3)
+```
+
+### Model Specification and Estimation
+Now, let's specify the Latent Growth Curve Model. In this example, we'll estimate the intercept (initial level) and slope (rate of change) for the variable of interest, as well as the variances of the intercept and slope.
+
+```{r}
+# Define the Latent Growth Curve Model
+model <- '
+  # Latent variables
+    i =~ 1 * score_t1 + 1 * score_t2 + 1 * score_t3
+    s =~ 0 * score_t1 + 1 * score_t2 + 2 * score_t3
+
+  # Means
+    i ~ mu_i
+    s ~ mu_s
+
+  # Variances
+    i ~~ var_i * i
+    s ~~ var_s * s
+
+  # Covariance
+    i ~~ cov_is * s
+'
+```
+
+```{r, eval = FALSE}
+# Fit the model
+fit <- sem(model, data = data, missing = "FIML")
+```
+
+### Interpreting the Results
+We can now examine the results of our Latent Growth Curve Model. The main parameters of interest are:
+
+mu_i: The mean intercept (initial level) of the variable of interest
+mu_s: The mean slope (rate of change) of the variable of interest
+var_i: The variance of the intercept, which reflects individual differences in initial levels
+var_s: The variance of the slope, which reflects individual differences in rates

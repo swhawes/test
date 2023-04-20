@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Biostatistics Working Group">
 
 <title>Longitudinal Manuscript - Autoregressive Crosslagged Panel Models</title>
 <style>
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -276,6 +311,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Biostatistics Working Group </p>
+          </div>
+  </div>
     
   
     
@@ -284,8 +325,105 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>xxxx Autoregressive cross-lagged panel models (ACPMs) are a type of statistical model used to analyze longitudinal data and examine the temporal relationships between two or more variables over time. These models help to disentangle within-person effects from between-person effects and can estimate both autoregressive effects (influence of a variable on itself over time) and cross-lagged effects (influence of one variable on another variable over time).</p>
+<p>autoregressive cross-lagged panel models, commonly known as CLPMs. CLPMs are a statistical method used to analyze longitudinal data, particularly when we want to examine the reciprocal relationships between two or more variables over time. In essence, CLPMs allow us to investigate whether one variable at an earlier time point can predict another variable at a later time point, and vice versa.</p>
+<p>CLPMs are useful when we want to go beyond simple correlations between variables at different time points and instead model the dynamic interplay between them. Specifically, CLPMs account for the possibility that the relationship between two variables at one time point may influence their relationship at a subsequent time point. These models can also account for autocorrelation, meaning that the same variable measured over time is correlated with itself.</p>
+<p>[+add diagrams/figures]</p>
+<section id="when-to-use-autoregressive-cross-lagged-panel-models-acpms" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-autoregressive-cross-lagged-panel-models-acpms">When to use Autoregressive Cross-Lagged Panel Models (ACPMs)?</h3>
+<p>You should use xxxxxxx in the following scenario:</p>
+<ol type="1">
+<li>You want to know xxxxx</li>
+<li>Your variable xxxxx</li>
+<li>You have xxxxx</li>
+</ol>
+</section>
+<section id="getting-started-with-autoregressive-cross-lagged-panel-models-acpms" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-autoregressive-cross-lagged-panel-models-acpms">Getting Started with Autoregressive Cross-Lagged Panel Models (ACPMs)</h3>
+<p>In this tutorial, we will introduce the concept of autoregressive cross-lagged panel models (ACPMs) and guide you through a simple example using a larger dataset. By the end of this tutorial, you will be able to:</p>
+<ol type="1">
+<li>Understand the basic concepts of ACPMs.</li>
+<li>Fit an ACPM using example data in R.</li>
+<li>Interpret the results of the model.</li>
+</ol>
+</section>
+</section>
+<section id="basic-example" class="level2">
+<h2 class="anchored" data-anchor-id="basic-example">Basic Example</h2>
+<p>For this tutorial, we will use a simulated dataset containing the following information for a group of 100 individuals:</p>
+<ul>
+<li>Subject ID</li>
+<li>Time (in years)</li>
+<li>Variable 1 (e.g., stress level)</li>
+<li>Variable 2 (e.g., job satisfaction)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_subjects <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n_timepoints <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>subject_ids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_subjects, <span class="at">each =</span> n_timepoints))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span>(n_timepoints <span class="sc">-</span> <span class="dv">1</span>), <span class="at">times =</span> n_subjects)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>variable1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>variable2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_subjects <span class="sc">*</span> n_timepoints, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subject_id =</span> subject_ids, <span class="at">time =</span> time, <span class="at">variable1 =</span> variable1, <span class="at">variable2 =</span> variable2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="model-specification-and-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
+<p>We will use the lavaan package in R to fit an ACPM. First, install the required package, if not already installed:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lavaan"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"lavaan"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Define the ACPM with three timepoints:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Autoregressive paths</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  variable1_t2 <span class="sc">~</span> a1 <span class="sc">*</span> variable1_t1</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  variable1_t1 <span class="sc">~</span> a2 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable1_t1 ~ a2 * variable1_t0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  variable2_t2 <span class="sc">~</span> a3 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable2_t2 ~ a3 * variable2_t1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  variable2_t1 <span class="sc">~</span> a4 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable2_t1 ~ a4 * variable2_t0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cross-lagged paths</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  variable1_t2 <span class="sc">~</span> b1 <span class="sc">*</span> variable2_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable1_t2 ~ b1 * variable2_t1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  variable1_t1 <span class="sc">~</span> b2 <span class="sc">*</span> variable2_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable1_t1 ~ b2 * variable2_t0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  variable2_t2 <span class="sc">~</span> b3 <span class="sc">*</span> variable1_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable2_t2 ~ b3 * variable1_t1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  variable2_t1 <span class="sc">~</span> b4 <span class="sc">*</span> variable1_t0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable2_t1 ~ b4 * variable1_t0</code></pre>
+</div>
+</div>
+<p>Fit the ACPM using the lavaan function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit &lt;- lavaan(model, data = data, missing = )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interpreting-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
+<p>xxxxxxxx</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

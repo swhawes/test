@@ -10,6 +10,7 @@ Marginal models are a statistical method used to analyze longitudinal or cluster
 
 ### When to use Longitudinal Marginal Models
 You should use xxxxxxx in the following scenario:
+
 1.	You want to know xxxxx
 2.	Your variable xxxxx
 3.	You have xxxxx 

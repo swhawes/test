@@ -10,6 +10,7 @@ The longitudinal signed-rank test is a nonparametric alternative to the paired t
 
 ### When to use a Signed-Rank Test?
 You should use a Wilcoxon Signed-Rank Test in the following scenario:
+
 1.	You want to know if two groups are different on your variable of interest
 2.	Your variable of interest is continuous
 3.	You have two and only two groups

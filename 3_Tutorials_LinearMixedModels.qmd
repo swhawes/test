@@ -1,6 +1,8 @@
 ---
 title: "Linear Mixed Models"
 author: "Biostatistics Working Group"
+execute:
+  warning: false
 ---
 
 ## Overview
@@ -10,6 +12,7 @@ Linear mixed models (LMMs) are a powerful statistical tool that allows the analy
 
 ### When to use Longitudinal Linear Mixed Models (LMMs)?
 You should use LMMs in the following scenario:
+
 1.	You want to know xxxxx
 2.	Your variable xxxxx
 3.	You have xxxxx 

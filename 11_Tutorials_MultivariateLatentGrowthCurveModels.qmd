@@ -1,3 +1,71 @@
 ---
 title: "Multivariate Latent Growth Curves"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+In this tutorial, we will introduce the Multivariate Latent Growth Curve Model (MLGCM), also known as Parallel Process Latent Growth Curve Model. These models allow us to analyze multiple growth processes simultaneously, examining the relationships between the initial levels and growth rates of multiple variables over time.
+
+We will use the "lavaan" package in R to fit a MLGCM with two variables, each measured at three timepoints. We will also provide a brief overview of interpreting the results.
+
+[+add diagrams/figures]
+
+### When to use Multivariate Latent Growth Curve Models?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Multivariate Latent Growth Curve Models
+
+
+## Basic Example
+```{r}
+# Load necessary packages
+if (!("lavaan" %in% installed.packages())) install.packages("lavaan")
+library(lavaan)
+
+# Generate sample data
+set.seed(42)
+n <- 250
+time1_var1 <- rnorm(n, mean = 10, sd = 3)
+time2_var1 <- time1_var1 + rnorm(n, mean = 2, sd = 2)
+time3_var1 <- time2_var1 + rnorm(n, mean = 2, sd = 2)
+
+time1_var2 <- rnorm(n, mean = 5, sd = 2)
+time2_var2 <- time1_var2 + rnorm(n, mean = 1, sd = 1)
+time3_var2 <- time2_var2 + rnorm(n, mean = 1, sd = 1)
+
+# Combine into a data frame
+data <- data.frame(time1_var1, time2_var1, time3_var1,
+                   time1_var2, time2_var2, time3_var2)
+```
+
+### Model Specification and Estimation
+```{r}
+# Specify the multivariate latent growth curve model
+model <- '
+  # Intercept and slope factors for variable 1
+  i_var1 =~ 1*time1_var1 + 1*time2_var1 + 1*time3_var1
+  s_var1 =~ 0*time1_var1 + 1*time2_var1 + 2*time3_var1
+
+  # Intercept and slope factors for variable 2
+  i_var2 =~ 1*time1_var2 + 1*time2_var2 + 1*time3_var2
+  s_var2 =~ 0*time1_var2 + 1*time2_var2 + 2*time3_var2
+'
+```
+
+```{r}
+# Estimate the model
+fit <- lavaan::sem(model, data = data)
+```
+
+```{r}
+summary(fit, fit.measures = TRUE)
+```
+
+### Interpreting the Results
+In the output, you will see the estimates for the factor loadings, intercepts, and slopes for both variables. These estimates describe the initial levels and growth rates for each variable. You will also see the variances and covariances of the latent intercept and slope factors, which provide information about individual differences in initial levels and growth rates, as well as the relationships between the initial levels and growth rates across the two variables.
+
+Pay attention to the model fit indices (e.g., CFI, TLI, RMSEA, and SRMR) to evaluate how well the model fits the data. Good model fit is indicated by CFI and TLI values close to or greater than 0.95, RMSEA values close to or smaller than 0.06, and SRMR values close to or smaller than xxx

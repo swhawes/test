@@ -331,7 +331,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>[+add diagrams/figures]</p>
 <section id="when-to-use-a-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="when-to-use-a-signed-rank-test">When to use a Signed-Rank Test?</h3>
-<p>You should use a Wilcoxon Signed-Rank Test in the following scenario: 1. You want to know if two groups are different on your variable of interest 2. Your variable of interest is continuous 3. You have two and only two groups 4. You have independent samples 5. You have a skewed variable of interest</p>
+<p>You should use a Wilcoxon Signed-Rank Test in the following scenario:</p>
+<ol type="1">
+<li>You want to know if two groups are different on your variable of interest</li>
+<li>Your variable of interest is continuous</li>
+<li>You have two and only two groups</li>
+<li>You have independent samples</li>
+<li>You have a skewed variable of interest</li>
+</ol>
 </section>
 <section id="getting-started-with-longitudinal-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started-with-longitudinal-signed-rank-test">Getting Started with Longitudinal Signed-Rank Test</h3>
@@ -390,17 +397,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Perform the longitudinal signed-rank test using the wilcox.test() function with the paired = TRUE argument:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_result <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(data<span class="sc">$</span>t1, data<span class="sc">$</span>t2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in wilcox.test.default(data$t1, data$t2, paired = TRUE): cannot compute
-exact p-value with ties</code></pre>
-</div>
 </div>
 </section>
 <section id="interpreting-the-results" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
 <p>To interpret the results of the longitudinal signed-rank test, examine the p-value from the test_result object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>test_result<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>test_result<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1735682</code></pre>
 </div>

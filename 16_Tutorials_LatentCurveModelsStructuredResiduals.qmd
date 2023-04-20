@@ -1,3 +1,89 @@
 ---
 title: "Latent Curve Models with Structured Residuals"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+In this tutorial, we will explore Latent Curve Models with Structured Residuals (LCM-SR). LCM-SR allows for the separation of between-person and within-person components of individual change over time. By using structured residuals, we can account for time-varying covariates and interactions between variables at both the within-person and between-person levels.
+
+[+add diagrams/figures]
+
+### When to use Latent Curve Models with Structured Residuals?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Latent Curve Models with Structured Residuals
+
+#### Prerequisites
+You need to have the `lavaan` and `semTools` packages installed in R to perform LCM-SR. Install them using the following commands:
+
+```{r}
+if (!("lavaan" %in% installed.packages())) install.packages("lavaan")
+if (!("semTools" %in% installed.packages())) install.packages("semTools")
+```
+
+## Basic Example 
+For this tutorial, we will use simulated data with 500 individuals and 5 timepoints. The data will include a time-varying covariate, covariate, and an outcome variable, outcome.
+
+```{r}
+set.seed(123)
+library(lavaan)
+library(semTools)
+
+# Simulate data
+n <- 500
+timepoints <- 5
+
+id <- rep(1:n, each = timepoints)
+time <- rep(1:timepoints, n)
+
+covariate <- rnorm(n * timepoints, mean = 0, sd = 1)
+outcome <- rnorm(n * timepoints, mean = 0, sd = 1)
+
+data <- data.frame(id, time, covariate, outcome)
+```
+
+### Model Specification and Estimation
+To specify an LCM-SR, we will use the lavaan syntax to define the measurement model and the structural model. We will model the linear growth of the outcome variable while accounting for the effect of the time-varying covariate.
+
+```{r}
+model <- '
+  # Latent variables
+  intercept =~ 1 * outcome_t1 + 1 * outcome_t2 + 1 * outcome_t3 + 1 * outcome_t4 + 1 * outcome_t5
+  slope =~ 0 * outcome_t1 + 1 * outcome_t2 + 2 * outcome_t3 + 3 * outcome_t4 + 4 * outcome_t5
+
+  # Time-varying covariate effect on outcome
+  outcome_t1 ~ c1 * covariate_t1
+  outcome_t2 ~ c2 * covariate_t2
+  outcome_t3 ~ c3 * covariate_t3
+  outcome_t4 ~ c4 * covariate_t4
+  outcome_t5 ~ c5 * covariate_t5
+
+  # Residual variances and covariances
+  outcome_t1 ~~ r1 * outcome_t1
+  outcome_t2 ~~ r2 * outcome_t2
+  outcome_t3 ~~ r3 * outcome_t3
+  outcome_t4 ~~ r4 * outcome_t4
+  outcome_t5 ~~ r5 * outcome_t5
+
+  # Latent variable variances
+  intercept ~~ i_var * intercept
+  slope ~~ s_var * slope
+
+  # Latent variable covariances
+  intercept ~~ i_s_cov * slope
+'
+```
+
+Model Estimation
+Now we will estimate the model using the lavaan function sem().
+
+```{r, eval=FALSE}
+# Reshape data to wide format
+wide_data <- spread(data, key = time, value = outcome, sep
+```
+### Interpreting the Results
+xxxxx

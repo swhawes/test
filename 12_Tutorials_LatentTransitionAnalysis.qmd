@@ -1,3 +1,78 @@
 ---
 title: "Latent Transition Analysis"
+author: "Biostatistics Working Group"
 ---
+
+## Overview
+In this tutorial, we will introduce Latent Transition Analysis (LTA), a statistical method used to analyze the movement of individuals between latent (unobserved) statuses over time. LTA is particularly useful when dealing with categorical data and allows us to estimate the probabilities of transitioning between latent statuses.
+
+We will use the "tidyLPA" package in R to fit a simple LTA model with four timepoints and three indicators per timepoint. We will also provide a brief overview of interpreting the results.
+
+[+add diagrams/figures]
+
+### When to use Latent Transition Analysis?
+You should use xxxxxxx in the following scenario:
+
+1.	You want to know xxxxx
+2.	Your variable xxxxx
+3.	You have xxxxx 
+
+### Getting Started with Latent Transition Analysis
+
+## Basic Example 
+
+```{r}
+# Load necessary packages
+if (!("tidyLPA" %in% installed.packages())) install.packages("tidyLPA")
+library(tidyLPA)
+```
+
+```{r}
+set.seed(42)
+n <- 250
+
+# Generate three indicators for time 1
+time1_ind1 <- rbinom(n, size = 1, prob = 0.7)
+time1_ind2 <- rbinom(n, size = 1, prob = 0.6)
+time1_ind3 <- rbinom(n, size = 1, prob = 0.5)
+
+# Generate three indicators for time 2
+time2_ind1 <- rbinom(n, size = 1, prob = 0.6)
+time2_ind2 <- rbinom(n, size = 1, prob = 0.5)
+time2_ind3 <- rbinom(n, size = 1, prob = 0.4)
+
+# Generate three indicators for time 3
+time3_ind1 <- rbinom(n, size = 1, prob = 0.5)
+time3_ind2 <- rbinom(n, size = 1, prob = 0.4)
+time3_ind3 <- rbinom(n, size = 1, prob = 0.3)
+
+# Generate three indicators for time 4
+time4_ind1 <- rbinom(n, size = 1, prob = 0.4)
+time4_ind2 <- rbinom(n, size = 1, prob = 0.3)
+time4_ind3 <- rbinom(n, size = 1, prob = 0.2)
+```
+
+# Combine into a data frame
+```{r}
+data <- data.frame(time1_ind1, time1_ind2, time1_ind3,
+                   time2_ind1, time2_ind2, time2_ind3,
+                   time3_ind1, time3_ind2, time3_ind3,
+                   time4_ind1, time4_ind2, time4_ind3)
+```
+
+### Model Specification and Estimation
+```{r}
+# Estimate the LTA model
+fit <- tidyLPA::estimate_profiles(data, 2, variances = "equal", covariances = "zero")
+```
+
+### Interpreting the Results
+In the output, you will find the estimated class probabilities for each timepoint. These probabilities represent the proportion of individuals belonging to each latent status at each timepoint. You will also see the estimated transition probabilities, which represent the probabilities of transitioning between latent statuses from one timepoint to the next.
+
+You can visualize the results using the plot() function to better understand the transitions between latent statuses:
+
+```{r, eval = FALSE}
+plot(fit)
+```
+
+Remember to xxxxx

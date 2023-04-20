@@ -90,6 +90,9 @@ format:
     link-external-icon: true
     link-external-newwindow: true
 
+execute:
+  warning: false
+
 # comments:
 #   hypothesis: true
 # comments:

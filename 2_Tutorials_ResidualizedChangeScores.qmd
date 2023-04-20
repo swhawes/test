@@ -10,9 +10,9 @@ Residualized change scores are a method used to analyze change in a variable ove
 
 ![Residualized Change Score 1_Tutorial](./figures/Residualized Change Score.png)
 
-xxxxxx
 ### When to use Residualized Change Score Models?
 You should use residualized change scores in the following scenario:
+
 1.	You want to know xxxxx
 2.	Your variable xxxxx
 3.	You have xxxxx 
