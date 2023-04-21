@@ -1,0 +1,16 @@
+rstatix
+Matrix
+lme4
+lmerTest
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+lubridate
+ggpubr
+emmeans
