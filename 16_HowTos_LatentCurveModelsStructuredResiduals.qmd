@@ -1,0 +1,6 @@
+---
+title: "Latent Curve Models with Structured Residuals"
+author: "Biostatistics Working Group"
+---
+
+test page for LCM-SR how tos

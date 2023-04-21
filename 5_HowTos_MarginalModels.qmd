@@ -1,0 +1,6 @@
+---
+title: "Marginal Models"
+author: "Biostatistics Working Group"
+---
+
+test page for marginal models howtos

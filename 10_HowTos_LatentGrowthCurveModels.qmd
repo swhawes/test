@@ -1,0 +1,6 @@
+---
+title: "Latent Growth Curve Models"
+author: "Biostatistics Working Group"
+---
+
+test page for lgcm howtos

@@ -1,0 +1,6 @@
+---
+title: "Random-Intercept Crosslagged Panel Models"
+author: "Biostatistics Working Group"
+---
+
+test page for ri-clpm howtos

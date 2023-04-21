@@ -1,0 +1,6 @@
+---
+title: "Autoregressive Crosslagged Panel Models"
+author: "Biostatistics Working Group"
+---
+
+test page for clpm howtos

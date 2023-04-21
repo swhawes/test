@@ -1,0 +1,6 @@
+---
+title: "Growth Mixture Models"
+author: "Biostatistics Working Group"
+---
+
+test page of gmm how-tos

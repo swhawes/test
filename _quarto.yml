@@ -93,10 +93,34 @@ website:
         - howto.qmd
         - section: "Traditional Linear Models"
           contents:
-            - howto.qmd
+            - 1_HowTos_DifferenceScores.qmd
+            - 2_HowTos_ResidualizedChangeScores.qmd
+            - 3_HowTos_LinearMixedModels.qmd
         - section: "Traditional Non-linear Models"
           contents:
-            - 1a_Difference Scores paired samples ttest_HowTo.qmd
+            - 4_HowTos_SignedRankTest.qmd
+            - 5_HowTos_MarginalModels.qmd
+            - 6_HowTos_GeneralizedEstimatingEquations.qmd
+            - 7_HowTos_GeneralizedLinearMixedEffectsModels.qmd
+        - section: "SEM Approaches"
+          contents:
+            - 8_HowTos_AutoregressiveCrosslaggedPanelModels.qmd
+            - 9_HowTos_LatentChangeScoresModels.qmd
+            - 10_HowTos_LatentGrowthCurveModels.qmd
+            - 11_HowTos_MultivariateLatentGrowthCurveModels.qmd
+            - 12_HowTos_LatentTransitionAnalysis.qmd
+            - 13_HowTos_GrowthMixtureModels.qmd
+            - 14_HowTos_StateTraitModels.qmd
+        - section: "Advanced SEM"
+          contents:
+            - 15_HowTos_RandomInterceptCrosslaggedPanelModels.qmd
+            - 16_HowTos_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
         # navigation items
 
     - title: "Fundamentals"

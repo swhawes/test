@@ -1,0 +1,6 @@
+---
+title: "State-Trait Models"
+author: "Biostatistics Working Group"
+---
+
+test page for state-trait howtos

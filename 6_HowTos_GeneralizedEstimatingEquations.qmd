@@ -1,0 +1,6 @@
+---
+title: "Generalized Estimating Equations"
+author: "Biostatistics Working Group"
+---
+
+GEE howtos test page
