@@ -107,6 +107,287 @@
     "test.tex": "651a2c4c"
   },
   "test.qmd": {
-    "test.tex": "04b600d4"
+    "test.tex": "04b600d4",
+    "test.html": "f1b5b369",
+    "test.docx": "7535203e"
+  },
+  "MacPorts-2.8.1/portmgr/ReleaseProcess.md": {
+    "ReleaseProcess.html": "2536ceb2"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/support/releases/history/README-1.20.md": {
+    "README-1.20.html": "6fc5a3bb"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/support/releases/history/README-1.21.md": {
+    "README-1.21.html": "b3355833"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/support/releases/history/README-1.19.md": {
+    "README-1.19.html": "6618c2e9"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/DEP.md": {
+    "DEP.html": "8cf4f7da"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/operations.md": {
+    "operations.html": "fbdf0690"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.server.md": {
+    "content.server.html": "a0b361c4"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.proxy.md": {
+    "content.proxy.html": "83ea3a22"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/example.md": {
+    "example.html": "b6c912cf"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.md": {
+    "content.html": "9612cf1d"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.scgi.md": {
+    "content.scgi.html": "bc6ebfa7"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/reply.md": {
+    "reply.html": "66a26098"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/index.md": {
+    "index.html": "883e98b6"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.file.md": {
+    "content.file.html": "29c1a8c5"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/content.form.md": {
+    "content.form.html": "8780a0dc"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/examples/httpd/htdocs/server.md": {
+    "server.html": "054dcb44"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/dicttool/dicttool.md": {
+    "dicttool.html": "180d9970"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/oometa/oometa.md": {
+    "oometa.html": "bb7a3c83"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/doctools/mpformats/toc.markdown": {
+    "toc.html": "131265e1"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/doctools/mpformats/idx.markdown": {
+    "idx.html": "6a0608c8"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/doctools/mpformats/fmt.markdown": {
+    "fmt.html": "9c2d5bb8"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/markdown.md": {
+    "markdown.html": "c81c42ee"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/p_br_h_hr.md": {
+    "p_br_h_hr.html": "009b06fd"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/indent.md": {
+    "indent.html": "16562d8e"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/comments.md": {
+    "comments.html": "0d88031a"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/inline.md": {
+    "inline.html": "84ad1f41"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/lists.md": {
+    "lists.html": "09436105"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/code.md": {
+    "code.html": "50d3fb50"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/markdown/test/bq.md": {
+    "bq.html": "5037a75e"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/oodialect/oodialect.md": {
+    "oodialect.html": "ddbca4e0"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/modules/tool/tool.md": {
+    "tool.html": "9a677a84"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/head.md": {
+    "head.html": "0f402f48"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/index.md": {
+    "index.html": "5ea0413f"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/toc2.md": {
+    "toc2.html": "76c3d947"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/toc.md": {
+    "toc.html": "6b6a8d35"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcllib_devguide.md": {
+    "tcllib_devguide.html": "6eaef58f"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcllib_installer.md": {
+    "tcllib_installer.html": "c6237158"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcllib_releasemgr.md": {
+    "tcllib_releasemgr.html": "cbe3bbd1"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcllib_license.md": {
+    "tcllib_license.html": "6f9c1a3b"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcl_community_communication.md": {
+    "tcl_community_communication.html": "600cdca2"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/devdoc/tcllib_sources.md": {
+    "tcllib_sources.html": "3b1596a1"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/grammar_fa/faop.md": {
+    "faop.html": "82665ee7"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/grammar_fa/fa.md": {
+    "fa.html": "59734a44"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/grammar_fa/dacceptor.md": {
+    "dacceptor.html": "45d3134e"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/grammar_fa/dexec.md": {
+    "dexec.html": "b7354e00"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/md4/md4.md": {
+    "md4.html": "5eb8c2e6"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/nettool/nettool.md": {
+    "nettool.html": "3e369192"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/ftp/ftp_geturl.md": {
+    "ftp_geturl.html": "5eabadb0"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/ftp/ftp.md": {
+    "ftp.html": "eb5019d6"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/dicttool/dicttool.md": {
+    "dicttool.html": "0a61ecd8"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/mapproj/mapproj.md": {
+    "mapproj.html": "583f0a09"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/md5/md5.md": {
+    "md5.html": "4d96eec8"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_wtext.md": {
+    "bench_wtext.html": "d37ead3b"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench.md": {
+    "bench.html": "df780dd4"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_lang_intro.md": {
+    "bench_lang_intro.html": "b162a4b1"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_lang_spec.md": {
+    "bench_lang_spec.html": "4bc36424"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_wcsv.md": {
+    "bench_wcsv.html": "33aa233d"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_intro.md": {
+    "bench_intro.html": "d609206f"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/bench/bench_read.md": {
+    "bench_read.html": "fa2cc735"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_util_peg.md": {
+    "page_util_peg.html": "3c55aeb4"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_pluginmgr.md": {
+    "page_pluginmgr.html": "8d8353c8"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_util_norm_lemon.md": {
+    "page_util_norm_lemon.html": "6efc54ab"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_intro.md": {
+    "page_intro.html": "78fb66c6"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_util_norm_peg.md": {
+    "page_util_norm_peg.html": "1c7adc82"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_util_quote.md": {
+    "page_util_quote.html": "a59abe2d"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/page/page_util_flow.md": {
+    "page_util_flow.html": "89c796b2"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/websocket/websocket.md": {
+    "websocket.html": "03063d08"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/inifile/ini.md": {
+    "ini.html": "75e56610"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/rc4/rc4.md": {
+    "rc4.html": "e8b61d33"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/stooop/stooop.md": {
+    "stooop.html": "ce52f81c"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/stooop/switched.md": {
+    "switched.html": "3672e32a"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/namespacex/namespacex.md": {
+    "namespacex.html": "463c0b11"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/oometa/oometa.md": {
+    "oometa.html": "53391457"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/des/tcldesjr.md": {
+    "tcldesjr.html": "77e06372"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/des/des.md": {
+    "des.html": "a7837379"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/des/tcldes.md": {
+    "tcldes.html": "fffb6f13"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/nmea/nmea.md": {
+    "nmea.html": "2773d146"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/fileutil/multiop.md": {
+    "multiop.html": "1d117b23"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/fileutil/paths.md": {
+    "paths.html": "9b40cda3"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/fileutil/fileutil.md": {
+    "fileutil.html": "32111a31"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/fileutil/traverse.md": {
+    "traverse.html": "22f7f16d"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/fileutil/multi.md": {
+    "multi.html": "1e11bf0e"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/oauth/oauth.md": {
+    "oauth.html": "43ca501d"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/cache/async.md": {
+    "async.html": "a7409c82"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/coroutine/coro_auto.md": {
+    "coro_auto.html": "ead15b29"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/coroutine/tcllib_coroutine.md": {
+    "tcllib_coroutine.html": "b4b604d3"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/practcl/practcl.md": {
+    "practcl.html": "09005d3f"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/defer/defer.md": {
+    "defer.html": "9434c16b"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/virtchannel_core/transformcore.md": {
+    "transformcore.html": "5a24bf12"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/virtchannel_core/core.md": {
+    "core.html": "42726d37"
+  },
+  "MacPorts-2.8.1/vendor/tcllib-1.21/embedded/md/tcllib/files/modules/virtchannel_core/events.md": {
+    "events.html": "1857a27b"
+  },
+  "testcopy.qmd": {
+    "testcopy.tex": "e4a1d19e"
+  },
+  "Untitled2.qmd": {
+    "Untitled2.tex": "584dbc2e"
   }
 }

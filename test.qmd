@@ -1,76 +1,62 @@
 ---
 title: "Longitudinal Analysis Manuscript: Working Draft"
-format:
-  plos-pdf:
-    number-sections: false
-    journal:
-      # This is an identifier for the target journal: 
-      # from https://plos.org/resources/writing-center/ following submission guidelines link, the identifier is the part of the URL after https://journals.plos.org/<id>/s/submission-guidelines
-      id: plosone
-    include-in-header:
-      text: |
-        % Remove comment for double spacing
-        % \usepackage{setspace} 
-        % \doublespacing
-author:
-  - name: Samuel W. Hawes, PhD.
-    affiliations:
-      - ref: aff1
-    corresponding: true
+subtitle: Longitudinal Analysis using data from the ABCD Study 
+authors:
+  - name: Samuel W. Hawes
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
     email: shawes@fiu.edu
-  - name: Andrew K. Littlefield, PhD.
-    affiliations:
-      - ref: aff2
+  - name: Andrew K. Littlefield
+    department: Psychological Sciences
+    affiliation: Texas Tech University
+    location: Lubbock, TX
+    email: andrew.littlefield@ttu.edu
   - name: Daniel A. Lopez
-    affiliations:
-      - ref: aff3
-  - name: Kenneth J. Sher
-    affiliations:
-      - ref: aff4
+    department: Department of Public Health
+    affiliation: University of Rochester Medical Center
+    location: Rochester, NY
+    email: Daniel_Lopez2@URMC.Rochester.edu
   - name: Wesley K. Thompson
-    affiliations:
-      - ref: aff5
-  - name: Additional Co-authors1
-    affiliations:
-      - ref: aff1
-  - name: Additional Co-authors2
-    affiliations:
-      - ref: aff1
-author-notes:
-  group: Biostatistics Working Group membership list can be found in the Acknowledgments sections
-affiliations:
-  - id: aff1
-    name: Center for Children and Families, Florida International University
-    city: Miami
-    state: FL
-    country: United States
-  - id: aff2
-    name: Psychological Sciences, Texas Tech University
-    city: Lubbock
-    state: TX
-    country: United States
-  - id: aff3
-    name: Department of Public Health, University of Rochester Medical Center
-    city: Rochester
-    state: NY
-    country: United States
-  - id: aff4
-    name: Psychological Sciences, University of Missouri
-    city: Columbia
-    state: MO
-    country: United States
-  - id: aff5
-    name: Population Neuroscience and Genetics Center, Laureate Institute for Brain Research
-    city: Tulsa
-    state: OK
-    country: United States
+    department: Center for Population Neuroscience and Genetics
+    affiliation: Laureate Institute for Brain Research
+    location: Tulsa, OK
+    email: wes.stat@gmail.com
+  - name: Kenneth J. Sher
+    department: Psychological Sciences
+    affiliation: University of Missouri
+    location: Columbia, MO
+    email: SherK@missouri.edu
+  - name: Additional Co-authors
+    department: xxxxxx
+    affiliation: University of xxxx
+    location: xxxxxxx
+    email: xxxxxx
+
 abstract: |
-  The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
+ The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
 
 author-summary: |
   The Adolescent Brain Cognitive Development (ABCD) Study offers valuable insights into adolescent brain development. Researchers working with this data face methodological and analytic concerns, including sample size, attrition, missing data, and measurement. This review addresses complexities in analyzing longitudinal data, with a focus on statistical models accounting for correlations in repeated measurements and their assumptions. We emphasize the importance of choosing appropriate models and analytic functions based on the data and the specific scientific question to be addressed. This concise resource aims  to help researchers navigate longitudinal data analysis, make informed methodological decisions, and enhance the accuracy and reliability of their findings when working with data from the ABCD Study.
 
-bibliography: references.bib
+    keywords:
+    *ABCD Study*,
+    *longitudinal analyses*,
+    *development*
+
+#format:
+#  pdf:
+#    geometry:
+#      - top=30mm
+#      - left=20mm
+#   docx: default
+# prefer-html: true
+
+output: 
+  rticles::arxiv_article
+
+bibliography: "references.bib" #references.bib
+biblio-style: unsrt
 ---
 
 # Introduction
@@ -137,364 +123,5 @@ Attrition from a longitudinal panel study such as ABCD is inevitable and represe
 ## Quantifying effect sizes longitudinally
 Given longitudinal data involve different sources of variance, quantifying effect sizes longitudinally is a more difficult task compared to deriving such estimates from cross-sectional data. Effect size can be defined as, “a population parameter (estimated in a sample) encapsulating the practical or clinical importance of a phenomenon under study.” [@kraemer2014]. Common effect size metrics include r (i.e., the standardized covariance, or correlation, between two variables) and Cohen’s d [@cohen1988]. Adjustments to common effect size calculations, such as Cohen’s d, are required even when only two time points are considered [e.g., see @morris2002]. @wang2019a note there are multiple approaches to obtaining standardized within-person effects, and that commonly suggested approaches (e.g., global standardization) can be problematic [see @wang2019a, for more details]. Thus, obtaining effect size metrics based on standardized estimates that are relatively simple in cross-sectional data (such as r) becomes more complex in the context of prospective data. @feingold2009 noted that equations for effects sizes used in studies involving growth modeling analysis (e.g., latent growth curve modeling) were not mathematically equivalent, and the effect sizes were not in the same metric as effect sizes from traditional analysis [see @feingold2009, for more details]. Given this issue, there have been various proposals for adjusting effect size measures in repeated assessments. @feingold2019 reviews the approach for effect size metrics for analyses based on growth modeling, including when considering linear and non-linear (i.e., quadratic) growth factors. @morris2002 review various equations for effect size calculations relevant to when combining estimates in meta-analysis with repeated measures and independent-groups designs. Other approaches to quantifying effect sizes longitudinally may be based on standardized estimates from models that more optimally disentangle between- and within-person sources of variance (as reviewed above). As an example, within a RI-CLPM framework, standardized estimates between random intercepts (i.e., the correlation between two random intercepts for two different constructs assessed repeatedly) could be used to index the between-person relation, whereas standardized estimates among the structured residuals could be used as informing the effect sizes of within-person relations.
 
-# General guidelines for this Quarto template
 
-This template shows how to use PLOS template from <https://plos.org/resources/writing-center/>. Each journal have a submission guideline page, please refer to it. 
-
- - [PLOS Biology](https://journals.plos.org/plosbiology/s/submission-guidelines) 
- - [PLOS Climate](https://journals.plos.org/climate/s/submission-guidelines)
- - [PLOS Digital Health](https://journals.plos.org/digitalhealth/s/submission-guidelines)
- - [PLOS Computational Biology](https://journals.plos.org/ploscompbiol/s/submission-guidelines)
- - [PLOS Genetics](https://journals.plos.org/plosgenetics/s/submission-guidelines)
- - [PLOS Global Public Health](https://journals.plos.org/globalpublichealth/s/submission-guidelines)
- - [PLOS Medicine](https://journals.plos.org/plosmedicine/s/submission-guidelines)
- - [PLOS Neglected Tropical Diseases](https://journals.plos.org/plosntds/s/submission-guidelines)
- - [PLOS ONE](https://journals.plos.org/plosone/s/submission-guidelines)
- - [PLOS Pathogens](https://journals.plos.org/plospathogens/s/submission-guidelines)
- - [PLOS Sustainability and Transformation](https://journals.plos.org/sustainabilitytransformation/s/submission-guidelines)
- - [PLOS Water](https://journals.plos.org/water/s/submission-guidelines)
-
-This template file contains some guidelines and recommandation initially given in `plos_latex_template.tex` that can be found in <https://github.com/quarto-journals/plos/blob/main/style-guide/plos_latex_template.tex>
-
-## Metadata
-
-### About journal id field
-
-This is an identifier for the target journal. It can be derived from https://plos.org/resources/writing-center/ following submission guidelines link, the identifier is the part of the URL after `https://journals.plos.org/<id>/s/submission-guidelines`
-
-| Journal                               | id                          |
-|:--------------------------------------|:----------------------------|
-|PLOS Biology                           |plosbiology                  |
-|PLOS Climate                           |climate                      |
-|PLOS Digital Health                    |digitalhealth                |
-|PLOS Computational Biology             |ploscompbiol                 |
-|PLOS Genetics                          |plosgenetics                 |
-|PLOS Global Public Health              |globalpublichealth           |
-|PLOS Medicine                          |plosmedicine                 |
-|PLOS Neglected Tropical Diseases       |plosntds                     |
-|PLOS ONE                               |plosone                      |
-|PLOS Pathogens                         |plospathogens                |
-|PLOS Sustainability and Transformation |sustainabilitytransformation |
-|PLOS Water                             |water                        |
-
-Example :
-
-```yaml
-format:
-  plos-pdf:
-    journal:
-      id: water
-```
-
-## Once your paper is accepted for publication, 
-
-Do not include track change in LaTeX file and leave only the final text of your manuscript. 
-PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
-Visit <https://www.ctan.org/pkg/latexdiff?lang=en> for info or contact us at <latex@plos.org>.
-
-_This should not be a problem using Quarto but still a recommandation from the journal_
-
-There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.  
-
-Please do not include colors or graphics in the text. Color can be used to apply background shading to table cells only.
-
-The manuscript LaTeX source should be contained within a single file (do not use` \input`, `\externaldocument`, or similar commands).
-
-Please contact <latex@plos.org> with any questions submission guidelines. For anything Quarto related, please open an issue in <https://github.com/quarto-journals/plos>. If this is related to the LaTeX template, this could also be a good idea to contact PLOS directly.
-
-## Figures and Tables
-
-Please include tables/figure captions directly after the paragraph where they are first cited in the text.
-
-### Figures
-
-However, do not include graphics in your manuscript
-
-- Figures should be uploaded separately from your manuscript file. 
-- Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
-- Figures containing multiple panels/subfigures must be combined into one image file before submission.
-
-**This means that, depending on how you create your figure, a manual post processing will be required.**
-
-For figure citations, please use "Fig" instead of "Figure". This has been made the default in this Quarto format:
-
-```yaml
-crossref:
-  fig-title: Fig 
-```
-
-Also, place figure captions after the first paragraph in which they are cited.
-
-See PLOS figure guidelines at <https://journals.plos.org/plosone/s/figures> and in your specific journal guideline.
-
-### Tables
-
-Tables should be cell-based and may not contain:
-
-- spacing/line breaks within cells to alter layout or alignment
-- do not nest tabular environments (no tabular environments within tabular environments)
-- no graphics or colored text (cell background color/shading OK)
-
-See PLOS table guidelines at <http://journals.plos.org/plosone/s/tables> and in your specific journal guideline. 
-
-For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below. If you are in this case, you'll either need to manually post process the `.tex` file and recreate the PDF, or you need to include LaTeX tables directly. 
-
-Also, place tables after the first paragraph in which they are cited.
-
-## Equations, math symbols, subscripts, and superscripts
-
-Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
-
-*  For inline equations, please be sure to include all portions of an equation in the math environment. For example, `x$^2$` is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
-
-* Do not include text that is not math in the math environment. For example, `CO2` should be written as `CO\textsubscript{2}` giving CO\textsubscript{2} instead of `CO$_2$`.
-* Please add line breaks to long display equations when possible in order to fit size of the column. 
-* For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
-* When adding superscript or subscripts outside of brackets/braces, please group using `{}`.  For example, change `"[U(D,E,\gamma)]^2"` to `"{[U(D,E,\gamma)]}^2"`.  
-* Do not use `\cal` for caligraphic font. Instead, use `\mathcal{}`
-
-## Title and headings
-
-Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
-
-PLOS does not support heading levels beyond the 3rd, meaning no 4th level headings. Header 4 levels `####` is used for the  _Supporting information_ section
-
-## Abstract and author summary
-
-Abstract must be kept below 300 words. 
-
-Author Summary must be kept between 150 and 200 words and first person must be used. 
-
-For PLOS ONE, author summary won't be included as it is not valid for submission.
-
-## Supplementary information syntax
-
-Use this markdown syntax to create the supplementary information block with a custom block of class `.supp`
-```markdown
-::: {.supp}
-## SI TYPE {#id}
-
-First paragraph is a title sentence that will be bold. (required)
-
-Optionnaly, add descriptive text after the title of the
-item. No third paragraph is allowed
-:::
-```
-
-They need to be referenced in text using `nameref` by using this syntax `[id](.nameref)` where `ìd` will be the id used on the header.
-
-## References
-
-Within Quarto, `natbib` will be used with `plos2015.bst`, which expect numeric style citation. Use brackets for references, e.g `[@ref]`. 
-
-## Quarto features limitation
-
-Some features are not working with this format in PDF:
-
-* Callouts
-* Code highlighting customization (border left, background color)
-
-----
-
-> **Following content of this document is from the LaTeX template content to demo journal style.**
-
-----
-
-# Introduction
-
-Lorem ipsum dolor sit [@bib1] amet, consectetur adipiscing elit.
-Curabitur eget porta erat. Morbi consectetur est vel gravida pretium.
-Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam
-@eq-schemeP sapien tellus, commodo id velit id, eleifend
-volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel,
-pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor
-faucibus id. [@bib2] Nunc convallis sodales ante, ut ullamcorper est
-egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar,
-volutpat risus.
-
-$$
-\begin{aligned}
-\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}}
-\end{aligned}
-$$ {#eq-schemeP}
-
-# Materials and methods 
-
-## Etiam eget sapien nibh
-
-Nulla mi mi, `Fig~\ref{fig1}`{=latex} venenatis sed ipsum varius, volutpat euismod diam.
-Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim
-rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-at justo vitae nulla elementum commodo eu id massa. In vitae diam ac
-augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus
-cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam
-massa id, cursus neque. Praesent faucibus semper libero.
-
-```{=tex}
-% Place figure captions after the first paragraph in which they are cited.
-\begin{figure}[!h]
-\caption{{\bf Bold the figure title.}
-Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
-\label{fig1}
-\end{figure}
-```
-
-# Results
-
-Results and Discussion can be combined.
-
-Nulla mi mi, venenatis sed ipsum varius, `Table~\ref{table1}`{=latex} volutpat euismod diam. 
-Proin rutrum vel massa non gravida. Quisque
-tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id
-massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce
-fringilla erat porttitor lectus cursus, [s1-video]{.nameref} vel sagittis arcu lobortis.
-Aliquam in enim semper, aliquam massa id, cursus neque. Praesent
-faucibus semper libero.
-
-```{=tex}
-% Place tables after the first paragraph in which they are cited.
-\begin{table}[!ht]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\centering
-\caption{
-{\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
-\begin{tabular}{|l+l|l|l|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
-$cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
-$cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
-$cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
-\end{tabular}
-\begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
-````
-
-## **LOREM** and **IPSUM** nunc blandit a tortor
-
-### 3rd level heading
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget
-sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod
-ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed
-velit. Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed
-suscipit iaculis mi at feugiat.
-
-1.  react
-
-2.  diffuse free particles
-
-3.  increment time by dt and go to 1
-
-## Sed ac quam id nisi malesuada congue
-
-Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin
-rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo
-vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper
-tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel
-sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus
-neque. Praesent faucibus semper libero.
-
--   First bulleted item.
-
--   Second bulleted item.
-
--   Third bulleted item.
-
-# Discussion
-
-Nulla mi mi, venenatis sed ipsum varius,see `Table~\ref{table1}`{=latex}
-volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque
-tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id
-massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce
-fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis.
-Aliquam in enim semper, aliquam massa id, cursus neque. Praesent
-faucibus semper libero [@bib3].
-
-# Conclusion
-
-CO~2~ Maecenas convallis mauris sit amet sem ultrices gravida. Etiam
-eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod
-ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed
-velit.
-
-Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur
-adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed
-suscipit iaculis mi at feugiat. Ut neque ipsum, luctus id lacus ut,
-laoreet scelerisque urna. Phasellus venenatis, tortor nec vestibulum
-mattis, massa tortor interdum felis, nec pellentesque metus tortor nec
-nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed. Nam
-condimentum sem eget mollis euismod. Nullam dui urna, gravida venenatis
-dui et, tincidunt sodales ex. Nunc est dui, sodales sed mauris nec,
-auctor sagittis leo. Aliquam tincidunt, ex in facilisis elementum,
-libero lectus luctus est, non vulputate nisl augue at dolor. For more
-information, see [s1-appendix]{.nameref}.
-
-# Supporting information 
-
-::: {.supp}
-## S1 Fig. {#s1-fig}
-
-Bold the title sentence.
-
-Add descriptive text after the title of the item (optional).
-:::
-
-::: {.supp}
-## S2 Fig. {#s2-fig}
-
-Lorem ipsum.
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-:::
-
-
-::: {.supp}
-## S1 File. {#s1-file}
-
-Lorem ipsum.
-
-:::
-
-::: {.supp}
-
-## S1 Video. {#s1-video}
-
-Lorem ipsum.
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-:::
-
-::: {.supp}
-## S1 Appendix. {#s1-appendix}
-
-Lorem ipsum.
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-:::
-
-::: {.supp}
-## S1 Table. {#s1-table}
-
-Lorem ipsum.
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-:::
-
-# Acknowledgments
-
-Cras egestas velit mauris, eu mollis turpis pellentesque sit amet.
-Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id
-pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet
-augue, at pellentesque quam rhoncus vitae.
-
-zzzzz
 
