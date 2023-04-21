@@ -102,5 +102,11 @@
   },
   "blank.qmd": {
     "blank.html": "af40ba15"
+  },
+  "test/test.qmd": {
+    "test.tex": "651a2c4c"
+  },
+  "test.qmd": {
+    "test.tex": "04b600d4"
   }
 }

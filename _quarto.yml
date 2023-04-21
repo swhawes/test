@@ -17,7 +17,7 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Manuscript"
-        file: manuscript.qmd
+        file: test.qmd
       - text: "Tutorials"
         file: tutorials.qmd
       - text: "How-To"
@@ -54,7 +54,7 @@ website:
       background: light
       collapse-level: 1
       contents:
-        - manuscript.qmd
+        - test.qmd
     - title: "Tutorials"
       contents:
         - tutorials.qmd
