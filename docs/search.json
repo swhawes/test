@@ -21,6 +21,13 @@
     "text": "Basic Example\n\n\nCode\n# Install the lcmm package if not already installed\nif (!(\"lcmm\" %in% installed.packages())) {\n  install.packages(\"lcmm\")\n}\n\n\nLoad the lcmm package\n\n\nCode\nlibrary(lcmm)\n\n\nSimulating the Data For this tutorial, we will use a simulated dataset with three growth trajectory classes, where each class represents a different pattern of change over time. The dataset will consist of 300 individuals with four repeated measurements (time points) for each individual.\n\n\nCode\nset.seed(123)\nn &lt;- 300\ntimepoints &lt;- 4\n\n# Simulate the data for each class\nclass1 &lt;- data.frame(id = 1:(n / 3),\n                     time = rep(1:timepoints, each = n / 3),\n                     class = 1,\n                     value = rnorm(n * timepoints / 3, mean = 1 + 0.5 * (1:timepoints), sd = 0.5))\n\nclass2 &lt;- data.frame(id = (n / 3 + 1):(2 * n / 3),\n                     time = rep(1:timepoints, each = n / 3),\n                     class = 2,\n                     value = rnorm(n * timepoints / 3, mean = 2 - 0.3 * (1:timepoints), sd = 0.5))\n\nclass3 &lt;- data.frame(id = (2 * n / 3 + 1):n,\n                     time = rep(1:timepoints, each = n / 3),\n                     class = 3,\n                     value = rnorm(n * timepoints / 3, mean = 3 + 0.1 * (1:timepoints), sd = 0.5))\n\n\n\n\nCode\n# Combine the data from all classes\ndata &lt;- rbind(class1, class2, class3)\n\n\n\nModel Specification and Estimation\nNow that we have our simulated data, we can fit a Growth Mixture Model. In this example, we will assume that there are three latent classes. However, in practice, the number of classes is usually unknown and must be determined through model comparisons or other methods.\n\n\nCode\n# Fit the Growth Mixture Model\ngmm &lt;- hlme(value ~ time,\n            random = ~ time,\n            subject = \"id\",\n            mixture = ~ time,\n            data = data,\n            ng = 3,\n            B = list(value = c(1, 0, 0, 0)\n\n\n\n\nInterpreting the Results\nxxxxxx"
   },
   {
+    "objectID": "8_HowTos_AutoregressiveCrosslaggedPanelModels.html",
+    "href": "8_HowTos_AutoregressiveCrosslaggedPanelModels.html",
+    "title": "Autoregressive Crosslagged Panel Models",
+    "section": "",
+    "text": "test page for clpm howtos"
+  },
+  {
     "objectID": "4_HowTos_SignedRankTest.html",
     "href": "4_HowTos_SignedRankTest.html",
     "title": "Signed-Rank Test",
@@ -47,6 +54,13 @@
     "title": "Random-Intercept Crosslagged Panel Models",
     "section": "Basic Example",
     "text": "Basic Example\nSimulating the Data For this tutorial, we will use a simulated dataset with 500 individuals, each measured at five time points. The dataset will contain two variables, X and Y, with cross-lagged effects.\n\n\nCode\nset.seed(123)\nn &lt;- 500\ntimepoints &lt;- 5\n\n# Simulate the data\ndata &lt;- data.frame(id = rep(1:n, each = timepoints),\n                   time = rep(1:timepoints, times = n),\n                   X = rnorm(n * timepoints, mean = 0, sd = 1),\n                   Y = rnorm(n * timepoints, mean = 0, sd = 1))\n\n# Introduce cross-lagged effects\nfor (i in 2:timepoints) {\n  data$X[data$time == i] &lt;- 0.3 * data$Y[data$time == (i - 1)] + data$X[data$time == i]\n  data$Y[data$time == i] &lt;- 0.2 * data$X[data$time == (i - 1)] + data$Y[data$time == i]\n}\n\n\n\nModel Specification and Estimation\nNow that we have our simulated data, we can fit a Random-Intercept Cross-Lagged Panel Model using the lavaan package.\n\n\nCode\n# Define the model\nmodel &lt;- '\n  # Random intercepts\n  i_X =~ 1 * X_t1 + 1 * X_t2 + 1 * X_t3 + 1 * X_t4 + 1 * X_t5\n  i_Y =~ 1 * Y_t1 + 1 * Y_t2 + 1 * Y_t3 + 1 * Y_t4 + 1 * Y_t5\n\n  # Cross-lagged effects\n  Y_t2 ~ beta_YX * X_t1\n  Y_t3 ~ beta_YX * X_t2\n  Y_t4 ~ beta_YX * X_t3\n  Y_t5 ~ beta_YX * X_t4\n\n  X_t2 ~ beta_XY * Y_t1\n  X_t3 ~ beta_XY *\n\n\n\n\nInterpreting the Results\nxxxxxx"
+  },
+  {
+    "objectID": "15_HowTos_RandomInterceptCrosslaggedPanelModels.html",
+    "href": "15_HowTos_RandomInterceptCrosslaggedPanelModels.html",
+    "title": "Random-Intercept Crosslagged Panel Models",
+    "section": "",
+    "text": "test page for ri-clpm howtos"
   },
   {
     "objectID": "blank.html",
@@ -119,6 +133,13 @@
     "text": "Basic Example\nFor this tutorial, we will use simulated data with 500 individuals and 5 timepoints. The data will include a time-varying covariate, covariate, and an outcome variable, outcome.\n\n\nCode\nset.seed(123)\nlibrary(lavaan)\nlibrary(semTools)\n\n# Simulate data\nn &lt;- 500\ntimepoints &lt;- 5\n\nid &lt;- rep(1:n, each = timepoints)\ntime &lt;- rep(1:timepoints, n)\n\ncovariate &lt;- rnorm(n * timepoints, mean = 0, sd = 1)\noutcome &lt;- rnorm(n * timepoints, mean = 0, sd = 1)\n\ndata &lt;- data.frame(id, time, covariate, outcome)\n\n\n\nModel Specification and Estimation\nTo specify an LCM-SR, we will use the lavaan syntax to define the measurement model and the structural model. We will model the linear growth of the outcome variable while accounting for the effect of the time-varying covariate.\n\n\nCode\nmodel &lt;- '\n  # Latent variables\n  intercept =~ 1 * outcome_t1 + 1 * outcome_t2 + 1 * outcome_t3 + 1 * outcome_t4 + 1 * outcome_t5\n  slope =~ 0 * outcome_t1 + 1 * outcome_t2 + 2 * outcome_t3 + 3 * outcome_t4 + 4 * outcome_t5\n\n  # Time-varying covariate effect on outcome\n  outcome_t1 ~ c1 * covariate_t1\n  outcome_t2 ~ c2 * covariate_t2\n  outcome_t3 ~ c3 * covariate_t3\n  outcome_t4 ~ c4 * covariate_t4\n  outcome_t5 ~ c5 * covariate_t5\n\n  # Residual variances and covariances\n  outcome_t1 ~~ r1 * outcome_t1\n  outcome_t2 ~~ r2 * outcome_t2\n  outcome_t3 ~~ r3 * outcome_t3\n  outcome_t4 ~~ r4 * outcome_t4\n  outcome_t5 ~~ r5 * outcome_t5\n\n  # Latent variable variances\n  intercept ~~ i_var * intercept\n  slope ~~ s_var * slope\n\n  # Latent variable covariances\n  intercept ~~ i_s_cov * slope\n'\n\n\nModel Estimation Now we will estimate the model using the lavaan function sem().\n\n\nCode\n# Reshape data to wide format\nwide_data &lt;- spread(data, key = time, value = outcome, sep\n\n\n\n\nInterpreting the Results\nxxxxx"
   },
   {
+    "objectID": "6_HowTos_GeneralizedEstimatingEquations.html",
+    "href": "6_HowTos_GeneralizedEstimatingEquations.html",
+    "title": "Generalized Estimating Equations",
+    "section": "",
+    "text": "GEE howtos test page"
+  },
+  {
     "objectID": "reference.html",
     "href": "reference.html",
     "title": "",
@@ -166,6 +187,13 @@
     "title": "Signed-Rank Test",
     "section": "Basic Example",
     "text": "Basic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nSubject ID\nTime point 1 (T1) measurement\nTime point 2 (T2) measurement\n\n\n\n\nSubject ID\nT1\nT2\n\n\n\n\n1\n100\n105\n\n\n2\n95\n100\n\n\n3\n110\n112\n\n\n\n\nModel Specification and Estimation\nWe will use the wilcox.test() function in R to perform a longitudinal signed-rank test. First, create a data frame with the example data:\n\n\nCode\ndata &lt;- data.frame(\n  subject_id = c(1, 2, 3),\n  t1 = c(100, 95, 110),\n  t2 = c(105, 100, 112)\n)\n\n\nPerform the longitudinal signed-rank test using the wilcox.test() function with the paired = TRUE argument:\n\n\nCode\ntest_result &lt;- wilcox.test(data$t1, data$t2, paired = TRUE)\n\n\n\n\nInterpreting the Results\nTo interpret the results of the longitudinal signed-rank test, examine the p-value from the test_result object:\n\n\nCode\ntest_result$p.value\n\n\n[1] 0.1735682\n\n\nThe p-value represents the probability of observing the data if there is no difference between the measurements at T1 and T2. If the p-value is less than a predetermined significance level (e.g., 0.05), we can reject the null hypothesis that there is no difference between the two time points and conclude that there is a significant difference in the measurements between T1 and T2."
+  },
+  {
+    "objectID": "5_HowTos_MarginalModels.html",
+    "href": "5_HowTos_MarginalModels.html",
+    "title": "Marginal Models",
+    "section": "",
+    "text": "test page for marginal models howtos"
   },
   {
     "objectID": "11_Tutorials_MultivariateLatentGrowthCurveModels.html",
@@ -231,6 +259,20 @@
     "text": "Simulating the Data\nFor this tutorial, we will use a simulated dataset with 300 individuals, each measured at four time points. The dataset will contain a variable with both state-like and trait-like components.\n\n\nCode\nset.seed(123)\nn &lt;- 300\ntimepoints &lt;- 4\n\n# Simulate the trait-like component\ntrait &lt;- rnorm(n, mean = 100, sd = 10)\n\n# Simulate the state-like component\nstate &lt;- matrix(rnorm(n * timepoints, mean = 0, sd = 5), nrow = n, ncol = timepoints)\n\n# Combine trait and state components\ndata &lt;- data.frame(id = rep(1:n, each = timepoints),\n                   time = rep(1:timepoints, times = n),\n                   value = c(t(trait + state)))\n\n\n\nModel Specification and Estimation\nNow that we have our simulated data, we can fit a State-Trait Model using the lavaan package. The model will estimate the trait-like and state-like components for each individual.\n\n\nCode\n# Define the model\nmodel &lt;- '\n  # Trait component\n  trait =~ 1 * value_t1 + 1 * value_t2 + 1 * value_t3 + 1 * value_t4\n\n  # State component\n  state =~ value_t1 + value_t2 + value_t3 + value_t4\n\n  # Residual variances\n  value_t1 ~~ value_t1\n  value_t2 ~~ value_t2\n  value_t3 ~~ value_t3\n  value_t4 ~~ value_t4\n'\n\n\n\n\nCode\n# Reshape the data to wide format\ndata_wide &lt;- reshape(data, idvar = \"id\", timevar = \"time\", direction = \"wide\")\n\n\n\n\nCode\n# Fit the State-Trait Model\nfit &lt;- sem(model, data = data_wide)\n\n\n\n\nInterpreting the Results\nNow that we have estimated our State-Trait Model, we can interpret the results. The key parameters of interest in this model are the trait-like and state-like components, which are the variances attributed to each component.\n\n\nCode\n# Obtain the results\nsummary(fit)"
   },
   {
+    "objectID": "7_HowTos_GeneralizedLinearMixedEffectsModels.html",
+    "href": "7_HowTos_GeneralizedLinearMixedEffectsModels.html",
+    "title": "Generalized Linear Mixed Effects Models",
+    "section": "",
+    "text": "test page for GLMM howtos"
+  },
+  {
+    "objectID": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
+    "href": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
+    "title": "Multivariate Latent Growth Curve Models",
+    "section": "",
+    "text": "test page for pplgcm howtos"
+  },
+  {
     "objectID": "7_Tutorials_GeneralizedLinearMixedEffectsModels.html",
     "href": "7_Tutorials_GeneralizedLinearMixedEffectsModels.html",
     "title": "Generalized Linear Mixed Effects Models",
@@ -287,6 +329,13 @@
     "text": "Sam Page Test"
   },
   {
+    "objectID": "13_HowTos_GrowthMixtureModels.html",
+    "href": "13_HowTos_GrowthMixtureModels.html",
+    "title": "Growth Mixture Models",
+    "section": "",
+    "text": "test page of gmm how-tos"
+  },
+  {
     "objectID": "howto.html",
     "href": "howto.html",
     "title": "How-To’s: A Brief Overview",
@@ -294,11 +343,25 @@
     "text": "[Section in progress…]"
   },
   {
+    "objectID": "12_HowTos_LatentTransitionAnalysis.html",
+    "href": "12_HowTos_LatentTransitionAnalysis.html",
+    "title": "Latent Transition Analysis",
+    "section": "",
+    "text": "test page for lta howtos"
+  },
+  {
     "objectID": "1_HowTos_DifferenceScores.html",
     "href": "1_HowTos_DifferenceScores.html",
     "title": "Difference Scores",
     "section": "",
     "text": "Difference Scores HowTo’s testpage"
+  },
+  {
+    "objectID": "9_HowTos_LatentChangeScoresModels.html",
+    "href": "9_HowTos_LatentChangeScoresModels.html",
+    "title": "Latent Change Score Models",
+    "section": "",
+    "text": "test page for lcs models how tos"
   },
   {
     "objectID": "tutorials.html",
@@ -413,11 +476,25 @@
     "text": "Code"
   },
   {
+    "objectID": "16_HowTos_LatentCurveModelsStructuredResiduals.html",
+    "href": "16_HowTos_LatentCurveModelsStructuredResiduals.html",
+    "title": "Latent Curve Models with Structured Residuals",
+    "section": "",
+    "text": "test page for LCM-SR how tos"
+  },
+  {
     "objectID": "2_HowTos_ResidualizedChangeScores.html",
     "href": "2_HowTos_ResidualizedChangeScores.html",
     "title": "Residualized Change Scores",
     "section": "",
     "text": "Residualized Change Scores How tos test page"
+  },
+  {
+    "objectID": "10_HowTos_LatentGrowthCurveModels.html",
+    "href": "10_HowTos_LatentGrowthCurveModels.html",
+    "title": "Latent Growth Curve Models",
+    "section": "",
+    "text": "test page for lgcm howtos"
   },
   {
     "objectID": "test.html",
@@ -546,6 +623,13 @@
     "text": "Basic Example\nFor this tutorial, we’ll use a hypothetical dataset called “data” with the following variables:\nsubject_id: A unique identifier for each participant score_t1: The measurement of a variable of interest at Time 1 score_t2: The measurement of the same variable at Time 2 score_t3: The measurement of the same variable at Time 3 First, let’s load the “lavaan” package and create a larger dataset for this example:\n\n\nCode\nlibrary(lavaan)\n\n# Create a sample dataset with 250 participants\nset.seed(42) # For reproducibility\nsubject_id &lt;- 1:250\nscore_t1 &lt;- rnorm(250, mean = 20, sd = 5)\nscore_t2 &lt;- score_t1 + rnorm(250, mean = 2, sd = 3)\nscore_t3 &lt;- score_t2 + rnorm(250, mean = 3, sd = 4)\ndata &lt;- data.frame(subject_id, score_t1, score_t2, score_t3)\n\n\n\nModel Specification and Estimation\nNow, let’s specify the Latent Change Score Model. In this example, we’ll estimate the mean change in the variable of interest from Time 1 to Time 2 and from Time 2 to Time 3, as well as the variances of the change scores.\n\n::: {.cell hash='9_Tutorials_LatentChangeScoresModels_cache/html/unnamed-chunk-3_4c6ae3706e63906c93faa359ec254305'}\n\n```{.r .cell-code}\n# Define the Latent Change Score Model\nmodel &lt;- '\n  # Latent variables\n    delta12 =~ 1 * score_t2 - 1 * score_t1\n    delta23 =~ 1 * score_t3 - 1 * score_t2\n\n  # Means\n    delta12 ~ mu_delta12\n    delta23 ~ mu_delta23\n\n  # Variances\n    delta12 ~~ var_delta12 * delta12\n    delta23 ~~ var_delta23 * delta23\n`\n:::\n\n\nCode\n# Fit the model\nfit &lt;- sem(model, data = data, missing = \"FIML\")\n\n\n\n\nInterpreting the Results\nWe can now examine the results of our Latent Change Score Model. The main parameters of interest are:\nmu_delta12: The mean change in the variable of interest from Time 1 to Time 2 mu_delta23: The mean change in the variable of interest from Time 2 to Time 3 var_delta12: The variance of the change scores from Time 1 to Time 2, which reflects individual differences in change var_delta23: The variance of the change xxxx"
   },
   {
+    "objectID": "14_HowTos_StateTraitModels.html",
+    "href": "14_HowTos_StateTraitModels.html",
+    "title": "State-Trait Models",
+    "section": "",
+    "text": "test page for state-trait howtos"
+  },
+  {
     "objectID": "2_Tutorials_ResidualizedChangeScores.html",
     "href": "2_Tutorials_ResidualizedChangeScores.html",
     "title": "Residualized Change Scores",
@@ -565,89 +649,5 @@
     "title": "Residualized Change Scores",
     "section": "Basic Example",
     "text": "Basic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nTime point (T1, T2)\nJob satisfaction (independent variable)\nLife satisfaction (dependent variable)\n\n\n\n\nIndividual\nTime Point\nJob Satisfaction\nLife Satisfaction\n\n\n\n\nA\nT1\n7\n6\n\n\nA\nT2\n8\n7\n\n\nB\nT1\n6\n5\n\n\nB\nT2\n7\n6\n\n\n\n\nModel Specification and Estimation\nTo calculate residualized change scores, we will follow these steps:\n\nCalculate the raw change scores for each variable by subtracting the T1 value from the T2 value.\nFit a regression model with the change score of the dependent variable (life satisfaction) as the outcome and the change score of the independent variable (job satisfaction) and the initial level of the dependent variable (T1 life satisfaction) as predictors.\nExtract the residuals from the regression model. These residuals represent the residualized change scores.\n\nUsing the example dataset, we can calculate the residualized change scores for life satisfaction as follows:\n\nCalculate raw change scores:\n\n\n\nIndividual\nJob Satisfaction Change\nLife Satisfaction Change\n\n\n\n\nA\n1\n1\n\n\nB\n1\n1\n\n\n\nFit the regression model:\nLife Satisfaction Change = b0 + b1 * Job Satisfaction Change + b2 * T1 Life Satisfaction\nExtract residuals:\n\n\n\nIndividual\nResidualized Change Score\n\n\n\n\nA\ne1\n\n\nB\ne2\n\n\n\n\n\n\nInterpreting the Results\nResidualized change scores represent the change in the dependent variable (life satisfaction) after accounting for the initial level of that variable and the change in the independent variable (job satisfaction). By examining the association between the residualized change scores of two variables, we can gain insights into how changes in one variable are related to changes in another variable, controlling for initial levels."
-  },
-  {
-    "objectID": "8_HowTos_AutoregressiveCrosslaggedPanelModels.html",
-    "href": "8_HowTos_AutoregressiveCrosslaggedPanelModels.html",
-    "title": "Autoregressive Crosslagged Panel Models",
-    "section": "",
-    "text": "test page for clpm howtos"
-  },
-  {
-    "objectID": "15_HowTos_RandomInterceptCrosslaggedPanelModels.html",
-    "href": "15_HowTos_RandomInterceptCrosslaggedPanelModels.html",
-    "title": "Random-Intercept Crosslagged Panel Models",
-    "section": "",
-    "text": "test page for ri-clpm howtos"
-  },
-  {
-    "objectID": "6_HowTos_GeneralizedEstimatingEquations.html",
-    "href": "6_HowTos_GeneralizedEstimatingEquations.html",
-    "title": "Generalized Estimating Equations",
-    "section": "",
-    "text": "GEE howtos test page"
-  },
-  {
-    "objectID": "5_HowTos_MarginalModels.html",
-    "href": "5_HowTos_MarginalModels.html",
-    "title": "Marginal Models",
-    "section": "",
-    "text": "test page for marginal models howtos"
-  },
-  {
-    "objectID": "7_HowTos_GeneralizedLinearMixedEffectsModels.html",
-    "href": "7_HowTos_GeneralizedLinearMixedEffectsModels.html",
-    "title": "Generalized Linear Mixed Effects Models",
-    "section": "",
-    "text": "test page for GLMM howtos"
-  },
-  {
-    "objectID": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
-    "href": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
-    "title": "Multivariate Latent Growth Curve Models",
-    "section": "",
-    "text": "test page for pplgcm howtos"
-  },
-  {
-    "objectID": "13_HowTos_GrowthMixtureModels.html",
-    "href": "13_HowTos_GrowthMixtureModels.html",
-    "title": "Growth Mixture Models",
-    "section": "",
-    "text": "test page of gmm how-tos"
-  },
-  {
-    "objectID": "12_HowTos_LatentTransitionAnalysis.html",
-    "href": "12_HowTos_LatentTransitionAnalysis.html",
-    "title": "Latent Transition Analysis",
-    "section": "",
-    "text": "test page for lta howtos"
-  },
-  {
-    "objectID": "9_HowTos_LatentChangeScoresModels.html",
-    "href": "9_HowTos_LatentChangeScoresModels.html",
-    "title": "Latent Change Score Models",
-    "section": "",
-    "text": "test page for lcs models how tos"
-  },
-  {
-    "objectID": "16_HowTos_LatentCurveModelsStructuredResiduals.html",
-    "href": "16_HowTos_LatentCurveModelsStructuredResiduals.html",
-    "title": "Latent Curve Models with Structured Residuals",
-    "section": "",
-    "text": "test page for LCM-SR how tos"
-  },
-  {
-    "objectID": "10_HowTos_LatentGrowthCurveModels.html",
-    "href": "10_HowTos_LatentGrowthCurveModels.html",
-    "title": "Latent Growth Curve Models",
-    "section": "",
-    "text": "test page for lgcm howtos"
-  },
-  {
-    "objectID": "14_HowTos_StateTraitModels.html",
-    "href": "14_HowTos_StateTraitModels.html",
-    "title": "State-Trait Models",
-    "section": "",
-    "text": "test page for state-trait howtos"
   }
 ]
