@@ -1,15 +1,32 @@
 ---
 title: "Tailwind Test Doc"
 editor: visual
+
+
+format:
+  html:
+    css: styles.css
+
+  
 ---
+<!-- tailwind cdn temp link -->
+<script src = "https://cdn.tailwindcss.com"></script>
+<!---->
 
-ssss
 
-<script src="https://cdn.tailwindcss.com"></script>
 
-sssss
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90% ...">
+  <!-- ... -->
+  xxxxxx
+</div>
 
-xxxx
+xxxxxx
+
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90% ...">
+  <!-- ... -->
+  include content
+</div>
+
 
 :::{.text-xl .text-blue .rounded-lg .py-4 .px-2 .bg-gradient--to-r .from-green-700 .to-blue-900 .shadow-xl}
 
@@ -17,7 +34,16 @@ Place Content here
 
 :::
 
+<p .bg-sky-900> 
+
+include content
+
+</p>
+
+
 xxxxx
+
+.bg-sky-900
 
 .bg-gradient--to-r
 
@@ -26,5 +52,3 @@ xxxxx
 .to-blue-900
 
 .shadow-xl
-
-![](images/image-1130704809.png)

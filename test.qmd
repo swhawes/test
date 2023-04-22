@@ -70,6 +70,19 @@ The Adolescent Brain Cognitive Development (ABCD) Study® is the largest long-te
 
 [section still be developed...] 
 
+<!-- tailwind cdn temp link -->
+<script src = "https://cdn.tailwindcss.com"></script>
+<!---->
+
+
+
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90% ...">
+  <!-- ... -->
+  xxxxxx
+</div>
+
+xxxxxx
+
 ## The ABCD Study® Data
 Participants enrolled in the ABCD Study include a large cohort of youth (n=11880) aged 9-10 years at baseline and their parents/guardians. The study sample was recruited from household populations in defined catchment areas for each of the 21 study sites across the United States (information regarding funding agencies, recruitment sites, investigators, and project organization can be obtained at the ABCD Study website). The ABCD Study is collecting longitudinal data on a rich variety of outcomes that will enable the construction of realistically-complex   etiological models by incorporating factors from many domains simultaneously. Each new wave of data collection provides the building blocks for conducting probing longitudinal analyses that allow us to characterize normative development, identify variables that presage deviations from prototypic development, and assess a range of outcomes associated with variables of interest. This data includes a neurocognitive battery [@luciana2018a; @thompson2019], mental and physical health assessments [@barch2018], measures of culture and environment [@zucker2018], substance use [add citation], biospecimens [@uban2018], structural and functional brain imaging [@casey2018; @hagler2019], geolocation-based environmental exposure data, wearables, and mobile technology [@bagot2018], and whole genome genotyping [@loughnan2020]. Many of these measures are collected at in-person annual visits, with brain imaging collected at baseline and every other year going forward. A limited number of assessments are collected in semi-annual telephone interviews between in-person visits. Data are publicly released on an annual basis through the NIMH Data Archive. By necessity, the study’s earliest data releases were cross-sectional (i.e., the baseline data), however, the most recent public data release (NDA Release 4.0) contains data collected across three annual assessments, including two imaging assessments (baseline and year 2 follow-up visits).
 
