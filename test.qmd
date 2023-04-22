@@ -44,7 +44,12 @@ author-summary: |
     *longitudinal analyses*,
     *development*
 
-#format:
+format: 
+  html: default
+  pdf: default
+format-links: [html, pdf]
+
+  #format:
 #  pdf:
 #    geometry:
 #      - top=30mm

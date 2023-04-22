@@ -1,0 +1,30 @@
+---
+title: "Tailwind Test Doc"
+editor: visual
+---
+
+ssss
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+sssss
+
+xxxx
+
+:::{.text-xl .text-blue .rounded-lg .py-4 .px-2 .bg-gradient--to-r .from-green-700 .to-blue-900 .shadow-xl}
+
+Place Content here
+
+:::
+
+xxxxx
+
+.bg-gradient--to-r
+
+.from-green-700
+
+.to-blue-900
+
+.shadow-xl
+
+![](images/image-1130704809.png)

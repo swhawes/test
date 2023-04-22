@@ -3,58 +3,13 @@ title: "Linear Mixed Models"
 author: "Biostatistics Working Group"
 ---
 
-# ex1.interceptonly {.unnumbered}
-
-<style>
-div.blue pre { background-color:lightblue; }
-div.blue pre.r { background-color:lightgrey; }
-
-.nav-tabs > li.active:nth-child(1) > a {
-  background-color: ##964B00;
-}
-
-.nav-tabs > li > a {
-  background-color: ##FFFF00;
-  color: blue;
-}
-
-main-container {
-   max-width: unset;
-}
-.descriptives {
-   overflow: auto; /*do not use `resize`*/
-}
-
-.tableby {
-   overflow: auto;
-}
-
-.descriptives {
-   overflow: auto;
-   resize: both;
-}
-
-table, th, td {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  vertical-align: middle;
-}
-</style>
-
-::: column-body-outset
 ## Linear Mixed Model with a Random-Intercept (LMM:ri)
 <p>
-The **`LMM:ri`** is similar to traditional (fixed-effect) linear regression extending on this approach by including a subject-specific random-effect that allows each participant to have their own unique intercept value, in addition to the overall mean-level (fixed-effect) intercept value
+The LMM:ri is similar to traditional (fixed-effect) linear regression extending on this approach by including a subject-specific random-effect that allows each participant to have their own unique intercept value, in addition to the overall mean-level (fixed-effect) intercept value zzzzt
 
-In this example, we will use the **`LMM:ri`** to analyze trajectories of scores on the externalizing subscale of the child behavior checklist (CBCL) obtained across three measurement occasions in a sample of youth taking part in the ABCD Study. Our primary aim is to characterize stability and change in CBCL externalizing scores across assessments, while accounting for observations that are clustered within youth over time. To do so, we will use the **`LMM:ri`** to simultaneously model an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. 
+In this example, we will use the LMM:ri to analyze trajectories of scores on the externalizing subscale of the child behavior checklist (CBCL) obtained across three measurement occasions in a sample of youth taking part in the ABCD Study. Our primary aim is to characterize stability and change in CBCL externalizing scores across assessments, while accounting for observations that are clustered within youth over time. To do so, we will use the LMM:ri to simultaneously model an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. 
 </p>
 
-:::
-:::
-
-###############################
-
-::: {.column-body-outset}
 ## Preliminary Setup
 ::: {.panel-tabset}
 ### Load Libraries {.tabset .tabset-fade .tabset-pills}
@@ -138,9 +93,8 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
 ```
 </div>
 :::
-:::
 
-::: {.column-body-outset}
+
 ## Descriptives Overview
 ::: {.panel-tabset}
 ### Data Table {.tabset .tabset-fade .tabset-pills}
@@ -262,9 +216,7 @@ tab_descriptives_2 %>%
 ```
 </div>
 :::
-:::
 
-::: {.column-body-outset}
 ## Results 
 ::: {.panel-tabset}
 ### Build Model {.tabset .tabset-fade .tabset-pills}
@@ -318,9 +270,7 @@ random <- estimate_grouplevel(random_intercepts)
 ```
 </div>
 :::
-:::
 
-::: {.column-body-outset}
 ## Visualizations 
 ::: {.panel-tabset}
 ### Extract Params {.tabset .tabset-fade .tabset-pills}
@@ -474,11 +424,9 @@ plot(preds, ribbon = list(alpha = 0)) + # Previous plot
 ```
 </div>
 :::
-:::
 
 <p class="text-center" style="background-color: gray">Figure x: The overall group-mean (fixed effects) trajectory is shown in blue. The faded lines represent each individual youth's estimated trajectory. An examination of this figure shows happiness scores to be increasing across measurement occasions, however, there appears to be substantial variability in the youth's initial happiness scores.</p>
 
-::: column-body-outset
 #### Interpretation
 The estimated correlation between x and y was "r cor(x,y)`.
 There are "r nrow(my_data)` individuals.
