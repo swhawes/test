@@ -1,5 +1,31 @@
 ---
-title: "Temporary Landing Page for Longitudinal Project"
+#title: "Temporary Landing Page for Longitudinal Project"
+#format:
+#  html:
+#    css: styles.css
+#    theme: cosmo
+#    fontsize: 1.1em
+    #linestretch: 1.7
 ---
 
-This is github pages test site for the longitudinal analysis project. The information included within the site is for testing purposes only and contents may be inaccurate.
+<div class="text-3xl text-center">
+This is the temporary landing page for the Longitudinal Analysis Project. <br> The site is currently under construction and used for testing purposes only. <br> Contents may be inaccurate.
+</div>
+
+<br>
+
+::: {.grid}
+
+::: {.g-col-2}
+:::
+
+::: {.g-col-8}
+![](./figures/lights.png)
+:::
+
+::: {.g-col-2}
+:::
+
+:::
+
+</div>
