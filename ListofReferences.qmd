@@ -1,0 +1,74 @@
+---
+title: "List of Reference Material"
+---
+
+GLM @sec-glm
+Non-independence @Non-independence
+
+## GLM (Generalized Linear Model): 
+A flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution.{#sec-glm}
+
+## Non-independence: 
+The situation where observations are not statistically independent, often arising in longitudinal or clustered data.
+
+
+3.	Sample average of differences: The mean of the differences between paired observations, typically used in paired-sample designs to assess the average change between two time points or conditions.
+
+4.	Fixed effects: Effects in a statistical model that are constant across all observations, representing the average relationship between predictors and the outcome variable.
+
+5.	Random effects: Effects in a statistical model that vary across different levels of a grouping factor (e.g., subjects, clusters), capturing the variability within each level.
+
+6.	Hierarchical data structures: Data structures where observations are nested within higher-order units (e.g., students within schools, employees within companies), resulting in dependency among observations.
+
+7.	Within-subject correlations: Correlations between repeated measurements on the same subject or unit, often present in longitudinal or clustered data.
+
+8.	Model fit indices: Quantitative measures used to assess how well a statistical model fits the data, such as R-squared, AIC, or BIC.
+
+9.	Nonparametric: Statistical methods that do not rely on assumptions about the underlying distribution of the data.
+
+10.	Resampling permutation method: A nonparametric method for hypothesis testing that involves randomly rearranging the observed data to create new samples and assess the probability of the observed test statistic under the null hypothesis.
+
+11.	Clustered data: Data where observations are grouped or clustered within higher-order units, resulting in dependency among observations within each cluster.
+
+12.	Population-averaged effects: Effects in a statistical model that represent the average relationship between predictors and the outcome variable across the entire population, rather than for specific levels of a grouping factor.
+
+13.	Identity link: A link function in GLMs that relates the linear predictor to the expected value of the outcome variable without any transformation (E[Y] = Xβ).
+
+14.	Logit link: A link function in GLMs used for binary outcomes, relating the linear predictor to the log-odds of the outcome variable (log(E[Y]/(1-E[Y])) = Xβ).
+
+15.	Log link: A link function in GLMs used for count outcomes, relating the linear predictor to the natural logarithm of the expected value of the outcome variable (log(E[Y]) = Xβ).
+
+16.	Logistic link: Synonymous with the logit link.
+
+17.	Binomial distribution: A probability distribution that describes the number of successes in a fixed number of Bernoulli trials with the same probability of success.
+
+18.	Exchangeable correlation structure: A working correlation structure in GEE models, assuming constant correlation between any pair of repeated measurements within subjects.
+
+19.	Autoregressive correlation structure: A working correlation structure in GEE models, assuming correlation between repeated measurements decreases as the time lag between measurements increases.
+
+20.	Unstructured correlation structure: A working correlation structure in GEE models, allowing for different correlations between each pair of repeated measurements within subjects.
+
+21.	Sandwich estimator: A method for computing robust standard errors in GEE models, providing valid inference even if the working correlation structure is misspecified.
+
+22.	Quasi-likelihood under the Independence model Criterion (QIC): A model selection criterion for GEE models, analogous to AIC, used to compare models with different working correlation structures.
+
+23.	Odds ratios: A measure of association for binary outcomes, representing the ratio of the odds of an event occurring in one group to the odds in another group.
+
+24.	Rate ratios: A measure of association for count outcomes, representing the ratio of the rates of an event occurring in one group to the rates in another group.
+
+25.	Maximum likelihood estimation: A statistical method for estimating model parameters by finding the values that maximize the likelihood of the observed data given the model.
+
+26.	Unbalanced data: Data where the number of observations or the number of measurements per subject or group is unequal across subjects or groups.
+
+27.	Unequally spaced data: Data where the time intervals between repeated measurements or the spacing of observations are not equal.
+
+28.	Maximum likelihood (ML): A method of estimation that involves finding the parameter values that maximize the likelihood of the observed data given a statistical model.
+
+29.	Restricted maximum likelihood (REML): A modification of maximum likelihood estimation that is less biased for estimating variance components in mixed-effects models, particularly when the sample size is small.
+
+30.	Penalized quasi-likelihood (PQL): An approximate method for fitting generalized linear mixed models, particularly for non-normal outcomes, which involves a penalized likelihood function and iteratively weighted least squares.
+
+31.	Akaike Information Criterion (AIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as AIC = -2 * log-likelihood + 2 * k, where k is the number of parameters. Lower AIC values indicate better model fit.
+
+32.	Bayesian Information Criterion (BIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as BIC = -2 * log-likelihood + k * log(n), where k is the number of parameters and n is the sample size. Lower BIC values indicate better model fit.
+

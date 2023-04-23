@@ -8,7 +8,7 @@ execute:
 ## Overview
 Linear mixed models (LMMs) are a powerful statistical tool that allows the analysis of complex data structures that contain both fixed and random effects (West et al., 2015). LMMs are widely used in various fields, including social sciences, biology, and engineering, due to their ability to handle hierarchical data structures and account for within-subject correlations (Bates et al., 2015). LMMs are an extension of the general linear model (GLM), where both fixed and random effects can be included in the model, making them more flexible and robust (Pinheiro & Bates, 2000). These models are particularly useful when analyzing longitudinal data, where measurements are taken repeatedly over time, and correlations between observations must be accounted for (Singer & Willett, 2003). Specifically, the LMM framework accounts for these dependencies among data by extending the general regression "fixed effects" model to allow both, fixed and random effects. This approach simultaneously models an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. It is this "mixture" of fixed and random effects from which these models derive their name.
 
-[+add primary diagram/figure]
+![Linear Mixed Models](./figures/Linear Mixed Models.png)
 
 ### When to use Longitudinal Linear Mixed Models (LMMs)?
 You should use LMMs in the following scenario:

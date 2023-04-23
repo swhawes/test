@@ -107,7 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 <meta name="twitter:title" content="Longitudinal Analysis - Signed-Rank Test">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://swhawes.github.io/test/figures/signedrank.png">
+<meta name="twitter:image-height" content="1565">
+<meta name="twitter:image-width" content="2390">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -439,10 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>The longitudinal signed-rank test is a nonparametric alternative to the paired t-test and is appropriate when the data are not normally distributed or when the assumptions of the paired t-test are violated. The test is based on the signed-rank of the differences between the paired observations, and it tests the null hypothesis that the median of the differences is zero. The repeated-measures design allows for the assessment of within-subject changes over time or under different conditions. The signed-rank test is robust to outliers and does not assume a normal distribution of the differences. This method has been shown to have good statistical power and efficiency, particularly when the sample size is small or the distribution is heavily skewed (Erceg-Hurn &amp; Mirosevich, 2008; Bakdash &amp; Marusich, 2017; Garcia-Berthou &amp; Alcaraz, 2004). The signed-rank test is a useful tool for analyzing paired data when the assumption of normality is violated or when the data is highly skewed or contains outliers.</p>
-<p>[+add diagrams/figures]</p>
-<section id="when-to-use-a-signed-rank-test" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-use-a-signed-rank-test">When to use a Signed-Rank Test?</h3>
-<p>You should use a Wilcoxon Signed-Rank Test in the following scenario:</p>
+<p><img src="./figures/signedrank.png" class="img-fluid" alt="Signed-Rank Test"> ### When to use a Signed-Rank Test? You should use a Wilcoxon Signed-Rank Test in the following scenario:</p>
 <ol type="1">
 <li>You want to know if two groups are different on your variable of interest</li>
 <li>Your variable of interest is continuous</li>
@@ -450,7 +450,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You have independent samples</li>
 <li>You have a skewed variable of interest</li>
 </ol>
-</section>
 <section id="getting-started-with-longitudinal-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started-with-longitudinal-signed-rank-test">Getting Started with Longitudinal Signed-Rank Test</h3>
 <p>In this tutorial, we will introduce the concept of the longitudinal signed-rank test and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</p>
@@ -972,65 +971,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-6"><a href="#cb5-6"></a><span class="fu">## Overview</span></span>
 <span id="cb5-7"><a href="#cb5-7"></a>The longitudinal signed-rank test is a nonparametric alternative to the paired t-test and is appropriate when the data are not normally distributed or when the assumptions of the paired t-test are violated. The test is based on the signed-rank of the differences between the paired observations, and it tests the null hypothesis that the median of the differences is zero. The repeated-measures design allows for the assessment of within-subject changes over time or under different conditions. The signed-rank test is robust to outliers and does not assume a normal distribution of the differences. This method has been shown to have good statistical power and efficiency, particularly when the sample size is small or the distribution is heavily skewed (Erceg-Hurn &amp; Mirosevich, 2008; Bakdash &amp; Marusich, 2017; Garcia-Berthou &amp; Alcaraz, 2004). The signed-rank test is a useful tool for analyzing paired data when the assumption of normality is violated or when the data is highly skewed or contains outliers.</span>
 <span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">[</span><span class="ot">+add diagrams/figures</span><span class="co">]</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="fu">### When to use a Signed-Rank Test?</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>You should use a Wilcoxon Signed-Rank Test in the following scenario:</span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="ss">1.  </span>You want to know if two groups are different on your variable of interest</span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="ss">2.  </span>Your variable of interest is continuous</span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="ss">3.  </span>You have two and only two groups</span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="ss">4.  </span>You have independent samples</span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="ss">5.  </span>You have a skewed variable of interest</span>
-<span id="cb5-19"><a href="#cb5-19"></a></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="fu">### Getting Started with Longitudinal Signed-Rank Test</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a></span>
-<span id="cb5-22"><a href="#cb5-22"></a>In this tutorial, we will introduce the concept of the longitudinal signed-rank test and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</span>
-<span id="cb5-23"><a href="#cb5-23"></a></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="ss">1. </span>Understand the basic concepts of the longitudinal signed-rank test.</span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="ss">2. </span>Perform a longitudinal signed-rank test using example data in R.</span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="ss">3. </span>Interpret the results of the test.</span>
-<span id="cb5-27"><a href="#cb5-27"></a></span>
-<span id="cb5-28"><a href="#cb5-28"></a><span class="fu">## Basic Example </span></span>
-<span id="cb5-29"><a href="#cb5-29"></a></span>
-<span id="cb5-30"><a href="#cb5-30"></a>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</span>
-<span id="cb5-31"><a href="#cb5-31"></a></span>
-<span id="cb5-32"><a href="#cb5-32"></a><span class="ss">- </span>Subject ID</span>
-<span id="cb5-33"><a href="#cb5-33"></a><span class="ss">- </span>Time point 1 (T1) measurement</span>
-<span id="cb5-34"><a href="#cb5-34"></a><span class="ss">- </span>Time point 2 (T2) measurement</span>
-<span id="cb5-35"><a href="#cb5-35"></a></span>
-<span id="cb5-36"><a href="#cb5-36"></a>| Subject ID | T1  | T2  |</span>
-<span id="cb5-37"><a href="#cb5-37"></a>|------------|-----|-----|</span>
-<span id="cb5-38"><a href="#cb5-38"></a>| 1          | 100 | 105 |</span>
-<span id="cb5-39"><a href="#cb5-39"></a>| 2          | 95  | 100 |</span>
-<span id="cb5-40"><a href="#cb5-40"></a>| 3          | 110 | 112 |</span>
-<span id="cb5-41"><a href="#cb5-41"></a></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="fu">### Model Specification and Estimation</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a></span>
-<span id="cb5-44"><a href="#cb5-44"></a>We will use the <span class="in">`wilcox.test()`</span> function in R to perform a longitudinal signed-rank test. First, create a data frame with the example data:</span>
-<span id="cb5-45"><a href="#cb5-45"></a></span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="in">```{r}</span></span>
-<span id="cb5-49"><a href="#cb5-49"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-50"><a href="#cb5-50"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb5-51"><a href="#cb5-51"></a>  <span class="at">t1 =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">95</span>, <span class="dv">110</span>),</span>
-<span id="cb5-52"><a href="#cb5-52"></a>  <span class="at">t2 =</span> <span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">100</span>, <span class="dv">112</span>)</span>
-<span id="cb5-53"><a href="#cb5-53"></a>)</span>
-<span id="cb5-54"><a href="#cb5-54"></a><span class="in">```</span></span>
-<span id="cb5-55"><a href="#cb5-55"></a></span>
-<span id="cb5-56"><a href="#cb5-56"></a>Perform the longitudinal signed-rank test using the wilcox.test() function with the paired = TRUE argument:</span>
-<span id="cb5-57"><a href="#cb5-57"></a></span>
-<span id="cb5-60"><a href="#cb5-60"></a><span class="in">```{r}</span></span>
-<span id="cb5-61"><a href="#cb5-61"></a>test_result <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(data<span class="sc">$</span>t1, data<span class="sc">$</span>t2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-62"><a href="#cb5-62"></a><span class="in">```</span></span>
-<span id="cb5-63"><a href="#cb5-63"></a></span>
-<span id="cb5-64"><a href="#cb5-64"></a><span class="fu">### Interpreting the Results</span></span>
-<span id="cb5-65"><a href="#cb5-65"></a>To interpret the results of the longitudinal signed-rank test, examine the p-value from the test_result object:</span>
-<span id="cb5-66"><a href="#cb5-66"></a></span>
-<span id="cb5-69"><a href="#cb5-69"></a><span class="in">```{r}</span></span>
-<span id="cb5-70"><a href="#cb5-70"></a>test_result<span class="sc">$</span>p.value</span>
-<span id="cb5-71"><a href="#cb5-71"></a><span class="in">```</span></span>
-<span id="cb5-72"><a href="#cb5-72"></a></span>
-<span id="cb5-73"><a href="#cb5-73"></a>The p-value represents the probability of observing the data if there is no difference between the measurements at T1 and T2. If the p-value is less than a predetermined significance level (e.g., 0.05), we can reject the null hypothesis that there is no difference between the two time points and conclude that there is a significant difference in the measurements between T1 and T2.</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="al">![Signed-Rank Test](./figures/signedrank.png)</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="fu">### When to use a Signed-Rank Test?</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>You should use a Wilcoxon Signed-Rank Test in the following scenario:</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="ss">1.  </span>You want to know if two groups are different on your variable of interest</span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="ss">2.  </span>Your variable of interest is continuous</span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="ss">3.  </span>You have two and only two groups</span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="ss">4.  </span>You have independent samples</span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="ss">5.  </span>You have a skewed variable of interest</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="fu">### Getting Started with Longitudinal Signed-Rank Test</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a></span>
+<span id="cb5-21"><a href="#cb5-21"></a>In this tutorial, we will introduce the concept of the longitudinal signed-rank test and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</span>
+<span id="cb5-22"><a href="#cb5-22"></a></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="ss">1. </span>Understand the basic concepts of the longitudinal signed-rank test.</span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="ss">2. </span>Perform a longitudinal signed-rank test using example data in R.</span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="ss">3. </span>Interpret the results of the test.</span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="fu">## Basic Example </span></span>
+<span id="cb5-28"><a href="#cb5-28"></a></span>
+<span id="cb5-29"><a href="#cb5-29"></a>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="ss">- </span>Subject ID</span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="ss">- </span>Time point 1 (T1) measurement</span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="ss">- </span>Time point 2 (T2) measurement</span>
+<span id="cb5-34"><a href="#cb5-34"></a></span>
+<span id="cb5-35"><a href="#cb5-35"></a>| Subject ID | T1  | T2  |</span>
+<span id="cb5-36"><a href="#cb5-36"></a>|------------|-----|-----|</span>
+<span id="cb5-37"><a href="#cb5-37"></a>| 1          | 100 | 105 |</span>
+<span id="cb5-38"><a href="#cb5-38"></a>| 2          | 95  | 100 |</span>
+<span id="cb5-39"><a href="#cb5-39"></a>| 3          | 110 | 112 |</span>
+<span id="cb5-40"><a href="#cb5-40"></a></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="fu">### Model Specification and Estimation</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a></span>
+<span id="cb5-43"><a href="#cb5-43"></a>We will use the <span class="in">`wilcox.test()`</span> function in R to perform a longitudinal signed-rank test. First, create a data frame with the example data:</span>
+<span id="cb5-44"><a href="#cb5-44"></a></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="in">```{r}</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-49"><a href="#cb5-49"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb5-50"><a href="#cb5-50"></a>  <span class="at">t1 =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">95</span>, <span class="dv">110</span>),</span>
+<span id="cb5-51"><a href="#cb5-51"></a>  <span class="at">t2 =</span> <span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">100</span>, <span class="dv">112</span>)</span>
+<span id="cb5-52"><a href="#cb5-52"></a>)</span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="in">```</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a></span>
+<span id="cb5-55"><a href="#cb5-55"></a>Perform the longitudinal signed-rank test using the wilcox.test() function with the paired = TRUE argument:</span>
+<span id="cb5-56"><a href="#cb5-56"></a></span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="in">```{r}</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a>test_result <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(data<span class="sc">$</span>t1, data<span class="sc">$</span>t2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="in">```</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a></span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="fu">### Interpreting the Results</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a>To interpret the results of the longitudinal signed-rank test, examine the p-value from the test_result object:</span>
+<span id="cb5-65"><a href="#cb5-65"></a></span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="in">```{r}</span></span>
+<span id="cb5-69"><a href="#cb5-69"></a>test_result<span class="sc">$</span>p.value</span>
+<span id="cb5-70"><a href="#cb5-70"></a><span class="in">```</span></span>
+<span id="cb5-71"><a href="#cb5-71"></a></span>
+<span id="cb5-72"><a href="#cb5-72"></a>The p-value represents the probability of observing the data if there is no difference between the measurements at T1 and T2. If the p-value is less than a predetermined significance level (e.g., 0.05), we can reject the null hypothesis that there is no difference between the two time points and conclude that there is a significant difference in the measurements between T1 and T2.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -1,7 +1,30 @@
 ---
 title: "Marginal Models"
 author: "Biostatistics Working Group"
+format:
+  html:
+    mermaid:
+      theme: forest
 ---
+
+
+xxxxxxxxx
+
+
+```{mermaid}
+graph LR
+A(( )) -- Intercept --> B(( ))
+B -- Slope --> C(( ))
+C -- Quadratic --> D(( ))
+
+B -- Y1 --> E[square]
+C -- Y2 --> F[square]
+D -- Y3 --> G[square]
+```
+
+
+
+xxxxxxxx
 
 ## Overview
 Marginal models are a statistical method used to analyze longitudinal or clustered data. The marginal model estimates the average effect of the independent variables on the outcome while accounting for the within-subject correlation, and allows for the estimation of population-averaged effects, in contrast to subject-specific effects estimated by random-effects models (Verbeke & Molenberghs, 2000). The method is similar to the GEE approach but uses a different estimation technique and does not account for subject-specific effects. Marginal models have been shown to be robust to non-normality and non-constant variance, and can handle unbalanced or unequally spaced data (Fitzmaurice et al., 2011). The term marginal in this context is used to emphasize that the model for the mean response at each occasion depends only on the covariates of interest, and not on any random effects or previous responses. 

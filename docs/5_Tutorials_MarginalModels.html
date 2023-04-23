@@ -99,6 +99,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script async="" src="https://hypothes.is/embed.js"></script>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -436,6 +440,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p>xxxxxxxxx</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>graph LR</span>
+<span id="cb1-2"><a href="#cb1-2"></a>A(( )) -- Intercept --&gt; B(( ))</span>
+<span id="cb1-3"><a href="#cb1-3"></a>B -- Slope --&gt; C(( ))</span>
+<span id="cb1-4"><a href="#cb1-4"></a>C -- Quadratic --&gt; D(( ))</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>B -- Y1 --&gt; E[square]</span>
+<span id="cb1-7"><a href="#cb1-7"></a>C -- Y2 --&gt; F[square]</span>
+<span id="cb1-8"><a href="#cb1-8"></a>D -- Y3 --&gt; G[square]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+A(( )) -- Intercept --&gt; B(( ))
+B -- Slope --&gt; C(( ))
+C -- Quadratic --&gt; D(( ))
+
+B -- Y1 --&gt; E[square]
+C -- Y2 --&gt; F[square]
+D -- Y3 --&gt; G[square]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>xxxxxxxx</p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Marginal models are a statistical method used to analyze longitudinal or clustered data. The marginal model estimates the average effect of the independent variables on the outcome while accounting for the within-subject correlation, and allows for the estimation of population-averaged effects, in contrast to subject-specific effects estimated by random-effects models (Verbeke &amp; Molenberghs, 2000). The method is similar to the GEE approach but uses a different estimation technique and does not account for subject-specific effects. Marginal models have been shown to be robust to non-normality and non-constant variance, and can handle unbalanced or unequally spaced data (Fitzmaurice et al., 2011). The term marginal in this context is used to emphasize that the model for the mean response at each occasion depends only on the covariates of interest, and not on any random effects or previous responses.</p>
@@ -506,39 +540,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="model-specification-and-estimation" class="level3">
 <h3 class="anchored" data-anchor-id="model-specification-and-estimation">Model Specification and Estimation</h3>
 <p>We will use the <code>geepack</code> package in R to fit a longitudinal marginal model. First, install and load the required package:</p>
-<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-1_6e21ad6d08b8bbf095a87cdfce1453c5">
+<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-2_5ebc53d5d2a3fb4651e45d60b65e0f6b">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lme4"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"geepack"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(geepack)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lme4"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"geepack"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(geepack)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Next, create a data frame with the example data:</p>
-<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-2_63d05522955f6fd9c30c5c9bd91b7f87">
+<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-3_c2caabc05ab09ac0b4128db9141031d8">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Fit the longitudinal marginal model with a binary outcome using a logit link function:</p>
-<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-3_86e3445384139a67c916d392b5285b9a">
+<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-4_396611aed468a8a02b4bd2e9c00f5690">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>model <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(outcome <span class="sc">~</span> time, <span class="at">data =</span> data, <span class="at">id =</span> subject_id, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), <span class="at">corstr =</span> <span class="st">"exchangeable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>model <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(outcome <span class="sc">~</span> time, <span class="at">data =</span> data, <span class="at">id =</span> subject_id, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), <span class="at">corstr =</span> <span class="st">"exchangeable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="interpreting-the-results" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h3>
 <p>To interpret the results of the longitudinal marginal model, we can use the summary() function in R to display the estimated population-averaged effects:</p>
-<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-4_1ec0feed9cb3f8f7b5e0233c59e473cf">
+<div class="cell" data-hash="5_Tutorials_MarginalModels_cache/html/unnamed-chunk-5_a0ae463dce96acc6464abc89d8ed95ad">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1000,80 +1034,103 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Marginal Models"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">---</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">## Overview</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>Marginal models are a statistical method used to analyze longitudinal or clustered data. The marginal model estimates the average effect of the independent variables on the outcome while accounting for the within-subject correlation, and allows for the estimation of population-averaged effects, in contrast to subject-specific effects estimated by random-effects models (Verbeke &amp; Molenberghs, 2000). The method is similar to the GEE approach but uses a different estimation technique and does not account for subject-specific effects. Marginal models have been shown to be robust to non-normality and non-constant variance, and can handle unbalanced or unequally spaced data (Fitzmaurice et al., 2011). The term marginal in this context is used to emphasize that the model for the mean response at each occasion depends only on the covariates of interest, and not on any random effects or previous responses. </span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">[</span><span class="ot">+add diagrams/figures</span><span class="co">]</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="fu">### When to use Longitudinal Marginal Models</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>You should use xxxxxxx in the following scenario:</span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="ss">1.  </span>You want to know xxxxx</span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="ss">2.  </span>Your variable xxxxx</span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="ss">3.  </span>You have xxxxx </span>
-<span id="cb6-17"><a href="#cb6-17"></a></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="fu">### Getting Started with Longitudinal Marginal Models</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a></span>
-<span id="cb6-20"><a href="#cb6-20"></a>In this tutorial, we will introduce the concept of longitudinal marginal models and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</span>
-<span id="cb6-21"><a href="#cb6-21"></a></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="ss">1. </span>Understand the basic concepts of longitudinal marginal models.</span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="ss">2. </span>Fit a longitudinal marginal model using example data in R.</span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="ss">3. </span>Interpret the results of the model.</span>
-<span id="cb6-25"><a href="#cb6-25"></a></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="fu">## Basic Example</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a></span>
-<span id="cb6-28"><a href="#cb6-28"></a>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="ss">- </span>Subject ID</span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="ss">- </span>Time (in years)</span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="ss">- </span>Binary outcome variable (e.g., presence or absence of a particular condition)</span>
-<span id="cb6-33"><a href="#cb6-33"></a></span>
-<span id="cb6-34"><a href="#cb6-34"></a>| Subject ID | Time | Outcome |</span>
-<span id="cb6-35"><a href="#cb6-35"></a>|------------|------|---------|</span>
-<span id="cb6-36"><a href="#cb6-36"></a>| 1          | 0    | 0       |</span>
-<span id="cb6-37"><a href="#cb6-37"></a>| 1          | 1    | 1       |</span>
-<span id="cb6-38"><a href="#cb6-38"></a>| 1          | 2    | 1       |</span>
-<span id="cb6-39"><a href="#cb6-39"></a>| 2          | 0    | 0       |</span>
-<span id="cb6-40"><a href="#cb6-40"></a>| 2          | 1    | 1       |</span>
-<span id="cb6-41"><a href="#cb6-41"></a></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="fu">### Model Specification and Estimation</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a></span>
-<span id="cb6-44"><a href="#cb6-44"></a>We will use the <span class="in">`geepack`</span> package in R to fit a longitudinal marginal model. First, install and load the required package:</span>
-<span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="in">```{r}</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lme4"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"geepack"</span>)</span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="fu">library</span>(geepack)</span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="in">```</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a>Next, create a data frame with the example data:</span>
-<span id="cb6-54"><a href="#cb6-54"></a></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="in">```{r}</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-59"><a href="#cb6-59"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb6-60"><a href="#cb6-60"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb6-61"><a href="#cb6-61"></a>  <span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb6-62"><a href="#cb6-62"></a>)</span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="in">```</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a></span>
-<span id="cb6-65"><a href="#cb6-65"></a>Fit the longitudinal marginal model with a binary outcome using a logit link function:</span>
-<span id="cb6-66"><a href="#cb6-66"></a></span>
-<span id="cb6-69"><a href="#cb6-69"></a><span class="in">```{r}</span></span>
-<span id="cb6-70"><a href="#cb6-70"></a>model <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(outcome <span class="sc">~</span> time, <span class="at">data =</span> data, <span class="at">id =</span> subject_id, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), <span class="at">corstr =</span> <span class="st">"exchangeable"</span>)</span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="in">```</span></span>
-<span id="cb6-72"><a href="#cb6-72"></a></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="fu">### Interpreting the Results</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a>To interpret the results of the longitudinal marginal model, we can use the summary() function in R to display the estimated population-averaged effects:</span>
-<span id="cb6-75"><a href="#cb6-75"></a></span>
-<span id="cb6-78"><a href="#cb6-78"></a><span class="in">```{r}</span></span>
-<span id="cb6-79"><a href="#cb6-79"></a><span class="fu">summary</span>(model)</span>
-<span id="cb6-80"><a href="#cb6-80"></a><span class="in">```</span></span>
-<span id="cb6-81"><a href="#cb6-81"></a></span>
-<span id="cb6-82"><a href="#cb6-82"></a>The output will show the estimated effect of time on the binary outcome variable, expressed as an odds ratio. By examining the odds ratio and its associated p-value, we can determine if the change in the outcome variable over time is significant at the population level.</span>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Marginal Models"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="an">format:</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">  html:</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">    mermaid:</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">      theme: forest</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">---</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a>xxxxxxxxx</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="in">```{mermaid}</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>graph LR</span>
+<span id="cb7-18"><a href="#cb7-18"></a>A(( )) -- Intercept --&gt; B(( ))</span>
+<span id="cb7-19"><a href="#cb7-19"></a>B -- Slope --&gt; C(( ))</span>
+<span id="cb7-20"><a href="#cb7-20"></a>C -- Quadratic --&gt; D(( ))</span>
+<span id="cb7-21"><a href="#cb7-21"></a></span>
+<span id="cb7-22"><a href="#cb7-22"></a>B -- Y1 --&gt; E[square]</span>
+<span id="cb7-23"><a href="#cb7-23"></a>C -- Y2 --&gt; F[square]</span>
+<span id="cb7-24"><a href="#cb7-24"></a>D -- Y3 --&gt; G[square]</span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="in">```</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a>xxxxxxxx</span>
+<span id="cb7-30"><a href="#cb7-30"></a></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="fu">## Overview</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a>Marginal models are a statistical method used to analyze longitudinal or clustered data. The marginal model estimates the average effect of the independent variables on the outcome while accounting for the within-subject correlation, and allows for the estimation of population-averaged effects, in contrast to subject-specific effects estimated by random-effects models (Verbeke &amp; Molenberghs, 2000). The method is similar to the GEE approach but uses a different estimation technique and does not account for subject-specific effects. Marginal models have been shown to be robust to non-normality and non-constant variance, and can handle unbalanced or unequally spaced data (Fitzmaurice et al., 2011). The term marginal in this context is used to emphasize that the model for the mean response at each occasion depends only on the covariates of interest, and not on any random effects or previous responses. </span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="co">[</span><span class="ot">+add diagrams/figures</span><span class="co">]</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a></span>
+<span id="cb7-36"><a href="#cb7-36"></a><span class="fu">### When to use Longitudinal Marginal Models</span></span>
+<span id="cb7-37"><a href="#cb7-37"></a>You should use xxxxxxx in the following scenario:</span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a><span class="ss">1.  </span>You want to know xxxxx</span>
+<span id="cb7-40"><a href="#cb7-40"></a><span class="ss">2.  </span>Your variable xxxxx</span>
+<span id="cb7-41"><a href="#cb7-41"></a><span class="ss">3.  </span>You have xxxxx </span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="fu">### Getting Started with Longitudinal Marginal Models</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a></span>
+<span id="cb7-45"><a href="#cb7-45"></a>In this tutorial, we will introduce the concept of longitudinal marginal models and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:</span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a><span class="ss">1. </span>Understand the basic concepts of longitudinal marginal models.</span>
+<span id="cb7-48"><a href="#cb7-48"></a><span class="ss">2. </span>Fit a longitudinal marginal model using example data in R.</span>
+<span id="cb7-49"><a href="#cb7-49"></a><span class="ss">3. </span>Interpret the results of the model.</span>
+<span id="cb7-50"><a href="#cb7-50"></a></span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="fu">## Basic Example</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a></span>
+<span id="cb7-53"><a href="#cb7-53"></a>For this tutorial, we will use a simple dataset containing the following information for a group of individuals:</span>
+<span id="cb7-54"><a href="#cb7-54"></a></span>
+<span id="cb7-55"><a href="#cb7-55"></a><span class="ss">- </span>Subject ID</span>
+<span id="cb7-56"><a href="#cb7-56"></a><span class="ss">- </span>Time (in years)</span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="ss">- </span>Binary outcome variable (e.g., presence or absence of a particular condition)</span>
+<span id="cb7-58"><a href="#cb7-58"></a></span>
+<span id="cb7-59"><a href="#cb7-59"></a>| Subject ID | Time | Outcome |</span>
+<span id="cb7-60"><a href="#cb7-60"></a>|------------|------|---------|</span>
+<span id="cb7-61"><a href="#cb7-61"></a>| 1          | 0    | 0       |</span>
+<span id="cb7-62"><a href="#cb7-62"></a>| 1          | 1    | 1       |</span>
+<span id="cb7-63"><a href="#cb7-63"></a>| 1          | 2    | 1       |</span>
+<span id="cb7-64"><a href="#cb7-64"></a>| 2          | 0    | 0       |</span>
+<span id="cb7-65"><a href="#cb7-65"></a>| 2          | 1    | 1       |</span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a><span class="fu">### Model Specification and Estimation</span></span>
+<span id="cb7-68"><a href="#cb7-68"></a></span>
+<span id="cb7-69"><a href="#cb7-69"></a>We will use the <span class="in">`geepack`</span> package in R to fit a longitudinal marginal model. First, install and load the required package:</span>
+<span id="cb7-70"><a href="#cb7-70"></a></span>
+<span id="cb7-73"><a href="#cb7-73"></a><span class="in">```{r}</span></span>
+<span id="cb7-74"><a href="#cb7-74"></a><span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"lme4"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">"geepack"</span>)</span>
+<span id="cb7-75"><a href="#cb7-75"></a><span class="fu">library</span>(geepack)</span>
+<span id="cb7-76"><a href="#cb7-76"></a><span class="in">```</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a></span>
+<span id="cb7-78"><a href="#cb7-78"></a>Next, create a data frame with the example data:</span>
+<span id="cb7-79"><a href="#cb7-79"></a></span>
+<span id="cb7-82"><a href="#cb7-82"></a><span class="in">```{r}</span></span>
+<span id="cb7-83"><a href="#cb7-83"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-84"><a href="#cb7-84"></a>  <span class="at">subject_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb7-85"><a href="#cb7-85"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb7-86"><a href="#cb7-86"></a>  <span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-87"><a href="#cb7-87"></a>)</span>
+<span id="cb7-88"><a href="#cb7-88"></a><span class="in">```</span></span>
+<span id="cb7-89"><a href="#cb7-89"></a></span>
+<span id="cb7-90"><a href="#cb7-90"></a>Fit the longitudinal marginal model with a binary outcome using a logit link function:</span>
+<span id="cb7-91"><a href="#cb7-91"></a></span>
+<span id="cb7-94"><a href="#cb7-94"></a><span class="in">```{r}</span></span>
+<span id="cb7-95"><a href="#cb7-95"></a>model <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(outcome <span class="sc">~</span> time, <span class="at">data =</span> data, <span class="at">id =</span> subject_id, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), <span class="at">corstr =</span> <span class="st">"exchangeable"</span>)</span>
+<span id="cb7-96"><a href="#cb7-96"></a><span class="in">```</span></span>
+<span id="cb7-97"><a href="#cb7-97"></a></span>
+<span id="cb7-98"><a href="#cb7-98"></a><span class="fu">### Interpreting the Results</span></span>
+<span id="cb7-99"><a href="#cb7-99"></a>To interpret the results of the longitudinal marginal model, we can use the summary() function in R to display the estimated population-averaged effects:</span>
+<span id="cb7-100"><a href="#cb7-100"></a></span>
+<span id="cb7-103"><a href="#cb7-103"></a><span class="in">```{r}</span></span>
+<span id="cb7-104"><a href="#cb7-104"></a><span class="fu">summary</span>(model)</span>
+<span id="cb7-105"><a href="#cb7-105"></a><span class="in">```</span></span>
+<span id="cb7-106"><a href="#cb7-106"></a></span>
+<span id="cb7-107"><a href="#cb7-107"></a>The output will show the estimated effect of time on the binary outcome variable, expressed as an odds ratio. By examining the odds ratio and its associated p-value, we can determine if the change in the outcome variable over time is significant at the population level.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

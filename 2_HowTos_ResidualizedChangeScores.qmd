@@ -3,5 +3,303 @@ title: "Residualized Change Scores"
 author: "Biostatistics Working Group"
 ---
 
-Residualized Change Scores How tos test page
+# Mulitple Regression {.unnumbered}
 
+## Overview
+
+<p>
+insert text
+</p>
+
+## Preliminary Setup
+::: {.panel-tabset}
+### Install Packages {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+> **This code installs the r packages necessary for this example, if they are not already installed**
+
+```{r}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#rm(list = ls())
+
+# Install necessary packages (if not already installed)
+if (!("rstatix" %in% installed.packages())) install.packages("rstatix")
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("ggpubr" %in% installed.packages())) install.packages("ggpubr")
+if (!("emmeans" %in% installed.packages())) install.packages("emmeans")
+```
+</div>
+
+### Load Packages
+<div class = "blue">
+
+> **This code loads the r libraries necessary for this example**
+
+```{r pckg-load}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| class.source: fold-hide
+
+#rm(list = ls())
+
+#Load packages
+library(rstatix)
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(ggpubr)
+library(emmeans)
+library(arrow)
+library(arsenal)
+library(kableExtra)
+library(rstatix)
+
+```
+
+</div>
+
+### Config Options
+<div class = "blue">
+
+**This code configures knitr code chunk options**
+
+```{r config}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center',
+                      out.width='75%', fig.asp=.75)
+```
+</div>
+:::
+
+## Descriptives Overview
+::: {.panel-tabset}
+### Read and View Data {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+**This code reads in and shows the data to be used in the current example**
+
+```{r read-data}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+## Read data
+df_long<- read_csv("/Users/shawes/Desktop/data/df_long.csv")
+df_wide <- read_csv("/Users/shawes/Desktop/data/df_wide.csv")
+
+# set types (if necessary)
+df_long$ids <- as.factor(df_long$ids)
+df_long$event <- as.factor(df_long$event)
+df_long$site_id <- as.factor(df_long$site_id)
+df_long$fam_id <- as.factor(df_long$fam_id)
+df_long$sex <- as.factor(df_long$sex)
+df_long$age <- as.numeric(df_long$age)
+df_long$mature_vg <- as.numeric(df_long$mature_vg)
+df_long$cbcl_extern <- as.numeric(df_long$cbcl_extern)
+df_long$vg_total <- as.numeric(df_long$vg_total)
+```
+
+</div>
+
+:::
+
+### Continuous Outcomes
+
+::: blue
+**This code creates a table of descriptive information for continuous
+outcomes**
+
+```{r contvar-table}
+#| messages: FALSE
+#| echo: TRUE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+tab_descriptives_1 <- tableby.control(test=FALSE, total=FALSE, numeric.test="kwt", cat.test="chisq",
+numeric.stats=c("N", "meansd", "median", "range"), #"Nmiss2"
+cat.stats=c("countpct"), #"Nmiss2"
+stats.labels=list(N='Count', meansd="Mean (SD)", median ='Median', 
+                  range='Min - Max'))  #, Nmiss2 ='Missing'
+my_cont_labels <- list(age = "Age", vg_total = "Weekly # of Video Gaming Hrs",
+            cbcl_extern = "CBCL Externalizing Scale"
+)
+
+tab_descriptives_1 <- tableby(event ~ age + vg_total + 
+                                      cbcl_extern,
+                                      data=df_long, control=tab_descriptives_1)
+
+# Push table object through kable and kable_styling
+tab_descriptives_1 %>%
+  summary(text=TRUE, digits.pct=1, digits=1) %>%
+  kable(caption = "Continuous Outcomes") %>%
+  kable_styling(bootstrap_options = "striped", 
+                full_width = FALSE, html_font = "Cambria",
+                font_size = 15, position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>% 
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+  column_spec(3, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+```  
+:::
+
+### Categorical Outcomes
+
+::: blue
+**This code creates a descriptives table for categorical outcomes**
+      
+```{r catvar-table}
+#| class.source: 'fold-hide'
+#| messages: FALSE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+tab_descriptives_2  <- tableby.control(test=FALSE, total=FALSE,
+numeric.test="kwt", cat.test="chisq",
+numeric.stats=c("N", "meansd", "median", "range"
+), # "Nmiss2"
+cat.stats=c("countpct"), # "Nmiss2"
+stats.labels=list(N='Count', meansd="Mean (SD)", median
+='Median', range='Min - Max'
+)) # , Nmiss2 ='Missing'
+
+my_cat_labels  <- list(
+  event = "Year",
+  sex = "Sex",
+  mature_vg = "Mature Video Games"
+  )
+          
+tab_descriptives_2 <- tableby(event ~ sex + mature_vg, data=df_long, control=tab_descriptives_2)
+
+# Push table object through kable and kable_styling
+tab_descriptives_2 %>%
+            summary(text=TRUE, digits.pct=1, digits=1) %>%
+            kable(caption = "Categorical Outcomes") %>%
+            kable_styling(bootstrap_options = "striped", full_width = FALSE, font_size =
+                            15, position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+  #column_spec(3, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+
+```
+:::
+:::
+
+## Results
+
+<div class = "blue">
+
+::: panel-tabset
+### Build Model {.tabset .tabset-fade .tabset-pills}
+
+::: blue
+
+The code snippet below tells R to compute xxxxx by xxxxxxx. Next, xxxxx is conducted to examine whether xxxxxx does xxxxxxx (indicating xxxxx). The xxxx function (xxx) is provided by the r 'xxx' package.
+
+**STEP 1: Compute xxxxxxxx**
+```{r build-model-1}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+#A multiple regression approach can be used to examine effects of a continuous covariate  when controlling for autoregressive effects (t1->t2) 
+
+#Multiple regression model
+result = lm(cbcl_extern_Year_1 ~ cbcl_extern_Baseline + vg_total_Baseline, data = df_wide)
+str(df_wide)
+# fit ML model including mean structure to make comparable with FIML fit below
+# (means are always included with FIML model fits)
+# sem.mod.fit <- sem(sem.mod, data=tpb.df, meanstructure=TRUE)
+
+# fit again including missing data also
+#sem.mod.fit.fiml <- sem(sem.mod, data=tpb.df, missing="ML")
+
+```
+
+```{r model-checking}
+#Diagnostic Plots
+
+summary(result)
+
+# residuals vs. fitted values plot.
+resid_plot<- plot(result, add.smooth = FALSE, which = 1)
+
+# normal probability plot
+norm_plot<- plot(result, which = 2)
+
+# scale location plot
+scale_plot<- plot(result, add.smooth = FALSE, which = 3)
+
+# boxplot
+#boxplot <- ggplot(df_wide, aes(x = Externalizing_T1, y = Externalizing_T0, colour = Sex)) + geom_point()
+
+#suppressWarnings(print(resid_plot))
+#suppressWarnings(print(norm_plot))
+#suppressWarnings(print(scale_plot))
+#suppressWarnings(print(boxplot))
+
+```
+
+This summary of xxxx indicates xxxxx.
+
+The output from our model provides: i. xxxx; ii. xxxxx; iii. xxxx. In our example xxxxx indicates xxxxx. An examination of xxxxx is xxxx, indicating xxxxxx. Then we conclude that xxxxxx.
+
+```{r}
+# Boxplots
+
+df_wide %>%
+            group_by(sex) %>%  
+            summarise(mean_grade = mean(cbcl_extern_Baseline),
+            sd_grade = sd(cbcl_extern_Baseline),
+            mean_exam = mean(cbcl_extern_Year_1),
+            sd_exam = sd(cbcl_extern_Year_1))
+
+# Boxplot of CBCL Externalizing scores at baseline by sex
+boxplot_cbclExt_T1 <- boxplot(cbcl_extern_Baseline ~ sex,data = df_wide,
+main = "CBCL Ext Baseline Score by sex",
+xlab = "Sex",ylab = "Baseline CBCL Externalizing Score",
+col = "red",border = "black")
+
+# Boxplot of CBCL Externalizing scores at 1-Year follow-up by sex
+boxplot_cbclExt_T2 <- boxplot(cbcl_extern_Year_1 ~ sex, data = df_wide,
+main = "CBCL Ext 1-Year Follow-up Score by sex",
+xlab = "Sex",ylab = "1-Year Follow-up CBCL Externalizing Score",
+col = "red",border = "black")
+
+suppressWarnings(print(boxplot_cbclExt_T1))
+suppressWarnings(print(boxplot_cbclExt_T2))
+```
+
+These boxplots indicates xxxxxx.
+
+## Wrapping Up
+<div class = "blue">
+
+::: panel-tabset
+### Write-up {.tabset .tabset-fade .tabset-pills}
+
+::: blue
+
+A xxxxxx analysis was conducted to examine xxxxx. Findings showed xxxxxx  
+
+:::
+:::

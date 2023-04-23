@@ -107,7 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 <meta name="twitter:title" content="Longitudinal Analysis - Linear Mixed Models">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://swhawes.github.io/test/figures/Linear Mixed Models.png">
+<meta name="twitter:image-height" content="522">
+<meta name="twitter:image-width" content="801">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -439,7 +442,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Linear mixed models (LMMs) are a powerful statistical tool that allows the analysis of complex data structures that contain both fixed and random effects (West et al., 2015). LMMs are widely used in various fields, including social sciences, biology, and engineering, due to their ability to handle hierarchical data structures and account for within-subject correlations (Bates et al., 2015). LMMs are an extension of the general linear model (GLM), where both fixed and random effects can be included in the model, making them more flexible and robust (Pinheiro &amp; Bates, 2000). These models are particularly useful when analyzing longitudinal data, where measurements are taken repeatedly over time, and correlations between observations must be accounted for (Singer &amp; Willett, 2003). Specifically, the LMM framework accounts for these dependencies among data by extending the general regression “fixed effects” model to allow both, fixed and random effects. This approach simultaneously models an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. It is this “mixture” of fixed and random effects from which these models derive their name.</p>
-<p>[+add primary diagram/figure]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/Linear Mixed Models.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Linear Mixed Models</figcaption>
+</figure>
+</div>
 <section id="when-to-use-longitudinal-linear-mixed-models-lmms" class="level3">
 <h3 class="anchored" data-anchor-id="when-to-use-longitudinal-linear-mixed-models-lmms">When to use Longitudinal Linear Mixed Models (LMMs)?</h3>
 <p>You should use LMMs in the following scenario:</p>
@@ -1015,7 +1023,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-8"><a href="#cb6-8"></a><span class="fu">## Overview</span></span>
 <span id="cb6-9"><a href="#cb6-9"></a>Linear mixed models (LMMs) are a powerful statistical tool that allows the analysis of complex data structures that contain both fixed and random effects (West et al., 2015). LMMs are widely used in various fields, including social sciences, biology, and engineering, due to their ability to handle hierarchical data structures and account for within-subject correlations (Bates et al., 2015). LMMs are an extension of the general linear model (GLM), where both fixed and random effects can be included in the model, making them more flexible and robust (Pinheiro &amp; Bates, 2000). These models are particularly useful when analyzing longitudinal data, where measurements are taken repeatedly over time, and correlations between observations must be accounted for (Singer &amp; Willett, 2003). Specifically, the LMM framework accounts for these dependencies among data by extending the general regression "fixed effects" model to allow both, fixed and random effects. This approach simultaneously models an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. It is this "mixture" of fixed and random effects from which these models derive their name.</span>
 <span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">[</span><span class="ot">+add primary diagram/figure</span><span class="co">]</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="al">![Linear Mixed Models](./figures/Linear Mixed Models.png)</span></span>
 <span id="cb6-12"><a href="#cb6-12"></a></span>
 <span id="cb6-13"><a href="#cb6-13"></a><span class="fu">### When to use Longitudinal Linear Mixed Models (LMMs)?</span></span>
 <span id="cb6-14"><a href="#cb6-14"></a>You should use LMMs in the following scenario:</span>

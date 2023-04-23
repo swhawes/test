@@ -400,7 +400,8 @@
     "4_HowTos_SignedRankTest.html": "10efc4bf"
   },
   "1_HowTos_DifferenceScores.qmd": {
-    "1_HowTos_DifferenceScores.html": "faf79322"
+    "1_HowTos_DifferenceScores.html": "faf79322",
+    "1_HowTos_DifferenceScores.docx": "95877f6c"
   },
   "2_HowTos_ResidualizedChangeScores.qmd": {
     "2_HowTos_ResidualizedChangeScores.html": "84f42f4d"
@@ -449,5 +450,23 @@
   },
   "TailwindTest2.qmd": {
     "TailwindTest2.html": "00954eac"
+  },
+  "ListofReferences.qmd": {
+    "ListofReferences.html": "eb19d583"
+  },
+  "1b_HowTos_DifferenceScores.qmd": {
+    "1b_HowTos_DifferenceScores.html": "df1b706e"
+  },
+  "3a_HowTos_LinearMixedModels.qmd": {
+    "3a_HowTos_LinearMixedModels.html": "5693b91a"
+  },
+  "1b_Difference Scores simple regression_HowTo.qmd": {
+    "1b_Difference Scores simple regression_HowTo.docx": "6f2b8b9f"
+  },
+  "10_Autoregressive Crosslagged Panel Models_HowTo.qmd": {
+    "10_Autoregressive Crosslagged Panel Models_HowTo.html": "34c4c26d"
+  },
+  "1a_HowTos_DifferenceScores.qmd": {
+    "1a_HowTos_DifferenceScores.html": "9eda7a76"
   }
 }

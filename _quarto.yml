@@ -93,9 +93,11 @@ website:
         - howto.qmd
         - section: "Traditional Linear Models"
           contents:
-            - 1_HowTos_DifferenceScores.qmd
+            - 1a_HowTos_DifferenceScores.qmd
+            - 1b_HowTos_DifferenceScores.qmd
             - 2_HowTos_ResidualizedChangeScores.qmd
-            - 3_HowTos_LinearMixedModels.qmd
+            - 3a_HowTos_LinearMixedModels.qmd
+            #- 3b_HowTos_LinearMixedModels.qmd
         - section: "Traditional Non-linear Models"
           contents:
             - 4_HowTos_SignedRankTest.qmd
@@ -127,11 +129,13 @@ website:
       contents:
         - fundamentals.qmd
         # navigation items
-
+  
     - title: "Reference"
       contents:
         - reference.qmd
-        # navigation items
+        - section: "List of Reference Material"
+          contents:
+            - ListofReferences.qmd
 
   page-footer:
     center:

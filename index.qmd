@@ -1,4 +1,5 @@
 ---
+number-sections: true
 #title: "Temporary Landing Page for Longitudinal Project"
 #format:
 #  html:

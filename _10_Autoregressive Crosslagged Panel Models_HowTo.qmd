@@ -1,0 +1,135 @@
+# ARCL Models
+
+**text below is notes only**
+---
+###  EXAMPLE 5.3: Autoregressive Cross-lag (ARCL) model, with Continuous Indicators
+***
+The ARCL model does xxxxxxx.
+
+    EXAMPLE 5.3 CODE 
+    --- 
+    TITLE: this is an example of an Autoregressive Cross-lag (ARCL) model. This model extends on the CLPM presented in example 5.3 by including autoregressive (t1 -> t2) effects in the model, with continuous indicators
+    DATA: FILE IS example-data.dat; 
+    VARIABLE: NAMES ARE x1-x2 y1-y2; 
+    MODEL: y2 on x1;
+           x2 on y1;
+           x1 with y1;
+           x2 with y2;
+           y2 on y1;
+           x2 on x1;
+
+![EXAMPLE 5.3 Diagram. this is an example of a cross-lag panel model including contemporaneous effects, with Continuous Indicators.](/Users/shawes/Desktop/outdoor house.png)
+
+<br>
+
+#### **EXAMPLE 5.3 CODE COMMENTARY**
+    TITLE: this is an example of an Autoregressive Cross-lag (ARCL) model. This model extends on the CLPM presented in example 5.3 by including autoregressive (t1 -> t2) effects in the model, with continuous indicators
+>   *The TITLE command is used to provide a title for the analysis. The title is printed in the output just before the Summary of Analysis.*
+<br>
+
+    DATA: FILE IS example-data.dat;
+>   *The DATA command is used to provide information about the data set to be analyzed. The FILE option is used to specify the name of the file that contains the data to be analyzed, ex5.1.dat. Because the data set is in free format, the default, a FORMAT statement is not required.*
+<br>
+
+    VARIABLE: NAMES ARE x1-x2 y1-y2;
+>   *The VARIABLE command is used to provide information about the variables in the data set to be analyzed. The NAMES option is used to assign names to the variables in the data set. The data set in this example contains six variables: y1, y2, y3, y4, y5, y6. Note that the hyphen can be used as a convenience feature in order to generate a list of names.*
+<br>
+
+    MODEL: y2 on x1;
+           x2 on y1;
+           x1 with y1;
+           x2 with y2;
+           y2 on y1;
+           x2 on x1;
+>   *The MODEL command is used to describe the model to be estimated. Here the two BY statements specify that f1 is measured by y1, y2, and y3, and f2 is measured by y4, y5, and y6. The metric of the factors is set automatically by the program by fixing the first factor loading in each BY statement to 1. This option can be overridden. The intercepts and residual variances of the factor indicators are estimated and the residuals are not correlated as the default. The variances of the factors are estimated as the default. The factors are correlated as the default because they are independent (exogenous) variables. The default estimator for this type of analysis is maximum likelihood. The ESTIMATOR option of the ANALYSIS command can be used to select a different estimator.*
+
+***
+
+The difference between this example and Example 5.1 is that the factor indicators are binary or ordered categorical (ordinal) variables instead of continuous variables.  The CATEGORICAL option is used to specify which dependent variables are treated as binary or ordered categorical (ordinal) variables in the model and its estimation.  In the example above, all six factor indicators are binary or ordered categorical variables.  The program determines the number of categories for each factor indicator.  The default estimator for this type of analysis is a robust weighted least squares estimator (Muthén, 1984; Muthén, du Toit, & Spisic, 1997).  With this estimator, probit regressions for the factor indicators regressed on the factors are estimated.  The ESTIMATOR option of the ANALYSIS command can be used to select a different estimator.  An explanation of the other commands can be found in Example 5.1. 
+
+With maximum likelihood estimation, logistic regressions for the factor indicators regressed on the factors are estimated using a numerical integration algorithm.  This is shown in Example 5.5.  Note that numerical integration becomes increasingly more computationally demanding as the number of factors and the sample size increase.
+
+
+## **APPENDIX CHAPTER 5 EXAMPLES: AUTOREGRESSIVE AND CROSSLAGED MODELS**
+
+Using the xxxxx package, we evaluated the performance of the ARCL applied to longitudinal ABCD Study dataset to provide a practical example (all code available at [githublink]). For this example, we will consider the temporal association between youth report scores on the xxx (a measure of xxxxxxx) and yyy (a measure of xxxxxxx). First, we constructed a basic CLPM to simultaneously estimate the lagged association between xxxxxx (xt1) and subsequent yyyyy (yt2), as well as the lagged association between yyyyy (yt1) and subsequent xxxxx (xt2) (see single-headed arrow in Figure x, section xx). Results from this model reveal xxxxxxx (see Table x). However, the basic CLPM does not tell us anything about xxxx and assumes xxxxx.
+
+### **CHAPTER 5 TOC**
+* 5.1: Basic Crosslagged Panel Model
+* 5.2: Crosslagged Panel Model w/contemporaneous effects
+* 5.3: Autoregressive Crosslagged Model 
+
+### EXAMPLE 5.1: Basic Cross-lag Panel Model (CLPM) with Continuous Indicators
+***
+The basic CLPM model does xxxxxxx.
+
+    EXAMPLE 5.1 CODE 
+    --- 
+    TITLE: this is an example of a basic cross-lag panel model (only cross-lag parameters are modeled) with continuous indicators
+    DATA: FILE IS example-data.dat; 
+    VARIABLE: NAMES ARE x1-x2 y1-y2; 
+    MODEL: y2 on x1;
+           x2 on y1;
+
+![EXAMPLE 5.1 Diagram. This is an example of a basic cross-lag panel model (only cross-lag parameters are modeled) with continuous indicators.](/Users/shawes/Desktop/outdoor house.png)
+
+<br>
+
+#### **EXAMPLE 5.1 CODE COMMENTARY**
+    TITLE: this is an example of a CFA with continuous factor indicators
+>   *The TITLE command is used to provide a title for the analysis. The title is printed in the output just before the Summary of Analysis.*
+<br>
+
+    DATA: FILE IS example-data.dat;
+>   *The DATA command is used to provide information about the data set to be analyzed. The FILE option is used to specify the name of the file that contains the data to be analyzed, ex5.1.dat. Because the data set is in free format, the default, a FORMAT statement is not required.*
+<br>
+
+    VARIABLE: NAMES ARE x1-x2 y1-y2; 
+>   *The VARIABLE command is used to provide information about the variables in the data set to be analyzed. The NAMES option is used to assign names to the variables in the data set. The data set in this example contains four variables: x1, x2, y1, y2.
+
+<br>
+
+    MODEL: y2 on x1;
+           x2 on y1;
+           
+>   *The MODEL command is used to describe the model to be estimated. Here the two BY statements specify that f1 is measured by y1, y2, and y3, and f2 is measured by y4, y5, and y6. The metric of the factors is set automatically by the program by fixing the first factor loading in each BY statement to 1. This option can be overridden. The intercepts and residual variances of the factor indicators are estimated and the residuals are not correlated as the default. The variances of the factors are estimated as the default. The factors are correlated as the default because they are independent (exogenous) variables. The default estimator for this type of analysis is maximum likelihood. The ESTIMATOR option of the ANALYSIS command can be used to select a different estimator.*
+
+<br>
+
+### EXAMPLE 5.2: Cross-lag Panel Model (CLPM), including contemporaneous effects, with Continuous Indicators
+***
+The CLPM model with included contemporaneous effects does xxxxxxx.
+
+    EXAMPLE 5.2 CODE 
+    --- 
+    TITLE: this is an example of a cross-lag panel model including contemporaneous effects, with Continuous Indicators
+    DATA: FILE IS example-data.dat; 
+    VARIABLE: NAMES ARE x1-x2 y1-y2; 
+    MODEL: y2 on x1;
+           x2 on y1;
+           x1 with y1;
+           x2 with y2;
+
+![EXAMPLE 5.2 Diagram. this is an example of a cross-lag panel model including contemporaneous effects, with Continuous Indicators.](/Users/shawes/Desktop/outdoor house.png)
+
+<br>
+
+#### **EXAMPLE 5.2 CODE COMMENTARY**
+    TITLE: this is an example of a cross-lag panel model including contemporaneous effects, with Continuous Indicators
+>   *The TITLE command is used to provide a title for the analysis. The title is printed in the output just before the Summary of Analysis.*
+<br>
+
+    DATA: FILE IS example-data.dat;
+>   *The DATA command is used to provide information about the data set to be analyzed. The FILE option is used to specify the name of the file that contains the data to be analyzed, ex5.1.dat. Because the data set is in free format, the default, a FORMAT statement is not required.*
+<br>
+
+    VARIABLE: NAMES ARE x1-x2 y1-y2;
+>   *The VARIABLE command is used to provide information about the variables in the data set to be analyzed. The NAMES option is used to assign names to the variables in the data set. The data set in this example contains six variables: y1, y2, y3, y4, y5, y6. Note that the hyphen can be used as a convenience feature in order to generate a list of names.*
+<br>
+
+    MODEL: y2 on x1;
+           x2 on y1;
+           x1 with y1;
+           x2 with y2;
+>   *The MODEL command is used to describe the model to be estimated. Here the two BY statements specify that f1 is measured by y1, y2, and y3, and f2 is measured by y4, y5, and y6. The metric of the factors is set automatically by the program by fixing the first factor loading in each BY statement to 1. This option can be overridden. The intercepts and residual variances of the factor indicators are estimated and the residuals are not correlated as the default. The variances of the factors are estimated as the default. The factors are correlated as the default because they are independent (exogenous) variables. The default estimator for this type of analysis is maximum likelihood. The ESTIMATOR option of the ANALYSIS command can be used to select a different estimator.*    
+

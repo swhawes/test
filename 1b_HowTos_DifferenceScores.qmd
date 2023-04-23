@@ -1,0 +1,339 @@
+---
+title: "Difference Scores: Simple Regression"
+author: "Biostatistics Working Group"
+---
+
+# Simple Regression {.unnumbered}
+
+## Overview
+
+<p>
+
+This example will examine whether average change in CBCL externalizing scores from Basline (T0) to the 1-Year follow-up (T1) differs significantly between boys and girls taking part in the ABCD Study. This analysis is conducted in two primary steps: 1) computing a difference score (DiffScore = CBCL EXT T2 - CBCL EXT T1); 2) conducting a simple regression on the difference score. Our primary aim is to determine whether group membership (boys, girls) predict the average difference value in CBCL externalizing scores from T1 to T2.
+
+</p>
+
+## Preliminary Setup
+::: {.panel-tabset}
+### Install Packages {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+> **This code installs the r packages necessary for this example, if they are not already installed**
+
+```{r}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#rm(list = ls())
+
+# Install necessary packages (if not already installed)
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("arrow" %in% installed.packages())) install.packages("arrow")
+if (!("arsenal" %in% installed.packages())) install.packages("arsenal")
+if (!("kableExtra" %in% installed.packages())) install.packages("kableExtra")
+if (!("ggpubr" %in% installed.packages())) install.packages("ggpubr")
+if (!("rstatix" %in% installed.packages())) install.packages("rstatix")
+```
+</div>
+
+### Load Packages
+<div class = "blue">
+
+**This code loads the r libraries necessary for this example**
+
+```{r pckg-load}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| class.source: fold-hide
+
+#rm(list = ls())
+
+#Load packages
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(arsenal)
+library(kableExtra)
+library(rstatix)
+library(ggpubr)
+```
+
+</div>
+
+### Config Options
+<div class = "blue">
+
+**This code configures knitr code chunk options**
+
+```{r config}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                                  comment=NA, cache=T, code_folding=T,
+                                  R.options=list(width=220), fig.align='center', 
+                                  out.width='75%', fig.asp=.75)
+```
+</div>
+:::
+
+## Descriptives Overview
+::: {.panel-tabset}
+### Read and View Data {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+**This code reads in and shows the data to be used in the current example**
+
+```{r read-data}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+## Read data
+df_long<- read_csv("/Users/shawes/Desktop/data/df_long.csv")
+df_wide <- read_csv("/Users/shawes/Desktop/data/df_wide.csv")
+str(df_wide)
+# set types
+df_long$ids <- as.factor(df_long$ids)
+df_long$event <- as.factor(df_long$event)
+df_long$site_id <- as.factor(df_long$site_id)
+df_long$fam_id <- as.factor(df_long$fam_id)
+df_long$sex <- as.factor(df_long$sex)
+df_long$age <- as.numeric(df_long$age)
+df_long$mature_vg <- as.numeric(df_long$mature_vg)
+df_long$cbcl_extern <- as.numeric(df_long$cbcl_extern)
+df_long$vg_total <- as.numeric(df_long$vg_total)
+
+```
+
+</div>
+
+:::
+
+### Continuous Outcomes
+
+::: blue
+**This code creates a table of descriptive information for continuous
+outcomes**
+
+```{r contvar-table}
+#| messages: FALSE
+#| echo: TRUE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+tab_descriptives_1 <- tableby.control(test=FALSE, total=FALSE,
+numeric.test="kwt", cat.test="chisq",
+numeric.stats=c("N", "meansd", "median", "range" 
+), #"Nmiss2"
+cat.stats=c("countpct"), #"Nmiss2"
+stats.labels=list(N='Count', meansd="Mean (SD)", median
+='Median', range='Min - Max'
+))  # , Nmiss2 ='Missing'
+
+my_cont_labels <- list(
+  age = "Age",
+  vg_total = "Weekly # of Video Gaming Hrs",
+  cbcl_extern = "CBCL Externalizing Scale"
+)
+
+tab_descriptives_1 <- tableby(event ~ age + vg_total + 
+                                      cbcl_extern,
+                                      data=df_long, control=tab_descriptives_1)
+          
+#summary(tab_descriptives_1, labelTranslations = my_cont_labels , text=TRUE, title = #"Continuous Outcomes", term.name = TRUE)
+
+# Push table object through kable and kable_styling
+tab_descriptives_1 %>%
+                summary(text=TRUE, digits.pct=1, digits=1) %>%
+            kable(caption = "Continuous Outcomes") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, html_font = "Cambria",
+                font_size = 15,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+            column_spec(3, width = "20em", border_right = T) %>%
+            footnote(general = "Here is a general comments of the table. ") %>%
+            scroll_box(width = "75%", height = "500px")
+```   
+:::
+
+### Categorical Outcomes
+
+::: blue
+**This code creates a descriptives table for categorical outcomes**
+      
+```{r catvar-table}
+#| class.source: 'fold-hide'
+#| messages: FALSE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+tab_descriptives_2  <- tableby.control(test=FALSE, total=FALSE,
+numeric.test="kwt", cat.test="chisq",
+numeric.stats=c("N", "meansd", "median", "range"
+), # "Nmiss2"
+cat.stats=c("countpct"), # "Nmiss2"
+stats.labels=list(N='Count', meansd="Mean (SD)", median
+='Median', range='Min - Max'
+)) # , Nmiss2 ='Missing'
+
+my_cat_labels  <- list(
+  event = "Year",
+  sex = "Sex",
+  mature_vg = "Mature Video Games"
+  )
+          
+tab_descriptives_2 <- tableby(event ~ sex + mature_vg, data=df_long, control=tab_descriptives_2)
+
+#summary(tab_descriptives_2, labelTranslations = my_cat_labels , text=TRUE, title = #"Categorical Outcomes", term.name = TRUE)
+
+# Push table object through kable and kable_styling
+tab_descriptives_2 %>%
+            summary(text=TRUE, digits.pct=1, digits=1) %>%
+            kable(caption = "Categorical Outcomes") %>%
+            kable_styling(bootstrap_options = "striped", full_width = FALSE, font_size = 15,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+            column_spec(2, width = "20em", border_right = T) %>%
+  #column_spec(3, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+
+```
+:::
+:::
+
+## Results
+
+<div class = "blue">
+
+::: panel-tabset
+### Build Model {.tabset .tabset-fade .tabset-pills}
+
+::: blue
+
+The code snippet below tells R to compute a difference score by subtracting each participant's Externalizing score at T2 from their Externalizing score at T1. 
+Next, a simple regression analyses is conducted to examine whether a grouping variable (participant sex) significantly predicts the difference score value (indicating significant group differences in the average difference score). The simple regression function (lm) is provided by the r 'stats' package.
+
+xxx
+First, compute the difference ($\Delta$) between a score on some measure ($x$) assessed at baseline ($x_{t1}$) and follow-up ($x_{t2}$). The result of this formula ($\Delta$=$x_{t2}$ - $x_{t1}$) can be included as the outcome variable in a regression model that analyzes the role of the grouping variable (e.g., 0 = boy; 1 = girl) on changes in scores on the measure across follow-ups.
+xxx
+
+**STEP 1: Compute Difference Score**
+```{r build-model-1}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+# Compute difference score based on CBCL Externalizing subscale scores at baseline (t1) and 1-Year Follow-up (t2)
+df_wide$diffscore <- (df_wide$cbcl_extern_Year_1 - df_wide$cbcl_extern_Baseline)
+
+```
+
+```{r model-checking}
+# Compute statistical summaries for the difference score variable
+summary(df_wide$diffscore)
+
+```
+
+This summary of the difference score variable indicates xxxxx.
+
+```{r}
+hist(df_long$vg_total)
+
+## Summary statistics
+summary<-df_long %>%
+group_by(event) %>%
+get_summary_stats(cbcl_extern, type = "mean_sd")
+data.frame(summary)
+
+```
+
+This histogram indicates xxxxxx. The summary command shows xxxxxx.
+
+```{r shapiro-wilks}
+### Shapiro-Wilk test and normality (Q-Q) plot (visualization of correlation between a given sample and the normal distribution)
+shapiro.test(df_wide$cbcl_extern_Baseline[0:5000])
+
+```
+  
+This Shapiro-wilkes test shows xxxxxx.
+
+```{r qqplot}
+qqplot <- ggqqplot(df_wide$cbcl_extern_Baseline,
+    ylab = "Externalizing Difference Score", xlab = FALSE,
+    ggtheme = theme_minimal()
+)
+
+suppressWarnings(print(qqplot)) 
+```
+
+This qqplot shows xxxxxx.
+
+**STEP 2: Conduct simple regression on Difference Score**
+```{r build-model-2}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+#Simple linear regression is used to examine the relationship between a continuous predictor variable and the average difference score.
+
+#Regression model
+result <- lm(df_wide$diffscore ~ vg_total_Baseline, data = df_wide)
+#summarize the reults
+summary(result)
+```
+
+The output from our model provides: i. a parameter estimate; ii. standard error; iii. p-value. In our example p = .001 which is less than .05 indicating significant differences in predicted cbcl externalizing scores between boys and girls in the ABCD Study. An examination of the regression coeefficient for sex (female = 0; male = 1) is b = .xx, indicating the difference in cbcl externalizing scores from Time 1 to Time 2 is significantly greater in boys taking part in the ABCD Study relative to girls. Then we conclude that participant sex (does/does not) predict change in cbcl externalizing scores from t1 to t2.
+
+### Model Plots
+
+::: blue
+```{r scatterplot}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| code-summary: testing
+
+#Scatterplot to visualize relationship between a continuous predictor and a difference score
+scatterplot <- ggplot (df_wide, aes(x = diffscore, y = vg_total_Baseline)) + geom_point(size = 3) + geom_smooth(method = lm, se = F) +
+xlab("Difference Score (x)") +
+ylab("Screentime hours (y) Baseline")
+
+suppressWarnings(print(scatterplot))
+```
+
+Examination of this scatterplot indicates xxxxx.
+:::
+
+> This output shows xxxxxxxx. Briefly walk through each metric
+:::
+
+## Wrapping Up
+<div class = "blue">
+
+<div class = "blue">
+
+::: panel-tabset
+### Write-up {.tabset .tabset-fade .tabset-pills}
+
+::: blue
+
+A simple regression analysis was conducted to examine whether participant's sex predicted change in cbcl externalzing scores measured across two timepoints. Findings showed a significant positive effect such that boys demonstrated increases in cbcl externalzing scores relative to girls (b = .xx; SE = .xx; p = .xx)  
+
+:::
+:::
