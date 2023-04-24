@@ -2,4 +2,20 @@
 title: "How-To's: A Brief Overview"
 ---
 
-[Section in progress...]
+The "how-to" section focuses on providing practical solutions to specific methods or problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specicif analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.
+
+The how-to section should:
+
+1. Be problem-oriented: How-to guides should address specific problems or analyses users may face, offering clear and concise solutions. Each guide should focus on a single issue, making it easy for users to find and apply the relevant information.
+
+2. Offer step-by-step instructions: Similar to tutorials, how-to guides should provide a clear sequence of steps that users can follow to solve their problem or complete their analysis. Each step of the instructions should be explained in a straightforward manner.
+
+3. Be concise: How-to guides should be to the point, offering just enough information to help users accomplish their goal. This means avoiding unnecessary explanations or background information, as users are typically looking for a quick solution.
+
+4. Be actionable: The content in the how-to section should be practical, with a focus on actionable advice that users can apply immediately. This may involve providing code snippets, configuration settings, or other specific instructions that users can implement in their projects.
+
+5. Include examples: How-to guides should include relevant examples that demonstrate the solution in action, allowing users to see how the instructions can be applied in a real-world context.
+
+6. Cross-reference other resources: How-to guides should link to other relevant documentation, such as explanations or reference material, for users who may require additional background information or a deeper understanding of the topic.
+
+For additional information/resources, see [https://documentation.divio.com/]

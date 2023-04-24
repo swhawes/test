@@ -1,0 +1,23 @@
+---
+title: "Explanations: A Brief Overview"
+---
+
+The "Explanation" section focuses on providing context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analyses or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user's knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.
+
+
+The explanation section should:
+
+1. Be informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.
+
+2. Address "why" questions: Explanations should aim to answer the "why" questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.
+
+3. Be clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.
+
+4. Be well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.
+
+5. Support other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.
+
+6. Engage the audience: Explanations should be engaging and interesting, capturing the user's attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.
+
+For additional information/resources, see [https://documentation.divio.com/]
+

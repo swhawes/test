@@ -22,8 +22,8 @@ website:
         file: tutorials.qmd
       - text: "How-To"
         file: howto.qmd
-      - text: "Fundamentals"
-        file: fundamentals.qmd
+      - text: "Explanations"
+        file: explanations.qmd
       - text: "Reference"
         file: reference.qmd
     tools:
@@ -125,9 +125,9 @@ website:
             - blank.qmd
         # navigation items
 
-    - title: "Fundamentals"
+    - title: "Explanations"
       contents:
-        - fundamentals.qmd
+        - explanations.qmd
         # navigation items
   
     - title: "Reference"

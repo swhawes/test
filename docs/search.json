@@ -119,6 +119,13 @@
     "text": "Basic Example\nFor this tutorial, we will use a simulated dataset containing the following information for a group of 100 individuals:\n\nSubject ID\nTime (in years)\nVariable 1 (e.g., stress level)\nVariable 2 (e.g., job satisfaction)\n\n\n\nCode\nset.seed(123)  # For reproducibility\nn_subjects &lt;- 100\nn_timepoints &lt;- 3\nsubject_ids &lt;- factor(rep(1:n_subjects, each = n_timepoints))\ntime &lt;- rep(0:(n_timepoints - 1), times = n_subjects)\nvariable1 &lt;- rnorm(n_subjects * n_timepoints, mean = 3, sd = 1)\nvariable2 &lt;- rnorm(n_subjects * n_timepoints, mean = 3, sd = 1)\n\ndata &lt;- data.frame(subject_id = subject_ids, time = time, variable1 = variable1, variable2 = variable2)\n\n\n\nModel Specification and Estimation\nWe will use the lavaan package in R to fit an ACPM. First, install the required package, if not already installed:\n\n\nCode\nif (!(\"lavaan\" %in% installed.packages())) install.packages(\"lavaan\")\nlibrary(lavaan)\n\n\nDefine the ACPM with three timepoints:\n\n\nCode\nmodel &lt;- \n  # Autoregressive paths\n  variable1_t2 ~ a1 * variable1_t1\n  variable1_t1 ~ a2 * variable1_t0\n\n\nvariable1_t1 ~ a2 * variable1_t0\n\n\nCode\n  variable2_t2 ~ a3 * variable2_t1\n\n\nvariable2_t2 ~ a3 * variable2_t1\n\n\nCode\n  variable2_t1 ~ a4 * variable2_t0\n\n\nvariable2_t1 ~ a4 * variable2_t0\n\n\nCode\n  # Cross-lagged paths\n  variable1_t2 ~ b1 * variable2_t1\n\n\nvariable1_t2 ~ b1 * variable2_t1\n\n\nCode\n  variable1_t1 ~ b2 * variable2_t0\n\n\nvariable1_t1 ~ b2 * variable2_t0\n\n\nCode\n  variable2_t2 ~ b3 * variable1_t1\n\n\nvariable2_t2 ~ b3 * variable1_t1\n\n\nCode\n  variable2_t1 ~ b4 * variable1_t0\n\n\nvariable2_t1 ~ b4 * variable1_t0\n\n\nFit the ACPM using the lavaan function:\n\n\nCode\n#fit &lt;- lavaan(model, data = data, missing = )\n\n\n\n\nInterpreting the Results\nxxxxxxxx"
   },
   {
+    "objectID": "delete10.html",
+    "href": "delete10.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "16_Tutorials_LatentCurveModelsStructuredResiduals.html",
     "href": "16_Tutorials_LatentCurveModelsStructuredResiduals.html",
     "title": "Latent Curve Models with Structured Residuals",
@@ -151,7 +158,7 @@
     "href": "reference.html",
     "title": "Reference Material: A Brief Overview",
     "section": "",
-    "text": "[Section in progress…]"
+    "text": "The “Reference” section focuses on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.\nThe reference section should:\n\nBe comprehensive: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.\nBe accurate: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.\nBe concise: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.\nFollow a consistent format: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.\nBe easily searchable: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.\nCross-reference other resources: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "10_Tutorials_LatentGrowthCurveModels.html",
@@ -238,6 +245,27 @@
     "text": "Overview\nGeneralized estimating equations (GEEs) are a statistical method used to analyze longitudinal or clustered data, while accounting for within-subject correlation. The goal GEEs are to make inferences about population-averaged effects (controlling for within-subject correlations), rather than individual subject-level effects. GEEs can handle a wide range of outcome distributions, including binary, count, and continuous data (Fitzmaurice et al., 2011; Hardin & Hilbe, 2012). This method is an extension of the generalized linear model (Diggle et al., 2002), shows good statistical power and efficiency, is robust to non-normality and non-constant variance and can handle unbalanced or unequally spaced data.\n\nWhen to use Longitudinal Generalized Estimating Equations (GEEs)?\nYou should use xxxxxxx in the following scenario:\n\nYou want to know xxxxx\nYour variable xxxxx\nYou have xxxxx\n\n\n\nGetting Started with Longitudinal Generalized Estimating Equations (GEEs)\nIn this tutorial, we will introduce the concept of longitudinal generalized estimating equations (GEEs) and guide you through a simple example using a small dataset. By the end of this tutorial, you will be able to:\n\nUnderstand the basic concepts of longitudinal GEEs.\nFit a GEE model using example data in R.\nInterpret the results of the model.\n\n\n\nBasic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nSubject ID\nTime (in years)\nBinary outcome variable (e.g., presence or absence of a particular condition)\n\n\n\n\nSubject ID\nTime\nOutcome\n\n\n\n\n1\n0\n0\n\n\n1\n1\n1\n\n\n1\n2\n1\n\n\n2\n0\n0\n\n\n2\n1\n1\n\n\n\n\n\nModel Specification and Estimation\nWe will use the geepack package in R to fit a longitudinal GEE model. First, install and load the required package:\n\n\nCode\nif (!(\"geepack\" %in% installed.packages())) install.packages(\"geepack\")\nlibrary(geepack)\n\n\nNext, create a data frame with the example data:\n\n\nCode\ndata &lt;- data.frame(\n  subject_id = c(1, 1, 1, 2, 2),\n  time = c(0, 1, 2, 0, 1),\n  outcome = c(0, 1, 1, 0, 1)\n)\n\n\nFit the longitudinal GEE model with a binary outcome using a logit link function and an exchangeable correlation structure:\n\n\nCode\nmodel &lt;- geeglm(outcome ~ time, data = data, id = subject_id, family = binomial(link = \"logit\"), corstr = \"exchangeable\")\n\n\n\n\nInterpreting the Results\nTo interpret the results of the longitudinal GEE model, we can use the summary() function in R to display the estimated population-averaged effects:\n\n\nCode\nsummary(model)\n\n\n\nCall:\ngeeglm(formula = outcome ~ time, family = binomial(link = \"logit\"), \n    data = data, id = subject_id, corstr = \"exchangeable\")\n\n Coefficients:\n            Estimate Std.err Wald Pr(&gt;|W|)\n(Intercept)   -43.54     NaN  NaN      NaN\ntime           82.78     NaN  NaN      NaN\n\nCorrelation structure = exchangeable \nEstimated Scale Parameters:\n\n            Estimate Std.err\n(Intercept) 2.22e-16     NaN\n  Link = identity \n\nEstimated Correlation Parameters:\n      Estimate Std.err\nalpha     -0.5     NaN\nNumber of clusters:   2  Maximum cluster size: 3 \n\n\nThe output will show the estimated effect of time on the binary outcome variable, expressed as an odds ratio. By examining the odds ratio and its associated p-value, we can determine if the change in the outcome variable over time is significant at the population level."
   },
   {
+    "objectID": "delete1.html",
+    "href": "delete1.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "explanations.html",
+    "href": "explanations.html",
+    "title": "Explanations: A Brief Overview",
+    "section": "",
+    "text": "The “Explanation” section focuses on providing context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analyses or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user’s knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.\nThe explanation section should:\n\nBe informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.\nAddress “why” questions: Explanations should aim to answer the “why” questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.\nBe clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.\nBe well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.\nSupport other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.\nEngage the audience: Explanations should be engaging and interesting, capturing the user’s attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
+  },
+  {
+    "objectID": "delete3.html",
+    "href": "delete3.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "14_Tutorials_StateTraitModels.html",
     "href": "14_Tutorials_StateTraitModels.html",
     "title": "State-Trait Models",
@@ -273,11 +301,25 @@
     "text": "test page for GLMM howtos"
   },
   {
+    "objectID": "delete2.html",
+    "href": "delete2.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
     "href": "11_HowTos_MultivariateLatentGrowthCurveModels.html",
     "title": "Multivariate Latent Growth Curve Models",
     "section": "",
     "text": "test page for pplgcm howtos"
+  },
+  {
+    "objectID": "delete6.html",
+    "href": "delete6.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
   },
   {
     "objectID": "7_Tutorials_GeneralizedLinearMixedEffectsModels.html",
@@ -322,6 +364,13 @@
     "text": "Basic Example\n\n\nCode\n# Load necessary packages\nif (!(\"tidyLPA\" %in% installed.packages())) install.packages(\"tidyLPA\")\nlibrary(tidyLPA)\n\n\n\n\nCode\nset.seed(42)\nn &lt;- 250\n\n# Generate three indicators for time 1\ntime1_ind1 &lt;- rbinom(n, size = 1, prob = 0.7)\ntime1_ind2 &lt;- rbinom(n, size = 1, prob = 0.6)\ntime1_ind3 &lt;- rbinom(n, size = 1, prob = 0.5)\n\n# Generate three indicators for time 2\ntime2_ind1 &lt;- rbinom(n, size = 1, prob = 0.6)\ntime2_ind2 &lt;- rbinom(n, size = 1, prob = 0.5)\ntime2_ind3 &lt;- rbinom(n, size = 1, prob = 0.4)\n\n# Generate three indicators for time 3\ntime3_ind1 &lt;- rbinom(n, size = 1, prob = 0.5)\ntime3_ind2 &lt;- rbinom(n, size = 1, prob = 0.4)\ntime3_ind3 &lt;- rbinom(n, size = 1, prob = 0.3)\n\n# Generate three indicators for time 4\ntime4_ind1 &lt;- rbinom(n, size = 1, prob = 0.4)\ntime4_ind2 &lt;- rbinom(n, size = 1, prob = 0.3)\ntime4_ind3 &lt;- rbinom(n, size = 1, prob = 0.2)"
   },
   {
+    "objectID": "delete7.html",
+    "href": "delete7.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "1a_HowTos_DifferenceScores.html",
     "href": "1a_HowTos_DifferenceScores.html",
     "title": "Difference Scores: Paired Samples T-test",
@@ -364,11 +413,25 @@
     "text": "Write-up\n\n\n\nA paired samples t test was conducted to compare differences in participants cbcl externalzing scores measured across two timepoints. Findings indicated that there was a difference between cbcl externalzing scores obtained at T1 compared to cbcl externalzing scores obtained at T2, t(179) = 3.10, p = .002, Cohen’s d = 0.23. Youth exhibited an increase of cbcl externalzing scores at t2 ( M = 5.67, SD = 1.24) compared to t1 ( M = 5.83, SD = 1.21)."
   },
   {
+    "objectID": "delete5.html",
+    "href": "delete5.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "",
     "section": "",
     "text": "Code\n\n\n\n\nThis is the temporary landing page for the Longitudinal Analysis Project.  The site is currently under construction and used for testing purposes only.  Contents may be inaccurate."
+  },
+  {
+    "objectID": "delete4.html",
+    "href": "delete4.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
   },
   {
     "objectID": "1b_HowTos_DifferenceScores.html",
@@ -413,6 +476,13 @@
     "text": "Write-up\n\n\n\nA simple regression analysis was conducted to examine whether participant’s sex predicted change in cbcl externalzing scores measured across two timepoints. Findings showed a significant positive effect such that boys demonstrated increases in cbcl externalzing scores relative to girls (b = .xx; SE = .xx; p = .xx)"
   },
   {
+    "objectID": "delete9.html",
+    "href": "delete9.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -431,7 +501,7 @@
     "href": "howto.html",
     "title": "How-To’s: A Brief Overview",
     "section": "",
-    "text": "[Section in progress…]"
+    "text": "The “how-to” section focuses on providing practical solutions to specific methods or problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specicif analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.\nThe how-to section should:\n\nBe problem-oriented: How-to guides should address specific problems or analyses users may face, offering clear and concise solutions. Each guide should focus on a single issue, making it easy for users to find and apply the relevant information.\nOffer step-by-step instructions: Similar to tutorials, how-to guides should provide a clear sequence of steps that users can follow to solve their problem or complete their analysis. Each step of the instructions should be explained in a straightforward manner.\nBe concise: How-to guides should be to the point, offering just enough information to help users accomplish their goal. This means avoiding unnecessary explanations or background information, as users are typically looking for a quick solution.\nBe actionable: The content in the how-to section should be practical, with a focus on actionable advice that users can apply immediately. This may involve providing code snippets, configuration settings, or other specific instructions that users can implement in their projects.\nInclude examples: How-to guides should include relevant examples that demonstrate the solution in action, allowing users to see how the instructions can be applied in a real-world context.\nCross-reference other resources: How-to guides should link to other relevant documentation, such as explanations or reference material, for users who may require additional background information or a deeper understanding of the topic.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "ListofReferences.html",
@@ -455,6 +525,13 @@
     "text": "Non-independence:\nThe situation where observations are not statistically independent, often arising in longitudinal or clustered data.\n\nSample average of differences: The mean of the differences between paired observations, typically used in paired-sample designs to assess the average change between two time points or conditions.\nFixed effects: Effects in a statistical model that are constant across all observations, representing the average relationship between predictors and the outcome variable.\nRandom effects: Effects in a statistical model that vary across different levels of a grouping factor (e.g., subjects, clusters), capturing the variability within each level.\nHierarchical data structures: Data structures where observations are nested within higher-order units (e.g., students within schools, employees within companies), resulting in dependency among observations.\nWithin-subject correlations: Correlations between repeated measurements on the same subject or unit, often present in longitudinal or clustered data.\nModel fit indices: Quantitative measures used to assess how well a statistical model fits the data, such as R-squared, AIC, or BIC.\nNonparametric: Statistical methods that do not rely on assumptions about the underlying distribution of the data.\nResampling permutation method: A nonparametric method for hypothesis testing that involves randomly rearranging the observed data to create new samples and assess the probability of the observed test statistic under the null hypothesis.\nClustered data: Data where observations are grouped or clustered within higher-order units, resulting in dependency among observations within each cluster.\nPopulation-averaged effects: Effects in a statistical model that represent the average relationship between predictors and the outcome variable across the entire population, rather than for specific levels of a grouping factor.\nIdentity link: A link function in GLMs that relates the linear predictor to the expected value of the outcome variable without any transformation (E[Y] = Xβ).\nLogit link: A link function in GLMs used for binary outcomes, relating the linear predictor to the log-odds of the outcome variable (log(E[Y]/(1-E[Y])) = Xβ).\nLog link: A link function in GLMs used for count outcomes, relating the linear predictor to the natural logarithm of the expected value of the outcome variable (log(E[Y]) = Xβ).\nLogistic link: Synonymous with the logit link.\nBinomial distribution: A probability distribution that describes the number of successes in a fixed number of Bernoulli trials with the same probability of success.\nExchangeable correlation structure: A working correlation structure in GEE models, assuming constant correlation between any pair of repeated measurements within subjects.\nAutoregressive correlation structure: A working correlation structure in GEE models, assuming correlation between repeated measurements decreases as the time lag between measurements increases.\nUnstructured correlation structure: A working correlation structure in GEE models, allowing for different correlations between each pair of repeated measurements within subjects.\nSandwich estimator: A method for computing robust standard errors in GEE models, providing valid inference even if the working correlation structure is misspecified.\nQuasi-likelihood under the Independence model Criterion (QIC): A model selection criterion for GEE models, analogous to AIC, used to compare models with different working correlation structures.\nOdds ratios: A measure of association for binary outcomes, representing the ratio of the odds of an event occurring in one group to the odds in another group.\nRate ratios: A measure of association for count outcomes, representing the ratio of the rates of an event occurring in one group to the rates in another group.\nMaximum likelihood estimation: A statistical method for estimating model parameters by finding the values that maximize the likelihood of the observed data given the model.\nUnbalanced data: Data where the number of observations or the number of measurements per subject or group is unequal across subjects or groups.\nUnequally spaced data: Data where the time intervals between repeated measurements or the spacing of observations are not equal.\nMaximum likelihood (ML): A method of estimation that involves finding the parameter values that maximize the likelihood of the observed data given a statistical model.\nRestricted maximum likelihood (REML): A modification of maximum likelihood estimation that is less biased for estimating variance components in mixed-effects models, particularly when the sample size is small.\nPenalized quasi-likelihood (PQL): An approximate method for fitting generalized linear mixed models, particularly for non-normal outcomes, which involves a penalized likelihood function and iteratively weighted least squares.\nAkaike Information Criterion (AIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as AIC = -2 * log-likelihood + 2 * k, where k is the number of parameters. Lower AIC values indicate better model fit.\nBayesian Information Criterion (BIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as BIC = -2 * log-likelihood + k * log(n), where k is the number of parameters and n is the sample size. Lower BIC values indicate better model fit."
   },
   {
+    "objectID": "delete8.html",
+    "href": "delete8.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "12_HowTos_LatentTransitionAnalysis.html",
     "href": "12_HowTos_LatentTransitionAnalysis.html",
     "title": "Latent Transition Analysis",
@@ -473,7 +550,7 @@
     "href": "tutorials.html",
     "title": "Tutorials: A Brief Overview",
     "section": "",
-    "text": "[Section in progress…]"
+    "text": "The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.\nThe tutorial section should:\n\nBe goal-oriented: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.\nProvide clear steps: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.\nUse examples: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.\nBe practical: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.\nEncourage exploration: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "manuscript.html",
@@ -579,13 +656,6 @@
     "title": "Difference Scores",
     "section": "Basic Example",
     "text": "Basic Example\nFor this tutorial, we will use a simple dataset containing the following information for a group of individuals:\n\nTime point (T1, T2)\nJob satisfaction (independent variable)\nLife satisfaction (dependent variable)\n\n\n\n\nIndividual\nTime Point\nJob Satisfaction\nLife Satisfaction\n\n\n\n\nA\nT1\n7\n6\n\n\nA\nT2\n8\n7\n\n\nB\nT1\n6\n5\n\n\nB\nT2\n7\n6\n\n\n\nWe will then create a new variable, age_diff, that represents the difference in age between two time points:\n\n\nCode\n#titanic$age_diff &lt;- titanic$age - titanic$age[1]\n\n\n\nRepeated Measures Paired Samples T-test\nTo conduct a repeated measures paired samples t-test on age_diff, we will use the t.test() function in R:\n\n\nCode\n#t.test(titanic$age_diff, mu = 0, paired = TRUE)\\\n\n\nThe mu argument represents the hypothesized mean difference, which we have set to 0. The paired argument tells R that the samples are paired.\n\n\nInterpreting the Results\nThe output of the t.test() function includes several statistics, including the t-value, degrees of freedom, and p-value. The t-value represents the difference between the mean of age_diff and the hypothesized mean difference, divided by the standard error. The degrees of freedom represents the number of observations minus one. The p-value represents the probability of observing a t-value as extreme or more extreme than the one observed, assuming that the null hypothesis is true.\nIf the p-value is less than our chosen significance level (typically 0.05), we can reject the null hypothesis and conclude that there is a significant difference between the means of age_diff and the hypothesized mean difference. If the p-value is greater than our chosen significance level, we fail to reject the null hypothesis and conclude that there is insufficient evidence to suggest a difference between the means.\n\n\nConclusion\nIn this tutorial, we learned how to conduct a repeated measures paired samples t-test on a difference score using R. This statistical method is useful when we want to compare the means of two related variables that are measured at two different time points or under two different conditions. We also learned how to interpret the results of the t-test, including the t-value, degrees of freedom, and p-value.\n\n\nPaired Samples T-test Model Specification and Estimation\nTo calculate [xxxxx] scores, we will follow these steps:\n[two timepoints, t1 and t2, and we want to test whether there is a significant difference between the means of two variables measured at each timepoint. We can use a paired samples t-test to do this.]\nA paired samples t-test is used to determine whether there is a significant difference between two related variables. For example, you may be interested in whether there is a significant difference in anxiety levels between participants before and after an intervention. To conduct a paired samples t-test in R, we can use the t.test() function.\nLet’s use a hypothetical example to illustrate how to conduct a paired samples t-test in R. In this example, we have data from 30 participants who completed a pre-test and post-test on anxiety levels measured on a 10-point scale. We want to determine if there was a significant difference in anxiety levels before and after an intervention.\n\n\nCode\n# Generate example data\npre_test &lt;- rnorm(30, mean = 6, sd = 1)\npost_test &lt;- rnorm(30, mean = 4, sd = 1)\n\n\n\n\nCode\n# Conduct paired samples t-test\nt.test(pre_test, post_test, paired = TRUE)\n\n\n\n    Paired t-test\n\ndata:  pre_test and post_test\nt = 7.6083, df = 29, p-value = 2.18e-08\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 1.522869 2.642611\nsample estimates:\nmean difference \n        2.08274 \n\n\nThe t.test() function returns the t-value, degrees of freedom, and p-value for the paired samples t-test. In this example, the p-value is less than 0.05, indicating that there is a significant difference in anxiety levels before and after the intervention.\n\n\nSimple Regression on a Difference Score\nA simple regression on a difference score is used to determine the relationship between the difference scores of two related variables and a third variable. For example, you may be interested in whether there is a relationship between the difference in anxiety levels before and after an intervention and a participant’s age. To conduct a simple regression on a difference score in R, we can use the lm() function.\nLet’s continue with the hypothetical example from the paired samples t-test. We want to determine if there is a relationship between the difference in anxiety levels before and after the intervention and the participants’ age. We will create a new variable diff_score to represent the difference in anxiety levels.\n\n\nCode\n# Calculate difference score\ndiff_score &lt;- post_test - pre_test\n\n# Generate example age data\nage &lt;- rnorm(30, mean = 35, sd = 5)\n\n# Conduct simple regression on difference score and age\nmodel &lt;- lm(diff_score ~ age)\nsummary(model)\n\n\n\nCall:\nlm(formula = diff_score ~ age)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.5068 -0.9876  0.3755  1.0985  2.7064 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) -4.08802    2.29748  -1.779    0.086 .\nage          0.05783    0.06578   0.879    0.387  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.505 on 28 degrees of freedom\nMultiple R-squared:  0.02686,   Adjusted R-squared:  -0.007894 \nF-statistic: 0.7729 on 1 and 28 DF,  p-value: 0.3868\n\n\nThe lm() function returns the intercept, slope, and p-value for the simple regression on the difference score. In this example, the p-value is greater than 0.05, indicating that there is no significant relationship between the difference in anxiety levels and age.\n\nInterpreting the Results\nFor the paired samples t-test, the output from the t.test() function provides the t-value, degrees of freedom, and p-value. The t-value represents the size of the difference between the means of the two related variables relative to the variation within the data. The degrees of freedom represent the number of observations minus the number of variables being compared. The p-value represents the probability of obtaining a result as extreme as the one observed, assuming that the null hypothesis is true.\nFor the simple regression on the difference score, the output from the lm() function provides the intercept, slope,"
-  },
-  {
-    "objectID": "fundamentals.html",
-    "href": "fundamentals.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
   },
   {
     "objectID": "16_HowTos_LatentCurveModelsStructuredResiduals.html",
