@@ -1,0 +1,4 @@
+---
+title: "Generalized Linear Mixed Effects Models"
+author: "Biostatistics Working Group"
+---

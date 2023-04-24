@@ -501,5 +501,53 @@
   },
   "explanations.qmd": {
     "explanations.html": "8f74ff76"
+  },
+  "5_Explanations_MarginalModels.qmd": {
+    "5_Explanations_MarginalModels.html": "58e7cb1e"
+  },
+  "10_Explanations_LatentGrowthCurveModels.qmd": {
+    "10_Explanations_LatentGrowthCurveModels.html": "f8d23bbb"
+  },
+  "14_Explanations_StateTraitModels.qmd": {
+    "14_Explanations_StateTraitModels.html": "787fa74b"
+  },
+  "3_Explanations_LinearMixedModels.qmd": {
+    "3_Explanations_LinearMixedModels.html": "d3c47802"
+  },
+  "4_Explanations_SignedRankTest.qmd": {
+    "4_Explanations_SignedRankTest.html": "1d44f88b"
+  },
+  "1_Explanations_DifferenceScores.qmd": {
+    "1_Explanations_DifferenceScores.html": "c354e050"
+  },
+  "8_Explanations_AutoregressiveCrosslaggedPanelModels.qmd": {
+    "8_Explanations_AutoregressiveCrosslaggedPanelModels.html": "0b0b54fc"
+  },
+  "9_Explanations_LatentChangeScoresModels.qmd": {
+    "9_Explanations_LatentChangeScoresModels.html": "67eef377"
+  },
+  "12_Explanations_LatentTransitionAnalysis.qmd": {
+    "12_Explanations_LatentTransitionAnalysis.html": "e0ab2b51"
+  },
+  "6_Explanations_GeneralizedEstimatingEquations.qmd": {
+    "6_Explanations_GeneralizedEstimatingEquations.html": "f4b24a4f"
+  },
+  "11_Explanations_MultivariateLatentGrowthCurveModels.qmd": {
+    "11_Explanations_MultivariateLatentGrowthCurveModels.html": "58db7d61"
+  },
+  "7_Explanations_GeneralizedLinearMixedEffectsModels.qmd": {
+    "7_Explanations_GeneralizedLinearMixedEffectsModels.html": "95cd646e"
+  },
+  "2_Explanations_ResidualizedChangeScores.qmd": {
+    "2_Explanations_ResidualizedChangeScores.html": "315e5ea2"
+  },
+  "13_Explanations_GrowthMixtureModels.qmd": {
+    "13_Explanations_GrowthMixtureModels.html": "4fc891f8"
+  },
+  "16_Explanations_LatentCurveModelsStructuredResiduals.qmd": {
+    "16_Explanations_LatentCurveModelsStructuredResiduals.html": "a6863792"
+  },
+  "15_Explanations_RandomInterceptCrosslaggedPanelModels.qmd": {
+    "15_Explanations_RandomInterceptCrosslaggedPanelModels.html": "e94406ac"
   }
 }

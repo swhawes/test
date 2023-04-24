@@ -1,0 +1,4 @@
+---
+title: "Generalized Estimating Equations"
+author: "Biostatistics Working Group"
+---

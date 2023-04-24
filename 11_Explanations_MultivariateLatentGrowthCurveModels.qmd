@@ -1,0 +1,4 @@
+---
+title: "Multivariate Latent Growth Curve Models"
+author: "Biostatistics Working Group"
+---

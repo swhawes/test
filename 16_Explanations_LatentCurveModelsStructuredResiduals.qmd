@@ -1,0 +1,4 @@
+---
+title: "Latent Curve Models with Structured Residuals"
+author: "Biostatistics Working Group"
+---

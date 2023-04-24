@@ -124,10 +124,39 @@ website:
           contents:
             - blank.qmd
         # navigation items
-
     - title: "Explanations"
       contents:
         - explanations.qmd
+        - section: "Traditional Linear Models"
+          contents:
+            - 1_Explanations_DifferenceScores.qmd
+            - 2_Explanations_ResidualizedChangeScores.qmd
+            - 3_Explanations_LinearMixedModels.qmd
+        - section: "Traditional Non-linear Models"
+          contents:
+            - 4_Explanations_SignedRankTest.qmd
+            - 5_Explanations_MarginalModels.qmd
+            - 6_Explanations_GeneralizedEstimatingEquations.qmd
+            - 7_Explanations_GeneralizedLinearMixedEffectsModels.qmd
+        - section: "SEM Approaches"
+          contents:
+            - 8_Explanations_AutoregressiveCrosslaggedPanelModels.qmd
+            - 9_Explanations_LatentChangeScoresModels.qmd
+            - 10_Explanations_LatentGrowthCurveModels.qmd
+            - 11_Explanations_MultivariateLatentGrowthCurveModels.qmd
+            - 12_Explanations_LatentTransitionAnalysis.qmd
+            - 13_Explanations_GrowthMixtureModels.qmd
+            - 14_Explanations_StateTraitModels.qmd
+        - section: "Advanced SEM"
+          contents:
+            - 15_Explanations_RandomInterceptCrosslaggedPanelModels.qmd
+            - 16_Explanations_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
         # navigation items
   
     - title: "Reference"

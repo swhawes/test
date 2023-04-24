@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Biostatistics Working Group">
 
-<title>Longitudinal Analysis - Explanations: A Brief Overview</title>
+<title>Longitudinal Analysis - Random-Intercept Crosslagged Panel Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./1_Explanations_DifferenceScores.html" rel="next">
+<link href="./16_Explanations_LatentCurveModelsStructuredResiduals.html" rel="next">
+<link href="./14_Explanations_StateTraitModels.html" rel="prev">
 <link href="././figures/lights.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -100,8 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Longitudinal Analysis - Explanations: A Brief Overview">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Longitudinal Analysis - Random-Intercept Crosslagged Panel Models">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -174,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./explanations.html">Explanations: A Brief Overview</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./15_Explanations_RandomInterceptCrosslaggedPanelModels.html">Advanced SEM</a></li><li class="breadcrumb-item"><a href="./15_Explanations_RandomInterceptCrosslaggedPanelModels.html">Random-Intercept Crosslagged Panel Models</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -219,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./explanations.html" class="sidebar-item-text sidebar-link active">
+  <a href="./explanations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Explanations: A Brief Overview</span></a>
   </div>
 </li>
@@ -342,16 +343,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Advanced SEM</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_Explanations_RandomInterceptCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
+  <a href="./15_Explanations_RandomInterceptCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Random-Intercept Crosslagged Panel Models</span></a>
   </div>
 </li>
@@ -410,13 +411,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Explanations: A Brief Overview</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Random-Intercept Crosslagged Panel Models</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Biostatistics Working Group </p>
+          </div>
+  </div>
     
   
     
@@ -425,17 +432,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The “Explanation” section focuses on providing context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analyses or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user’s knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.</p>
-<p>The explanation section should:</p>
-<ol type="1">
-<li><p>Be informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.</p></li>
-<li><p>Address “why” questions: Explanations should aim to answer the “why” questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.</p></li>
-<li><p>Be clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.</p></li>
-<li><p>Be well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.</p></li>
-<li><p>Support other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.</p></li>
-<li><p>Engage the audience: Explanations should be engaging and interesting, capturing the user’s attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.</p></li>
-</ol>
-<p>For additional information/resources, see [https://documentation.divio.com/]</p>
 
 
 <!-- -->
@@ -859,35 +855,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./14_Explanations_StateTraitModels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">State-Trait Models</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1_Explanations_DifferenceScores.html" class="pagination-link">
-        <span class="nav-page-text">Difference Scores</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./16_Explanations_LatentCurveModelsStructuredResiduals.html" class="pagination-link">
+        <span class="nav-page-text">Latent Curve Models with Structured Residuals</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Explanations: A Brief Overview"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>The "Explanation" section focuses on providing context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analyses or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user's knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a>The explanation section should:</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">1. </span>Be informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="ss">2. </span>Address "why" questions: Explanations should aim to answer the "why" questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.</span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">3. </span>Be clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="ss">4. </span>Be well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.</span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">5. </span>Support other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.</span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">6. </span>Engage the audience: Explanations should be engaging and interesting, capturing the user's attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.</span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a>For additional information/resources, see <span class="co">[</span><span class="ot">https://documentation.divio.com/</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Random-Intercept Crosslagged Panel Models"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
