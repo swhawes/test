@@ -1,17 +1,19 @@
 ---
 number-sections: true
-#title: "Temporary Landing Page for Longitudinal Project"
-#format:
-#  html:
-#    css: styles.css
-#    theme: cosmo
-#    fontsize: 1.1em
-    #linestretch: 1.7
+#title: "Longitudinal Analysis"
+format:
+  html:
+    css: styles.css
+    theme: cosmo
+    fontsize: 1.3em
+    linestretch: 1.7
 ---
 
-<div class="text-3xl text-center">
+::: {style="text-align: justify; text-align: center; line-height: normal; color: white; border: solid black; background-color: darkgoldenrod; padding: 70px; font-family: Georgia, serif;"}
+
 This is the temporary landing page for the Longitudinal Analysis Project. <br> The site is currently under construction and used for testing purposes only. <br> Contents may be inaccurate.
-</div>
+
+:::
 
 <br>
 
@@ -30,3 +32,24 @@ This is the temporary landing page for the Longitudinal Analysis Project. <br> T
 :::
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,20 +1,37 @@
 ---
 title: "Tutorials: A Brief Overview"
+number-sections: true
+format:
+ html:
+   css: styles.css
+   theme: cosmo
+   fontsize: 1.1em
+   linestretch: 1.5
 ---
 
-The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.
+## What are Tutorials?
+
+::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.o; font-family: Georgia, serif;"}
+[**The primary goal**]{style="color: goldenrod; font-size: 1.2em; font-family: Verdana, sans-serif;"} 
+of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter. 
+:::
+
+::: {style="text-align: justify; line-height: normal; color: black; border: solid black; background-color: antiquewhite; padding: 70px; font-family: Georgia, serif;"}
 
 The tutorial section should:
 
-1. Be goal-oriented: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.
+1. **Be goal-oriented**: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.
 
-2. Provide clear steps: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.
+2. **Provide clear steps**: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.
 
-3. Use examples: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.
+3. **Use examples**: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.
 
-4. Be practical: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.
+4. **Be practical**: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.
 
-5. Encourage exploration: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.
+5. **Encourage exploration**: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.
 
-For additional information/resources, see [https://documentation.divio.com/]
+::: {style="text-align: center"}
+For additional information, see [https://documentation.divio.com/]
+:::
 
+:::

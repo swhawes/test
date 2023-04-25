@@ -1,0 +1,57 @@
+---
+title: "Tutorials: A Brief Overview"
+number-sections: true
+format:
+ html:
+   css: styles.css
+   theme: cosmo
+   fontsize: 1.1em
+   linestretch: 1.7
+---
+
+This is the TUTORIAL main page example.
+
+## Main Section
+
+::: {style="color: red; border: solid black; background-color: grey;"}
+This is the [middle section]{style="background-color: yellow; color: blue;"} 
+:::
+
+
+::: {.grid}
+
+::: {.g-col-2}
+:::
+
+::: {.g-col-8}
+
+::: {style="color: red; border: solid black; background-color: green;"}
+Testing [Sample Test!]{style="background-color: yellow; color: blue;"}
+:::
+
+:::
+
+::: {.g-col-2}
+:::
+
+:::
+
+The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.
+
+<br>
+
+::: {.grid}
+
+::: {.g-col-2}
+:::
+
+::: {.g-col-8}
+![](./figures/lights.png)
+:::
+
+::: {.g-col-2}
+:::
+
+:::
+
+

@@ -1,24 +1,42 @@
 ---
-title: "Reference Material: A Brief Overview"
+title: "References: A Brief Overview"
+number-sections: true
+format:
+ html:
+   css: styles.css
+   theme: cosmo
+   fontsize: 1.1em
+   linestretch: 1.5
 ---
 
-The "Reference" section focuses on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.
+## What are References?
+
+::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.o; font-family: Georgia, serif;"}
+[**The primary goal**]{style="color: goldenrod; font-size: 1.2em; font-family: Verdana, sans-serif;"} 
+of the "Reference" section is on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.
+:::
+
+::: {style="text-align: justify; line-height: normal; color: black; border: solid black; background-color: antiquewhite; padding: 70px; font-family: Georgia, serif;"}
 
 The reference section should:
 
-1. Be comprehensive: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.
+1. **Be comprehensive**: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.
 
-2. Be accurate: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.
+2. **Be accurate**: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.
 
-3. Be concise: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.
+3. **Be concise**: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.
 
-4. Follow a consistent format: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.
+4. **Follow a consistent format**: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.
 
-5. Be easily searchable: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.
+5. **Be easily searchable**: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.
 
-6. Cross-reference other resources: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.
+6. **Cross-reference other resources**: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.
 
 
-For additional information/resources, see [https://documentation.divio.com/]
+::: {style="text-align: center"}
+For additional information, see [https://documentation.divio.com/]
+:::
+
+:::
 
 

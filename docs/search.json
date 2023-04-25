@@ -149,9 +149,16 @@
   {
     "objectID": "reference.html",
     "href": "reference.html",
-    "title": "Reference Material: A Brief Overview",
+    "title": "References: A Brief Overview",
     "section": "",
-    "text": "The “Reference” section focuses on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.\nThe reference section should:\n\nBe comprehensive: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.\nBe accurate: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.\nBe concise: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.\nFollow a consistent format: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.\nBe easily searchable: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.\nCross-reference other resources: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
+    "text": "The primary goal of the “Reference” section is on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.\n\n\nThe reference section should:\n\nBe comprehensive: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.\nBe accurate: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.\nBe concise: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.\nFollow a consistent format: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.\nBe easily searchable: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.\nCross-reference other resources: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.\n\n\nFor additional information, see [https://documentation.divio.com/]"
+  },
+  {
+    "objectID": "reference.html#what-are-references",
+    "href": "reference.html#what-are-references",
+    "title": "References: A Brief Overview",
+    "section": "",
+    "text": "The primary goal of the “Reference” section is on providing accurate, concise, and structured information about specific components, functions, or features of a method, analysis, or framework. Unlike tutorials, how-to guides, and explanations, which aim to teach, solve problems, and provide context, respectively, reference materials serve as a quick lookup resource for users to find the exact information they need. By following these principles, the reference section aims to create a reliable, user-friendly, and easily searchable resource that provides users with the specific information they need to effectively use and understand the method, analysis, or framework.\n\n\nThe reference section should:\n\nBe comprehensive: Reference materials should cover all relevant aspects of the method, analysis, or framework, including components, functions, features, and configurations. The goal is to provide users with a complete and authoritative source of information.\nBe accurate: The information in the reference section should be precise and up-to-date, ensuring that users can rely on it for their projects. This may involve regular updates and checks to maintain accuracy.\nBe concise: Reference materials should be brief and to the point, providing just enough information for users to understand and use the specific analysis or method. This means avoiding unnecessary explanations, examples, or background information.\nFollow a consistent format: The reference section should use a consistent format and structure, making it easy for users to locate and access the information they need. This may involve using templates, standardized headings, or other organizational tools.\nBe easily searchable: Reference materials should be designed with searchability in mind, enabling users to quickly find the information they need. This may involve using clear and descriptive titles, headings, and keywords, as well as implementing search functionality or indexing.\nCross-reference other resources: The reference section should link to other relevant documentation, such as tutorials, how-to guides, or explanations, for users who may require additional information or a deeper understanding of the topic.\n\n\nFor additional information, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "10_Tutorials_LatentGrowthCurveModels.html",
@@ -242,7 +249,14 @@
     "href": "explanations.html",
     "title": "Explanations: A Brief Overview",
     "section": "",
-    "text": "The “Explanation” section focuses on providing context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analyses or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user’s knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.\nThe explanation section should:\n\nBe informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.\nAddress “why” questions: Explanations should aim to answer the “why” questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.\nBe clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.\nBe well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.\nSupport other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.\nEngage the audience: Explanations should be engaging and interesting, capturing the user’s attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
+    "text": "The primary goal of the explanation section is to provide context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analysis or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user’s knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.\n\n\nThe explanation section should:\n\nBe informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.\nAddress “why” questions: Explanations should aim to answer the “why” questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.\nBe clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.\nBe well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.\nSupport other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.\nEngage the audience: Explanations should be engaging and interesting, capturing the user’s attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.\n\n\nFor additional information, see [https://documentation.divio.com/]"
+  },
+  {
+    "objectID": "explanations.html#what-are-explanations",
+    "href": "explanations.html#what-are-explanations",
+    "title": "Explanations: A Brief Overview",
+    "section": "",
+    "text": "The primary goal of the explanation section is to provide context, background information, and a deeper understanding of the concepts, methodologies, or processes related to a specific analysis or topic. Unlike tutorials and how-to guides, which are goal-oriented and problem-oriented respectively, explanations aim to clarify and enhance the user’s knowledge. The explanation section aims to create informative, engaging, and accessible content that helps users build a solid foundation of understanding and knowledge about the subject matter.\n\n\nThe explanation section should:\n\nBe informative: Explanations should offer valuable insights and information, helping users develop a deeper understanding of the topic. This includes discussing the rationale behind certain choices, exploring alternative approaches, and explaining the advantages and disadvantages of various options.\nAddress “why” questions: Explanations should aim to answer the “why” questions users may have, delving into the reasoning, motivations, or principles that underlie a specific concept or approach.\nBe clear and concise: While explanations may go into greater depth than tutorials or how-to guides, they should still be presented in a clear and concise manner. This means using plain language, avoiding jargon, and providing examples to help users grasp the concepts more easily.\nBe well-structured: Explanations should be organized in a logical and coherent manner, making it easy for users to follow the flow of information and understand the relationships between different concepts.\nSupport other documentation types: Explanations should complement and support other types of documentation, such as tutorials and how-to guides, by providing the necessary context and background information. This may involve cross-referencing other resources or linking to related documentation.\nEngage the audience: Explanations should be engaging and interesting, capturing the user’s attention and encouraging them to explore the topic further. This may involve using analogies, storytelling, or real-world examples to illustrate the concepts and make them more relatable.\n\n\nFor additional information, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "14_Tutorials_StateTraitModels.html",
@@ -438,28 +452,245 @@
     "href": "howto.html",
     "title": "How-To’s: A Brief Overview",
     "section": "",
-    "text": "The “how-to” section focuses on providing practical solutions to specific methods or problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specicif analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.\nThe how-to section should:\n\nBe problem-oriented: How-to guides should address specific problems or analyses users may face, offering clear and concise solutions. Each guide should focus on a single issue, making it easy for users to find and apply the relevant information.\nOffer step-by-step instructions: Similar to tutorials, how-to guides should provide a clear sequence of steps that users can follow to solve their problem or complete their analysis. Each step of the instructions should be explained in a straightforward manner.\nBe concise: How-to guides should be to the point, offering just enough information to help users accomplish their goal. This means avoiding unnecessary explanations or background information, as users are typically looking for a quick solution.\nBe actionable: The content in the how-to section should be practical, with a focus on actionable advice that users can apply immediately. This may involve providing code snippets, configuration settings, or other specific instructions that users can implement in their projects.\nInclude examples: How-to guides should include relevant examples that demonstrate the solution in action, allowing users to see how the instructions can be applied in a real-world context.\nCross-reference other resources: How-to guides should link to other relevant documentation, such as explanations or reference material, for users who may require additional background information or a deeper understanding of the topic.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
+    "text": "The primary goal of the “how-to” section is on providing practical solutions to specific methods or analytic problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specific analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.\n\n\nThe how-to section should:\n\nBe problem-oriented: How-to guides should address specific problems or analyses users may face, offering clear and concise solutions. Each guide should focus on a single issue, making it easy for users to find and apply the relevant information.\nOffer step-by-step instructions: Similar to tutorials, how-to guides should provide a clear sequence of steps that users can follow to solve their problem or complete their analysis. Each step of the instructions should be explained in a straightforward manner.\nBe concise: How-to guides should be to the point, offering just enough information to help users accomplish their goal. This means avoiding unnecessary explanations or background information, as users are typically looking for a quick solution.\nBe actionable: The content in the how-to section should be practical, with a focus on actionable advice that users can apply immediately. This may involve providing code snippets, configuration settings, or other specific instructions that users can implement in their projects.\nInclude examples: How-to guides should include relevant examples that demonstrate the solution in action, allowing users to see how the instructions can be applied in a real-world context.\nCross-reference other resources: How-to guides should link to other relevant documentation, such as explanations or reference material, for users who may require additional background information or a deeper understanding of the topic.\n\n\nFor additional information, see [https://documentation.divio.com/]"
+  },
+  {
+    "objectID": "howto.html#what-are-how-tos",
+    "href": "howto.html#what-are-how-tos",
+    "title": "How-To’s: A Brief Overview",
+    "section": "",
+    "text": "The primary goal of the “how-to” section is on providing practical solutions to specific methods or analytic problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specific analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.\n\n\nThe how-to section should:\n\nBe problem-oriented: How-to guides should address specific problems or analyses users may face, offering clear and concise solutions. Each guide should focus on a single issue, making it easy for users to find and apply the relevant information.\nOffer step-by-step instructions: Similar to tutorials, how-to guides should provide a clear sequence of steps that users can follow to solve their problem or complete their analysis. Each step of the instructions should be explained in a straightforward manner.\nBe concise: How-to guides should be to the point, offering just enough information to help users accomplish their goal. This means avoiding unnecessary explanations or background information, as users are typically looking for a quick solution.\nBe actionable: The content in the how-to section should be practical, with a focus on actionable advice that users can apply immediately. This may involve providing code snippets, configuration settings, or other specific instructions that users can implement in their projects.\nInclude examples: How-to guides should include relevant examples that demonstrate the solution in action, allowing users to see how the instructions can be applied in a real-world context.\nCross-reference other resources: How-to guides should link to other relevant documentation, such as explanations or reference material, for users who may require additional background information or a deeper understanding of the topic.\n\n\nFor additional information, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "ListofReferences.html",
     "href": "ListofReferences.html",
     "title": "List of Reference Material",
     "section": "",
-    "text": "GLM ?@sec-glm Non-independence (Non-independence?)"
+    "text": "A flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution.{#sec-glm}"
   },
   {
-    "objectID": "ListofReferences.html#glm-generalized-linear-model",
-    "href": "ListofReferences.html#glm-generalized-linear-model",
+    "objectID": "ListofReferences.html#generalized-linear-model-glm",
+    "href": "ListofReferences.html#generalized-linear-model-glm",
     "title": "List of Reference Material",
-    "section": "GLM (Generalized Linear Model):",
-    "text": "GLM (Generalized Linear Model):\nA flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution.{#sec-glm}"
+    "section": "",
+    "text": "A flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution.{#sec-glm}"
   },
   {
     "objectID": "ListofReferences.html#non-independence",
     "href": "ListofReferences.html#non-independence",
     "title": "List of Reference Material",
     "section": "Non-independence:",
-    "text": "Non-independence:\nThe situation where observations are not statistically independent, often arising in longitudinal or clustered data.\n\nSample average of differences: The mean of the differences between paired observations, typically used in paired-sample designs to assess the average change between two time points or conditions.\nFixed effects: Effects in a statistical model that are constant across all observations, representing the average relationship between predictors and the outcome variable.\nRandom effects: Effects in a statistical model that vary across different levels of a grouping factor (e.g., subjects, clusters), capturing the variability within each level.\nHierarchical data structures: Data structures where observations are nested within higher-order units (e.g., students within schools, employees within companies), resulting in dependency among observations.\nWithin-subject correlations: Correlations between repeated measurements on the same subject or unit, often present in longitudinal or clustered data.\nModel fit indices: Quantitative measures used to assess how well a statistical model fits the data, such as R-squared, AIC, or BIC.\nNonparametric: Statistical methods that do not rely on assumptions about the underlying distribution of the data.\nResampling permutation method: A nonparametric method for hypothesis testing that involves randomly rearranging the observed data to create new samples and assess the probability of the observed test statistic under the null hypothesis.\nClustered data: Data where observations are grouped or clustered within higher-order units, resulting in dependency among observations within each cluster.\nPopulation-averaged effects: Effects in a statistical model that represent the average relationship between predictors and the outcome variable across the entire population, rather than for specific levels of a grouping factor.\nIdentity link: A link function in GLMs that relates the linear predictor to the expected value of the outcome variable without any transformation (E[Y] = Xβ).\nLogit link: A link function in GLMs used for binary outcomes, relating the linear predictor to the log-odds of the outcome variable (log(E[Y]/(1-E[Y])) = Xβ).\nLog link: A link function in GLMs used for count outcomes, relating the linear predictor to the natural logarithm of the expected value of the outcome variable (log(E[Y]) = Xβ).\nLogistic link: Synonymous with the logit link.\nBinomial distribution: A probability distribution that describes the number of successes in a fixed number of Bernoulli trials with the same probability of success.\nExchangeable correlation structure: A working correlation structure in GEE models, assuming constant correlation between any pair of repeated measurements within subjects.\nAutoregressive correlation structure: A working correlation structure in GEE models, assuming correlation between repeated measurements decreases as the time lag between measurements increases.\nUnstructured correlation structure: A working correlation structure in GEE models, allowing for different correlations between each pair of repeated measurements within subjects.\nSandwich estimator: A method for computing robust standard errors in GEE models, providing valid inference even if the working correlation structure is misspecified.\nQuasi-likelihood under the Independence model Criterion (QIC): A model selection criterion for GEE models, analogous to AIC, used to compare models with different working correlation structures.\nOdds ratios: A measure of association for binary outcomes, representing the ratio of the odds of an event occurring in one group to the odds in another group.\nRate ratios: A measure of association for count outcomes, representing the ratio of the rates of an event occurring in one group to the rates in another group.\nMaximum likelihood estimation: A statistical method for estimating model parameters by finding the values that maximize the likelihood of the observed data given the model.\nUnbalanced data: Data where the number of observations or the number of measurements per subject or group is unequal across subjects or groups.\nUnequally spaced data: Data where the time intervals between repeated measurements or the spacing of observations are not equal.\nMaximum likelihood (ML): A method of estimation that involves finding the parameter values that maximize the likelihood of the observed data given a statistical model.\nRestricted maximum likelihood (REML): A modification of maximum likelihood estimation that is less biased for estimating variance components in mixed-effects models, particularly when the sample size is small.\nPenalized quasi-likelihood (PQL): An approximate method for fitting generalized linear mixed models, particularly for non-normal outcomes, which involves a penalized likelihood function and iteratively weighted least squares.\nAkaike Information Criterion (AIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as AIC = -2 * log-likelihood + 2 * k, where k is the number of parameters. Lower AIC values indicate better model fit.\nBayesian Information Criterion (BIC): A model selection criterion that balances goodness-of-fit and model complexity, calculated as BIC = -2 * log-likelihood + k * log(n), where k is the number of parameters and n is the sample size. Lower BIC values indicate better model fit."
+    "text": "Non-independence:\nThe situation where observations are not statistically independent, often arising in longitudinal or clustered data."
+  },
+  {
+    "objectID": "ListofReferences.html#sample-average-of-differences",
+    "href": "ListofReferences.html#sample-average-of-differences",
+    "title": "List of Reference Material",
+    "section": "Sample average of differences:",
+    "text": "Sample average of differences:\nThe mean of the differences between paired observations, typically used in paired-sample designs to assess the average change between two time points or conditions."
+  },
+  {
+    "objectID": "ListofReferences.html#fixed-effects",
+    "href": "ListofReferences.html#fixed-effects",
+    "title": "List of Reference Material",
+    "section": "Fixed effects:",
+    "text": "Fixed effects:\nEffects in a statistical model that are constant across all observations, representing the average relationship between predictors and the outcome variable."
+  },
+  {
+    "objectID": "ListofReferences.html#random-effects",
+    "href": "ListofReferences.html#random-effects",
+    "title": "List of Reference Material",
+    "section": "Random effects:",
+    "text": "Random effects:\nEffects in a statistical model that vary across different levels of a grouping factor (e.g., subjects, clusters), capturing the variability within each level."
+  },
+  {
+    "objectID": "ListofReferences.html#hierarchical-data-structures",
+    "href": "ListofReferences.html#hierarchical-data-structures",
+    "title": "List of Reference Material",
+    "section": "Hierarchical data structures:",
+    "text": "Hierarchical data structures:\nData structures where observations are nested within higher-order units (e.g., students within schools, employees within companies), resulting in dependency among observations."
+  },
+  {
+    "objectID": "ListofReferences.html#within-subject-correlations",
+    "href": "ListofReferences.html#within-subject-correlations",
+    "title": "List of Reference Material",
+    "section": "Within-subject correlations:",
+    "text": "Within-subject correlations:\nCorrelations between repeated measurements on the same subject or unit, often present in longitudinal or clustered data."
+  },
+  {
+    "objectID": "ListofReferences.html#model-fit-indices",
+    "href": "ListofReferences.html#model-fit-indices",
+    "title": "List of Reference Material",
+    "section": "Model fit indices:",
+    "text": "Model fit indices:\nQuantitative measures used to assess how well a statistical model fits the data, such as R-squared, AIC, or BIC."
+  },
+  {
+    "objectID": "ListofReferences.html#nonparametric",
+    "href": "ListofReferences.html#nonparametric",
+    "title": "List of Reference Material",
+    "section": "Nonparametric:",
+    "text": "Nonparametric:\nStatistical methods that do not rely on assumptions about the underlying distribution of the data."
+  },
+  {
+    "objectID": "ListofReferences.html#resampling-permutation-method",
+    "href": "ListofReferences.html#resampling-permutation-method",
+    "title": "List of Reference Material",
+    "section": "Resampling permutation method:",
+    "text": "Resampling permutation method:\nA nonparametric method for hypothesis testing that involves randomly rearranging the observed data to create new samples and assess the probability of the observed test statistic under the null hypothesis."
+  },
+  {
+    "objectID": "ListofReferences.html#clustered-data",
+    "href": "ListofReferences.html#clustered-data",
+    "title": "List of Reference Material",
+    "section": "Clustered data:",
+    "text": "Clustered data:\nData where observations are grouped or clustered within higher-order units, resulting in dependency among observations within each cluster."
+  },
+  {
+    "objectID": "ListofReferences.html#population-averaged-effects",
+    "href": "ListofReferences.html#population-averaged-effects",
+    "title": "List of Reference Material",
+    "section": "Population-averaged effects:",
+    "text": "Population-averaged effects:\nEffects in a statistical model that represent the average relationship between predictors and the outcome variable across the entire population, rather than for specific levels of a grouping factor."
+  },
+  {
+    "objectID": "ListofReferences.html#identity-link",
+    "href": "ListofReferences.html#identity-link",
+    "title": "List of Reference Material",
+    "section": "Identity link:",
+    "text": "Identity link:\nA link function in GLMs that relates the linear predictor to the expected value of the outcome variable without any transformation (E[Y] = Xβ)."
+  },
+  {
+    "objectID": "ListofReferences.html#logit-link",
+    "href": "ListofReferences.html#logit-link",
+    "title": "List of Reference Material",
+    "section": "Logit link:",
+    "text": "Logit link:\nA link function in GLMs used for binary outcomes, relating the linear predictor to the log-odds of the outcome variable (log(E[Y]/(1-E[Y])) = Xβ)."
+  },
+  {
+    "objectID": "ListofReferences.html#log-link",
+    "href": "ListofReferences.html#log-link",
+    "title": "List of Reference Material",
+    "section": "Log link:",
+    "text": "Log link:\nA link function in GLMs used for count outcomes, relating the linear predictor to the natural logarithm of the expected value of the outcome variable (log(E[Y]) = Xβ)."
+  },
+  {
+    "objectID": "ListofReferences.html#logistic-link",
+    "href": "ListofReferences.html#logistic-link",
+    "title": "List of Reference Material",
+    "section": "Logistic link:",
+    "text": "Logistic link:\nSynonymous with the logit link."
+  },
+  {
+    "objectID": "ListofReferences.html#binomial-distribution",
+    "href": "ListofReferences.html#binomial-distribution",
+    "title": "List of Reference Material",
+    "section": "Binomial distribution:",
+    "text": "Binomial distribution:\nA probability distribution that describes the number of successes in a fixed number of Bernoulli trials with the same probability of success."
+  },
+  {
+    "objectID": "ListofReferences.html#exchangeable-correlation-structure",
+    "href": "ListofReferences.html#exchangeable-correlation-structure",
+    "title": "List of Reference Material",
+    "section": "Exchangeable correlation structure:",
+    "text": "Exchangeable correlation structure:\nA working correlation structure in GEE models, assuming constant correlation between any pair of repeated measurements within subjects."
+  },
+  {
+    "objectID": "ListofReferences.html#autoregressive-correlation-structure",
+    "href": "ListofReferences.html#autoregressive-correlation-structure",
+    "title": "List of Reference Material",
+    "section": "Autoregressive correlation structure:",
+    "text": "Autoregressive correlation structure:\nA working correlation structure in GEE models, assuming correlation between repeated measurements decreases as the time lag between measurements increases."
+  },
+  {
+    "objectID": "ListofReferences.html#unstructured-correlation-structure",
+    "href": "ListofReferences.html#unstructured-correlation-structure",
+    "title": "List of Reference Material",
+    "section": "Unstructured correlation structure:",
+    "text": "Unstructured correlation structure:\nA working correlation structure in GEE models, allowing for different correlations between each pair of repeated measurements within subjects."
+  },
+  {
+    "objectID": "ListofReferences.html#sandwich-estimator",
+    "href": "ListofReferences.html#sandwich-estimator",
+    "title": "List of Reference Material",
+    "section": "Sandwich estimator:",
+    "text": "Sandwich estimator:\nA method for computing robust standard errors in GEE models, providing valid inference even if the working correlation structure is misspecified."
+  },
+  {
+    "objectID": "ListofReferences.html#quasi-likelihood-under-the-independence-model-criterion-qic",
+    "href": "ListofReferences.html#quasi-likelihood-under-the-independence-model-criterion-qic",
+    "title": "List of Reference Material",
+    "section": "Quasi-likelihood under the Independence model Criterion (QIC):",
+    "text": "Quasi-likelihood under the Independence model Criterion (QIC):\nA model selection criterion for GEE models, analogous to AIC, used to compare models with different working correlation structures."
+  },
+  {
+    "objectID": "ListofReferences.html#odds-ratios",
+    "href": "ListofReferences.html#odds-ratios",
+    "title": "List of Reference Material",
+    "section": "Odds ratios:",
+    "text": "Odds ratios:\nA measure of association for binary outcomes, representing the ratio of the odds of an event occurring in one group to the odds in another group."
+  },
+  {
+    "objectID": "ListofReferences.html#rate-ratios",
+    "href": "ListofReferences.html#rate-ratios",
+    "title": "List of Reference Material",
+    "section": "Rate ratios:",
+    "text": "Rate ratios:\nA measure of association for count outcomes, representing the ratio of the rates of an event occurring in one group to the rates in another group."
+  },
+  {
+    "objectID": "ListofReferences.html#maximum-likelihood-estimation",
+    "href": "ListofReferences.html#maximum-likelihood-estimation",
+    "title": "List of Reference Material",
+    "section": "Maximum likelihood estimation:",
+    "text": "Maximum likelihood estimation:\nA statistical method for estimating model parameters by finding the values that maximize the likelihood of the observed data given the model."
+  },
+  {
+    "objectID": "ListofReferences.html#unbalanced-data",
+    "href": "ListofReferences.html#unbalanced-data",
+    "title": "List of Reference Material",
+    "section": "Unbalanced data:",
+    "text": "Unbalanced data:\nData where the number of observations or the number of measurements per subject or group is unequal across subjects or groups."
+  },
+  {
+    "objectID": "ListofReferences.html#unequally-spaced-data",
+    "href": "ListofReferences.html#unequally-spaced-data",
+    "title": "List of Reference Material",
+    "section": "Unequally spaced data:",
+    "text": "Unequally spaced data:\nData where the time intervals between repeated measurements or the spacing of observations are not equal."
+  },
+  {
+    "objectID": "ListofReferences.html#maximum-likelihood-ml",
+    "href": "ListofReferences.html#maximum-likelihood-ml",
+    "title": "List of Reference Material",
+    "section": "Maximum likelihood (ML):",
+    "text": "Maximum likelihood (ML):\nA method of estimation that involves finding the parameter values that maximize the likelihood of the observed data given a statistical model."
+  },
+  {
+    "objectID": "ListofReferences.html#restricted-maximum-likelihood-reml",
+    "href": "ListofReferences.html#restricted-maximum-likelihood-reml",
+    "title": "List of Reference Material",
+    "section": "Restricted maximum likelihood (REML):",
+    "text": "Restricted maximum likelihood (REML):\nA modification of maximum likelihood estimation that is less biased for estimating variance components in mixed-effects models, particularly when the sample size is small."
+  },
+  {
+    "objectID": "ListofReferences.html#penalized-quasi-likelihood-pql",
+    "href": "ListofReferences.html#penalized-quasi-likelihood-pql",
+    "title": "List of Reference Material",
+    "section": "Penalized quasi-likelihood (PQL):",
+    "text": "Penalized quasi-likelihood (PQL):\nAn approximate method for fitting generalized linear mixed models, particularly for non-normal outcomes, which involves a penalized likelihood function and iteratively weighted least squares."
+  },
+  {
+    "objectID": "ListofReferences.html#akaike-information-criterion-aic",
+    "href": "ListofReferences.html#akaike-information-criterion-aic",
+    "title": "List of Reference Material",
+    "section": "Akaike Information Criterion (AIC):",
+    "text": "Akaike Information Criterion (AIC):\nA model selection criterion that balances goodness-of-fit and model complexity, calculated as AIC = -2 * log-likelihood + 2 * k, where k is the number of parameters. Lower AIC values indicate better model fit."
+  },
+  {
+    "objectID": "ListofReferences.html#bayesian-information-criterion-bic",
+    "href": "ListofReferences.html#bayesian-information-criterion-bic",
+    "title": "List of Reference Material",
+    "section": "Bayesian Information Criterion (BIC):",
+    "text": "Bayesian Information Criterion (BIC):\nA model selection criterion that balances goodness-of-fit and model complexity, calculated as BIC = -2 * log-likelihood + k * log(n), where k is the number of parameters and n is the sample size. Lower BIC values indicate better model fit."
   },
   {
     "objectID": "12_HowTos_LatentTransitionAnalysis.html",
@@ -467,6 +698,20 @@
     "title": "Latent Transition Analysis",
     "section": "",
     "text": "test page for lta howtos"
+  },
+  {
+    "objectID": "temp.html",
+    "href": "temp.html",
+    "title": "Tutorials: A Brief Overview",
+    "section": "",
+    "text": "This is the TUTORIAL main page example."
+  },
+  {
+    "objectID": "temp.html#main-section",
+    "href": "temp.html#main-section",
+    "title": "Tutorials: A Brief Overview",
+    "section": "1 Main Section",
+    "text": "1 Main Section\n\nThis is the middle section\n\n\n\n\n\n\n\nTesting Sample Test!\n\n\n\n\n\n\nThe primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter."
   },
   {
     "objectID": "9_HowTos_LatentChangeScoresModels.html",
@@ -480,7 +725,14 @@
     "href": "tutorials.html",
     "title": "Tutorials: A Brief Overview",
     "section": "",
-    "text": "The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.\nThe tutorial section should:\n\nBe goal-oriented: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.\nProvide clear steps: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.\nUse examples: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.\nBe practical: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.\nEncourage exploration: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.\n\nFor additional information/resources, see [https://documentation.divio.com/]"
+    "text": "The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.\n\n\nThe tutorial section should:\n\nBe goal-oriented: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.\nProvide clear steps: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.\nUse examples: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.\nBe practical: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.\nEncourage exploration: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.\n\n\nFor additional information, see [https://documentation.divio.com/]"
+  },
+  {
+    "objectID": "tutorials.html#what-are-tutorials",
+    "href": "tutorials.html#what-are-tutorials",
+    "title": "Tutorials: A Brief Overview",
+    "section": "",
+    "text": "The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.\n\n\nThe tutorial section should:\n\nBe goal-oriented: Tutorials should focus on a specific task the user wants to accomplish. By concentrating on a particular outcome, the tutorial becomes more engaging and relevant to the user.\nProvide clear steps: Tutorials should offer step-by-step instructions, guiding users through the process of achieving their goal. Each step should be clearly explained and easy to follow, making sure users can successfully complete the tutorial.\nUse examples: Tutorials should include real-world examples and use cases that are relatable and meaningful to the user. This helps users better understand the concepts being taught and how they can apply them in their own projects.\nBe practical: Tutorials should emphasize hands-on learning, encouraging users to actively engage with the content and practice the skills they are learning. This may involve providing code samples, interactive exercises, or other activities that help users develop their understanding.\nEncourage exploration: Tutorials should encourage users to explore and experiment with the concepts they are learning. This may involve providing opportunities for users to adapt the tutorial to their own needs or offering suggestions for further experimentation.\n\n\nFor additional information, see [https://documentation.divio.com/]"
   },
   {
     "objectID": "manuscript.html",
