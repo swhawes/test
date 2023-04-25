@@ -44,7 +44,20 @@ author-summary: |
     *longitudinal analyses*,
     *development*
 
-#format:
+format: 
+  html:
+    grid:
+      sidebar-width: 200px
+      margin-width: 300px
+  pdf: 
+    geometry:
+      - top=30mm
+      - left=20mm
+    #fontfamily: libertinus
+    #fontsize: 20pt
+format-links: [html, pdf]
+
+  #format:
 #  pdf:
 #    geometry:
 #      - top=30mm
@@ -85,7 +98,7 @@ There are several important concepts to consider when conducting longitudinal an
 
 **Distinguishing developmental change from experience effects**. One can often observe systematic changes over time in a variable of interest and assume this change is attributable to development. To this point, cognitive abilities (e.g, verbal ability, problem-solving) normatively grow earlier in development and often decline in late life (e.g., memory, speed of processing). However, the observed patterns of growth and decline often differ between cross-sectional vs. longitudinal effects [@salthouse2014] where subjects gain increasing experience with the assessment with each successive measurement occasion. Such experience effects on cognitive functioning have been demonstrated in adolescent longitudinal samples similar to ABCD [@sullivan2017] and highlight the need to consider these effects and address them analytically. In the case of performance-based measures [e.g., matrix reasoning related to neurocognitive functioning; see @salthouse2014], this can be due to “learning” the task from previous test administrations (e.g., someone taking the test a second time performs better than they did the first time simply as a function of having taken it before). Even in the case of non-performance-based measures (e.g., levels of depression), where one cannot easily make the argument that one has acquired some task-specific skill through learning, it has been observed that respondents tend to endorse lower levels on subsequent assessments [e.g., @beck1961; see @french2010] and this phenomenon has been well documented in research on structured diagnostic interviews [@robins1985]. While it is typically assumed that individuals are rescinding or telling us less information on follow-up interviews, there is reason to suspect that in some cases the initial assessment may be artefactually elevated [see @shrout2018a]. Some designs (specifically, accelerated longitudinal designs) are especially well suited for discovering these effects and modeling them. While ABCD was not designed as an accelerated longitudinal design, the variability in age at the time of baseline recruitment (9 years, 0 months to 10 years, 11 months) allows some measures, collected every year, to be conceptualized as an accelerated longitudinal design. Moreover, it is possible that in later waves, patterns of longitudinal missing data will allow some analyses to assess the confounded effects of age and the number of prior assessments. However, ABCD is fundamentally a single-cohort, longitudinal design, where a number of prior assessments and age are highly confounded, and for, perhaps, most analyses, the possible influence of experience effects needs to be kept in mind.
 
-# Part II Longitudinal Data: Interpretation / Issues / Pitfalls & Assumption
+# Part II: Longitudinal Data: Interpretation / Issues / Pitfalls & Assumption
 \label{sec:headings}
 **Defining Features of Longitudinal Data Analysis.**
 The hallmark characteristic of longitudinal data analysis is its application to repeated assessments of the same assessment targets (e.g., individuals, families) across time.
@@ -123,11 +136,11 @@ Attrition from a longitudinal panel study such as ABCD is inevitable and represe
 ## Quantifying effect sizes longitudinally
 Given longitudinal data involve different sources of variance, quantifying effect sizes longitudinally is a more difficult task compared to deriving such estimates from cross-sectional data. Effect size can be defined as, “a population parameter (estimated in a sample) encapsulating the practical or clinical importance of a phenomenon under study.” [@kraemer2014]. Common effect size metrics include r (i.e., the standardized covariance, or correlation, between two variables) and Cohen’s d [@cohen1988]. Adjustments to common effect size calculations, such as Cohen’s d, are required even when only two time points are considered [e.g., see @morris2002]. @wang2019a note there are multiple approaches to obtaining standardized within-person effects, and that commonly suggested approaches (e.g., global standardization) can be problematic [see @wang2019a, for more details]. Thus, obtaining effect size metrics based on standardized estimates that are relatively simple in cross-sectional data (such as r) becomes more complex in the context of prospective data. @feingold2009 noted that equations for effects sizes used in studies involving growth modeling analysis (e.g., latent growth curve modeling) were not mathematically equivalent, and the effect sizes were not in the same metric as effect sizes from traditional analysis [see @feingold2009, for more details]. Given this issue, there have been various proposals for adjusting effect size measures in repeated assessments. @feingold2019 reviews the approach for effect size metrics for analyses based on growth modeling, including when considering linear and non-linear (i.e., quadratic) growth factors. @morris2002 review various equations for effect size calculations relevant to when combining estimates in meta-analysis with repeated measures and independent-groups designs. Other approaches to quantifying effect sizes longitudinally may be based on standardized estimates from models that more optimally disentangle between- and within-person sources of variance (as reviewed above). As an example, within a RI-CLPM framework, standardized estimates between random intercepts (i.e., the correlation between two random intercepts for two different constructs assessed repeatedly) could be used to index the between-person relation, whereas standardized estimates among the structured residuals could be used as informing the effect sizes of within-person relations.
 
-# Part III Section in Progress: TBD
+# Part III: Additional Section(s) in Progress: TBD]
 \label{sec:headings}
 **Subsection TBD.**
 
-# Part IV Discussion
+# Discussion
 \label{sec:headings}
 **Subsection TBD.**
 

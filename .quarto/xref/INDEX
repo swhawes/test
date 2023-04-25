@@ -552,5 +552,20 @@
   },
   "temp.qmd": {
     "temp.html": "132da78c"
+  },
+  "manuscrip_test version.qmd": {
+    "manuscrip_test version.html": "c5c21d52"
+  },
+  "1b_HowTos_Difference Scores_SimpleRegression.qmd": {
+    "1b_HowTos_Difference Scores_SimpleRegression.html": "9bd21045"
+  },
+  "1a_HowTos_DifferenceScores_PairedTtests.qmd": {
+    "1a_HowTos_DifferenceScores_PairedTtests.html": "1ba7198b"
+  },
+  "1b_HowTos_DifferenceScores_SimpleRegression.qmd": {
+    "1b_HowTos_DifferenceScores_SimpleRegression.html": "02a5c37b"
+  },
+  "3b_HowTos_LinearMixedModels.qmd": {
+    "3b_HowTos_LinearMixedModels.html": "305be29d"
   }
 }

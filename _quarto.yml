@@ -9,7 +9,7 @@ website:
   site-url: https://swhawes.github.io/test/
   page-navigation: true
   navbar:
-    background: primary
+    background: primary #goldenrod
     search: true
     pinned: true
     collapsed: true
@@ -17,7 +17,7 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Manuscript"
-        file: test.qmd
+        file: manuscript.qmd
       - text: "Tutorials"
         file: tutorials.qmd
       - text: "How-To"
@@ -54,7 +54,7 @@ website:
       background: light
       collapse-level: 1
       contents:
-        - test.qmd
+        - manuscript.qmd
     - title: "Tutorials"
       contents:
         - tutorials.qmd
@@ -93,26 +93,54 @@ website:
         - howto.qmd
         - section: "Traditional Linear Models"
           contents:
-            - 1a_HowTos_DifferenceScores.qmd
-            - 1b_HowTos_DifferenceScores.qmd
-            - 2_HowTos_ResidualizedChangeScores.qmd
-            - 3a_HowTos_LinearMixedModels.qmd
-            #- 3b_HowTos_LinearMixedModels.qmd
+            - section: "Difference Scores"
+              contents:
+                - 1a_HowTos_DifferenceScores_PairedTtests.qmd
+                - 1b_HowTos_DifferenceScores_SimpleRegression.qmd
+            - section: "Residualized Change Scores"
+              contents:
+                - 2_HowTos_ResidualizedChangeScores.qmd
+            - section: "Linear Mixed Models"
+              contents:
+                - 3a_HowTos_LinearMixedModels.qmd
+                - 3b_HowTos_LinearMixedModels.qmd
         - section: "Traditional Non-linear Models"
           contents:
-            - 4_HowTos_SignedRankTest.qmd
-            - 5_HowTos_MarginalModels.qmd
-            - 6_HowTos_GeneralizedEstimatingEquations.qmd
-            - 7_HowTos_GeneralizedLinearMixedEffectsModels.qmd
+            - section: "Signed-Rank Test"
+              contents: 
+                - 4_HowTos_SignedRankTest.qmd
+            - section: "Marginal Models"
+              contents:
+                - 5_HowTos_MarginalModels.qmd
+            - section: "Generalized Estimating Equations"
+              contents:
+                - 6_HowTos_GeneralizedEstimatingEquations.qmd
+            - section: "Generalized Linear Mixed-Effects Models"
+              contents:
+                - 7_HowTos_GeneralizedLinearMixedEffectsModels.qmd
         - section: "SEM Approaches"
           contents:
-            - 8_HowTos_AutoregressiveCrosslaggedPanelModels.qmd
-            - 9_HowTos_LatentChangeScoresModels.qmd
-            - 10_HowTos_LatentGrowthCurveModels.qmd
-            - 11_HowTos_MultivariateLatentGrowthCurveModels.qmd
-            - 12_HowTos_LatentTransitionAnalysis.qmd
-            - 13_HowTos_GrowthMixtureModels.qmd
-            - 14_HowTos_StateTraitModels.qmd
+            - section: "Autoregressive Crosslagged Panel Models"
+              contents:
+                - 8_HowTos_AutoregressiveCrosslaggedPanelModels.qmd
+            - section: "Latent Change Scores Models"
+              contents:
+                - 9_HowTos_LatentChangeScoresModels.qmd
+            - section: "LatentGrowthCurveModels"
+              contents:
+                - 10_HowTos_LatentGrowthCurveModels.qmd
+            - section: "Multivariate Latent Growth Curve Models"
+              contents:
+                - 11_HowTos_MultivariateLatentGrowthCurveModels.qmd
+            - section: "Latent Transition Analysis"
+              contents:
+                - 12_HowTos_LatentTransitionAnalysis.qmd
+            - section: "Growth Mixture Models"
+              contents:
+                - 13_HowTos_GrowthMixtureModels.qmd
+            - section: "State-Trait Models"
+              contents:
+                - 14_HowTos_StateTraitModels.qmd
         - section: "Advanced SEM"
           contents:
             - 15_HowTos_RandomInterceptCrosslaggedPanelModels.qmd
@@ -197,6 +225,8 @@ format:
     html-math-method: katex
     df-print: paged
     options: max.print=75000
+    grid:
+     sidebar-width: 450px
     
 execute:
   echo: true

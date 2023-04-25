@@ -1,6 +1,6 @@
 ---
 title: "How-To's: A Brief Overview"
-number-sections: true
+number-sections: false
 format:
  html:
    css: styles.css
@@ -9,7 +9,8 @@ format:
    linestretch: 1.5
 ---
 
-## What are How-To's?
+## ## <i class="bi bi-book"></i>  What are How-To's?
+
 ::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.o; font-family: Georgia, serif;"}
 [**The primary goal**]{style="color: goldenrod; font-size: 1.2em; font-family: Verdana, sans-serif;"} 
 of the "how-to" section is on providing practical solutions to specific methods or analytic problems users might encounter. Unlike tutorials, which aim to teach a concept, how-to guides concentrate on the efficient execution of specific analyses without going into in-depth background explanations. By following these principles, the how-to section aims to create practical, efficient, and user-friendly guides that help users quickly identify solutions and accomplish their goals.

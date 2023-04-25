@@ -13,6 +13,8 @@ This is the TUTORIAL main page example.
 
 ## Main Section
 
+
+
 ::: {style="color: red; border: solid black; background-color: grey;"}
 This is the [middle section]{style="background-color: yellow; color: blue;"} 
 :::

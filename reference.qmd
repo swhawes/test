@@ -1,6 +1,6 @@
 ---
 title: "References: A Brief Overview"
-number-sections: true
+number-sections: false
 format:
  html:
    css: styles.css
@@ -9,7 +9,7 @@ format:
    linestretch: 1.5
 ---
 
-## What are References?
+## ## <i class="bi bi-book"></i> What are References?
 
 ::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.o; font-family: Georgia, serif;"}
 [**The primary goal**]{style="color: goldenrod; font-size: 1.2em; font-family: Verdana, sans-serif;"} 

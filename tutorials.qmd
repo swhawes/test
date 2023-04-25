@@ -1,17 +1,16 @@
 ---
 title: "Tutorials: A Brief Overview"
-number-sections: true
+number-sections: false
 format:
  html:
    css: styles.css
    theme: cosmo
    fontsize: 1.1em
-   linestretch: 1.5
 ---
 
-## What are Tutorials?
+## <i class="bi bi-book"></i> What are Tutorials?
 
-::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.o; font-family: Georgia, serif;"}
+::: {style="text-align: justify; font-size: 1.2em; line-stretch: 1.0; font-family: Georgia, serif;"}
 [**The primary goal**]{style="color: goldenrod; font-size: 1.2em; font-family: Verdana, sans-serif;"} 
 of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter. 
 :::

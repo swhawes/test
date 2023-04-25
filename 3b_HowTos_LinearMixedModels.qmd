@@ -1,0 +1,465 @@
+---
+title: "Linear Mixed Models: Random Intercept and Slope"
+author: "Biostatistics Working Group"
+---
+
+# LMM: Intercept & Slope {.unnumbered}
+
+## Overview
+
+<p>
+
+In this example, we will use the **`LMM:ri`** to analyze trajectories of scores on the externalizing subscale of the child behavior checklist (CBCL) obtained across three measurement occasions in a sample of youth taking part in the ABCD Study. Our primary aim is to characterize stability and change in CBCL externalizing scores across assessments, while accounting for observations that are clustered within youth over time. To do so, we will use the **`LMM:ri`** to simultaneously model an overall sample mean trajectory (fixed effect) and subject-specific (random) effects that vary randomly about the sample mean trajectory. 
+</p>
+
+## Preliminary Setup
+::: {.panel-tabset}
+### Install Packages {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+> **This code installs the r packages necessary for this example, if they are not already installed**
+
+```{r}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#rm(list = ls())
+
+# Install necessary packages (if not already installed)
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("afex" %in% installed.packages())) install.packages("afex")
+if (!("sdamr" %in% installed.packages())) install.packages("sdamr")
+```
+</div>
+
+### Load Packages
+<div class = "blue">
+
+> **This code loads the r libraries necessary for this example**
+
+```{r pckg-load}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| class.source: fold-hide
+
+#rm(list = ls())
+
+#Load packages
+#library(lme4)
+#library(lmerTest)
+#library(tidyverse)
+#library(afex)
+#library(janitor)
+#library(skimr)
+#library(sdamr)
+
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(afex)
+library(janitor)
+library(skimr)
+library(sdamr)
+library(formatR)
+library(report)
+library(easystats)
+library(emmeans)
+library(poorman)
+library(parameters)
+library(modelbased)
+library(DT)
+library(data.table)
+library(arsenal)
+library(kableExtra)
+library(equatiomatic)
+library(gtsummary)
+```
+
+</div>
+
+### Config Options
+<div class = "blue">
+
+**This code configures knitr code chunk options**
+
+```{r config}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                        comment=NA, cache=T, code_folding=T,
+                        R.options=list(width=220), fig.align='center',
+                        out.width='75%', fig.asp=.75)
+```
+</div>
+:::
+
+## Descriptives Overview
+::: {.panel-tabset}
+### Read and View Data {.tabset .tabset-fade .tabset-pills}
+<div class = "blue">
+
+**This code reads in and shows the data to be used in the current example**
+
+```{r read-data}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+## Read data
+df_long<- read_csv("/Users/shawes/Desktop/data/df_long.csv")
+#df_wide <- read_csv("/path/to/datafile")
+
+# set types (if necessary)
+#df_long$x <- as.factor(df_long$x)
+#df_long$y <- as.numeric(df_long$y)
+```
+
+</div>
+
+### Descriptives
+<div class = "blue">
+```{r descriptives}
+#| messages: FALSE
+#| echo: TRUE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+descriptives_1  <- tableby.control(test=FALSE, total=FALSE,
+                               numeric.test="kwt", cat.test="chisq",
+                               numeric.stats=c("N", "meansd", "median", "range" 
+                                               ), #"Nmiss2"
+                               cat.stats=c("countpct"), #"Nmiss2"
+                               stats.labels=list(N='Count', meansd="Mean (SD)", median
+                                                 ='Median', range='Min - Max'
+                                                 )) #, Nmiss2 ='Missing'
+
+my_cont_labels <- list(
+  age = "Age",
+  vg_total = "Weekly # of Video Gaming Hrs",
+  cbcl_extern = "CBCL Externalizing Scale"
+)
+
+tab_descriptives_1 <- tableby(event ~ age + vg_total + 
+                            cbcl_extern,
+                            data=df_long, control=descriptives_1)
+
+#summary(tab_descriptives_1, labelTranslations = my_cont_labels , text=TRUE, title = #"Continuous Outcomes", term.name = TRUE)
+
+# Push table object through kable and kable_styling
+tab_descriptives_1 %>%
+  summary(text=TRUE, digits.pct=1, digits=1) %>%
+  kable(caption = "Continuous Outcomes") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, html_font = "Cambria",
+                font_size = 15,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+  column_spec(3, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+```
+</div>
+
+<div class = "blue">
+```{r catvar-table}
+#| messages: FALSE
+#| warning: FALSE
+#| results: "asis"
+
+## Create a descriptives table of study variables by measurement occasion 
+descriptives_2  <- tableby.control(test=FALSE, total=FALSE,
+                               numeric.test="kwt", cat.test="chisq",
+                               numeric.stats=c("N", "meansd", "median", "range"
+                                               ), # "Nmiss2"
+                               cat.stats=c("countpct"), # "Nmiss2"
+                               stats.labels=list(N='Count', meansd="Mean (SD)", median
+                                                 ='Median', range='Min - Max'
+                                                 )) # , Nmiss2 ='Missing'
+
+my_cat_labels  <- list(
+  event = "Year",
+  sex = "Sex",
+  mature_vg = "Mature Video Games"
+  )
+
+tab_descriptives_2 <- tableby(event ~ sex + mature_vg, 
+                            data=df_long, control=descriptives_2)
+
+#summary(tab_descriptives_2, labelTranslations = my_cat_labels , text=TRUE, title = #"Categorical Outcomes", term.name = TRUE)
+
+# Push table object through kable and kable_styling
+tab_descriptives_2 %>%
+  summary(text=TRUE, digits.pct=1, digits=1) %>%
+  kable(caption = "Categorical Outcomes") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, font_size = 15,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+  #column_spec(3, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+
+```
+</div>
+:::
+  
+## Results
+    
+<div class = "blue">
+
+::: panel-tabset
+### Build Model {.tabset .tabset-fade .tabset-pills}
+  
+::: blue
+  
+The code snippet below tells R to compute xxxxx by xxxxxxx. Next, xxxxx is conducted to examine whether xxxxxx does xxxxxxx (indicating xxxxx). The xxxx function (xxx) is provided by the r 'xxx' package.
+The code above is very similar to the code for the random intercept model, except that now we use the code (1 + Days \| Subject) to specify a random intercept for each Subject, and a random slope of Days for each Subject. This allows both the intercept and the slope of days to vary across participants.
+
+**STEP 1: Compute xxxxxxxx**
+```{r build-model-1}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+## Linear Mixed Model with a random intercept (LMM-ri)
+#really still an intercept only model
+random_slopes <- lmer(cbcl_extern ~ 1 + event + (1|ids), data = df_long, REML=F)
+print(random_slopes)
+
+```
+
+```{r model-output}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| code-summary: testing
+
+summary(random_slopes)
+
+## Output and reports extending from the LMM-ri analyses
+summary(random_slopes)
+confint(random_slopes, level = 0.95, method = "Wald")
+report(random_slopes)
+report_performance(random_slopes)
+report_statistics(random_slopes)
+random <- estimate_grouplevel(random_slopes)
+
+```
+</div>
+
+The summary function is used to print out the results from the random intercept model and
+
+**STEP 2: Conduct xxxxxxx**
+```{r build-model-2}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+## Obtain LMM-ri model parameters to plot/graph of results
+## Fixed-Effects
+model_intercept <- rep(coef(random_slopes)$ids[,1], each = 4)
+slopes2 <- rep(coef(random_slopes)$ids[,2], each = 4)
+#This code allows for extracting the fixed effects estimates for the model intercept and slope.
+
+```
+
+The output from our model provides: i. a parameter estimate; ii. standard error; iii. p-value. In our example p = .001 which is less than .05 indicating significant differences in predicted cbcl externalizing scores between boys and girls in the ABCD Study. An examination of the regression coeefficient for sex (female = 0; male = 1) is b = .xx, indicating the difference in cbcl externalizing scores from Time 1 to Time 2 is significantly greater in boys taking part in the ABCD Study relative to girls. Then we conclude that participant sex (does/does not) predict change in cbcl externalizing scores from t1 to t2.
+
+From the fixed effects section of the model summary, we can conclude that there is strong evidence that number of days of sleep deprivation significantly increased reaction time under a significance level of 0.05. On average, for each additional day of sleep deprivation, reaction time increased by 10.47ms (b = 10.47, SE = 1.55, p \< .001).
+
+We are 95% confident that the average increase was between 7.44 and 13.50.
+
+From the fixed effects section, we estimated the average intercept and average effect of days of sleep deprivation (slopes of Days). We also estimated the corresponding 95% confidence intervals. Using the results from the random effects section, we can calculate the coverage intervals for both the intercept and the slope.
+
+The variance of the intercept and for the slope of Days is 612.1 and 35.1 respectively. Taking their square root, the corresponding standard deviations are 24.7 and 5.9. The 95% coverage interval of the intercept is 251.4 ± 1.96\*24.7. The lower bound is 203.0 and the upper bound is 299.8. It is therefore estimated that 95% of the participants had a reaction time between 203.0 and 299.8 at Day 0.
+
+The 95% coverage interval of the slope of Days is 10.5 ± 1.96\*5.9. The lower bound is -1.1 and the upper bound is 22.1. It is therefore estimated that for 95% of the participants, the effect of each additional day of sleep deprivation was between -1.1 and 22.1. This is not to be confused with the 95% confidence interval (7.4 and 13.5), which means that we are 95% confident that average effect (across all participants) of each additional day of sleep deprivation on reaction time was between 7.4 and 13.5. The model now estimates a variance of the random slopes effects, as well as a correlation between the random intercept and slope effects. :::
+
+```{r}
+#| message: FALSE
+#| warning: FALSE
+
+# # ! THIS PLOT RUNS & PRINTS TO SCREEN. I am temporarily commenting it out due to a side-effect of the 
+# #"intercepts2 variable"
+# ggplot(df_long, aes(x = event, y = cbcl_extern)) + 
+#   geom_abline(model_slope = slopes2, model_intercept = intercepts2, 
+#               linetype = "solid", color = "black", linewidth = 1) + 
+#   # geom_abline(mapping = aes(slopes2 = model_slope, intercepts2 = model_intercept, linetype = PID), 
+#   #             linetype = "dashed", color = "grey70", linewidth = .4) +
+#   #geom_point(aes(shape = ids), size = 3.25, color = "grey70") + 
+#   #scale_shape_manual() + 
+#   # geom_segment(aes(x = event, xend = event, 
+#   #                  y = cbcl1, yend = fitted(model_slope)), 
+#   #              color = "grey70") +
+#   scale_y_continuous(expand = c(0, 0), breaks = c(0, 100, 200, 300, 400, 500), 
+#                      limits = c(0, 500)) +
+#   scale_x_continuous(expand = c(0, 0), breaks = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), 
+#                      limits = c(-0.5, 10.5)) +
+#   theme(panel.background = element_blank(),         
+#           panel.grid.major = element_blank(),
+#             panel.grid.minor = element_blank(),
+#             panel.border = element_rect(colour = "black", fill = NA),
+#           legend.position = "none", 
+#           axis.text = element_text(size = 14),
+#           axis.title = element_text(size = 14)) +
+#     labs (x = "event", y = "cbcl_extern") 
+#   
+# #Save the figure
+#  ggsave("random_slopes.png", units = "in", width = 9, height = 6, dpi = 300)
+```
+  
+###   Model Plots
+    
+:::blue
+
+```{r diag-plots}
+# #| messages: FALSE
+# #| warning: FALSE
+# #| echo: FALSE
+# #| column: screen-inset-shaded
+# #| layout-nrow: 2
+#     
+# ## xxxxx plot
+# random_intercepts.std <- resid(model_intercept)/sd(resid(model_intercept))
+# plot (random_intercepts.std, ylab="Standardized Residuals")
+# 
+# ## Outlier Tests. 
+# #car::outlierTest(random_intercepts)
+# car::infIndexPlot(random_intercepts)
+# 
+# ## qqplot
+# ggplot(as.data.frame(random_intercepts.std), aes(sample = random_intercepts.std)) +
+#   geom_qq() +
+#   geom_qq_line()
+# 
+# ## Predicted vs Actual plot
+# predicted <- estimate_expectation(random_intercepts, data = "grid")
+# plot(predicted)
+# 
+# ## Estimated means plot
+# means <- estimate_means(random_intercepts)
+# plot(means)
+
+```
+
+#Build diagnostic plots. Observations with a Bonferroni p \< .05 might
+#be considered as outliers and might need further investigation.
+Examination of this scatterplot indicates xxxxx.
+
+```{r barplot}
+#| messages: FALSE
+#| warning: FALSE
+#| echo: TRUE
+
+# Basic ggplot2 barplot with mean
+p <-df_long %>%
+    filter(!is.na(event)) %>% # filter on non-missing values  
+    ggplot(aes(x = mature_vg, y = cbcl_extern, fill = sex)) +
+    geom_col(position = "dodge",
+           stat = "summary",
+           fun = "mean",
+           #fill = "#AA4A44",
+           #color = "#0099f9"
+           ) +
+    #scale_fill_brewer(palette = "Set1") +
+    scale_fill_manual(values = c("#3db5ff", "#0099f9")) +
+    #scale_fill_gradient(high = "#B00B69", low = "#0e0e63") +
+    #geom_text(aes(label = cu_traits), position = position_dodge(0.9), 
+              #vjust = 2, size = 4, color = "#ffffff") +
+    labs(title = "Behavior Problems by Video Game Groups", subtitle = "Simple bar chart",
+         caption = "Simple caption", x = "DBD Group", y = "CBCL Externalizing") +
+              #coord_flip() +
+    #geom_hline(yintercept = mean(df$cbcl_agg), linetype = "dashed", size = 1) +
+    theme_minimal() +
+    theme(
+          plot.title = element_text(color = "#0099f9", size = 20, hjust = 0.5),
+          plot.subtitle = element_text(face = "bold", hjust = 1),
+          plot.caption = element_text(face = "italic", hjust = 0),
+            axis.title.x = element_text(color = "#0099f9", size = 15, face = "bold"),
+            axis.title.y = element_text(size = 15, face = "italic")
+    )
+```
+
+Examination of this scatterplot indicates xxxxx.
+    
+```{r lmmri-graph}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| label: my-figure
+#| fig-asp: 0.61
+  
+#Random Intercept LMM Plot/Graph
+#random_intercepts <- lmer(Externalizing ~ 1 + Event + DBD + Sex + (1|ids), data = df, #REML=T)
+
+##  LMM-ri plot of estimated random intercepts 
+model <- lmer(cbcl_extern ~ mature_vg + (1 | sex), data = df_long)
+preds <- estimate_relation(model, include_random = TRUE)
+    
+## Adding fixed effect trajectory to LMM-ri plot 
+fixed_pred <- estimate_relation(model) # This time, include_random is FALSE (default)
+ plot(preds, ribbon = list(alpha = 0)) + # Previous plot
+  geom_ribbon(data = fixed_pred, aes(x = mature_vg, ymin = CI_low, ymax = CI_high), alpha = 0.4) +
+  geom_line(data = fixed_pred, aes(x = mature_vg, y = Predicted), size = 2)
+
+# ggplot(df_long_sub, aes(x = event, y = cbcl_agg, color=sex, shape=sex)) + 
+# geom_abline(slope = model_slope, intercept = model_intercept, linetype = "solid", color = "red", linewidth = 1) + 
+# geom_point(color = "grey70") + 
+# geom_smooth(method=lm, se=FALSE, fullrange=TRUE)+
+# scale_shape() + 
+# geom_segment(aes(x = event, xend = event, y = cbcl_agg, yend = fitted(cbcl_agg)), color = "grey70") + 
+# scale_y_continuous(expand = c(0, 0), breaks = c(0, 20, 40, 60, 80, 100), limits = c(0, 100)) + 
+# scale_x_continuous(expand = c(0, 0), breaks = c(1, 2, 3, 4), limits = c(0, 4)) +
+# theme(panel.background = element_blank(),         
+#         panel.grid.major = element_blank(),
+#         panel.grid.minor = element_blank(),
+#         panel.border = element_rect(colour = "black", fill = NA),
+#         legend.position = "none",
+#         axis.text = element_text(size = 14), 
+#         axis.title = element_text(size = 14)) +
+#         labs (x = "Event", y= "CBCL Aggression")
+
+#Save the plot
+#ggsave("random_intercept.png", units = "in", width = 9, height = 6, dpi = 300)  
+
+```
+  
+<p class="text-center" style="background-color: gray">Figure x: The overall group-mean (fixed effects) trajectory is shown in blue. The faded lines represent each individual youth's estimated trajectory. An examination of this figure shows happiness scores to be increasing across measurement occasions, however, there appears to be substantial variability in the youth's initial happiness scores.</p>
+
+Examination of this barplot indicates xxxxx.
+
+## Wrapping Up
+<div class = "blue">
+
+<div class = "blue">
+
+::: panel-tabset
+### Write-up {.tabset .tabset-fade .tabset-pills}
+
+::: blue
+
+A random slope model is used to test if sleep deprivation affects reaction time. To account for the repeated measures design, a random intercept was specified for participants. The random slope for days of sleep deprivation was included in the model to allow the effect of sleep deprivation to vary across participants. Results are shown in Table 1. Using a significant level of 0.05, results indicate that sleep deprivation significantly increased reaction time. On average, each additional day of sleep deprivation increased reaction time by 10.47ms (b = 10.47, 95% CI = \[7.44, 13.50\], p \< .001). Model fit comparison between model with and without random slope for sleep deprivation shows that the effect of sleep deprivation varied across participants, χ2(2)= 42.14, p \< .001. The 95% coverage interval for the random slope of sleep deprivation is (-1.14, 22.07), indicating that the effect of sleep deprivation was between -1.14 and 22.07 for 95% of the participants.
+:::
+
+## References
+
+[@brown2021] <!-- [@Singmann2019]
+[@sarafian]
+[#@https://m-clark.github.io/]
+[#@Fitzmaurice]
+[#@mspeekenbrink.github.io]
+[#https://cran.r-project.org/web/packages/lme4/lme4.pdf] -->
+
