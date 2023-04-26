@@ -9,7 +9,7 @@ website:
   site-url: https://swhawes.github.io/test/
   page-navigation: true
   navbar:
-    background: primary #goldenrod
+    background: slategray #primary #goldenrod
     search: true
     pinned: true
     collapsed: true
@@ -33,6 +33,7 @@ website:
         menu:
           - text: Source Code
             url:  https://github.com/swhawes/test
+            #url:  "./tutorials.qmd"
           - text: Report a Bug
             url:  https://github.com/swhawes/test/issues
 
@@ -86,6 +87,9 @@ website:
           contents:
             - blank.qmd
         - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
+        - section: "Data Wrangling"
           contents:
             - blank.qmd
     - title: "How-To"
@@ -151,6 +155,9 @@ website:
         - section: "Twin Modeling & Genetics Designs"
           contents:
             - blank.qmd
+        - section: "Data Wrangling"
+          contents:
+            - blank.qmd
         # navigation items
     - title: "Explanations"
       contents:
@@ -185,6 +192,9 @@ website:
         - section: "Twin Modeling & Genetics Designs"
           contents:
             - blank.qmd
+        - section: "Data Wrangling"
+          contents:
+            - blank.qmd
         # navigation items
   
     - title: "Reference"
@@ -197,7 +207,7 @@ website:
   page-footer:
     center:
       - text: "Longitudinal Analysis"
-        href: refernce.qmd
+        href: reference.qmd
 format:
   html:
     theme:
@@ -211,7 +221,7 @@ format:
     anchor-sections: true
     smooth-scroll: true
     #fontsize: 1.1em
-    linestretch: 1.7
+    linestretch: 1.5
     link-external-icon: true
     link-external-newwindow: true
     code-copy: true
@@ -226,7 +236,7 @@ format:
     df-print: paged
     options: max.print=75000
     grid:
-     sidebar-width: 450px
+     sidebar-width: 425px
     
 execute:
   echo: true
