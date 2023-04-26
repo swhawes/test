@@ -8,7 +8,7 @@
 
 <meta name="author" content="Biostatistics Working Group">
 
-<title>Longitudinal Analysis - Linear Mixed Models</title>
+<title>Longitudinal Analysis - Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./4_Explanations_SignedRankTest.html" rel="next">
-<link href="./2_Explanations_ResidualizedChangeScores.html" rel="prev">
 <link href="././figures/lights.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -102,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Longitudinal Analysis - Linear Mixed Models">
+<meta name="twitter:title" content="Longitudinal Analysis - Documentation">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -179,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_Explanations_DifferenceScores.html">Traditional Linear Models</a></li><li class="breadcrumb-item"><a href="./3_Explanations_LinearMixedModels.html">Linear Mixed Models</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./documentation.html">Documentation</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -224,201 +222,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Explanations: A Brief Overview</span></a>
+  <a href="./documentation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Documentation</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Traditional Linear Models</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./1_Explanations_DifferenceScores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Difference Scores</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2_Explanations_ResidualizedChangeScores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Residualized Change Scores</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_Explanations_LinearMixedModels.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Linear Mixed Models</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Traditional Non-linear Models</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4_Explanations_SignedRankTest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Signed-Rank Test</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5_Explanations_MarginalModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Marginal Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6_Explanations_GeneralizedEstimatingEquations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generalized Estimating Equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7_Explanations_GeneralizedLinearMixedEffectsModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generalized Linear Mixed Effects Models</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">SEM Approaches</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8_Explanations_AutoregressiveCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autoregressive Crosslagged Panel Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9_Explanations_LatentChangeScoresModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Latent Change Score Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10_Explanations_LatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Latent Growth Curve Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11_Explanations_MultivariateLatentGrowthCurveModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Multivariate Latent Growth Curve Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12_Explanations_LatentTransitionAnalysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Latent Transition Analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13_Explanations_GrowthMixtureModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Growth Mixture Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14_Explanations_StateTraitModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State-Trait Models</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Advanced SEM</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15_Explanations_RandomInterceptCrosslaggedPanelModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Random-Intercept Crosslagged Panel Models</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./16_Explanations_LatentCurveModelsStructuredResiduals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Latent Curve Models with Structured Residuals</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Longitudinal Neuroimaging</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Blank Test Page</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Twin Modeling &amp; Genetics Designs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Blank Test Page</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
- <span class="menu-text">Data Wrangling</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Blank Test Page</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -432,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Linear Mixed Models</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Documentation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -453,6 +260,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="grid">
+<div class="g-col-6">
+<div style="background-color: gray;">
+<p><a href="./tutorials.html" class="btn btn-primary btn-outline-warning btn-lg btn-block btn" role="link" data-toggle="tooltip" title="Link to the Tutorials documentation"><strong>Tutorials</strong></a></p>
+</div>
+</div>
+<div class="g-col-6">
+<div style="background-color: gray;">
+<p><a href="./howto.html" class="btn btn-primary btn-outline-warning btn-lg btn-block btn" role="button" data-toggle="tooltip" title="Link to the How-Tos documentation">How-Tos</a></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="grid">
+<div class="g-col-6">
+<div style="background-color: gray;">
+<p><a href="./explanations.html" class="btn btn-outline-warning btn-lg btn" role="button" data-toggle="tooltip" title="Link to the Explanations documentation">Explanations</a></p>
+</div>
+</div>
+<div class="g-col-6">
+<div style="background-color: gray;">
+<p><a href="./reference.html" class="btn btn-outline-warning btn-lg btn" role="button" data-toggle="tooltip" title="Link to the Reference documentation">Reference</a></p>
+</div>
+</div>
+</div>
+<p><br></p>
 
 
 <!-- -->
@@ -873,23 +706,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./2_Explanations_ResidualizedChangeScores.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Residualized Change Scores</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./4_Explanations_SignedRankTest.html" class="pagination-link">
-        <span class="nav-page-text">Signed-Rank Test</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Linear Mixed Models"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> "Biostatistics Working Group"</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> Documentation</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> Biostatistics Working Group</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>::: {.grid}</span>
+<span id="cb1-7"><a href="#cb1-7"></a>::: {.g-col-6}</span>
+<span id="cb1-8"><a href="#cb1-8"></a>::: {style="background-color: gray;"}</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">[</span><span class="ot">**Tutorials**</span><span class="co">](./tutorials.qmd)</span>{.btn .btn-primary .btn-outline-warning .btn-lg .btn-block .btn role="link" data-toggle="tooltip" title="Link to the Tutorials documentation"}</span>
+<span id="cb1-10"><a href="#cb1-10"></a>:::</span>
+<span id="cb1-11"><a href="#cb1-11"></a>:::</span>
+<span id="cb1-12"><a href="#cb1-12"></a>::: {.g-col-6}</span>
+<span id="cb1-13"><a href="#cb1-13"></a>::: {style="background-color: gray;"}</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">[</span><span class="ot">How-Tos</span><span class="co">](./howto.qmd)</span>{.btn .btn-primary  .btn-outline-warning .btn-lg .btn-block .btn role="button" data-toggle="tooltip" title="Link to the How-Tos documentation"}</span>
+<span id="cb1-15"><a href="#cb1-15"></a>:::</span>
+<span id="cb1-16"><a href="#cb1-16"></a>:::</span>
+<span id="cb1-17"><a href="#cb1-17"></a>:::</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>::: {.grid}</span>
+<span id="cb1-22"><a href="#cb1-22"></a>::: {.g-col-6}</span>
+<span id="cb1-23"><a href="#cb1-23"></a>::: {style="background-color: gray;"}</span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="co">[</span><span class="ot">Explanations</span><span class="co">](./explanations.qmd)</span>{.btn .btn-outline-warning .btn-lg .btn role="button"  data-toggle="tooltip" title="Link to the Explanations documentation"}</span>
+<span id="cb1-25"><a href="#cb1-25"></a>:::</span>
+<span id="cb1-26"><a href="#cb1-26"></a>:::</span>
+<span id="cb1-27"><a href="#cb1-27"></a>::: {.g-col-6}</span>
+<span id="cb1-28"><a href="#cb1-28"></a>::: {style="background-color: gray;"}</span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="co">[</span><span class="ot">Reference</span><span class="co">](./reference.qmd)</span>{.btn .btn-outline-warning .btn-lg .btn role="button" data-toggle="tooltip" title="Link to the Reference documentation"}</span>
+<span id="cb1-30"><a href="#cb1-30"></a>:::</span>
+<span id="cb1-31"><a href="#cb1-31"></a>:::</span>
+<span id="cb1-32"><a href="#cb1-32"></a>:::</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="kw">&lt;br&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

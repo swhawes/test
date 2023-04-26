@@ -26,6 +26,8 @@ website:
         file: explanations.qmd
       - text: "Reference"
         file: reference.qmd
+      - text: "Documentation"
+        file: documentation.qmd
     tools:
       - icon: twitter
         href: https://twitter.com
@@ -203,6 +205,10 @@ website:
         - section: "List of Reference Material"
           contents:
             - ListofReferences.qmd
+
+    - title: "Documentation"
+      contents:
+        - documentation.qmd
 
   page-footer:
     center:

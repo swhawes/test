@@ -1,0 +1,34 @@
+---
+title: Documentation
+author: Biostatistics Working Group
+---
+
+::: {.grid}
+::: {.g-col-6}
+::: {style="background-color: gray;"}
+[**Tutorials**](./tutorials.qmd){.btn .btn-primary .btn-outline-warning .btn-lg .btn-block .btn role="link" data-toggle="tooltip" title="Link to the Tutorials documentation"}
+:::
+:::
+::: {.g-col-6}
+::: {style="background-color: gray;"}
+[How-Tos](./howto.qmd){.btn .btn-primary  .btn-outline-warning .btn-lg .btn-block .btn role="button" data-toggle="tooltip" title="Link to the How-Tos documentation"}
+:::
+:::
+:::
+
+<br>
+
+::: {.grid}
+::: {.g-col-6}
+::: {style="background-color: gray;"}
+[Explanations](./explanations.qmd){.btn .btn-outline-warning .btn-lg .btn role="button"  data-toggle="tooltip" title="Link to the Explanations documentation"}
+:::
+:::
+::: {.g-col-6}
+::: {style="background-color: gray;"}
+[Reference](./reference.qmd){.btn .btn-outline-warning .btn-lg .btn role="button" data-toggle="tooltip" title="Link to the Reference documentation"}
+:::
+:::
+:::
+
+<br>

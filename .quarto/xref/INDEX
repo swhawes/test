@@ -567,5 +567,11 @@
   },
   "3b_HowTos_LinearMixedModels.qmd": {
     "3b_HowTos_LinearMixedModels.html": "305be29d"
+  },
+  "doctest.qmd": {
+    "doctest.html": "94ba9334"
+  },
+  "documentation.qmd": {
+    "documentation.html": "3932eac9"
   }
 }
