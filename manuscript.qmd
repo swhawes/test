@@ -150,6 +150,9 @@ Given longitudinal data involve different sources of variance, quantifying effec
 \label{sec:headings}
 ## In Progress: [TBD]
 
+Section focused on different ways of considering/grouping/deciding on which specific analysis to choose
+(see curran&bauer slides)
+
 ### Subsection TBD.
 
 # Part IV: Discussion

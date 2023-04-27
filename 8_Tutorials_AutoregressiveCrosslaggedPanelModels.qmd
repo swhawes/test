@@ -11,7 +11,7 @@ autoregressive cross-lagged panel models, commonly known as CLPMs. CLPMs are a s
 
 CLPMs are useful when we want to go beyond simple correlations between variables at different time points and instead model the dynamic interplay between them. Specifically, CLPMs account for the possibility that the relationship between two variables at one time point may influence their relationship at a subsequent time point. These models can also account for autocorrelation, meaning that the same variable measured over time is correlated with itself.
 
-[+add diagrams/figures]
+![Autoregressive Crosslagged Panel 1_Tutorial](./figures/arcl.png)
 
 ### When to use Autoregressive Cross-Lagged Panel Models (ACPMs)?
 You should use xxxxxxx in the following scenario:

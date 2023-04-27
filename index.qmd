@@ -1,47 +1,16 @@
 ---
-number-sections: true
 #title: "Longitudinal Analysis"
 format:
   html:
-    css: styles.css
-    theme: cosmo
-    fontsize: 1.3em
-    linestretch: 1.7
+    page-layout: full
+    grid:
+      sidebar-width: 0px
+      body-width: 2000px
+      margin-width: 0px
+      gutter-width: 1.5rem
 ---
 
-::: {style="text-align: justify; text-align: center; line-height: normal; color: white; border: solid black; background-color: darkgoldenrod; padding: 70px; font-family: Georgia, serif;"}
-
-This is the temporary landing page for the Longitudinal Analysis Project. <br> The site is currently under construction and used for testing purposes only. <br> Contents may be inaccurate.
-
-:::
-
-<br>
-
-::: {.grid}
-
-::: {.g-col-2}
-:::
-
-::: {.g-col-8}
-![](./figures/lights.png)
-:::
-
-::: {.g-col-2}
-:::
-
-:::
-
-</div>
-
-
-
-
-
-
-
-
-
-
+![](./figures/Figlanding4.svg)
 
 
 

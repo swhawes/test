@@ -1,17 +1,52 @@
 ---
 title: "Tutorials: A Brief Overview"
-number-sections: true
 format:
- html:
-   css: styles.css
-   theme: cosmo
-   fontsize: 1.1em
-   linestretch: 1.7
+  html:
+    page-layout: full
+    grid:
+      sidebar-width: 0px
+      body-width: 2000px
+      margin-width: 0px
+      gutter-width: 1.5rem
+#    css: styles.css
+#    theme: cosmo
+#    fontsize: 1.1em
+#    linestretch: 1.7
+
 ---
 
-This is the TUTORIAL main page example.
+![FigmaLandingTest2](./figures/Figlanding3.svg)
 
-## Main Section
+
+
+
+
+
+
+
+<div class="page-layout-custom">
+  ![FigmaLandingTest2](./figures/Figlanding2.svg)
+</div>
+
+
+
+
+xxxxx
+It is important to match a theory of change with design and statistical model to assess change. (p. 4)
+Models with two time points cannot provide estimates of within-person change.
+“Stability” over time can reflect many things, only some of which mean a lack of change. (p. 14)
+It is helpful to describe not only average growth (e.g. intercept and slope means), but variances in the growth parameters. (p. 25)
+
+Models that focus exclusively on mean-level change sometimes called Marginal Models
+Those that emphasize individual change often do so through inclusion of Random Effects
+often called “growth models”
+
+
+
+
+Longitudinal Psychometrics
+
+xxxxxx
 
 
 
@@ -55,5 +90,32 @@ The primary goal of the tutorial section is to help users learn and understand a
 :::
 
 :::
+
+
+::: {style="text-align: justify; text-align: center; line-height: normal; color: white; border: solid black; background-color: darkgoldenrod; padding: 70px; font-family: Georgia, serif;"}
+
+This is the temporary landing page for the Longitudinal Analysis Project. <br> The site is currently under construction and used for testing purposes only. <br> Contents may be inaccurate.
+
+:::
+
+<br>
+
+::: {.grid}
+
+::: {.g-col-2}
+:::
+
+::: {.g-col-8}
+![](./figures/lights.png)
+:::
+
+::: {.g-col-2}
+:::
+
+:::
+
+</div>
+
+
 
 

@@ -9,7 +9,7 @@ website:
   site-url: https://swhawes.github.io/test/
   page-navigation: true
   navbar:
-    background: slategray #primary #goldenrod
+    background: darkslateblue #slategray #primary #goldenrod
     search: true
     pinned: true
     collapsed: true

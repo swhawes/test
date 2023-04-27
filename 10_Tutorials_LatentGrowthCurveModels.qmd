@@ -6,7 +6,7 @@ author: "Biostatistics Working Group"
 ## Overview
 In this tutorial, we'll introduce Latent Growth Curve Models (LGCM), a powerful technique for analyzing longitudinal data. Latent Growth Curve Models allow researchers to examine individual differences in growth trajectories and the factors that might influence these trajectories. We'll walk through an example using a dataset with three time points and a sample size of 250 participants.
 
-[+add diagrams/figures]
+![Latent Growth Curve Model 1_Tutorial](./figures/lgcm.png)
 
 ### When to use Latent Growth Curve Models?
 You should use xxxxxxx in the following scenario:
