@@ -15,6 +15,13 @@ format:
 
 ---
 
+![test](./figures/Mindmap1.png)
+
+xxxxxx
+
+
+
+
 ![FigmaLandingTest2](./figures/Figlanding5.svg)
 (remove marginal models from "examples" address (vs random-effects) in the manuscript)
 

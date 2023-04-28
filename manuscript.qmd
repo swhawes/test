@@ -24,6 +24,16 @@ authors:
     affiliation: University of Missouri
     location: Columbia, MO
     email: SherK@missouri.edu
+  - name: Erin L. Thompson
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
+    email: erthomps@fiu.edu
+  - name: Raul Gonzalez
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
+    email: gonzara@fiu.edu  
   - name: Additional Co-authors
     department: xxxxxx
     affiliation: University of xxxx
@@ -177,6 +187,8 @@ Given longitudinal data involve different sources of variance, quantifying effec
 Section focused on different ways of considering/grouping/deciding on which specific analysis to choose (see curran&bauer slides)
 
 ### Subsection TBD.
+
+![test](./figures/Mindmap1.png)
 
 # Part IV: Discussion
 
