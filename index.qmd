@@ -10,7 +10,7 @@ format:
       gutter-width: 1.5rem
 ---
 
-![](./figures/Figlanding4.svg)
+![](./figures/Figlanding6.svg)
 
 
 
