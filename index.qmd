@@ -2,10 +2,12 @@
 #title: "Longitudinal Analysis"
 format:
   html:
+    css: styles.css
+    theme: cosmo
     page-layout: full
     grid:
-      sidebar-width: 0px
-      body-width: 2000px
+      sidebar-width: 200px
+      body-width: 1500px
       margin-width: 0px
       gutter-width: 1.5rem
 ---
