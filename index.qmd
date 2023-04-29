@@ -6,13 +6,21 @@ format:
     theme: cosmo
     page-layout: full
     grid:
-      sidebar-width: 200px
-      body-width: 1500px
-      margin-width: 0px
-      gutter-width: 1.5rem
+      sidebar-width: 250px
+      body-width: 2000px
+      margin-width: 100px
+    gutter-width: 1.5rem
 ---
 
+::: {.grid}
+
+::: {.g-col-12}
 ![](./figures/Figlanding5.svg)
+:::
+
+:::
+
+
 
 
 

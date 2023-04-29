@@ -1,0 +1,18 @@
+{
+  "hash": "4f3a2cb52582e9ff2d5e066a33a4c77b",
+  "result": {
+    "markdown": "---\ntitle: \"Random-Intercept Crosslagged Panel Models\"\nauthor: \"Biostatistics Working Group\"\n---\n\n\n## Overview\nRandom-Intercept Cross-Lagged Panel Models (RI-CLPM) are a type of structural equation model used to analyze longitudinal data with repeated measures of multiple variables. In this tutorial, we will walk you through a simple example using a simulated dataset and demonstrate how to fit a RI-CLPM using the `lavaan` package in R.\n\n[+add diagrams/figures]\n\n### When to use Random-Intercept Cross-Lagged Panel Models?\nYou should use xxxxxxx in the following scenario:\n\n1.\tYou want to know xxxxx\n2.\tYour variable xxxxx\n3.\tYou have xxxxx \n\n### Getting Started with Random-Intercept Cross-Lagged Panel Models\n\n#### Prerequisites\nTo follow along with this tutorial, you will need to have R and RStudio installed on your computer. Additionally, you will need to install the `lavaan` package, which provides functions for fitting various structural equation models, including RI-CLPMs.\n\n\n::: {.cell hash='15_Tutorials_RandomInterceptCrosslaggedPanelModels_cache/html/setup_a4daf4558dfb479a5ddff45f3bf836a9'}\n\n```{.r .cell-code}\n# Install the lavaan package if not already installed\nif (!(\"lavaan\" %in% installed.packages())) {\n  install.packages(\"lavaan\")\n}\n# Load the lavaan package\nlibrary(lavaan)\n```\n:::\n\n\n## Basic Example \nSimulating the Data\nFor this tutorial, we will use a simulated dataset with 500 individuals, each measured at five time points. The dataset will contain two variables, X and Y, with cross-lagged effects.\n\n\n::: {.cell hash='15_Tutorials_RandomInterceptCrosslaggedPanelModels_cache/html/unnamed-chunk-1_19bc42b7e165c7f8c97af25de1ac1f18'}\n\n```{.r .cell-code}\nset.seed(123)\nn <- 500\ntimepoints <- 5\n\n# Simulate the data\ndata <- data.frame(id = rep(1:n, each = timepoints),\n                   time = rep(1:timepoints, times = n),\n                   X = rnorm(n * timepoints, mean = 0, sd = 1),\n                   Y = rnorm(n * timepoints, mean = 0, sd = 1))\n\n# Introduce cross-lagged effects\nfor (i in 2:timepoints) {\n  data$X[data$time == i] <- 0.3 * data$Y[data$time == (i - 1)] + data$X[data$time == i]\n  data$Y[data$time == i] <- 0.2 * data$X[data$time == (i - 1)] + data$Y[data$time == i]\n}\n```\n:::\n\n\n### Model Specification and Estimation\nNow that we have our simulated data, we can fit a Random-Intercept Cross-Lagged Panel Model using the lavaan package.\n\n\n::: {.cell hash='15_Tutorials_RandomInterceptCrosslaggedPanelModels_cache/html/unnamed-chunk-2_1c50e1db01f8fd02a134f6f3453d1205'}\n\n```{.r .cell-code}\n# Define the model\nmodel <- '\n  # Random intercepts\n  i_X =~ 1 * X_t1 + 1 * X_t2 + 1 * X_t3 + 1 * X_t4 + 1 * X_t5\n  i_Y =~ 1 * Y_t1 + 1 * Y_t2 + 1 * Y_t3 + 1 * Y_t4 + 1 * Y_t5\n\n  # Cross-lagged effects\n  Y_t2 ~ beta_YX * X_t1\n  Y_t3 ~ beta_YX * X_t2\n  Y_t4 ~ beta_YX * X_t3\n  Y_t5 ~ beta_YX * X_t4\n\n  X_t2 ~ beta_XY * Y_t1\n  X_t3 ~ beta_XY *\n```\n:::\n\n\n### Interpreting the Results\nxxxxxx",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -257,6 +257,8 @@ execute:
   out.width: "75%"
   fig.asp: .75
   dev: "cairo_pdf"
+  freeze: auto  # re-render only when source changes
+
 
 bibliography: references.bib
 

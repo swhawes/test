@@ -231,6 +231,13 @@ xxxxxx
 | Latent Curve Models Structured Residuals  |   within and between    |            4+            |          Variable-Centered           |         allowed         |
 |                                           |                         |                          |                                      |                         |
 
-: Models for the analysis of longitudinal data {.striped .hover .responsive-xl}
+: LDA Models {#tbl-lda .striped .hover .responsive-xl}
+
+axasx
+
+See @tbl-lda.
 
 # Part V: References
+
+
+
