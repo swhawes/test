@@ -58,13 +58,20 @@ author-summary: |
 
 format: 
   html:
+    page-layout: article
+    mermaid:
+      theme: forest
     toc: true
     toc-depth: 1
     toc-expand: 2
     toc-title: Table of Contents
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
     grid:
-      sidebar-width: 300px
-      margin-width: 300px
+      sidebar-width: 250px
+      margin-width: 250px
   pdf: 
     geometry:
       - top=30mm
@@ -73,18 +80,13 @@ format:
     #fontsize: 20pt
 format-links: [html, pdf]
 
-  #format:
-#  pdf:
-#    geometry:
-#      - top=30mm
-#      - left=20mm
-#   docx: default
-# prefer-html: true
+execute:
+  echo: false
 
 output: 
   rticles::arxiv_article
 
-bibliography: "references.bib" #references.bib
+bibliography: "references.bib"
 biblio-style: unsrt
 ---
 
@@ -126,9 +128,13 @@ There are several important concepts to consider when conducting longitudinal an
 
 ## Interpretation / Issues / Pitfalls & Assumption
 
+![LDA Structural Diagram](./figures/LDA Structure 2.png){#fig-LDAstruct  fig-alt="LDA Structure Diagram." width=600 height=400 fig-align="center"}
+
 **Defining Features of Longitudinal Data Analysis.** The hallmark characteristic of longitudinal data analysis is its application to repeated assessments of the same assessment targets (e.g., individuals, families) across time. While the primary reason for collecting longitudinal data is in pursuit of addressing scientific questions, from a methodological perspective, having multiple observations over time allows researchers to identify potentially problematic observations when highly improbable longitudinal patterns are observed. That is, we can ask more nuanced questions and make stronger inferences as our number of time-ordered observations grows assuming we have assessed the "right" variables and the timings of our observations comport with the temporal dynamics of the mechanisms of interest .
 
-### \[may add section here about the "structure" of longitudinal data we're mostly focused on-- repeated measures of panel data...\]
+
+
+
 
 "traditional approaches": marginal models
 
@@ -145,6 +151,8 @@ Although the clear leap to the realm of longitudinal data involves going from on
 If one were to try to sum up what development in a living organism is exactly, one could plausibly argue it's the characterization of stability and change as the organism traverses the life course. There are a few different ways to think of stability (and change). Consider we measure the height of all youth in a 6th-grade class, once in the fall at the beginning of the school year and once again in the spring at the end of the school year. A common first step may be to compare the class's average height values obtained at these two different measurement occasions. This comparison of the average scores for the same group of individuals at multiple time points is referred to as "mean-level" stability as it provides information about continuity and change in the group level of an outcome of interest (e.g., height) over time. Another type of stability involves calculating the correlation between the values obtained at different time points (e.g., 'height in the fall' with 'height in the spring'). This type of "rank-order" stability evaluates between-individual change by focusing on the degree to which individuals retain their relative placement in a group across time. Consider, someone who is the shortest person in their class in 6th grade may grow considerably over the school year (i.e., exhibit mean level change), but remain the shortest person among their classmates. That is, the individual is manifesting a type of rank-order stability. Both types of stability and change are important. Mean-level change in certain traits might help to explain why, in general, individuals are particularly vulnerable to social influences at some ages more than others; rank order change might help to quantify the extent to which certain characteristics of the individual are more trait-like. For example, in some areas of development, there is considerable mean-level change that occurs over time (e.g., changes in Big 5 personality traits), but relatively high rank-order stability. Despite the useful information afforded by examining mean-level and rank-order change, these approaches are limited in that they provide little information about patterns of "within-individual" change and, in turn, can result in fundamental misinterpretations about substantial or meaningful changes in an outcome of interest.
 
 There is growing recognition that statistical models commonly applied to longitudinal data often fail to comport with the developmental theory they are being used to assess (e.g., Curran, Lee, Howard, Lane, & MacCallum, 2012; Hoffman, 2015; Littlefield et al., 2021. Specifically, developmental studies typically involve the use of prospective data to inform theories that are concerned with clear within-person (i.e., intraindividual) processes (e.g., how phenotypes change or remain stable within individuals over time) [e.g., see @curran2011]. Despite this, methods generally unsuited for disaggregating between- and within-person effects (e.g., cross-lagged panel models [CLPM]) remain common within various extant literatures. As a result, experts increasingly caution about the need to xxxxxxxx [add citation]. Fortunately, there exists a range of models that have been proposed to tease apart between- and within-person sources of variance across time [see @littlefield2021; @orth2021]. Most of these contemporary alternatives incorporate time-specific latent variables to capture between-person sources of variance and model within-person deviations around an individual's mean (or trait) level across time [e.g., RI-CLPM, @hamaker2015; LCM-SR, @curran2014a]. It is important to note however that these models require multiple assessments waves (e.g., four or more to fully specify the LCM-SR), additional expertise to overcome issues with model convergence, and appreciation of modeling assumptions when attempting to adjudicate among potential models in each research context [see @littlefield2021, for further discussion].
+
+This is illustrated well by @fig-LDAstruct.
 
 ### Model Assumptions
 
@@ -188,6 +196,12 @@ Section focused on different ways of considering/grouping/deciding on which spec
 
 ### Subsection TBD.
 
+xxxxxx
+
+
+
+xxxxxx
+
 ![test](./figures/Mindmap1.png)
 
 # Part IV: Discussion
@@ -195,5 +209,28 @@ Section focused on different ways of considering/grouping/deciding on which spec
 \label{sec:headings}
 
 ### Subsection TBD.
+
+|                                           |                         |                          |                                      |                         |
+|:--------------|:-------------:|:-------------:|:-------------:|:-------------:|
+| Models                                    |     Form of Change      | Minimum \# of Timepoints | Variable-Centered vs Person-Centered | Time-varying Covariates |
+| Difference Scores                         |       mean-level        |            2+            |                  \-                  |          none           |
+| Change Scores                             |       rank-order        |            2+            |                  \-                  |          none           |
+| Signed-Rank Test                          |       rank-order        |            2+            |                  \-                  |          none           |
+| Generalized Estimating Equations          |       rank-order        |            2+            |                  \-                  |         allowed         |
+| Linear Mixed Models                       |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Generalized Linear Mixed-Effects Models   |   within and between    |            3+            |                                      |         allowed         |
+| Autoregressive Crosslagged Panel Models   |       rank-order        |            3+            |          Variable-Centered           |         allowed         |
+| Latent Change Scores Models               |       rank-order        |            2+            |          Variable-Centered           |         allowed         |
+| Latent Growth Curve Models                |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Multivariate Latent Growth Curve Model    |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Latent Transition Analysis                |   within and between    |            3+            |                Mixed                 |         allowed         |
+| Latent Class Growth Analysis              |   within and between    |            3+            |           Person-Centered            |         allowed         |
+| Growth Mixture Models                     |   within and between    |            3+            |                Mixed                 |         allowed         |
+| State-Trait Models                        | continuous and discrete |            3+            |          Variable-Centered           |         allowed         |
+| Random-Intercept Crosslagged Panel Models |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+| Latent Curve Models Structured Residuals  |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+|                                           |                         |                          |                                      |                         |
+
+: Models for the analysis of longitudinal data {.striped .hover .responsive-xl}
 
 # Part V: References

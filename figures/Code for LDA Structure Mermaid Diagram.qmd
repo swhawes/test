@@ -1,0 +1,46 @@
+---
+title: "Code for LDA Structure Mermaid Diagram"
+editor: visual
+---
+
+```{mermaid}
+
+%%| echo: false
+%%| fig-width: 3
+%%| fig-height: 3
+
+graph TB
+A[LDA Structures] 
+A -.-> |Focus on if & when an event occurs| B[Time-to-Event]
+B -.-> C[Continuous-Time <br/>Survival Analysis]
+B -.-> D[Discrete-Time <br/>Survival Analysis]
+A -->|Focus on Change & Growth| E[Repeated Measures]
+E -.-> F[Time-Series <br/> Models]
+E -.-> G[Intensive <br/> Longitudinal Data]
+E --> H[Longitudinal Panel Data]
+H --Traditional Models--> J[Mean-level change & Marginal models]
+H --Contemporary  Methods--> I[Within-person change & Random-effects models]
+
+J --> K[ANOVA <br/> Generalized Estimating Equations <br/> ... ]
+I --> L[Mixed Models <br/> Growth Curves <br/> ...]
+
+click A href "https://www.github.com" "This is a link"
+click B href "https://www.github.com" "This is a link"
+click C href "https://www.github.com" "This is a link"
+click D href "https://www.github.com" "This is a link"
+
+style A fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style E fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style B fill:floralwhite,stroke:black
+style C fill:floralwhite,stroke:black
+style D fill:floralwhite,stroke:black
+style F fill:floralwhite,stroke:black
+style G fill:floralwhite,stroke:black
+
+style H fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style J fill:blue,stroke:#333,stroke-width:2px,color:#fff
+style I fill:blue,stroke:#333,stroke-width:2px,color:#fff
+style K fill:blue,stroke:#333,stroke-width:2px,color:#fff,text-align:center
+style L fill:blue,stroke:#333,stroke-width:2px,color:#fff,text-align:center
+
+```

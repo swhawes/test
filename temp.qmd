@@ -8,6 +8,8 @@ format:
       body-width: 2000px
       margin-width: 0px
       gutter-width: 1.5rem
+    mermaid:
+      theme: forest
 #    css: styles.css
 #    theme: cosmo
 #    fontsize: 1.1em
@@ -15,28 +17,97 @@ format:
 
 ---
 
-![test](./figures/Mindmap1.png)
+![LPA Structure](./figures/LDA Structure 3.svg)
 
 
-xxxxxx
+## Section III
+
+Section focused on different ways of considering/grouping/deciding on which specific analysis to choose (see curran&bauer slides)
 
 
 
 
-![FigmaLandingTest2](./figures/Figlanding5.svg)
-(remove marginal models from "examples" address (vs random-effects) in the manuscript)
 
-- section: "Traditional Linear Models"
+
+
+
+
+
+---
+
+Steps
+
+1. update manuscript text
+2. section order via yaml file
+3. call out boxes
+
+**
+2 call out blocks/boxes to emphasize main sections of parts II (e.g., vulnerable periods, experience effects) and III (e.g., # of time points, types of stability and change). Help to add some visuals to first sections of manuscript
+**
+
+
+xxxxxxxxxxx
+Traditional Models
+  -Linear
+    - Difference Scores
+    - Change Scores
+  -Non-Linear
+    - Signed-Rank test
+    - Generalized Estimating Equations
+
+Modern Approaches
+  -Linear
+    - Linear Mixed Models
+  -Non-Linear
+    - Generalized Linear Mixed Models
+
+SEM
+  - Variable-Centered
+    - Autoregressive Crosslagged Panel Model
+    - Latent Change Score
+    - Latent Growth Curve Models
+    - Multivariate Latent Growth Curve Models
+    - State-Trait Models
+  - Person-Centered
+    - Latent Transition Analysis
+    - Latent Class Growth Analysis
+  - Hybrid
+    - Growth Mixture Model
+
+Advanced SEM
+  - Random-Intercept Crosslagged Panel Model
+  - Latent Curve Model with Structured Residuals
+
+Longitudinal Twin Designs/Genetic Models
+
+Longitudinal Neuroimaging
+
+
+xxxxxxxxxx\
+
+Traditional Models
+  -Linear
+    - Difference Scores
+    - Change Scores
+  -Non-Linear
+    - Signed-Rank test
+    - Generalized Estimating Equations
+
+xxxxxxxxx
+    - title: "Tutorials"
+      contents:
+        - tutorials.qmd
+        - section: "Traditional Models"
           contents:
             - 1_Tutorials_DifferenceScores.qmd
             - 2_Tutorials_ResidualizedChangeScores.qmd
+            - 3_Tutorials_LinearMixedModels.qmd
         - section: "Traditional Non-linear Models"
           contents:
             - 4_Tutorials_SignedRankTest.qmd
-            - 6_Tutorials_GeneralizedEstimatingEquations.qmd (population average effects)
-        - section: "Modern GLM Extensions(?)"
-            - 7_Tutorials_LinearMixedModels.qmd  
-            - 8_Tutorials_GeneralizedLinearMixedEffectsModels.qmd
+            - 5_Tutorials_MarginalModels.qmd
+            - 6_Tutorials_GeneralizedEstimatingEquations.qmd
+            - 7_Tutorials_GeneralizedLinearMixedEffectsModels.qmd
         - section: "SEM Approaches"
           contents:
             - 8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd
@@ -50,10 +121,219 @@ xxxxxx
           contents:
             - 15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd
             - 16_Tutorials_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
+        - section: "Data Wrangling"
+          contents:
+            - blank.qmd
+    - title: "How-To"
+      contents:
+        - howto.qmd
+        - section: "Traditional Linear Models"
+          contents:
+            - section: "Difference Scores"
+              contents:
+                - 1a_HowTos_DifferenceScores_PairedTtests.qmd
+                - 1b_HowTos_DifferenceScores_SimpleRegression.qmd
+            - section: "Residualized Change Scores"
+              contents:
+                - 2_HowTos_ResidualizedChangeScores.qmd
+            - section: "Linear Mixed Models"
+              contents:
+                - 3a_HowTos_LinearMixedModels.qmd
+                - 3b_HowTos_LinearMixedModels.qmd
+        - section: "Traditional Non-linear Models"
+          contents:
+            - section: "Signed-Rank Test"
+              contents: 
+                - 4_HowTos_SignedRankTest.qmd
+            - section: "Marginal Models"
+              contents:
+                - 5_HowTos_MarginalModels.qmd
+            - section: "Generalized Estimating Equations"
+              contents:
+                - 6_HowTos_GeneralizedEstimatingEquations.qmd
+            - section: "Generalized Linear Mixed-Effects Models"
+              contents:
+                - 7_HowTos_GeneralizedLinearMixedEffectsModels.qmd
+        - section: "SEM Approaches"
+          contents:
+            - section: "Autoregressive Crosslagged Panel Models"
+              contents:
+                - 8_HowTos_AutoregressiveCrosslaggedPanelModels.qmd
+            - section: "Latent Change Scores Models"
+              contents:
+                - 9_HowTos_LatentChangeScoresModels.qmd
+            - section: "LatentGrowthCurveModels"
+              contents:
+                - 10_HowTos_LatentGrowthCurveModels.qmd
+            - section: "Multivariate Latent Growth Curve Models"
+              contents:
+                - 11_HowTos_MultivariateLatentGrowthCurveModels.qmd
+            - section: "Latent Transition Analysis"
+              contents:
+                - 12_HowTos_LatentTransitionAnalysis.qmd
+            - section: "Growth Mixture Models"
+              contents:
+                - 13_HowTos_GrowthMixtureModels.qmd
+            - section: "State-Trait Models"
+              contents:
+                - 14_HowTos_StateTraitModels.qmd
+        - section: "Advanced SEM"
+          contents:
+            - 15_HowTos_RandomInterceptCrosslaggedPanelModels.qmd
+            - 16_HowTos_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
+        - section: "Data Wrangling"
+          contents:
+            - blank.qmd
+        # navigation items
+    - title: "Explanations"
+      contents:
+        - explanations.qmd
+        - section: "Traditional Linear Models"
+          contents:
+            - 1_Explanations_DifferenceScores.qmd
+            - 2_Explanations_ResidualizedChangeScores.qmd
+            - 3_Explanations_LinearMixedModels.qmd
+        - section: "Traditional Non-linear Models"
+          contents:
+            - 4_Explanations_SignedRankTest.qmd
+            - 5_Explanations_MarginalModels.qmd
+            - 6_Explanations_GeneralizedEstimatingEquations.qmd
+            - 7_Explanations_GeneralizedLinearMixedEffectsModels.qmd
+        - section: "SEM Approaches"
+          contents:
+            - 8_Explanations_AutoregressiveCrosslaggedPanelModels.qmd
+            - 9_Explanations_LatentChangeScoresModels.qmd
+            - 10_Explanations_LatentGrowthCurveModels.qmd
+            - 11_Explanations_MultivariateLatentGrowthCurveModels.qmd
+            - 12_Explanations_LatentTransitionAnalysis.qmd
+            - 13_Explanations_GrowthMixtureModels.qmd
+            - 14_Explanations_StateTraitModels.qmd
+        - section: "Advanced SEM"
+          contents:
+            - 15_Explanations_RandomInterceptCrosslaggedPanelModels.qmd
+            - 16_Explanations_LatentCurveModelsStructuredResiduals.qmd
+        - section: "Longitudinal Neuroimaging"
+          contents:
+            - blank.qmd
+        - section: "Twin Modeling & Genetics Designs"
+          contents:
+            - blank.qmd
+        - section: "Data Wrangling"
+          contents:
+            - blank.qmd
+        # navigation items
+  
+    - title: "Reference"
+      contents:
+        - reference.qmd
+        - section: "List of Reference Material"
+          contents:
+            - ListofReferences.qmd
 
-GEE, on the other hand, is fitting a marginal model. These model population-averages. You're modeling the expectation conditional only on your fixed design matrix.
-GLMM is fitting a mixed-effects model; Thus the the estimates are subject-specific.
-What differs between GEE and GLMM is the target of inference: population-average or subject-specific.
+    - title: "Documentation"
+      contents:
+        - documentation.qmd
+
+
+
+
+
+
+
+
+
+
+
+
+
+xxxxxxxxxxx
+
+![test](./figures/Mindmap1.png)
+
+xxx
+
+| fruit  | price  |
+|--------|--------|
+| apple  | 2.05   |
+| pear   | 1.37   |
+| orange | 3.09   |
+
+: Fruit prices {.striped .hover}
+
+
+xxx
+
+xxx
+
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-77.0168, lat=38.7814, popup="You are here - in Maryland!")
+
+```
+
+xxx
+
+```{mermaid}
+
+%%| fig-width: 6.5
+%%| fig-height: 6.5
+
+graph TB
+A[LDA Structures] 
+A -.-> |Focus on if & when an event occurs| B[Time-to-Event]
+B -.-> C[Continuous-Time <br/>Survival Analysis]
+B -.-> D[Discrete-Time <br/>Survival Analysis]
+A -->|Focus on Change & Growth| E[Repeated Measures]
+E -.-> F[Time-Series <br/> Models]
+E -.-> G[Intensive <br/> Longitudinal Data]
+E --> H[Longitudinal Panel Data]
+H --Traditional Models--> J[Mean-level change & Marginal models]
+H --Contemporary  Methods--> I[Within-person change & Random-effects models]
+
+J --> K[ANOVA <br/> Generalized Estimating Equations <br/> ... ]
+I --> L[Mixed Models <br/> Growth Curves <br/> ...]
+
+click A href "https://www.github.com" "This is a link"
+click B href "https://www.github.com" "This is a link"
+click C href "https://www.github.com" "This is a link"
+click D href "https://www.github.com" "This is a link"
+
+style A fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style E fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style B fill:floralwhite,stroke:black
+style C fill:floralwhite,stroke:black
+style D fill:floralwhite,stroke:black
+style F fill:floralwhite,stroke:black
+style G fill:floralwhite,stroke:black
+
+style H fill:blue,stroke:#333,stroke-width:4px,color:#fff
+style J fill:blue,stroke:#333,stroke-width:2px,color:#fff
+style I fill:blue,stroke:#333,stroke-width:2px,color:#fff
+style K fill:blue,stroke:#333,stroke-width:2px,color:#fff,text-align:center
+style L fill:blue,stroke:#333,stroke-width:2px,color:#fff,text-align:center
+
+```
+
+![FigmaLandingTest2](./figures/Figlanding5.svg) (remove marginal models from "examples" address (vs random-effects) in the manuscript)
+
+-   section: "Traditional Linear Models" contents: - 1_Tutorials_DifferenceScores.qmd - 2_Tutorials_ResidualizedChangeScores.qmd - section: "Traditional Non-linear Models" contents: - 4_Tutorials_SignedRankTest.qmd - 6_Tutorials_GeneralizedEstimatingEquations.qmd (population average effects) - section: "Modern GLM Extensions(?)" - 7_Tutorials_LinearMixedModels.qmd\
+    -   8_Tutorials_GeneralizedLinearMixedEffectsModels.qmd - section: "SEM Approaches" contents: - 8_Tutorials_AutoregressiveCrosslaggedPanelModels.qmd - 9_Tutorials_LatentChangeScoresModels.qmd - 10_Tutorials_LatentGrowthCurveModels.qmd - 11_Tutorials_MultivariateLatentGrowthCurveModels.qmd - 12_Tutorials_LatentTransitionAnalysis.qmd - 13_Tutorials_GrowthMixtureModels.qmd - 14_Tutorials_StateTraitModels.qmd - section: "Advanced SEM" contents: - 15_Tutorials_RandomInterceptCrosslaggedPanelModels.qmd - 16_Tutorials_LatentCurveModelsStructuredResiduals.qmd
+
+GEE, on the other hand, is fitting a marginal model. These model population-averages. You're modeling the expectation conditional only on your fixed design matrix. GLMM is fitting a mixed-effects model; Thus the the estimates are subject-specific. What differs between GEE and GLMM is the target of inference: population-average or subject-specific.
 
 This is in contrast to mixed effect models as explained above which condition on both the fixed design matrix and the random effects. So with the marginal model above you're saying, "forget about the difference among classrooms, I just want the population (school-wise) rate of failure and its association with gender." You fit the model and get an odds ratio that is the population-averaged odds ratio of failure associated with gender.
 
@@ -61,111 +341,127 @@ Molenberghs, Verbeke 2005 has an entire chapter on marginal vs. random effects m
 
 xxxxxx
 
-2. Models for Longitudinal Data
-Since both the GLMM and WGEE are extensions of the GLM, we start with a brief overview of the latter.
+|                                           |                         |                          |                                      |                         |
+|:-----------------------------|:----------------------:|:---------------------:|:---------------------------:|:-----------------:|
+| Models                                    |     Form of Change      | Minimum \# of Timepoints | Variable-Centered vs Person-Centered | Time-varying Covariates |
+| Difference Scores                         |       mean-level        |            2+            |                  \-                  |          none           |
+| Change Scores                             |       rank-order        |            2+            |                  \-                  |          none           |
+| Signed-Rank Test                          |       rank-order        |            2+            |                  \-                  |          none           |
+| Generalized Estimating Equations          |       rank-order        |            2+            |                  \-                  |         allowed         |
+| Linear Mixed Models                       |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Generalized Linear Mixed-Effects Models   |   within and between    |            3+            |                                      |         allowed         |
+| Autoregressive Crosslagged Panel Models   |       rank-order        |            3+            |          Variable-Centered           |         allowed         |
+| Latent Change Scores Models               |       rank-order        |            2+            |          Variable-Centered           |         allowed         |
+| Latent Growth Curve Models                |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Multivariate Latent Growth Curve Model    |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Latent Transition Analysis                |   within and between    |            3+            |                Mixed                 |         allowed         |
+| Latent Class Growth Analysis              |   within and between    |            3+            |           Person-Centered            |         allowed         |
+| Growth Mixture Models                     |   within and between    |            3+            |                Mixed                 |         allowed         |
+| State-Trait Models                        | continuous and discrete |            3+            |          Variable-Centered           |         allowed         |
+| Random-Intercept Crosslagged Panel Models |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+| Latent Curve Models Structured Residuals  |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+|                                           |                         |                          |                                      |                         |
+: Models for the analysis of longitudinal data {.striped .hover .responsive-xl}
+
+
+
+xxxxxx
+
+2.  Models for Longitudinal Data Since both the GLMM and WGEE are extensions of the GLM, we start with a brief overview of the latter.
 
 2.1 Generalized Linear Models (GLM)
 
-
-
-LMM vs LGCM?
-For modeling growth, researchers typically employ some type of random effects model such that a mean growth trajectory is estimated for all observations in the data but a unique growth curve is estimated for each individual in the data as well (Curran & Bauer, 2011). These types of models are generally referred to as subject-specific models (Zeger, Liang, & Albert, 1988), which are more commonly known in psychology as growth curve models. Growth models have many aliases but can be broadly grouped into two different classes of methods: the latent-curve (LC) approach, which treats the repeated measures as multivariate (also known as the “wide” data format) and tends to be fit with general structural equation modeling (SEM) software (Meredith & Tisak, 1990; Tucker, 1958; Willett & Sayer, 1994), and the mixed-effect (ME) approach, which treats the repeated measures as univariate (also known as the “long” data format) and is generally fitted with regression software (Bryk & Raudenbush, 1987; Laird & Ware, 1982; Rao 1965).Footnote1
+LMM vs LGCM? For modeling growth, researchers typically employ some type of random effects model such that a mean growth trajectory is estimated for all observations in the data but a unique growth curve is estimated for each individual in the data as well (Curran & Bauer, 2011). These types of models are generally referred to as subject-specific models (Zeger, Liang, & Albert, 1988), which are more commonly known in psychology as growth curve models. Growth models have many aliases but can be broadly grouped into two different classes of methods: the latent-curve (LC) approach, which treats the repeated measures as multivariate (also known as the "wide" data format) and tends to be fit with general structural equation modeling (SEM) software (Meredith & Tisak, 1990; Tucker, 1958; Willett & Sayer, 1994), and the mixed-effect (ME) approach, which treats the repeated measures as univariate (also known as the "long" data format) and is generally fitted with regression software (Bryk & Raudenbush, 1987; Laird & Ware, 1982; Rao 1965).Footnote1
 
 Over the past 20 years, methodological research has shown that the LC and ME approaches are actually nuanced twists on the same idea; they have been shown to converge, and to be mathematically equivalent in many cases (e.g., Bauer, 2003; Curran, 2003; Ledermann & Kenny, 2017; Mehta & Neale, 2005).
 
+::: page-layout-custom
+![FigmaLandingTest2](./figures/Figlanding2.svg)
+:::
 
-<div class="page-layout-custom">
-  ![FigmaLandingTest2](./figures/Figlanding2.svg)
-</div>
+xxxxx It is important to match a theory of change with design and statistical model to assess change. (p. 4) Models with two time points cannot provide estimates of within-person change. "Stability" over time can reflect many things, only some of which mean a lack of change. (p. 14) It is helpful to describe not only average growth (e.g. intercept and slope means), but variances in the growth parameters. (p. 25)
 
-
-
+Models that focus exclusively on mean-level change sometimes called Marginal Models Those that emphasize individual change often do so through inclusion of Random Effects often called "growth models"
 
 xxxxx
-It is important to match a theory of change with design and statistical model to assess change. (p. 4)
-Models with two time points cannot provide estimates of within-person change.
-“Stability” over time can reflect many things, only some of which mean a lack of change. (p. 14)
-It is helpful to describe not only average growth (e.g. intercept and slope means), but variances in the growth parameters. (p. 25)
 
-Models that focus exclusively on mean-level change sometimes called Marginal Models
-Those that emphasize individual change often do so through inclusion of Random Effects
-often called “growth models”
+```{mermaid}
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
 
+```
 
-
+xxxxx
 
 Longitudinal Psychometrics
 
 xxxxxx
 
-
-
 ::: {style="color: red; border: solid black; background-color: grey;"}
-This is the [middle section]{style="background-color: yellow; color: blue;"} 
+This is the [middle section]{style="background-color: yellow; color: blue;"}
 :::
 
-
-::: {.grid}
-
-::: {.g-col-2}
+::: grid
+::: g-col-2
 :::
 
-::: {.g-col-8}
-
+::: g-col-8
 ::: {style="color: red; border: solid black; background-color: green;"}
 Testing [Sample Test!]{style="background-color: yellow; color: blue;"}
 :::
-
 :::
 
-::: {.g-col-2}
+::: g-col-2
 :::
-
 :::
 
 The primary goal of the tutorial section is to help users learn and understand a specific topic or method by providing an introductory and hands-on, step-by-step guide. This section aims to create engaging, accessible, and effective entry learning experiences that enable users to develop their skills and understanding of the subject matter.
 
 <br>
 
-::: {.grid}
-
-::: {.g-col-2}
+::: grid
+::: g-col-2
 :::
 
-::: {.g-col-8}
+::: g-col-8
 ![](./figures/lights.png)
 :::
 
-::: {.g-col-2}
+::: g-col-2
 :::
-
 :::
-
 
 ::: {style="text-align: justify; text-align: center; line-height: normal; color: white; border: solid black; background-color: darkgoldenrod; padding: 70px; font-family: Georgia, serif;"}
-
 This is the temporary landing page for the Longitudinal Analysis Project. <br> The site is currently under construction and used for testing purposes only. <br> Contents may be inaccurate.
-
 :::
 
 <br>
 
-::: {.grid}
-
-::: {.g-col-2}
+::: grid
+::: g-col-2
 :::
 
-::: {.g-col-8}
+::: g-col-8
 ![](./figures/lights.png)
 :::
 
-::: {.g-col-2}
+::: g-col-2
 :::
-
 :::
 
 </div>
-
-
-
-
