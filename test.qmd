@@ -1,108 +1,71 @@
+######
+######
+######
+######
+
 ---
-title: |
-  Longitudinal Analysis Manuscript: Working Draft
-subtitle: Longitudinal Analysis using data from the ABCD Study
-short-title: Longitudinal Analysis
-published: "Under review at *xxxxx Journal*"
-code-repo: "Access the code, data, and analysis at <http://swhawes.github.io/test/>"
+title: "Longitudinal Analysis Manuscript: Working Draft"
 number-sections: true
 number-depth: 3
-correspondence-prefix: "Correspondence concerning this article should be addressed to"
-author:
-  - name: Samuel Hawes
+subtitle: Longitudinal Analysis using data from the ABCD Study 
+authors:
+  - name: Samuel W. Hawes
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
     email: shawes@fiu.edu
-    title: Associate Research Professor
-    affiliations: 
-      #- id: ds9
-        name: Florida International University
-        department: Center for Children & Families
-        address: 11200 SW 8th St, AHC-IV
-        city: Miami
-        region: FL
-        country: USA
-        postal-code: 33199
-    attributes:
-      corresponding: true
   - name: Andrew K. Littlefield
+    department: Psychological Sciences
+    affiliation: Texas Tech University
+    location: Lubbock, TX
     email: andrew.littlefield@ttu.edu
-    affiliations: 
-      #- id: ds9
-        name: Texas Tech University
-        department: Psychological Sciences
-        city: Lubbock
-        region: TX
-        country: USA
   - name: Daniel A. Lopez
+    department: Department of Public Health
+    affiliation: University of Rochester Medical Center
+    location: Rochester, NY
     email: Daniel_Lopez2@URMC.Rochester.edu
-    affiliations:
-      #- id: terok
-        name: University of Rochester Medical Center
-        department: Department of Public Health
-        city: Rochester
-        region: NY
-        country: USA
-      #- ref: ds9
   - name: Kenneth J. Sher
+    department: Psychological Sciences
+    affiliation: University of Missouri
+    location: Columbia, MO
     email: SherK@missouri.edu
-    affiliations: 
-      #- id: ds9
-        name: University of Missouri
-        department: Psychological Sciences
-        city: Columbia
-        region: MO
-        country: USA
   - name: Erin L. Thompson
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
     email: erthomps@fiu.edu
-    affiliations:
-      #- id: terok
-        name: Florida International University
-        department: Center for Children and Families
-        city: Miami
-        region: FL
-        country: USA
   - name: Raul Gonzalez
-    email: gonzara@fiu.edu
-    affiliations: 
-      #- id: ds9
-        name: Florida International University
-        department: Center for Children and Families
-        city: Miami
-        region: FL
-        country: USA
+    department: Center for Children and Families
+    affiliation: Florida International University
+    location: Miami, FL
+    email: gonzara@fiu.edu  
   - name: Additional Co-authors
-    email: xxxxx@fiu.edu
-    affiliations:
-      #- id: terok
-        name: xxxxxx University
-        department: xxxxxx Dept
-        city: xxxx
-        region: xxxxx
-        country: xxxxx
+    department: xxxxxx
+    affiliation: University of xxxx
+    location: xxxxxxx
+    email: xxxxxx
   - name: Wesley K. Thompson
+    department: Center for Population Neuroscience and Genetics
+    affiliation: Laureate Institute for Brain Research
+    location: Tulsa, OK
     email: wes.stat@gmail.com
-    affiliations:
-      #- id: terok
-        name: Laureate Institute for Brain Research
-        department: Center for Population Neuroscience and Genetics
-        city: Tulsa
-        region: OK
-        country: USA
-      
+
 abstract: |
-  The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
-# thanks: |
-#   Placeholder text generated at <https://vlad-saling.github.io/star-trek-ipsum/>.
-# additional-info: |
-#   We have no known conflict of interest to disclose.
-keywords:
-  - ABCD Study
-  - longitudinal analyses
-  - development
-format:
-  hikmah-pdf: default
-  hikmah-manuscript-pdf: default
+ The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
+
+author-summary: |
+  The Adolescent Brain Cognitive Development (ABCD) Study offers valuable insights into adolescent brain development. Researchers working with this data face methodological and analytic concerns, including sample size, attrition, missing data, and measurement. This review addresses complexities in analyzing longitudinal data, with a focus on statistical models accounting for correlations in repeated measurements and their assumptions. We emphasize the importance of choosing appropriate models and analytic functions based on the data and the specific scientific question to be addressed. This concise resource aims  to help researchers navigate longitudinal data analysis, make informed methodological decisions, and enhance the accuracy and reliability of their findings when working with data from the ABCD Study.
+
+    keywords:
+    *ABCD Study*,
+    *longitudinal analyses*,
+    *development*
+
+format: 
   html:
     page-layout: article
+    mermaid:
+      theme: forest
     toc: true
     toc-depth: 1
     toc-expand: 2
@@ -114,24 +77,23 @@ format:
     grid:
       sidebar-width: 200px
       margin-width: 0px
-#   pdf: 
-#     geometry:
-#       - top=30mm
-#       - left=20mm
-#     keep_tex: yes
-#     #fontfamily: libertinus
-#     #fontsize: 20pt
+  pdf: 
+    geometry:
+      - top=30mm
+      - left=20mm
+    keep_tex: yes
+    #fontfamily: libertinus
+    #fontsize: 20pt
     colorlinks: true
 format-links: [html, pdf]
 
 execute:
   echo: false
 
-# output: 
-#   rticles::arxiv_article
+output: 
+  rticles::arxiv_article
 bibliography: "references.bib"
-#biblio-style: unsrt
-
+biblio-style: unsrt
 ---
 
 # Introduction
@@ -287,8 +249,3 @@ xxxxx
 
 
 # Part V: References
-
-
-
-
-
