@@ -2,266 +2,262 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://swhawes.github.io/test/13_Tutorials_GrowthMixtureModels.html</loc>
-    <lastmod>2023-04-30T06:14:54.521Z</lastmod>
+    <lastmod>2023-05-05T14:34:22.649Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/5_Explanations_MarginalModels.html</loc>
-    <lastmod>2023-04-30T06:14:54.944Z</lastmod>
+    <lastmod>2023-05-05T14:34:23.081Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/8_HowTos_AutoregressiveCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:14:55.363Z</lastmod>
+    <lastmod>2023-05-05T14:34:23.513Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/4_HowTos_SignedRankTest.html</loc>
-    <lastmod>2023-04-30T06:14:55.811Z</lastmod>
+    <lastmod>2023-05-05T14:34:23.976Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/15_Tutorials_RandomInterceptCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:14:56.562Z</lastmod>
+    <lastmod>2023-05-05T14:34:24.725Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/15_HowTos_RandomInterceptCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:14:56.983Z</lastmod>
+    <lastmod>2023-05-05T14:34:25.160Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/10_Explanations_LatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:14:57.382Z</lastmod>
+    <lastmod>2023-05-05T14:34:25.552Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/blank.html</loc>
-    <lastmod>2023-04-30T06:14:57.785Z</lastmod>
+    <lastmod>2023-05-05T14:34:25.965Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/5_Tutorials_MarginalModels.html</loc>
-    <lastmod>2023-04-30T06:14:58.698Z</lastmod>
+    <lastmod>2023-05-05T14:34:26.905Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/14_Explanations_StateTraitModels.html</loc>
-    <lastmod>2023-04-30T06:14:59.106Z</lastmod>
+    <lastmod>2023-05-05T14:34:27.306Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/TailwindTest2.html</loc>
-    <lastmod>2023-04-30T06:15:01.369Z</lastmod>
+    <lastmod>2023-05-05T14:34:30.637Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/8_Tutorials_AutoregressiveCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:15:03.007Z</lastmod>
+    <lastmod>2023-05-05T14:34:32.679Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/16_Tutorials_LatentCurveModelsStructuredResiduals.html</loc>
-    <lastmod>2023-04-30T06:15:03.786Z</lastmod>
+    <lastmod>2023-05-05T14:34:33.537Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/6_HowTos_GeneralizedEstimatingEquations.html</loc>
-    <lastmod>2023-04-30T06:15:04.205Z</lastmod>
+    <lastmod>2023-05-05T14:34:33.955Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/reference.html</loc>
-    <lastmod>2023-04-30T06:15:05.544Z</lastmod>
+    <lastmod>2023-05-05T14:34:35.363Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/10_Tutorials_LatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:15:08.150Z</lastmod>
+    <lastmod>2023-05-05T14:34:37.993Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/4_Tutorials_SignedRankTest.html</loc>
-    <lastmod>2023-04-30T06:15:09.039Z</lastmod>
+    <lastmod>2023-05-05T14:34:38.895Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/5_HowTos_MarginalModels.html</loc>
-    <lastmod>2023-04-30T06:15:09.446Z</lastmod>
+    <lastmod>2023-05-05T14:34:39.313Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/11_Tutorials_MultivariateLatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:15:10.256Z</lastmod>
+    <lastmod>2023-05-05T14:34:40.153Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/6_Tutorials_GeneralizedEstimatingEquations.html</loc>
-    <lastmod>2023-04-30T06:15:11.089Z</lastmod>
+    <lastmod>2023-05-05T14:34:41.035Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/3_Explanations_LinearMixedModels.html</loc>
-    <lastmod>2023-04-30T06:15:11.480Z</lastmod>
+    <lastmod>2023-05-05T14:34:41.446Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/explanations.html</loc>
-    <lastmod>2023-04-30T06:15:12.816Z</lastmod>
+    <lastmod>2023-05-05T14:34:42.916Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/14_Tutorials_StateTraitModels.html</loc>
-    <lastmod>2023-04-30T06:15:15.383Z</lastmod>
+    <lastmod>2023-05-05T14:34:44.524Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/7_HowTos_GeneralizedLinearMixedEffectsModels.html</loc>
-    <lastmod>2023-04-30T06:15:15.797Z</lastmod>
+    <lastmod>2023-05-05T14:34:44.950Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/11_HowTos_MultivariateLatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:15:16.210Z</lastmod>
+    <lastmod>2023-05-05T14:34:45.381Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/documentation.html</loc>
-    <lastmod>2023-04-30T06:15:16.644Z</lastmod>
+    <lastmod>2023-05-05T14:34:45.832Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/7_Tutorials_GeneralizedLinearMixedEffectsModels.html</loc>
-    <lastmod>2023-04-30T06:15:17.531Z</lastmod>
+    <lastmod>2023-05-05T14:34:46.751Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/12_Tutorials_LatentTransitionAnalysis.html</loc>
-    <lastmod>2023-04-30T06:15:18.311Z</lastmod>
+    <lastmod>2023-05-05T14:34:47.560Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/4_Explanations_SignedRankTest.html</loc>
-    <lastmod>2023-04-30T06:15:18.695Z</lastmod>
+    <lastmod>2023-05-05T14:34:47.949Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/index.html</loc>
-    <lastmod>2023-04-30T06:15:19.919Z</lastmod>
+    <lastmod>2023-05-05T14:34:49.189Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/1_Explanations_DifferenceScores.html</loc>
-    <lastmod>2023-04-30T06:15:21.107Z</lastmod>
+    <lastmod>2023-05-05T14:34:51.404Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/1b_HowTos_DifferenceScores.html</loc>
-    <lastmod>2023-04-30T06:15:22.395Z</lastmod>
+    <lastmod>2023-05-05T14:34:52.801Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/about.html</loc>
-    <lastmod>2023-04-30T06:15:22.767Z</lastmod>
+    <lastmod>2023-05-05T14:34:53.171Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/13_HowTos_GrowthMixtureModels.html</loc>
-    <lastmod>2023-04-30T06:15:23.226Z</lastmod>
+    <lastmod>2023-05-05T14:34:53.594Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/howto.html</loc>
-    <lastmod>2023-04-30T06:15:25.726Z</lastmod>
+    <lastmod>2023-05-05T14:34:56.011Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/8_Explanations_AutoregressiveCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:15:27.980Z</lastmod>
+    <lastmod>2023-05-05T14:34:58.190Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/ListofReferences.html</loc>
-    <lastmod>2023-04-30T06:15:28.720Z</lastmod>
+    <lastmod>2023-05-05T14:34:58.916Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/9_Explanations_LatentChangeScoresModels.html</loc>
-    <lastmod>2023-04-30T06:15:29.136Z</lastmod>
+    <lastmod>2023-05-05T14:34:59.307Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/12_HowTos_LatentTransitionAnalysis.html</loc>
-    <lastmod>2023-04-30T06:15:29.551Z</lastmod>
+    <lastmod>2023-05-05T14:34:59.735Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/12_Explanations_LatentTransitionAnalysis.html</loc>
-    <lastmod>2023-04-30T06:15:29.985Z</lastmod>
-  </url>
-  <url>
-    <loc>https://swhawes.github.io/test/temp.html</loc>
-    <lastmod>2023-04-30T06:15:36.205Z</lastmod>
+    <lastmod>2023-05-05T14:35:00.143Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/9_HowTos_LatentChangeScoresModels.html</loc>
-    <lastmod>2023-04-30T06:15:36.618Z</lastmod>
+    <lastmod>2023-05-05T14:35:00.560Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/6_Explanations_GeneralizedEstimatingEquations.html</loc>
-    <lastmod>2023-04-30T06:15:37.014Z</lastmod>
+    <lastmod>2023-05-05T14:35:00.971Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/figures/Code for LDA Structure Mermaid Diagram.html</loc>
-    <lastmod>2023-04-30T06:15:37.452Z</lastmod>
+    <lastmod>2023-05-05T14:35:01.398Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/tutorials.html</loc>
-    <lastmod>2023-04-30T06:15:39.943Z</lastmod>
+    <lastmod>2023-05-05T14:35:03.753Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/11_Explanations_MultivariateLatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:15:56.914Z</lastmod>
+    <lastmod>2023-05-05T14:35:22.352Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/7_Explanations_GeneralizedLinearMixedEffectsModels.html</loc>
-    <lastmod>2023-04-30T06:15:57.374Z</lastmod>
+    <lastmod>2023-05-05T14:35:22.759Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/TailwindTest.html</loc>
-    <lastmod>2023-04-30T06:15:57.780Z</lastmod>
+    <lastmod>2023-05-05T14:35:23.169Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/1_Tutorials_DifferenceScores.html</loc>
-    <lastmod>2023-04-30T06:15:59.121Z</lastmod>
+    <lastmod>2023-05-05T14:35:24.501Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/manuscrip_test version.html</loc>
-    <lastmod>2023-04-30T06:16:02.553Z</lastmod>
+    <lastmod>2023-05-05T14:35:27.967Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/1a_HowTos_DifferenceScores_PairedTtests.html</loc>
-    <lastmod>2023-04-30T06:16:03.891Z</lastmod>
+    <lastmod>2023-05-05T14:35:29.342Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/2_Explanations_ResidualizedChangeScores.html</loc>
-    <lastmod>2023-04-30T06:16:04.281Z</lastmod>
+    <lastmod>2023-05-05T14:35:29.755Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/13_Explanations_GrowthMixtureModels.html</loc>
-    <lastmod>2023-04-30T06:16:04.666Z</lastmod>
+    <lastmod>2023-05-05T14:35:30.147Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/3b_HowTos_LinearMixedModels.html</loc>
-    <lastmod>2023-04-30T06:16:06.528Z</lastmod>
+    <lastmod>2023-05-05T14:35:32.074Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/16_HowTos_LatentCurveModelsStructuredResiduals.html</loc>
-    <lastmod>2023-04-30T06:16:06.957Z</lastmod>
+    <lastmod>2023-05-05T14:35:32.636Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/2_HowTos_ResidualizedChangeScores.html</loc>
-    <lastmod>2023-04-30T06:16:08.126Z</lastmod>
+    <lastmod>2023-05-05T14:35:33.883Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/10_HowTos_LatentGrowthCurveModels.html</loc>
-    <lastmod>2023-04-30T06:16:08.555Z</lastmod>
+    <lastmod>2023-05-05T14:35:34.310Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/test.html</loc>
-    <lastmod>2023-04-30T06:16:13.191Z</lastmod>
+    <lastmod>2023-05-05T14:35:39.971Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/3_Tutorials_LinearMixedModels.html</loc>
-    <lastmod>2023-04-30T06:16:54.118Z</lastmod>
+    <lastmod>2023-05-05T14:35:41.682Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/9_Tutorials_LatentChangeScoresModels.html</loc>
-    <lastmod>2023-04-30T06:16:15.731Z</lastmod>
+    <lastmod>2023-05-05T14:35:42.508Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/14_HowTos_StateTraitModels.html</loc>
-    <lastmod>2023-04-30T06:16:16.130Z</lastmod>
+    <lastmod>2023-05-05T14:35:42.943Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/16_Explanations_LatentCurveModelsStructuredResiduals.html</loc>
-    <lastmod>2023-04-30T06:16:16.526Z</lastmod>
+    <lastmod>2023-05-05T14:35:43.362Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/15_Explanations_RandomInterceptCrosslaggedPanelModels.html</loc>
-    <lastmod>2023-04-30T06:16:16.970Z</lastmod>
+    <lastmod>2023-05-05T14:35:43.766Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/2_Tutorials_ResidualizedChangeScores.html</loc>
-    <lastmod>2023-04-30T06:16:53.002Z</lastmod>
+    <lastmod>2023-05-05T14:35:44.560Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/3a_HowTos_LinearMixedModels.html</loc>
-    <lastmod>2023-04-30T06:16:19.414Z</lastmod>
+    <lastmod>2023-05-05T14:35:46.184Z</lastmod>
   </url>
   <url>
     <loc>https://swhawes.github.io/test/1b_HowTos_DifferenceScores_SimpleRegression.html</loc>
-    <lastmod>2023-04-30T06:16:20.779Z</lastmod>
+    <lastmod>2023-05-05T14:35:47.536Z</lastmod>
   </url>
 </urlset>

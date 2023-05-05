@@ -19,7 +19,213 @@ format:
 
 ---
 
-<script src="https://cdn.tailwindcss.com"></script>
+
+---
+\[psychometrics as a new "Part" below, or facets of psychometrics (e.g., invariance, reliability, etc...) inserted above? MEASUREMENT CONSIDERATIONS IN LONGITUDINAL RESEARCH?\]
+[[
+- SectionIIIa on Data Structures and Data Wrangling(?)
+- SectionIIIb on Psychometrics(?)
+- SectionIIIc on Methods/Analyses(?)
+]]
+
+Measurement?
+Data Wrangling?
+
+
+With the large and continually expanding body of research on statistical methods for longitudinal analyses, determining which longitudinal model to implement can be challenging. The aim of this section is to help researchers to navigate these many options in order to identify the statistical approach most appropriate to their unique research question. Notably, there are a myriad of viable ways one can go about grouping various types of longitudinal models for presentation. Common examples iclude grouping by linearity (linear vs nonlinear models; see Collins, 2006(?)), the number of measurement occassions (see King et al., 2018), and xxxxxx (see xxxx, xxx). The ordering/organzation we use below overlaps in a number of ways with these examples, and with Curran & Bauer (2019); however, it is important to note that in each case, the ordering/organization that is chosen is somewhat arbitrary and primarly intended to allow the reader to compare and contrast of various analytic approaches. In the following we will describe (briefly) and summarize the advantages/disadvantages for a variety longitudinal models, organized into the following x# `fuzzy` groupings: Traditional Models, Modern GLM Extensions, SEM, Advanced SEM, xxx, xxxx. We note that this is note an exhaustive review of each of these methods, but for more in-depth detail we do provide the reader relevant resources. As aptly summarized by Curran & Bauer (2019), "there are many exceptions, alternatives, nuances, “what ifs”, and “but couldn’t yous” that aren’t addressed here." 
+
+##### Traditional Models
+
+Traditional methods for longitudinal analysis primarily focus on modeling mean-level change. 
+For example, is there a difference in average math scores obtained across multiple assessments between boys and girls? Longitudinal models that focus on mean-level change are also referred to as `marginal models` and examples of specific methods include `repeated measures ANOVA` (and `MANOVA`), `ANCOVA`, and `Generalized Estimating Equations` (GEE). These methods are commonly used when data is only available from 2 measurement occassions. For example, computing a `difference score` (e.g., math scores at t2 - math scores at t1) that can be used as an outcome in a subsequent GLM analysis (e.g., paired-samples t-test, repeated measures ANOVA) to test for differences in patterns of change over time and between groups.
+We also note the longitudinal `signed-rank test` which is a nonparametric alternative to the paired t-test that can be a useful tool for analyzing non-normal paired data. Another common approach, often used in pre-/post-design studies, is to use `residualized change score analysis` to assess the degree of change in a variable, while controlling for its initial level. For example, regressing post-treatment scores on pre-treatment scores and then using the resulting residuals as a measure of change that is adjusted for baseline scores (ignoring any prior group assignments/differences). Similar to difference scores, the residualized change score is often included in subsequent analysis, such as for evaluating intervention effects in pre-test/post-test designs [@Kisbu-Sakarya2013].
+
+Traditional longitudinal methods can still be useful in some contexts (e.g., < 3 measurement occasions), but overall their practical utility for answering questions about developmental processes is limited. Perhaps most notably, these models do not allow for characterizing patterns of within-person change, which is often an emphasis of longitudinal research.
+Moreover, even determining which of these procedures to use for comparing change over two time points across groups can be surprisingly complicated. A particularly vexing example is that of imbalanced baseline scores which can produce biased effects when using these methods. Indeed, it is well-documented that this can result in different conclusions between these approaches, which has led to many articles debating the merits of which procedures is most appropriate to use and when [see xxxxx for a review]. Beyond these concerns, additional limitations include xxxxxx. Given these shortcomings and the complexity of the issues surrounding some of these methods, when possible, it is typically recommended that researchers make use of more modern approaches for analyzing longitudinal data (and preferably make use of data collected across 3 or more time points.  
+
+xxxxxxxxx
+Many advantages of traditional approaches 
+ straightforward to estimate as standard path models 
+ obtain overall tests of fit and tests direct and indirect effects 
+ corresponds to some models of change posited by some theories 
+
+ But also many disadvantages 
+ only considers change in a series of two time-point comparisons 
+ assumes all measures have perfect reliability 
+ can be biased if systematic growth exists in repeated measures 
+ poorly corresponds to most theoretical models of change
+
+zzzzzzzzzxxxxxxx
+
+Modern approaches to longitudinal data analysis have advanced beyond traditional methods by offering greater flexibility and a more in-depth understanding of within-person and between-person variability. `Generalized Estimating Equations (GEE)`, `Linear Mixed Models (LMM)`, `Generalized Linear Mixed Models (GLMM)`, and `Autoregressive Cross-Lagged Panel Models (ARCL)` are examples of such contemporary techniques. GEE is an extension of Generalized Linear Models. This model combines the generalized linear model for non-normal outcomes with repeated measures (marginal) model and is suitable for analyzing correlated longitudinal data and modeling population-averaged effects. LMMs, also known as multilevel or hierarchical linear models, facilitate the simultaneous analysis of within-person and between-person variability, making them ideal for nested data structures or repeated measures. GLMMs further extend the LMM framework to accommodate non-normal response variables, such as binary, count, or ordinal data. Finally, ARCL models are uses to investigate reciprocal relationships between variables over time, as they estimate both autoregressive and cross-lagged effects. 
+
+The strengths of these modern methods lie in their ability to account for individual differences, within-person change, and time-varying predictors, thereby providing a more comprehensive understanding of complex relationships in longitudinal data. Despite these advantages, modern approaches may require more complex modeling assumptions and higher computational demands compared to traditional methods. Additionally, proper model specification and the interpretation of results can be more challenging, especially in cases of high multicollinearity or missing data. However, modern longitudinal analysis methods have generally surpassed traditional methods in addressing a wider range of research questions, accommodating diverse data structures, and elucidating the intricate dynamics of developmental processes.
+
+
+
+
+Overview—A GEE model is designed for analyzing the regression relationship between covariates and repeated responses, but not the correlation structure of the repeated responses. If the latter is of interest, a GEE is inappropriate and one should consider MER (“Mixed effects regression (MER)” section). In estimating the regression parameters, the correlation structure in a GEE is represented using a working, potentially incorrect model (see “Modeling correlation” section). Even when the working model is incorrect, however, the GEE approach yields unbiased parameter estimates. Traditionally, GEEs are intended for two-level hierarchical data (e.g., cases 1 and 2), but recent work [15] has allowed extensions to three levels (e.g., case 3).
+
+Generalized estimating equations (GEEs) are a statistical method used to analyze longitudinal or clustered data, while accounting for within-subject correlation. The goal GEEs are to make inferences about population-averaged effects (controlling for within-subject correlations), rather than individual subject-level effects. GEEs can handle a wide range of outcome distributions, including binary, count, and continuous data (Fitzmaurice et al., 2011; Hardin & Hilbe, 2012). 
+
+
+
+
+
+GLMM. Unlike the WGEE, the GLMM accommodates correlated responses Yit by directly modeling their joint distribution. Since multivariate distributions are extremely complex except for the multivariate normal, latent variables bi are generally employed to model the correlated responses. Thus, although Yit is still modeled for each time point t, by including the random effect b, in the specification of the conditional distribution of Yit given bi (Xit and Zit), the GLMM in (9) allows the resulting Yit ‘s to be correlated (conditional on Xit and Zit only). This approach allows one to specify multivariate distributions using familiar univariate distributions such as the Bernoulli (for binary responses) and the Poisson (for count responses).
+
+zzzzzzzzzxxxxxxx
+##### Modern GLM Extensions
+**Generalized Linear Mixed Models** 
+**Linear Mixed Models**
+**Generalized Linear Mixed Models**
+**ARCL**
+
+`Generalized Linear Mixed Models`, `Linear Mixed Models`, `Generalized Linear Mixed Models`, `Autoregressive Crosslagged Panel Models`
+
+Two preferred methods for longitudinal data are generalized estimating equations model (GEE) [13] and mixed effects regression (MER) [14]. Both allow time-invariant predictors that never change (e.g., gender, genotype) and time-varying predictors (e.g., age), and handle irregularly timed and missing data without the need for explicit imputation.
+
+GEE particularly popular in longitudinal health research because it
+provides robust inferences without making strong assumptions
+about individual differences
+ Particularly useful when working with discrete outcomes
+
+ Those that emphasize individual change often do so through
+inclusion of Random Effects
+ often called “growth models”
+
+ and individual-level (within person) change…
+ What do individual trajectories of vocabulary production look like?
+ How great are the individual differences in these trajectories?
+
+include bullet points to summarize?
+ 
+##### SEM
+Variable-centered. 
+**Latent Change Score** (add internal link to documentation)
+**Latent Growth Curve Model** (add internal link to documentation)
+**Multivariate Latent Growth Curve Model** (add internal link to documentation) 
+**State-Trait Model** (add internal link to documentation)
+
+ Those that emphasize individual change often do so through
+inclusion of Random Effects
+ often called “growth models”
+
+Within-person change Panel (3+waves)
+
+Within-person change Panel (3+waves) Quantitative Ind. Differences:
+mixed effects, latent curve
+ind. Differences:
+Latent class growth analysis,
+Semiparametric groups-based approach
+General growth mixture model
+
+
+Person-centered.
+**Latent Transition Analysis** (add internal link to documentation)
+**Latent Class Growth Analysis** (add internal link to documentation)
+
+Progression through
+stages/sequence
+Panel data Latent transition analysis
+
+Hybrid.
+**Growth Mixture Modeling** (add internal link to documentation)
+
+##### Advanced SEM
+**RI-CLPM** (add internal link to documentation)
+**LCM-SR** (add internal link to documentation)
+
+Examine
+relationships
+between timeadjacent changes
+
+Change + bidirectional Panel data Latent curve model with structured residuals
+Timing of predictor effects Intensive longitudinal
+Long-term panel
+Time-varying effects models
+
+
+##### (possibly others xxxx?)
+(longitudinal neuroimaging?)
+(longitudinal twins/genetics?)
+
+![Longitudinal Models/Data Structures](./figures/Mindmap1.png){#fig-LONGmod fig-alt="Longitudinal Models Diagram." width="600" height="400" fig-align="center"}
+
+
+### Brief section to wrap up (and highlight the availiblity of the online examples)
+
+
+xxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxx
+
+Data structures are the building blocks for more sophisticated applications. They are designed by composing data elements into a logical unit representing an abstract data type that has relevance to the algorithm or application. An example of an abstract data type is a "customer name" that is composed of the character strings for "first name," "middle name" and "last name."
+
+It is not only important to use data structures, but it is also important to choose the proper data structure for each task. Choosing an ill-suited data structure could result in slow runtimes or unresponsive code. Five factors to consider when picking a data structure include the following:
+
+What kind of information will be stored?
+How will that information be used?
+Where should data persist, or be kept, after it is created?
+What is the best way to organize the data?
+What aspects of memory and storage reservation management should be considered?
+
+the choice of several types of longitudinal designs that researchers employ to investigate change over time. 
+Clarify the analysis approaches that are associated with each type of data structure and the questions they can answer
+
+Section focused on different ways of considering/grouping/deciding on which specific analysis to choose (see curran&bauer slides)
+
+data structure is not only used for organizing the data. It is also used for processing, retrieving, and storing data
+The data structure type used in a particular situation is determined by the type of operations that will be required or the kinds of algorithms that will be applied.
+
+types of data structures, all designed to arrange data to suit a specific purpose. Data structures make it easy for users to access and work with the data they need in appropriate ways. Most importantly, data structures frame the organization of information so that machines and humans can better understand it.
+
+applications that ingest, manipulate and produce information must understand how data should be organized to simplify processing. Data structures bring together the data elements in a logical way and facilitate the effective use, persistence and sharing of data. They provide a formal model that describes the way the data elements are organized.
+
+
+
+xxxxxxx
+This article provides an overview of the imaging procedures of the ABCD study, the basis for their selection and preliminary quality assurance and results that provide evidence for the feasibility and age-appropriateness of procedures and generalizability of findings to the existent literature.
+
+Retention is critical in longitudinal, multi-site studies of adolescents.
+
+•
+Differential retention can impact generalizability of study outcomes.
+
+•
+We review efforts utilized by the ABCD study staff to ensure high retention.
+
+
+Learning What To Do: Survey of Techniques
+
+Objectives  Distinguish between different longitudinal data structures 
+ Clarify the analysis approaches that are associated with each type of data structure and the questions they can answer
+
+Panel Data  Most often, what we mean by longitudinal data is panel data  Panel data is data collected over a relatively small number of time points on a relatively large number of units  Examples:  Biennial assessments of alcohol and substance use in adolescents and young adults from ages 14 to 30.  Monthly assessments of vocabulary production by infants/toddlers from 8 to 24 months of age  Other similar data structures arise from  Randomized clinical trials  Accelerated longitudinal designs
+
+Analysis Goals  A common goal when collecting panel data is to evaluate change over time  One can distinguish between mean-level change...  On average, how much more quickly does the vocabulary production of girls increase relative to the vocabulary production of boys?  and individual-level (within person) change...  What do individual trajectories of vocabulary production look like?  How great are the individual differences in these trajectories?
+
+
+
+traditional and contemporary approaches to modeling developmental change
+
+Theoretical Model of Change
+Temporal Design Used to Observe the Change Phenomenon
+Statistical Model of Change
+
+
+
+
+
+
+
+
+
+
+xxxxxxx
+
+Evaluate the measurement properties of the variable for invariance (e.g., configural, metric) before testing whether change has occurred. Analytical Issues 10. Be aware of potential violations in statistical assumptions inherent in longitudinal designs (e.g., correlated residuals, nonindependence). 11. Describe how time is coded (e.g., polynomials, orthogonal polynomials) and why.
 
 ```{html}
 <div class="alert alert-primary" role="alert">
@@ -2059,3 +2265,31 @@ This is the temporary landing page for the Longitudinal Analysis Project. <br> T
 :::
 
 </div>
+
+
+|                                           |                         |                          |                                      |                         |
+|:--------------|:-------------:|:-------------:|:-------------:|:-------------:|
+| Models                                    |     Form of Change      | Minimum \# of Timepoints | Variable-Centered vs Person-Centered | Time-varying Covariates |
+| Difference Scores                         |       mean-level        |            2+            |                  \-                  |          none           |
+| Change Scores                             |       rank-order        |            2+            |                  \-                  |          none           |
+| Signed-Rank Test                          |       rank-order        |            2+            |                  \-                  |          none           |
+| Generalized Estimating Equations          |       rank-order        |            2+            |                  \-                  |         allowed         |
+| Linear Mixed Models                       |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Generalized Linear Mixed-Effects Models   |   within and between    |            3+            |                                      |         allowed         |
+| Autoregressive Crosslagged Panel Models   |       rank-order        |            3+            |          Variable-Centered           |         allowed         |
+| Latent Change Scores Models               |       rank-order        |            2+            |          Variable-Centered           |         allowed         |
+| Latent Growth Curve Models                |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Multivariate Latent Growth Curve Model    |   within and between    |            3+            |          Variable-Centered           |         allowed         |
+| Latent Transition Analysis                |   within and between    |            3+            |                Mixed                 |         allowed         |
+| Latent Class Growth Analysis              |   within and between    |            3+            |           Person-Centered            |         allowed         |
+| Growth Mixture Models                     |   within and between    |            3+            |                Mixed                 |         allowed         |
+| State-Trait Models                        | continuous and discrete |            3+            |          Variable-Centered           |         allowed         |
+| Random-Intercept Crosslagged Panel Models |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+| Latent Curve Models Structured Residuals  |   within and between    |            4+            |          Variable-Centered           |         allowed         |
+|                                           |                         |                          |                                      |                         |
+
+: LDA Models {#tbl-lda .striped .hover .responsive-xl}
+
+axasx
+
+See @tbl-lda.
