@@ -10,6 +10,8 @@
 <meta name="author" content="Andrew K. Littlefield">
 <meta name="author" content="Daniel A. Lopez">
 <meta name="author" content="Kenneth J. Sher">
+<meta name="author" content="Erin L. Thompson">
+<meta name="author" content="Raul Gonzalez">
 <meta name="author" content="Additional Co-authors">
 <meta name="author" content="Wesley K. Thompson">
 <meta name="keywords" content="ABCD Study, longitudinal analyses, development">
@@ -337,6 +339,22 @@ div.csl-indent {
           </p>
       </div>
       <div class="quarto-title-meta-contents">
+    <p class="author">Erin L. Thompson </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Florida International University
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Raul Gonzalez </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Florida International University
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
     <p class="author">Additional Co-authors </p>
   </div>
     <div class="quarto-title-meta-contents">
@@ -372,7 +390,7 @@ div.csl-indent {
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p> <a href="https://abcdstudy.org/" id="abcdwebsite" title="Visit the ABCD Study website">The Adolescent Brain Cognitive Development (ABCD) Study®</a> is the largestz long-termzz investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents <span class="citation" data-cites="volkow2018">(<a href="#ref-volkow2018" role="doc-biblioref">Volkow et al. 2018</a>)</span>. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study’s® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development. In the following text, we describe methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. We begin with a brief orientation to the ABCD Study and its accompanying <a href="https://nda.nih.gov/abcd/" id="ndardata" title="Visit the ABCD Study data repository">publicly available dataset</a>.</p>
+<p> <a href="https://abcdstudy.org/" id="abcdwebsite" title="Visit the ABCD Study website">The Adolescent Brain Cognitive Development (ABCD) Study®</a> is the largest long-term investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents <span class="citation" data-cites="volkow2018">(<a href="#ref-volkow2018" role="doc-biblioref">Volkow et al. 2018</a>)</span>. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study’s® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development. In the following text, we describe methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. We begin with a brief orientation to the ABCD Study and its accompanying <a href="https://nda.nih.gov/abcd/" id="ndardata" title="Visit the ABCD Study data repository">publicly available dataset</a>.</p>
 <section id="the-abcd-study-data" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="the-abcd-study-data"><span class="header-section-number">1.1</span> The ABCD Study® Data</h2>
 <p>Participants enrolled in the ABCD Study include a large cohort of youth (n=11,880) aged 9-10 years at baseline and their parents/guardians. The study sample was recruited from household populations in defined catchment areas for each of the 21 study sites across the United States (information regarding funding agencies, recruitment sites, investigators, and project organization can be obtained at the ABCD Study website). The ABCD Study is collecting longitudinal data on a rich variety of outcomes that will enable the construction of complex etiological models by incorporating factors from many domains simultaneously. Each new wave of data collection provides the building blocks for conducting probing longitudinal analyses that allow us to characterize normative development, identify variables that presage deviations from prototypic development, and assess a range of outcomes associated with variables of interest. This data includes a neurocognitive battery <span class="citation" data-cites="luciana2018a thompson2019">(<a href="#ref-luciana2018a" role="doc-biblioref">Luciana et al. 2018</a>; <a href="#ref-thompson2019" role="doc-biblioref">Thompson et al. 2019</a>)</span>, mental and physical health assessments <span class="citation" data-cites="barch2018">(<a href="#ref-barch2018" role="doc-biblioref">Barch et al. 2018</a>)</span>, measures of culture and environment <span class="citation" data-cites="zucker2018">(<a href="#ref-zucker2018" role="doc-biblioref">Zucker et al. 2018</a>)</span>, substance use <span class="citation" data-cites="lisdahl2021">(<a href="#ref-lisdahl2021" role="doc-biblioref">Lisdahl et al. 2021</a>)</span>, biospecimens <span class="citation" data-cites="uban2018">(<a href="#ref-uban2018" role="doc-biblioref">Uban et al. 2018</a>)</span>, structural and functional brain imaging <span class="citation" data-cites="casey2018 hagler2019">(<a href="#ref-casey2018" role="doc-biblioref">Casey et al. 2018</a>; <a href="#ref-hagler2019" role="doc-biblioref">Hagler et al. 2019</a>)</span>, geolocation-based environmental exposure data, wearables, and mobile technology <span class="citation" data-cites="bagot2018">(<a href="#ref-bagot2018" role="doc-biblioref">Bagot et al. 2018</a>)</span>, and whole genome genotyping <span class="citation" data-cites="loughnan2020">(<a href="#ref-loughnan2020" role="doc-biblioref">Loughnan et al. 2020</a>)</span>. Many of these measures are collected at in-person annual visits, with brain imaging collected at baseline and every other year going forward. A limited number of assessments are collected in semi-annual telephone interviews between in-person visits. Data are publicly released on an annual basis through the NIMH Data Archive. By necessity, the study’s earliest data releases were cross-sectional (i.e., the baseline data), however, the most recent public data release (NDA Release 4.0) contains data collected across three annual assessments, including two imaging assessments (baseline and year 2 follow-up visits).</p>
@@ -1223,24 +1241,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-50"><a href="#cb1-50"></a><span class="co">        city: Columbia</span></span>
 <span id="cb1-51"><a href="#cb1-51"></a><span class="co">        region: MO</span></span>
 <span id="cb1-52"><a href="#cb1-52"></a><span class="co">        country: USA</span></span>
-<span id="cb1-53"><a href="#cb1-53"></a><span class="co">  # - name: Erin L. Thompson</span></span>
-<span id="cb1-54"><a href="#cb1-54"></a><span class="co">  #   email: erthomps@fiu.edu</span></span>
-<span id="cb1-55"><a href="#cb1-55"></a><span class="co">  #   affiliations:</span></span>
-<span id="cb1-56"><a href="#cb1-56"></a><span class="co">  #     #- id: terok</span></span>
-<span id="cb1-57"><a href="#cb1-57"></a><span class="co">  #       name: Florida International University</span></span>
-<span id="cb1-58"><a href="#cb1-58"></a><span class="co">  #       department: Center for Children and Families</span></span>
-<span id="cb1-59"><a href="#cb1-59"></a><span class="co">  #       city: Miami</span></span>
-<span id="cb1-60"><a href="#cb1-60"></a><span class="co">  #       region: FL</span></span>
-<span id="cb1-61"><a href="#cb1-61"></a><span class="co">  #       country: USA</span></span>
-<span id="cb1-62"><a href="#cb1-62"></a><span class="co">  # - name: Raul Gonzalez</span></span>
-<span id="cb1-63"><a href="#cb1-63"></a><span class="co">  #   email: gonzara@fiu.edu</span></span>
-<span id="cb1-64"><a href="#cb1-64"></a><span class="co">  #   affiliations:</span></span>
-<span id="cb1-65"><a href="#cb1-65"></a><span class="co">  #     #- id: ds9</span></span>
-<span id="cb1-66"><a href="#cb1-66"></a><span class="co">  #       name: Florida International University</span></span>
-<span id="cb1-67"><a href="#cb1-67"></a><span class="co">  #       department: Center for Children and Families</span></span>
-<span id="cb1-68"><a href="#cb1-68"></a><span class="co">  #       city: Miami</span></span>
-<span id="cb1-69"><a href="#cb1-69"></a><span class="co">  #       region: FL</span></span>
-<span id="cb1-70"><a href="#cb1-70"></a><span class="co">  #       country: USA</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="co">  - name: Erin L. Thompson</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="co">    email: erthomps@fiu.edu</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="co">    affiliations:</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="co">      #- id: terok</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="co">        name: Florida International University</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="co">        department: Center for Children and Families</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="co">        city: Miami</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="co">        region: FL</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="co">        country: USA</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="co">  - name: Raul Gonzalez</span></span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="co">    email: gonzara@fiu.edu</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="co">    affiliations:</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="co">      #- id: ds9</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a><span class="co">        name: Florida International University</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="co">        department: Center for Children and Families</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="co">        city: Miami</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a><span class="co">        region: FL</span></span>
+<span id="cb1-70"><a href="#cb1-70"></a><span class="co">        country: USA</span></span>
 <span id="cb1-71"><a href="#cb1-71"></a><span class="co">  - name: Additional Co-authors</span></span>
 <span id="cb1-72"><a href="#cb1-72"></a><span class="co">    email: xxxxx@fiu.edu</span></span>
 <span id="cb1-73"><a href="#cb1-73"></a><span class="co">    affiliations:</span></span>
@@ -1308,7 +1326,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-135"><a href="#cb1-135"></a></span>
 <span id="cb1-136"><a href="#cb1-136"></a><span class="fu"># Introduction</span></span>
 <span id="cb1-137"><a href="#cb1-137"></a></span>
-<span id="cb1-138"><a href="#cb1-138"></a>\label{sec:headings} <span class="co">[</span><span class="ot">The Adolescent Brain Cognitive Development (ABCD) Study®</span><span class="co">](https://abcdstudy.org/ "Visit the ABCD Study website")</span>{#abcdwebsite} is the largestz long-termzz investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents <span class="co">[</span><span class="ot">@volkow2018</span><span class="co">]</span>. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study's® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development. In the following text, we describe methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. We begin with a brief orientation to the ABCD Study and its accompanying <span class="co">[</span><span class="ot">publicly available dataset</span><span class="co">](https://nda.nih.gov/abcd/ "Visit the ABCD Study data repository")</span>{#ndardata}.</span>
+<span id="cb1-138"><a href="#cb1-138"></a>\label{sec:headings} <span class="co">[</span><span class="ot">The Adolescent Brain Cognitive Development (ABCD) Study®</span><span class="co">](https://abcdstudy.org/ "Visit the ABCD Study website")</span>{#abcdwebsite} is the largest long-term investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents <span class="co">[</span><span class="ot">@volkow2018</span><span class="co">]</span>. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study's® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development. In the following text, we describe methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. We begin with a brief orientation to the ABCD Study and its accompanying <span class="co">[</span><span class="ot">publicly available dataset</span><span class="co">](https://nda.nih.gov/abcd/ "Visit the ABCD Study data repository")</span>{#ndardata}.</span>
 <span id="cb1-139"><a href="#cb1-139"></a></span>
 <span id="cb1-140"><a href="#cb1-140"></a><span class="fu">## The ABCD Study® Data</span></span>
 <span id="cb1-141"><a href="#cb1-141"></a></span>
