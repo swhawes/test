@@ -1,120 +1,192 @@
-######
-######
-######
-######
-
 ---
-title: "Longitudinal Analysis Manuscript: Working Draft"
+title: |
+  Longitudinal Analysis Manuscript: Working Draft
+subtitle: Longitudinal Analysis using data from the ABCD Study
+short-title: Longitudinal Analysis
+published: "Under review at *xxxxx Journal*"
+code-repo: "Access the code, data, and analysis at <http://swhawes.github.io/test/>"
 number-sections: true
 number-depth: 3
-subtitle: Longitudinal Analysis using data from the ABCD Study 
-authors:
-  - name: Samuel W. Hawes
-    department: Center for Children and Families
-    affiliation: Florida International University
-    location: Miami, FL
+correspondence-prefix: "Correspondence concerning this article should be addressed to"
+author:
+  - name: Samuel Hawes
     email: shawes@fiu.edu
+    title: Associate Research Professor
+    affiliations: 
+      #- id: ds9
+        name: Florida International University
+        department: Center for Children & Families
+        address: 11200 SW 8th St, AHC-IV
+        city: Miami
+        region: FL
+        country: USA
+        postal-code: 33199
+    attributes:
+      corresponding: true
   - name: Andrew K. Littlefield
-    department: Psychological Sciences
-    affiliation: Texas Tech University
-    location: Lubbock, TX
     email: andrew.littlefield@ttu.edu
+    affiliations: 
+      #- id: ds9
+        name: Texas Tech University
+        department: Psychological Sciences
+        city: Lubbock
+        region: TX
+        country: USA
   - name: Daniel A. Lopez
-    department: Department of Public Health
-    affiliation: University of Rochester Medical Center
-    location: Rochester, NY
     email: Daniel_Lopez2@URMC.Rochester.edu
+    affiliations:
+      #- id: terok
+        name: University of Rochester Medical Center
+        department: Department of Public Health
+        city: Rochester
+        region: NY
+        country: USA
+      #- ref: ds9
   - name: Kenneth J. Sher
-    department: Psychological Sciences
-    affiliation: University of Missouri
-    location: Columbia, MO
     email: SherK@missouri.edu
+    affiliations: 
+      #- id: ds9
+        name: University of Missouri
+        department: Psychological Sciences
+        city: Columbia
+        region: MO
+        country: USA
   - name: Erin L. Thompson
-    department: Center for Children and Families
-    affiliation: Florida International University
-    location: Miami, FL
     email: erthomps@fiu.edu
+    affiliations:
+      #- id: terok
+        name: Florida International University
+        department: Center for Children and Families
+        city: Miami
+        region: FL
+        country: USA
   - name: Raul Gonzalez
-    department: Center for Children and Families
-    affiliation: Florida International University
-    location: Miami, FL
-    email: gonzara@fiu.edu  
+    email: gonzara@fiu.edu
+    affiliations: 
+      #- id: ds9
+        name: Florida International University
+        department: Center for Children and Families
+        city: Miami
+        region: FL
+        country: USA
   - name: Additional Co-authors
-    department: xxxxxx
-    affiliation: University of xxxx
-    location: xxxxxxx
-    email: xxxxxx
+    email: xxxxx@fiu.edu
+    affiliations:
+      #- id: terok
+        name: xxxxxx University
+        department: xxxxxx Dept
+        city: xxxx
+        region: xxxxx
+        country: xxxxx
   - name: Wesley K. Thompson
-    department: Center for Population Neuroscience and Genetics
-    affiliation: Laureate Institute for Brain Research
-    location: Tulsa, OK
     email: wes.stat@gmail.com
-
+    affiliations:
+      #- id: terok
+        name: Laureate Institute for Brain Research
+        department: Center for Population Neuroscience and Genetics
+        city: Tulsa
+        region: OK
+        country: USA
+      
 abstract: |
- The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
-
-author-summary: |
-  The Adolescent Brain Cognitive Development (ABCD) Study offers valuable insights into adolescent brain development. Researchers working with this data face methodological and analytic concerns, including sample size, attrition, missing data, and measurement. This review addresses complexities in analyzing longitudinal data, with a focus on statistical models accounting for correlations in repeated measurements and their assumptions. We emphasize the importance of choosing appropriate models and analytic functions based on the data and the specific scientific question to be addressed. This concise resource aims  to help researchers navigate longitudinal data analysis, make informed methodological decisions, and enhance the accuracy and reliability of their findings when working with data from the ABCD Study.
-
-    keywords:
-    *ABCD Study*,
-    *longitudinal analyses*,
-    *development*
-
-format: 
-  html:
-    page-layout: article
-    mermaid:
-      theme: forest
+  The Adolescent Brain Cognitive Development (ABCD) Study presents a unique opportunity for researchers to investigate developmental processes in a large, diverse cohort of children and adolescents. Given the complex nature of the longitudinal data collected in the ABCD Study, researcher are likely to encounter a myriad of methodological and analytic considerations and concerns. This review provides a comprehensive examination of key issues and techniques related to longitudinal data analysis, specifically focusing on the ABCD Study. The text discusses model assumptions, common violations (e.g., independent and identically distributed residuals, *heterogeneous* *variability*) and their implications for valid inference. The importance of appropriately modeling covariance structures, understandings trade-offs between model fit and parsimony, and challenges related to sample size, attrition, missing data are highlighted. Consideration is given to the importance of selecting appropriate statistical models to account for correlations in repeated measurements and the assumptions underlying these models. The review also differentiates between linear and non-linear models in the context of continuous and discrete data, emphasizing various distributional assumptions and the necessity of choosing appropriate models and statistical methods. By addressing these complexities, the review seeks to equip researchers with the necessary knowledge and tools to make informed decisions as they navigate effectively analyzing and interpreting data available in the ABCD Study.
+# thanks: |
+#   Placeholder text generated at <https://vlad-saling.github.io/star-trek-ipsum/>.
+# additional-info: |
+#   We have no known conflict of interest to disclose.
+keywords:
+  - ABCD Study
+  - longitudinal analyses
+  - development
+  
+format:
+  #hikmah-pdf: default
+  docx:
     toc: true
-    toc-depth: 1
-    toc-expand: 2
-    toc-title: Table of Contents
-    code-tools:
-      source: true
-      toggle: false
-      caption: none
-    grid:
-      sidebar-width: 200px
-      margin-width: 0px
-  pdf: 
-    geometry:
-      - top=30mm
-      - left=20mm
-    keep_tex: yes
-    #fontfamily: libertinus
-    #fontsize: 20pt
-    colorlinks: true
-format-links: [html, pdf]
-
-execute:
-  echo: false
-
-output: 
-  rticles::arxiv_article
-bibliography: "references.bib"
-biblio-style: unsrt
+#   hikmah-manuscript-pdf: default
+#   #html:
+#     #page-layout: article
+#     #toc: true
+#     #toc-depth: 1
+#     #toc-expand: 2
+#     #toc-title: Table of Contents
+#   #   code-tools:
+#   #     source: true
+#   #     toggle: false
+#   #     caption: none
+#   #   grid:
+#   #     sidebar-width: 200px
+#   #     margin-width: 0px
+#   pdf:
+#     geometry:
+#       - top=30mm
+#       - left=20mm
+#   #   keep_tex: yes
+#     #fontfamily: libertinus
+#     #fontsize: 20pt
+# #colorlinks: true
+# #format-links: [html, pdf]
+# 
+# execute:
+#  echo: false
+# 
+# # output: 
+# #   rticles::arxiv_article
+# bibliography: "references.bib"
+# #biblio-style: unsrt
 ---
 
 # Introduction
 
-\label{sec:headings} The Adolescent Brain Cognitive Development (ABCD) Study® is the largest long-term investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents [@volkow2018]. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study's® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development.
-
-\[section still be developed...\]
+\label{sec:headings} [The Adolescent Brain Cognitive Development (ABCD) Study®](https://abcdstudy.org/ "Visit the ABCD Study website"){#abcdwebsite} is the largest long-term investigation of neurodevelopment and child health in the United States. Conceived and initiated by the National Institutes of Health (NIH), this landmark prospective longitudinal study aims to transform our understanding of the genetic and environmental influences on brain development and their roles in behavioral and health outcomes in adolescents [@volkow2018]. At its heart, the study is designed to chart the course of human development across multiple, interacting domains from late childhood to early adulthood and to identify factors that lead to both positive and negative developmental outcomes. Central to achieving these goals is the ABCD Study's® commitment to an open science framework designed to facilitate access to and sharing of scientific knowledge by espousing practices that increase openness, integrity, and reproducibility of scientific research (e.g., public data releases). In this sense, the ABCD Study® is a collaboration with the larger research community, with the rich longitudinal nature of the ABCD Study dataset allowing researchers to perform a variety of analyses of both methodological and substantive interest. Together, this presents a unique opportunity to significantly advance our understanding of how a multitude of biopsychosocial processes emerge and unfold across critical periods of development. In the following text, we describe methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. We begin with a brief orientation to the ABCD Study and its accompanying [publicly available dataset](https://nda.nih.gov/abcd/ "Visit the ABCD Study data repository"){#ndardata}.
 
 ## The ABCD Study® Data
+
 Participants enrolled in the ABCD Study include a large cohort of youth (n=11880) aged 9-10 years at baseline and their parents/guardians. The study sample was recruited from household populations in defined catchment areas for each of the 21 study sites across the United States (information regarding funding agencies, recruitment sites, investigators, and project organization can be obtained at the ABCD Study website). The ABCD Study is collecting longitudinal data on a rich variety of outcomes that will enable the construction of realistically-complex etiological models by incorporating factors from many domains simultaneously. Each new wave of data collection provides the building blocks for conducting probing longitudinal analyses that allow us to characterize normative development, identify variables that presage deviations from prototypic development, and assess a range of outcomes associated with variables of interest. This data includes a neurocognitive battery [@luciana2018a; @thompson2019], mental and physical health assessments [@barch2018], measures of culture and environment [@zucker2018], substance use \[add citation\], biospecimens [@uban2018], structural and functional brain imaging [@casey2018; @hagler2019], geolocation-based environmental exposure data, wearables, and mobile technology [@bagot2018], and whole genome genotyping [@loughnan2020]. Many of these measures are collected at in-person annual visits, with brain imaging collected at baseline and every other year going forward. A limited number of assessments are collected in semi-annual telephone interviews between in-person visits. Data are publicly released on an annual basis through the NIMH Data Archive. By necessity, the study's earliest data releases were cross-sectional (i.e., the baseline data), however, the most recent public data release (NDA Release 4.0) contains data collected across three annual assessments, including two imaging assessments (baseline and year 2 follow-up visits).
 
-## Organization of current manuscript
+## 
 
-The rich longitudinal nature of the ABCD Study dataset will allow researchers to perform analyses of both methodological and substantive interest. This report describes methods for longitudinal analyses of ABCD Study data that can address its fundamental scientific aims, as well as challenges inherent in a large population-based long-term study of adolescents. The manuscript is organized as follows:
+::: {.callout-note collapse="true" icon="false"}
 
-\[section still be developed...\]
+## Organization and Aims
 
-::: {.callout-note  collapse="true" icon=false}
-## Organization `callout`
-Note that there are five types of callouts, including:
-`xxxxx`, `xxxxxx`, `xxxxxx`.
+• Longitudinal Research (Basic Concepts and Considerations)
+
+  -   Concepts and considerations of developmental research
+
+• Longitudinal Data (Interpretation / Issues / Pitfalls & Assumptions)
+
+  -   Considerations when working with large longitudinal datasets
+  
+  -   xxxxx
+
+• Longitudinal Analysis (Methods/Procedures/Models/etc...)
+
+  -   Learn how to apply xxxxx to large longitudinal data such as the ABCD Study
+
+  -   Use linked open-source materials to get started more quickly
+
+
+most commonly used analysis for abcd data
+
+Learn 
+
+• to demonstrate the use of various longitudinal models
+• to discuss the connections between the methods for modeling
+• to compare existing methods to deal with longitudinal xxxxxx
+
+
+
+
+
+
+
+
+**Outline:**
+Longitudinal Research (Basic Concepts and Considerations)
+Longitudinal Data (Interpretation / Issues / Pitfalls & Assumption)
+Longitudinal Analysis (Methods/Procedures/Models/etc...)
+
 :::
 
 # Part I: Longitudinal Research
@@ -139,19 +211,11 @@ There are several important concepts to consider when conducting longitudinal an
 
 ## Interpretation / Issues / Pitfalls & Assumption
 
-![LDA Structural Diagram](./figures/LDA Structure 2.png){#fig-LDAstruct  fig-alt="LDA Structure Diagram." width=600 height=400 fig-align="center"}
-
 **Defining Features of Longitudinal Data Analysis.** The hallmark characteristic of longitudinal data analysis is its application to repeated assessments of the same assessment targets (e.g., individuals, families) across time. While the primary reason for collecting longitudinal data is in pursuit of addressing scientific questions, from a methodological perspective, having multiple observations over time allows researchers to identify potentially problematic observations when highly improbable longitudinal patterns are observed. That is, we can ask more nuanced questions and make stronger inferences as our number of time-ordered observations grows assuming we have assessed the "right" variables and the timings of our observations comport with the temporal dynamics of the mechanisms of interest .
 
-
-
-
-
-"traditional approaches": marginal models
-
-random effects: Growth Curves- SEM (lgcm) vs ME (lmm)
-
-(between- and within-person levels?)
+["traditional approaches": marginal models]
+[random effects: Growth Curves- SEM (lgcm) vs ME (lmm)]
+[(between- and within-person levels?)]
 
 ### Modeling Data Across Two Time Points versus Three or More Time Points.
 
@@ -181,10 +245,6 @@ As an example, one alternative structure that attempts to handle the reality tha
 
 Identification of optimal statistical models and appropriate mathematical functions requires an understanding of the type of data being used. Repeated assessments can be based on either continuous or discrete measures. Examples of discrete measures include repeated assessments of binary variables (e.g., past 12-month alcohol use disorder status measured across ten years), ordinal variables (e.g., a single item measuring the level of agreement to a statement on a three-point scale including the categories of "disagree", "neutral", and "agree" in an ecological momentary assessment study that involves multiple daily assessments), and count variables (e.g., number of cigarettes smoked per day across a daily diary study). In many ways, the distributional assumptions of indicators used in longitudinal designs mirror the decision points and considerations when delineating across different types of discrete outcome variables, a topic that spans entire textbooks [e.g., see @lenz2016]. For example, the Mplus manual [@muthen2017] includes examples of a) censored and censored-inflated models, b) linear growth models for binary or ordinal variables, c) linear growth models for a count outcome assuming a Poisson model, d) linear growth models for a count outcome assuming a zero-inflated Poisson model and e) discrete- and continuous-time survival analysis for a binary outcome. Beyond these highlighted examples, other distributions (e.g., negative binomial) can be assumed for the indicators when modeling longitudinal data. These models can account for issues that can occur when working with discrete outcomes, including overdispersion (when the variance is higher than would be expected based on a given distribution) and zero-inflation [when more zeros occur than is expected based on a given distribution; see @lenz2016]. Models involving zero-inflation parameters are referred to as two-part models, given one part of the model predicts the zero-inflation whereas the other part of the model predicts outcomes consistent with a given distribution [e.g., Poisson distribution; see @farewell2017, for a review of two-part models for longitudinal data]. Although there exist several alternative models for discrete indicators, some more recent models that have been proposed for prospective data are only feasible in cases where indicators are assumed to be continuous rather than discrete [e.g., LCM-SR; @curran2014a]. Given the sheer breadth of issues relevant to determining better models for discrete outcomes, it is not uncommon for texts on longitudinal data analysis to only cover models and approaches that assume continuous indicators [e.g., @little2013]. However, some textbooks on categorical data analysis provide more detailed coverage of the myriad issues and modeling choices to consider when working with discrete outcomes [e.g., @lenz2016, Chapter 11 for matched pair/two-assessment designs; Chapter 12 for marginal and transitional models for repeated designs, such as generalized estimating equations, and Chapter 13 for random effects models for discrete outcomes].
 
-### Marginal vs Conditional Models (?)
-
-\[section still under development...\]
-
 ### Missing Data/Attrition
 
 As recently reviewed by Littlefield (in press), investigators of prospective data are confronted with study attrition (i.e., participants may not provide data at a given wave of assessment) and thus approaches are needed to confront the issue of missing data. Three models of missingness are typically considered in the literature [see @little1989]. These three models are data: a) missing completely at random (MCAR), b) missing at random (MAR), and c) missing not at random (MNAR). Data that are MCAR means missing data is a random sample of all the types of participants (e.g., males) in a given dataset. MAR suggests conditionally missing at random [see @graham2009]. That is, MAR implies missingness is completely random (i.e., does not hinge on some unmeasured variables) once missingness has been adjusted by all available variables in a dataset (e.g., biological sex). Data that are MNAR are missing as a function of unobserved variables. @graham2009 provides an excellent and easy-to-digest overview of further details involving missing data considerations.
@@ -199,53 +259,91 @@ Attrition from a longitudinal panel study such as ABCD is inevitable and represe
 
 Given longitudinal data involve different sources of variance, quantifying effect sizes longitudinally is a more difficult task compared to deriving such estimates from cross-sectional data. Effect size can be defined as, "a population parameter (estimated in a sample) encapsulating the practical or clinical importance of a phenomenon under study." [@kraemer2014]. Common effect size metrics include r (i.e., the standardized covariance, or correlation, between two variables) and Cohen's d [@cohen1988]. Adjustments to common effect size calculations, such as Cohen's d, are required even when only two time points are considered [e.g., see @morris2002]. @wang2019a note there are multiple approaches to obtaining standardized within-person effects, and that commonly suggested approaches (e.g., global standardization) can be problematic [see @wang2019a, for more details]. Thus, obtaining effect size metrics based on standardized estimates that are relatively simple in cross-sectional data (such as r) becomes more complex in the context of prospective data. @feingold2009 noted that equations for effects sizes used in studies involving growth modeling analysis (e.g., latent growth curve modeling) were not mathematically equivalent, and the effect sizes were not in the same metric as effect sizes from traditional analysis [see @feingold2009, for more details]. Given this issue, there have been various proposals for adjusting effect size measures in repeated assessments. @feingold2019 reviews the approach for effect size metrics for analyses based on growth modeling, including when considering linear and non-linear (i.e., quadratic) growth factors. @morris2002 review various equations for effect size calculations relevant to when combining estimates in meta-analysis with repeated measures and independent-groups designs. Other approaches to quantifying effect sizes longitudinally may be based on standardized estimates from models that more optimally disentangle between- and within-person sources of variance (as reviewed above). As an example, within a RI-CLPM framework, standardized estimates between random intercepts (i.e., the correlation between two random intercepts for two different constructs assessed repeatedly) could be used to index the between-person relation, whereas standardized estimates among the structured residuals could be used as informing the effect sizes of within-person relations.
 
-[psychometrics as a new "Part" below, or facets of psychometrics (e.g., invariance, reliability, etc...) inserted above?]
+### Longitudinal Data Structures
 
-# Part III: Additional Section(s)
+An ideal longitudinal study integrates (a) a well-articulated theoretical model, (b) an appropriate longitudinal data structure, and (c) a statistical model that is an operationalization of the theoretical model [@collins2006]. To accommodate various research questions and contexts, different types of longitudinal data and data structures have emerged (see Figure x). An understanding of these data structures is helpful, as they can warrant different types of longtiudinal data analysis. Given that identifying a starting point for making comparisons is somewhat arbitrary, Curran and Bauer (xxxx) provide a nice on-ramp in first distinguishing between the use of "time-to-event" and "repeated measures" data. Although both model time, the former is concerned with *whether* and *when* an event occurs, whereas the later is focused on *growth* and *change* \[Curran and Bauer, xxxx\]. Time-to-event structures measure time from a well-defined origin point up to the occurrence of an event of interest. This data structure is most often analyzed using survival analysis methods (e.g., hazard rate models, event history analysis, failure-time models) and the time-to-event data can be based on a single assessment or include multiple recurrent or competing events. While much has been written about about "time-to-event" data (see xxx; xxx; xxxx), including several recent xxxx (see), our emphasis will be given to the modeling of "repeated measures" data.
 
-\label{sec:headings} \## In Progress: \[TBD\]
+[![LDA Structural Diagram](./figures/LDAStructure2.png)](https://centerstat.org/resources/)
 
-Section focused on different ways of considering/grouping/deciding on which specific analysis to choose (see curran&bauer slides)
+When discussing longitudinal analysis, we are most often talking about data collected on the same unit (e.g., individuals) across multiple measurement occasions. However, repeated-measures analysis is not a monolith and it will serve us well to distinguish between a few of the most common types. One such approach to repeated measures analysis is the use of `time-series models`. These models generally consist of a long sequence of repeated measurements (≧ 50-100 measurements) on a single (or small number of) some variable of interest. Time-series analysis is often used to predict/forecast temporal trends and cyclic patterns and is geared toward making inferences about prospective outcomes within a population (with relatively with less focus on inferring individual-level mechanisms and risk factors). A related type of repeated measures analysis is `Intensive Longitudinal Data (ILD)`. Similar to time-series analysis, ILD models involve frequent measurements (\~ 30-40 measurements) of the same individuals in a relatively circumspect period of time (e.g., experience sampling to obtain time series on many individuals). Although ILD models may include slightly fewer measurement occasions than time-series data, ILD models tend to have more subjects than time series models (\~ 50-100 subjects). This allows ILD models to examine short-term patterns by incorporating a time series model that can sometimes fit parameter estimates to each individual's data in order to model individual difference outcomes. The final type of repeated measures analaysis that we will discuss is the longitudinal panel model. These models follow a group of individuals--- a panel (also referred to as a cohort) --- across relatively fewer measurement occassions (~ 5-15), and are often interested in examining change across both, within-individuals and between-individuals.
 
-### Subsection TBD.
+While other longitudinal designs have their own unique strengths and applications, the longitudinal panel design is particularly well-suited for investigating developmental processes in the context of the ABCD Study. In the following sections, we will discuss various analytic methods commonly used to analyze longitudinal panel data, including growth models, mixed models, and a number of additional trajectory models. These methods provide valuable insights into within- and between-individual differences and are highly relevant for researchers working with the ABCD Study dataset. By focusing on these methods, we aim to equip readers with the knowledge necessary to conduct longitudinal research and perform analyses using the rich, longitudinal, and publicly available data from the ABCD Study.
 
-![Longitudinal Models](./figures/Mindmap1.png){#fig-LONGmod fig-alt="Longitudinal Models Diagram." width=600 height=400 fig-align="center"}
+# Part III: Longitudinal Analysis
 
+\label{sec:headings}
+
+## xxx types of analysis for abcd study data xxxx
+
+### Types of longitudinal panel models
+
+With the large and continually expanding body of research on statistical methods for longitudinal analyses, determining which longitudinal model to implement can be challenging. The aim of this section is to help researchers to navigate these many options in order to identify the statistical approach most appropriate to their unique research question. Notably, there are a myriad of viable ways one can go about grouping various types of longitudinal models for presentation. Common examples iclude grouping by linearity (linear vs nonlinear models; see Collins, 2006(?)), the number of measurement occassions (see King et al., 2018), and xxxxxx (see xxxx, xxx). The ordering/organzation we use below overlaps in a number of ways with these examples, and with Curran & Bauer (2019); however, it is important to note that in each case, the ordering/organization that is chosen is somewhat arbitrary and primarly intended to allow the reader to compare and contrast of various analytic approaches. In the following we will describe (briefly) and summarize the advantages/disadvantages for a series of 16(?) distinct longitudinal models organized into the following x# `fuzzy` groupings: Traditional Models, Modern GLM Extensions, SEM, Advanced SEM, xxx, xxxx. We note that this is note an exhaustive review of each of these methods, but for more in-depth detail we do provide the reader relevant resources. As aptly summarized by Curran & Bauer (2019), "there are many exceptions, alternatives, nuances, “what ifs”, and “but couldn’t yous” that aren’t addressed here." 
+
+#### Traditional Models
+Traditional methods for longitudinal analysis primarily focus on modeling mean-level change. 
+For example, is there a difference in average math scores obtained across multiple assessments between boys and girls? Longitudinal models that focus on mean-level change are also referred to as `marginal models` and examples of specific methods include `repeated measures ANOVA` (and `MANOVA`), `ANCOVA`, and `Generalized Estimating Equations` (GEE). These methods are commonly used when data is only available from 2 measurement occassions. For example, computing a `difference score` (e.g., math scores at t2 - math scores at t1) that can be used as an outcome in a subsequent GLM analysis (e.g., paired-samples t-test, repeated measures ANOVA) to test for differences in patterns of change over time and between groups.
+We also note the longitudinal `signed-rank test` which is a nonparametric alternative to the paired t-test that can be a useful tool for analyzing non-normal paired data. Another common approach, often used in pre-/post-design studies, is to use `residualized change score analysis` to assess the degree of change in a variable, while controlling for its initial level. For example, regressing post-treatment scores on pre-treatment scores and then using the resulting residuals as a measure of change that is adjusted for baseline scores (ignoring any prior group assignments/differences). Similar to difference scores, the residualized change score is often included in subsequent analysis, such as for evaluating intervention effects in pre-test/post-test designs [@Kisbu-Sakarya2013].
+
+Traditional longitudinal methods can still be useful in some contexts (e.g., < 3 measurement occasions), but overall their practical utility for answering questions about developmental processes is limited. Perhaps most notably, these models do not allow for characterizing patterns of within-person change, which is often an emphasis of longitudinal research. In turn, these models often correspond poorly with most theoretical models of change. 
+
+Moreover, even determining which of these procedures to use for comparing change over two time points across groups can be surprisingly complicated. A particularly vexing example is that of imbalanced baseline scores which can produce biased effects when using these methods. Indeed, it is well-documented that this can result in different conclusions between these approaches, which has led to many articles debating the merits of which procedures is most appropriate to use and when [see xxxxx for a review]. Beyond these concerns, additional limitations include xxxxxx. Given these shortcomings and the complexity of the issues surrounding some of these methods, when possible, it is typically recommended that researchers make use of more modern approaches for analyzing longitudinal data (and preferably make use of data collected across 3 or more time points.
+
+#### Modern GLM Extensions
+
+Modern approaches to longitudinal data analysis have advanced beyond traditional methods by offering greater flexibility and a more in-depth understanding of within-person and between-person variability. `Generalized Estimating Equations (GEE)`, `Linear Mixed Models (LMM)`, `Generalized Linear Mixed Models (GLMM)`, and `Autoregressive Cross-Lagged Panel Models (ARCL)` are examples of such contemporary techniques. GEE is an extension of Generalized Linear Models. This model combines the generalized linear model for non-normal outcomes with repeated measures (marginal) model and is suitable for analyzing correlated longitudinal data and modeling population-averaged effects. LMMs, also known as multilevel or hierarchical linear models, facilitate the simultaneous analysis of within-person and between-person variability, making them ideal for nested data structures or repeated measures. GLMMs further extend the LMM framework to accommodate non-normal response variables, such as binary, count, or ordinal data. Finally, ARCL models are uses to investigate reciprocal relationships between variables over time, as they estimate both autoregressive and cross-lagged effects. 
+
+The strengths of these modern methods lie in their ability to account for individual differences, within-person change, and time-varying predictors, thereby providing a more comprehensive understanding of complex relationships in longitudinal data. Despite these advantages, modern approaches may require more complex modeling assumptions and higher computational demands compared to traditional methods. Additionally, proper model specification and the interpretation of results can be more challenging, especially in cases of high multicollinearity or missing data. However, modern longitudinal analysis methods have generally surpassed traditional methods in addressing a wider range of research questions, accommodating diverse data structures, and elucidating the intricate dynamics of developmental processes.
+
+#### SEM
+
+Structural equation modeling (SEM) approaches have gained prominence in longitudinal data analysis due to their ability to estimate complex relationships among observed and latent variables while accounting for measurement error. SEM techniques can be categorized into variable-centered, person-centered, and hybrid approaches, each with unique strengths and limitations. The choice of method depends on the research question, data structure, and underlying assumptions.
+
+Variable-centered approaches, such as Latent Change Scores, Latent Growth Curve Models, Multivariate (Parallel Process) Latent Growth Curve Models, and Latent State-Trait Models, focus on examining relationships among variables and population-level patterns. These models offer a powerful means to estimate individual change trajectories and the relationships between growth parameters of different variables, while also decomposing observed measurements into latent state and trait components. However, these approaches may not adequately capture distinct subgroups of individuals who share similar patterns of change over time, which can be crucial for understanding heterogeneous developmental processes.
+
+Person-centered approaches, including Latent Transition Analysis and Latent Class Growth Analysis, address this limitation by identifying subgroups of individuals who share similar patterns of change. These models can reveal meaningful subpopulations and help researchers understand the factors that contribute to differences in developmental trajectories. Nevertheless, person-centered methods may overlook important relationships among variables, which can be essential for understanding the dynamics of change over time.
+
+Hybrid approaches, such as Growth Mixture Modeling, combine aspects of both variable-centered and person-centered models, allowing for the identification of latent subgroups while also modeling relationships among growth parameters. This combination provides a more comprehensive understanding of longitudinal data by capturing both within- and between-person variability. However, hybrid models can be more complex, necessitating careful model specification, selection, and interpretation. Additionally, these methods may require larger sample sizes to ensure the stability and accuracy of results.
+
+In summary, SEM approaches offer powerful tools for longitudinal data analysis, enabling researchers to investigate complex relationships, individual differences, and change dynamics over time. The choice between variable-centered, person-centered, and hybrid approaches depends on the research objectives and the nature of the data. Despite their limitations, these models have greatly advanced our understanding of developmental processes and the factors that contribute to individual differences in change trajectories.
+
+#### Advanced SEM
+
+Advanced structural equation modeling (SEM) approaches, such as the Random-Intercept Cross-Lagged Panel Model (RI-CLPM) and Latent Curve Models with Structured Residuals (LCM-SR), have emerged to address more complex research questions and data structures in longitudinal analysis. These advanced models extend traditional SEM techniques, enabling researchers to disentangle within-person and between-person effects, as well as capture additional time-specific dependencies and associations that may not be accounted for by the latent growth factors.
+
+The RI-CLPM enhances the traditional cross-lagged panel model by incorporating random intercepts, which allow for the separation of stable individual differences from the dynamic within-person associations between variables over time. This distinction is particularly valuable for understanding the time-specific effects of one variable on another, while accounting for the influence of individual differences. However, RI-CLPM may require larger sample sizes to ensure stability and accuracy of the estimates and can be computationally demanding.
+
+LCM-SR, on the other hand, extends the Latent Growth Curve Model by modeling structured residuals, such as autoregressive or cross-lagged effects among the residuals. This approach allows for a more comprehensive understanding of within-person change dynamics and factors influencing change over time. By including structured residuals, LCM-SR can capture additional time-specific relationships that are not explained by the latent growth factors. However, similar to RI-CLPM, LCM-SR also comes with increased model complexity and requires careful specification and interpretation.
+
+In conclusion, advanced SEM approaches for longitudinal data analysis provide valuable tools for addressing complex research questions and data structures. While they offer more nuanced insights into within-person change dynamics and the influence of individual differences, these models also come with certain limitations, such as increased complexity, computational demands, and the need for careful model specification and interpretation. As with any statistical method, researchers should carefully consider their research objectives, data characteristics, and the assumptions of each model when selecting the most appropriate advanced SEM approach for longitudinal analysis.
+
+#### (additional section(s)?)
+(longitudinal neuroimaging?)
+(longitudinal twins/genetics?)
+
+![Longitudinal Models/Data Structures](./figures/Mindmap1.png){#fig-LONGmod fig-alt="Longitudinal Models Diagram." width="600" height="400" fig-align="center"}
 
 # Part IV: Discussion
 
 \label{sec:headings}
 
-### Subsection TBD.
+[Opening paragraph of discussion xxxxx.]
 
-|                                           |                         |                          |                                      |                         |
-|:--------------|:-------------:|:-------------:|:-------------:|:-------------:|
-| Models                                    |     Form of Change      | Minimum \# of Timepoints | Variable-Centered vs Person-Centered | Time-varying Covariates |
-| Difference Scores                         |       mean-level        |            2+            |                  \-                  |          none           |
-| Change Scores                             |       rank-order        |            2+            |                  \-                  |          none           |
-| Signed-Rank Test                          |       rank-order        |            2+            |                  \-                  |          none           |
-| Generalized Estimating Equations          |       rank-order        |            2+            |                  \-                  |         allowed         |
-| Linear Mixed Models                       |   within and between    |            3+            |          Variable-Centered           |         allowed         |
-| Generalized Linear Mixed-Effects Models   |   within and between    |            3+            |                                      |         allowed         |
-| Autoregressive Crosslagged Panel Models   |       rank-order        |            3+            |          Variable-Centered           |         allowed         |
-| Latent Change Scores Models               |       rank-order        |            2+            |          Variable-Centered           |         allowed         |
-| Latent Growth Curve Models                |   within and between    |            3+            |          Variable-Centered           |         allowed         |
-| Multivariate Latent Growth Curve Model    |   within and between    |            3+            |          Variable-Centered           |         allowed         |
-| Latent Transition Analysis                |   within and between    |            3+            |                Mixed                 |         allowed         |
-| Latent Class Growth Analysis              |   within and between    |            3+            |           Person-Centered            |         allowed         |
-| Growth Mixture Models                     |   within and between    |            3+            |                Mixed                 |         allowed         |
-| State-Trait Models                        | continuous and discrete |            3+            |          Variable-Centered           |         allowed         |
-| Random-Intercept Crosslagged Panel Models |   within and between    |            4+            |          Variable-Centered           |         allowed         |
-| Latent Curve Models Structured Residuals  |   within and between    |            4+            |          Variable-Centered           |         allowed         |
-|                                           |                         |                          |                                      |                         |
+xxxxxx
 
-: LDA Models {#tbl-lda .striped .hover .responsive-xl}
+We began by addressing fundamental concepts and considerations in longitudinal research that are essential for generating accurate and meaningful insights into developmental processes. Concepts such as vulnerable periods, developmental disturbances and snares, or cascade and experience effects (among many others), are instrumental in shaping the design, analysis, and interpretation of longitudinal studies. For example, understanding and accounting for vulnerable periods and developmental disturbances in research designs allows researchers to investigate the timing and magnitude of the impact of specific factors on development, while snares and cascade effects demonstrate the importance of considering the interconnectedness of developmental processes. Together, these concepts provide a framework for understanding the mechanisms underlying the course of development, while also accounting for the complex interplay between individual development and the influence of environmental factors. By considering the intricate relationships among these factors, researchers can better identify the critical time periods, situations, and contexts that contribute to individual differences in developmental outcomes. This awareness enables more precise inferences regarding the causal relationships between exposures and outcomes, ultimately leading to more robust and meaningful findings that can help facilitate the translation of research findings into practical applications in clinical and public health settings. 
 
-axasx
+We also discussed some of the opportunities, challenges, and pitfalls that arise when working with longitudinal data. Key issues include selecting appropriate methods to account for the intricacies of longitudinal data, 
+addressing missing data in a way that minimizes biases, and determining suitable longitudinal data structures that align with research questions and context. To address these challenges, researchers should carefully consider issues such as study design, selection of methods that account for both within- and between-person sources of variance, and employing modern techniques, (e.g., FIML, multiple imputation) for handling missing data. By adhering to best practices in longitudinal research and remaining vigilant of potential pitfalls, researchers can effectively harness the power of longitudinal data to maximize the potential of their investigationss and gain valuable insights into complex developmental processes, individual differences, and the underlying mechanisms that drive change over time.
 
-See @tbl-lda.
+The final section, along with associated code and additional resources made available as online supplements (), aims to serve as a resource for researchers seeking to understand and implement various longitudinal panel models. By providing an overview of different approaches, their strengths and limitations, and key considerations for their use, we hope to facilitate the selection of appropriate models tailored to specific research questions and data structures. It is essential for researchers to consider their research objectives, the characteristics of their data, and the assumptions underlying each model when choosing the most suitable approach for longitudinal analysis. In this vast and continually evolving field, with numerous models and approaches available to address a wide range of research questions, no single model is universally applicable or without limitations. The diversity of methods ensures that researchers can find an appropriate tool for their specific needs. By familiarizing themselves with the various types of longitudinal models, researchers can more effectively navigate the complexities of longitudinal data and contribute valuable insights into the developmental processes and individual differences that shape human experience.
 
-xxxxx
+We encourage researchers to consult the cited literature and online supplements for further guidance in selecting and implementing longitudinal models when using the ABCD Study dataset. As the field continues to advance, we anticipate the emergence of new methods and refinements to existing approaches, further expanding the toolkit available to researchers for the analysis of longitudinal data. By staying informed about developments in this area and critically evaluating the appropriateness of different models for their research questions, researchers can ensure that their longitudinal analyses are both rigorous and informative.
 
+------------------------------------------------------------------------
+
+{{< pagebreak >}}
 
 # Part V: References
+
+
+

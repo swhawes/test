@@ -1,0 +1,313 @@
+# **Data Wrangling** {.unnumbered}
+
+```{r}
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#Clear Environment
+#rm(list=ls())
+```
+
+<style>
+div.blue pre { background-color:ghostwhite; }
+div.blue pre.r { background-color:seashell; }
+
+.nav-tabs > li.active:nth-child(1) > a {
+  background-color: ##964B00;
+}
+
+.nav-tabs > li > a {
+  background-color: ##FFFF00;
+  color: blue;
+}
+
+main-container {
+   max-width: unset;
+}
+.descriptives {
+   overflow: auto; /*do not use `resize`*/
+}
+
+.tableby {
+   overflow: auto;
+}
+
+.descriptives {
+   overflow: auto;
+   resize: both;
+}
+
+table, th, td {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  vertical-align: middle;
+}
+</style>
+
+::: {.column-body-outset}
+## Preliminary Setup
+::: {.panel-tabset}
+### Load Libraries {.tabset .tabset-fade .tabset-pills}
+example-text before code block
+<div class = "blue">
+```{r pckg-install}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+## Install necessary packages (if not already installed)
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("arrow" %in% installed.packages())) install.packages("arrow")
+
+```
+</div>
+example-text after code block
+
+### Load Packages
+<div class = "blue">
+```{r pckg-load}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+#| class.source: fold-hide
+
+## Load packages
+library(tidyverse)
+library(arrow)
+library(tippy)
+```
+</div>
+
+### Config Options
+<div class = "blue">
+```{r config}
+#| echo: TRUE
+#| messages: FALSE
+#| warning: FALSE
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center', 
+                      out.width='75%', fig.asp=.75)
+```
+</div>
+
+```{r}
+##| include: FALSE
+##| evaluate: FALSE
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#df_ndaFile <- readRDS("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/bio_Main/_data/nda4.0.rds")
+
+#df_test <- readRDS("path_to_ndaFile/nda4.0.rds")
+
+#Create temporary dataframe
+#df_temp <- (df_ndaFile) %>%
+#   select(subjectid, eventname, site_id_l, rel_family_id, sex_at_birth, 
+#          demo_brthdat_p, screentime_13,screentime_wkdy_3, screentime_wknd_9,
+#          cbcl_scr_syn_aggressive_r, cbcl_scr_syn_external_r)
+
+# remove large dataframe object
+
+#write_dataset(df_temp, "./df_temp", format = "csv")
+df_temp<- read_csv("./df_temp.csv")
+
+df_temp <- df_temp %>% rename("ids" = "subjectid",
+                    "event" = "eventname",
+                    "site_id" = "site_id_l",
+                    "fam_id"="rel_family_id",
+                    "sex"="sex_at_birth",
+                    "age"="demo_brthdat_p",
+                    "mature_vg" = "screentime_13",
+                    "vg_wkdy" = "screentime_wkdy_3",
+                    "vg_wknd" = "screentime_wknd_9",
+                    "cbcl_agg"="cbcl_scr_syn_aggressive_r",
+                    "cbcl_extern"="cbcl_scr_syn_external_r"
+                    )
+
+df_temp$ids <- as.factor(df_temp$ids)
+df_temp$event <- as.factor(df_temp$event)
+df_temp$site_id <- as.factor(df_temp$site_id)
+df_temp$fam_id <- as.factor(df_temp$fam_id)
+df_temp$sex <- as.factor(df_temp$sex)
+df_temp$age <- as.numeric(df_temp$age)
+df_temp$mature_vg <- as.numeric(df_temp$mature_vg)
+df_temp$vg_wkdy <- as.numeric(df_temp$vg_wkdy)
+df_temp$vg_wknd <- as.numeric(df_temp$vg_wknd)
+df_temp$cbcl_agg <- as.numeric(df_temp$cbcl_agg)
+df_temp$cbcl_extern <- as.numeric(df_temp$cbcl_extern)
+
+## recode value of each level for factors
+df_temp$sex<-recode(df_temp$sex, 'F' = 'Female', 'M' = 'Male')
+
+df_temp$event<-recode(df_temp$event, 'baseline_year_1_arm_1' = 'Baseline',
+                      '6_month_follow_up_arm_1' = '6_month', 
+                      '1_year_follow_up_y_arm_1'= 'Year_1', 
+                      '18_month_follow_up_arm_1' = '18_month',
+                      '2_year_follow_up_y_arm_1'='Year_2', 
+                      '30_month_follow_up_arm_1' = '30_month',
+                      '3_year_follow_up_y_arm_1'='Year_3',
+                      '42_month_follow_up_arm_1' = '42_month'
+                      )
+
+## relevel factor categories
+df_temp$event <- fct_relevel(df_temp$event, "Baseline", "Year_1", "Year_2")
+
+df_temp<-df_temp[!(df_temp$event=="6_month" | df_temp$event=="18_month" |
+                     df_temp$event=="30_month" | df_temp$event=="42_month" | 
+                     df_temp$event=="Year_3"),]
+
+#drop unused factor levels
+df_temp$event <- droplevels(df_temp$event)
+levels(df_temp$event)
+
+## Compute total video gaming hours variable
+df_temp$vg_total <- (df_temp$vg_wkdy*5)+(df_temp$vg_wknd*2)
+df_temp$vg_total
+## Compute video gaming grouping variable
+df_temp$vg_group <- ifelse(df_temp$vg_total>=7, "VG", NA)
+df_temp$vg_group <- ifelse(df_temp$vg_total>0 & df_temp$vg_total<7, "NVG", df_temp$vg_group)
+## set video gaming grouping variable as factor variable
+df_temp$vg_group <- as.factor(df_temp$vg_group)
+
+##############
+#creating 3 separate dataframes for each "event" period (Baseline, Year_1, Year_2)
+# due to uncertainty in best procedure for converting original "long-format" of the 
+# dataset to wide format (as needed for SEM analyses) when filtering participants at each
+# "event" based on their video game playing hours only at "event"== "baseline"
+
+## create T0 dataframe, filtering by chosen criterion
+df_t0 <- df %>%
+  filter(df$event == "Baseline" & df$vg_total >= 7)
+summary(df_t0)
+
+## create T1 dataframe, filtering by chosen criterion
+df_t1 <- df %>%
+  filter(df$event == "Year_1")
+df_t1 <- (df_t1) %>%
+  select(ids, cbcl_agg, cbcl_extern)
+summary(df_t1)
+
+## create T2 dataframe, filtering by chosen criterion
+df_t2 <- df %>%
+  filter(df$event == "Year_2")
+df_t2 <- (df_t2) %>%
+  select(ids, cbcl_agg, cbcl_extern)
+summary(df_t2)
+
+df_merge <- merge(df_t0, df_t1, by='ids')
+df_merge <- merge(df_merge, df_t2, by='ids')
+df_merge <- df_merge %>% rename("cbcl_agg_T2" = "cbcl_agg",
+                                "cbcl_agg_T0" = "cbcl_agg.x",
+                                "cbcl_agg_T1" = "cbcl_agg.y",
+                                "cbcl_extern_T2" = "cbcl_extern",
+                                "cbcl_extern_T0" = "cbcl_extern.x",
+                                "cbcl_extern_T1" = "cbcl_extern.y"
+                                )
+summary(df_merge)
+print(df_merge)
+#df_xxxxx <- df_xxxxx %>%
+#filter(mature_vg > 1)
+  
+******************************
+
+df_wide <- (df_merge) %>%
+  select(ids, event, site_id, fam_id, sex, age, mature_vg, vg_total, vg_group,
+         cbcl_agg_T0, cbcl_agg_T1, cbcl_agg_T2,
+         cbcl_extern_T0, cbcl_extern_T1, cbcl_extern_T2)
+
+###########
+
+df_sub <- df %>% group_by(event) %>% sample_n(500)
+print (df_sub)
+###########
+
+write_dataset(df, "./df", format = "csv")
+
+rm(df_ndaFile, df_temp)
+```
+
+```{r}
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+#create a new 'long-to-wide' tibble from original tibble
+
+#df_wide <- pivot_wider(df, id_cols = ids,
+#                       names_from = event, 
+#                       values_from = cbcl_agg,
+#                       )
+#head(df_wide)
+
+#mature_vg, vg_total, vg_group, cu_traits, DBD, DBDcu, 
+#cbcl_rulbrk, cbcl_agg, cbcl_extern, cbcl_opp, cbcl_cd
+
+#as_tibble(df_wide)
+#tibble(df_wide)
+
+#write_dataset(df_wide, "./", format = "feather")
+#write_dataset(df_wide, "./", format = "csv")
+```
+
+
+
+```{r}
+#| class.source: 'fold-hide'
+#| message: FALSE
+#| warning: FALSE
+#| echo: FALSE
+
+df_long <- df_wide %>%
+  pivot_longer(
+    cols = starts_with("cbcl_agg"),
+    names_to = "time",
+    names_prefix = "cbcl_agg_",
+    values_to = "cbcl_agg"
+  )
+  
+df_long <- (df_long) %>%
+  select(ids, time, site_id, fam_id, sex, age, mature_vg, vg_total, vg_group, 
+         cbcl_agg) 
+
+ df_long <- df_long %>% rename("event" = "time")
+ df_long$event <- as.factor(df_long$event)
+  df_long
+ 
+df_long_sub <- df_long %>% sample_n(500)
+print (df_long_sub)
+
+#create a new 'wide-to-long' tibble from original tibble
+# longer <- df_wide %>% 
+#     pivot_longer(cols = -ids, 
+#                  names_to = c(".value", "event2"), 
+#                  names_pattern = "([^\\.]*)\\.*(\\{4})")
+# 
+# longer<-pivot_longer(df_wide, cols=-1, names_pattern = "(.*)(..)$", names_to = c("limit", "name")) %>% 
+#      mutate(limit=ifelse(limit=="", "value", limit))
+# 
+# answer <-pivot_wider(longer, id_cols = c(event, name), names_from = limit, values_from = value, names_repair = "check_unique")
+
+# df_long <- df_wide %>%
+#   pivot_longer(
+#     cols = starts_with("cu_traits"),
+#     names_to = "time",
+#     names_prefix = "cu_traits_",
+#     values_to = "cu_traits"
+#   )
+# 
+# df_long <- (df_long) %>%
+#   select(ids, time, site_id, fam_id, sex, age, mature_vg, vg_total, vg_group,
+#          DBD, DBDcu, cu_traits) 
+# 
+#  df_long <- df_long %>% rename("event" = "time")
+#  df_long$event <- as.factor(df_long$event)
+# 
+# 
+# df_long <- df_long
+write_dataset(df_long, "./df_long", format = "csv")
+write_dataset(df_long_sub, "./df_long_sub", format = "csv")
+```
